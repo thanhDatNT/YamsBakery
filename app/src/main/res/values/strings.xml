@@ -13,4 +13,8 @@
     <string name="diet">Diet</string>
     <string name="feed">Yams Feeds</string>
     <string name="profile">Tài khoản</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="forgotPW">Quên mật khẩu?</string>
+    <string name="mediaLogin">Hoặc tiếp tục với</string>
 </resources>

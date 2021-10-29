@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="buttonTextSize">18sp</dimen>
+    <dimen name="buttonTextSize">20sp</dimen>
     <dimen name="buttonBorderRadius">24dp</dimen>
 <!--    Margin-->
     <dimen name="mTop">32dp</dimen>
     <dimen name="mBot">100dp</dimen>
+<!--    Padding-->
+    <dimen name="pad">12dp</dimen>
+    <dimen name="padHorizon">28dp</dimen>
 </resources>
