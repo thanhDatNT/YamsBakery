@@ -13,6 +13,7 @@
     <string name="diet">Diet</string>
     <string name="feed">Yams Feeds</string>
 
+
     <!--Profile-->
     <string name="profile">Tài khoản</string>
     <string name="email">Email</string>
@@ -28,5 +29,6 @@
     <string name="language_profile">Ngôn ngữ</string>
     <string name="noti_profile">Thông báo</string>
     <string name="logout_profile">Đăng xuất</string>
+    <string name="confirm">Xác nhận</string>
 
 </resources>
