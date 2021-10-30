@@ -8,4 +8,7 @@
 <!--    Padding-->
     <dimen name="pad">12dp</dimen>
     <dimen name="padHorizon">28dp</dimen>
+<!--    Text-->
+    <dimen name="textHeader">20sp</dimen>
+
 </resources>
