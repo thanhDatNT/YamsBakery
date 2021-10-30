@@ -54,29 +54,16 @@
             android:hint="Tên đăng nhập"
             android:inputType="textPersonName" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mTop"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="+84"
-                android:textSize="18sp"
-                android:textColor="@color/textColor"/>
-
             <EditText
-                android:id="@+id/editTextTextPersonName2"
-                android:layout_width="0dp"
+                android:id="@+id/edtPhoneRegister"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.9"
+                android:layout_marginTop="@dimen/mTop"
                 android:ems="10"
+                android:drawableStart="@drawable/img_vietnam"
+                android:drawablePadding="8dp"
                 android:inputType="number"
-                android:hint="9123456789" />
-        </LinearLayout>
+                android:hint="Số điện thoại" />
 
         <EditText
             android:id="@+id/edtEmailRegister"

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:padding="@dimen/pad"
     android:orientation="vertical"
-    tools:context=".Activities.LoginActivity">
+    tools:context=".Activities.LoginActivity"
+    android:id="@+id/layoutContainerLogin">
 
     <ImageView
         android:layout_width="160dp"
