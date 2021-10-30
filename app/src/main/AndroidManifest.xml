@@ -9,9 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
+
         <activity
             android:name=".Activities.FeedAcitvity"
-            android:exported="true">
+            android:exported="true"/>
+
+        <activity
+            android:name=".Activities.Profile"
+            android:exported="true" />
+        <activity android:name=".Activities.RegisterActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.IntroActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
