@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thanhdat.yams" >
+    package="com.thanhdat.yams">
 
     <application
         android:allowBackup="true"
@@ -8,9 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Yams" >
+        android:theme="@style/Theme.Yams">
         <activity
             android:name=".Activities.OrderStatusActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".Activities.ProductDetailsActivity"
             android:exported="true">
 
         </activity>
@@ -27,13 +31,12 @@
             android:name=".Activities.FeedActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.Profile"
-            android:exported="true"/>
+            android:name=".Activities.ProfileActivity"
+            android:exported="true" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />
         <activity android:name=".Activities.MainActivity" />
-
 
 
     </application>

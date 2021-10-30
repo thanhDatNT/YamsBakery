@@ -12,7 +12,7 @@
     <string name="favorite">Yêu thích</string>
     <string name="diet">Diet</string>
     <string name="feed">Yams Feeds</string>
-
+    <string name="confirm">Xác nhận</string>
 
     <!--Profile-->
     <string name="profile">Tài khoản</string>
@@ -29,8 +29,6 @@
     <string name="language_profile">Ngôn ngữ</string>
     <string name="noti_profile">Thông báo</string>
     <string name="logout_profile">Đăng xuất</string>
-
-    <string name="confirm">Xác nhận</string>
 
 
 
@@ -54,11 +52,17 @@
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
 
 
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
     <string name="Price_150">150.000đ</string>
     <string name="mango_cream_cake">Mango Cream Cake</string>
     <string name="code">#000122</string>
+
+    <!--Product details-->
+    <string name="see_review"><u>Xem đánh giá</u></string>
+    <string name="currency"><u>đ</u></string>
+    <string name="discription_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
 
 
 </resources>
