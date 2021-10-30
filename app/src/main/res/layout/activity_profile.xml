@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Profile">
+    tools:context=".Activities.ProfileActivity">
 
     <!-- cover profile-->
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/account"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:background="none"
+        android:background="?android:selectableItemBackground"
         android:src="@drawable/ic_baseline_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
             android:id="@+id/imvAvatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/VoThiNhuQuynh" />
+            android:src="@drawable/avatar_profile" />
 
     </androidx.cardview.widget.CardView>
 
@@ -75,7 +75,7 @@
         android:padding="8dp"
         android:text="@string/name_profile"
         android:textColor="@color/primary"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvCover" />
@@ -93,7 +93,7 @@
         android:padding="8dp"
         android:text="@string/rank_profile"
         android:textColor="@color/primary"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvCover" />
@@ -123,7 +123,7 @@
             app:sliderIndicatorMargin="8dp"
             app:sliderIndicatorOrientation="horizontal"
             app:sliderIndicatorPadding="1dp"
-            app:sliderIndicatorRadius="1.1dp"
+            app:sliderIndicatorRadius="2dp"
             app:sliderIndicatorSelectedColor="@color/white"
             app:sliderIndicatorUnselectedColor="@color/inactive"
             app:sliderScrollTimeInSec="3"
@@ -174,17 +174,17 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:background="none"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_see_more" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
-            android:layout_marginVertical="4dp"/>
+            android:layout_marginVertical="4dp"
+            />
 
         <!-- Voucher -->
         <LinearLayout
@@ -213,14 +213,14 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="none"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_see_more" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -251,14 +251,14 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="none"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_see_more" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -289,14 +289,14 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="none"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_see_more" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -327,13 +327,17 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:buttonTint="@color/inactive"
+                android:checked="false"
+                android:trackTint="@color/primary"
+                />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -388,14 +392,15 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_home_active" />
+                app:srcCompat="@drawable/ic_home"
+                app:tint="@color/inactive"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/home"
                 android:gravity="center"
-                android:textColor="@color/primary"
+                android:textColor="@color/inactive"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -485,14 +490,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_account_inactive"
-                />
+                app:tint="@color/primary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile"
                 android:gravity="center"
-                android:textColor="@color/inactive"
+                android:textColor="@color/primary"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>

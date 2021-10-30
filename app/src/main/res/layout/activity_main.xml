@@ -246,8 +246,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        android:src="@drawable/ic_account_inactive"
+                        android:src="@drawable/ic_home"
                         app:tint="@color/primary" />
 
                     <TextView
