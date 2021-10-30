@@ -73,7 +73,7 @@
                 android:id="@+id/imvLike"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/heart" />
+                android:src="@drawable/ic_favorite_border" />
 
             <ImageView
                 android:id="@+id/imvComment"

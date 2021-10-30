@@ -68,7 +68,7 @@
                     android:layout_marginRight="10dp"
                     android:background="?android:selectableItemBackground"
                     android:scaleType="fitEnd"
-                    android:src="@drawable/heart" />
+                    android:src="@drawable/ic_favorite_border" />
             </LinearLayout>
 
             <!--Star vote and see review-->
