@@ -10,20 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
         <activity
+            android:name=".Activities.DietActivity"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
             android:name=".Activities.FeedAcitvity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />
-        <activity android:name=".Activities.MainActivity">
-
-        </activity>
+        <activity android:name=".Activities.MainActivity"></activity>
     </application>
 
 </manifest>

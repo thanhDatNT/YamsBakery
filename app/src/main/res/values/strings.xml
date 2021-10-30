@@ -18,4 +18,24 @@
     <string name="forgotPW">Quên mật khẩu?</string>
     <string name="mediaLogin">Hoặc tiếp tục với</string>
     <string name="confirm">Xác nhận</string>
+
+
+    <string name="name">DIET WITH YAMS</string>
+    <string name="gender">Giới tính</string>
+    <string name="height">Chiều cao</string>
+    <string name="weight">Cân nặng</string>
+    <string name="BMI">Tính BMI</string>
+    <string name="sugg">Đề xuất</string>
+    <string name="boy">Nam</string>
+    <string name="girl">Nữ</string>
+    <string name="cm">Đơn vị: cm</string>
+    <string name="kg">Đơn vị: kg</string>
+    <string name="nhapweight">Nhập cân nặng</string>
+    <string name="nhapheigt">Nhập chiều cao</string>
+    <string name="bmi">BMI</string>
+    <string name="retype">Nhập lại</string>
+    <string name="Confirm">Xác nhận</string>
+    <string name="sumerPudding">Summer Pudding</string>
+    <string name="price">30.000đ</string>
+    <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
 </resources>
