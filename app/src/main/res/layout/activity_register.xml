@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradient"
+        android:background="@drawable/bg_heading_gradient"
         android:gravity="center"
         android:padding="12dp"
         android:orientation="horizontal">
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="number"
                 android:hint="9123456789" />
         </LinearLayout>
 
@@ -85,7 +85,7 @@
             android:ems="10"
             android:layout_marginTop="@dimen/mTop"
             android:hint="@string/email"
-            android:inputType="text" />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/edtPasswordRegister"
@@ -94,7 +94,7 @@
             android:ems="10"
             android:layout_marginTop="@dimen/mTop"
             android:hint="@string/password"
-            android:inputType="text" />
+            android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signUp"
-            android:layout_marginTop="@dimen/mTop"
+            android:layout_marginTop="24dp"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -180,22 +180,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mTop"
+            android:layout_marginTop="24dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imbFacebookLogin"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+            <ImageView
+                android:id="@+id/imvFacebookLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:background="@color/white"
                 app:srcCompat="@drawable/img_facebook" />
 
-            <ImageButton
-                android:id="@+id/imbGoogleLogin"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+            <ImageView
+                android:id="@+id/imvGoogleLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:background="@color/white"
                 app:srcCompat="@drawable/img_google" />
