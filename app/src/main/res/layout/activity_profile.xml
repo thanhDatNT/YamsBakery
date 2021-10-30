@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/account"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +75,7 @@
         android:padding="8dp"
         android:text="@string/name_profile"
         android:textColor="@color/primary"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvCover" />
@@ -93,7 +93,7 @@
         android:padding="8dp"
         android:text="@string/rank_profile"
         android:textColor="@color/primary"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvCover" />
@@ -123,7 +123,7 @@
             app:sliderIndicatorMargin="8dp"
             app:sliderIndicatorOrientation="horizontal"
             app:sliderIndicatorPadding="1dp"
-            app:sliderIndicatorRadius="1.1dp"
+            app:sliderIndicatorRadius="2dp"
             app:sliderIndicatorSelectedColor="@color/white"
             app:sliderIndicatorUnselectedColor="@color/inactive"
             app:sliderScrollTimeInSec="3"
@@ -181,9 +181,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
-            android:layout_marginVertical="4dp"/>
+            android:layout_marginVertical="4dp"
+            />
 
         <!-- Voucher -->
         <LinearLayout
@@ -219,7 +220,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -257,7 +258,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -295,7 +296,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
@@ -326,13 +327,17 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:buttonTint="@color/inactive"
+                android:checked="false"
+                android:trackTint="@color/primary"
+                />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1.5dp"
             android:src="@drawable/line_profile"
             android:layout_marginVertical="4dp"/>
 
