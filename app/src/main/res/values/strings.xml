@@ -12,10 +12,21 @@
     <string name="favorite">Yêu thích</string>
     <string name="diet">Diet</string>
     <string name="feed">Yams Feeds</string>
+
+    <!--Profile-->
     <string name="profile">Tài khoản</string>
     <string name="email">Email</string>
     <string name="password">Mật khẩu</string>
     <string name="forgotPW">Quên mật khẩu?</string>
     <string name="mediaLogin">Hoặc tiếp tục với</string>
-    <string name="confirm">Xác nhận</string>
+    <string name="account">Tài khoản</string>
+    <string name="name_profile">Như Quỳnh</string>
+    <string name="rank_profile">Hạng bạc</string>
+    <string name="order_profile">Đơn hàng của bạn</string>
+    <string name="voucher_profile">Kho voucher</string>
+    <string name="message_profile">Trò chuyện</string>
+    <string name="language_profile">Ngôn ngữ</string>
+    <string name="noti_profile">Thông báo</string>
+    <string name="logout_profile">Đăng xuất</string>
+
 </resources>
