@@ -59,7 +59,7 @@
             android:id="@+id/imvAvatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/VoThiNhuQuynh" />
+            android:src="@drawable/avatar_profile" />
 
     </androidx.cardview.widget.CardView>
 
@@ -388,14 +388,15 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_home_active" />
+                app:srcCompat="@drawable/ic_home"
+                app:tint="@color/inactive"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/home"
                 android:gravity="center"
-                android:textColor="@color/primary"
+                android:textColor="@color/inactive"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -485,14 +486,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_account_inactive"
-                />
+                app:tint="@color/primary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile"
                 android:gravity="center"
-                android:textColor="@color/inactive"
+                android:textColor="@color/primary"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>
