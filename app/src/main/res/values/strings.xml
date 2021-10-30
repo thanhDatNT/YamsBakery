@@ -12,12 +12,26 @@
     <string name="favorite">Yêu thích</string>
     <string name="diet">Diet</string>
     <string name="feed">Yams Feeds</string>
+
+
+    <!--Profile-->
     <string name="profile">Tài khoản</string>
     <string name="email">Email</string>
     <string name="password">Mật khẩu</string>
     <string name="forgotPW">Quên mật khẩu?</string>
     <string name="mediaLogin">Hoặc tiếp tục với</string>
+    <string name="account">Tài khoản</string>
+    <string name="name_profile">Như Quỳnh</string>
+    <string name="rank_profile">Hạng bạc</string>
+    <string name="order_profile">Đơn hàng của bạn</string>
+    <string name="voucher_profile">Kho voucher</string>
+    <string name="message_profile">Trò chuyện</string>
+    <string name="language_profile">Ngôn ngữ</string>
+    <string name="noti_profile">Thông báo</string>
+    <string name="logout_profile">Đăng xuất</string>
+
     <string name="confirm">Xác nhận</string>
+
 
 
     <string name="name">DIET WITH YAMS</string>
@@ -38,4 +52,10 @@
     <string name="sumerPudding">Summer Pudding</string>
     <string name="price">30.000đ</string>
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
 </resources>

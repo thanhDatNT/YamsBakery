@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.FeedAcitvity">
+    tools:context=".Activities.FeedActivity">
     <!--    Start Header-->
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -137,14 +137,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_home_inactive"
-                app:tint="@color/primary" />
+                app:tint="@color/inactive" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/home"
                 android:gravity="center"
-                android:textColor="@color/primary"
+                android:textColor="@color/inactive"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -209,14 +209,15 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_feed_inactive" />
+                app:srcCompat="@drawable/ic_feed_inactive"
+                app:tint="@color/primary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/feed"
                 android:gravity="center"
-                android:textColor="@color/inactive"
+                android:textColor="@color/primary"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
         </LinearLayout>
