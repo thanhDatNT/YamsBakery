@@ -16,101 +16,97 @@
             android:layout_height="130dp"
             android:background="@drawable/bg_product"/>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp">
-            <androidx.cardview.widget.CardView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center_vertical"
-                app:cardCornerRadius="20dp"
-                android:elevation="2dp"
-                android:layout_marginStart="10dp">
-                <ImageView
-                    android:id="@+id/imvThumb"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/cake"
-                    />
-            </androidx.cardview.widget.CardView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:orientation="vertical">
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
                 <TextView
-                    android:id="@+id/txtName"
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtCode"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="@string/mango_cream_cake"
+                    android:text="@string/code"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/textColor"/>
                 <TextView
-                    android:id="@+id/txtPrice"
+                    android:id="@+id/txtPrice1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Price_150"
-                    android:layout_margin="5dp"
-                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="190dp"
+                    android:text="150.000đ"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     android:textColor="@color/primary"/>
+            </LinearLayout>
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_vertical">
-                    <TextView
-                        android:id="@+id/txtContent"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="@string/description"
-                        android:textSize="14sp"
-                        android:textColor="@color/inactive"/>
+                    android:gravity="center_vertical">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_vertical"
+                        app:cardCornerRadius="20dp"
+                        android:elevation="2dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp">
+                        <ImageView
+                            android:id="@+id/imvThumb"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/cake"
+
+                            />
+                    </androidx.cardview.widget.CardView>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center_vertical">
+                        android:orientation="vertical">
                         <TextView
-                            android:id="@+id/txtRate"
+                            android:id="@+id/txtName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Mango Cream Cake"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textColor"/>
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="end|bottom"
-                            android:layout_marginEnd="6dp"
-                            android:text="4.5"
-                            android:textSize="14sp"
-                            android:drawableEnd="@drawable/ic_star"
-                            android:drawablePadding="4dp"/>
+                            android:gravity="center"
+                            android:orientation="vertical"/>
                         <TextView
-                            android:id="@+id/txtQuantityRate"
+                            android:id="@+id/txtPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chờ xác nhận"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/primary"/>
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="(25+)"/>
-
-                    </LinearLayout>
+                            android:src="@drawable/bullet"
+                            android:layout_gravity="center"
+                            />
+                        </LinearLayout>
+                    /LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
-        </LinearLayout>
-        <androidx.cardview.widget.CardView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="end|top"
-            android:layout_marginEnd="8dp"
-            android:padding="12dp"
-            app:cardCornerRadius="12dp"
-            android:elevation="2dp"
-            android:translationZ="2dp">
-            <ImageView
-                android:id="@+id/imvFavourite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_favorite_border"/>
         </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
 
 </androidx.cardview.widget.CardView>
+
+
+
+

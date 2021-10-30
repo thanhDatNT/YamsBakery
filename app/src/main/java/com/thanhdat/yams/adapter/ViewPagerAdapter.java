@@ -48,7 +48,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 title = "Đang giao";
                 break;
             case 2:
-                title = "Lịch sử đơn hàng";
+                title = "Lịch sử";
                 break;
         }
         return title;

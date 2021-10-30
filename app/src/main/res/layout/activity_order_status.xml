@@ -6,7 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".Activities.OrderStatusActivity">
+
+  <androidx.cardview.widget.CardView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_gravity="center_vertical"
+        android:backgroundTint="@color/white"
+        />
+
+    <TextView
+        android:layout_width="410dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="@string/order_status"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/textHeader"
+        android:textStyle="bold" />
+
+  </androidx.cardview.widget.CardView>
+
+
+
 
   <com.google.android.material.tabs.TabLayout
       android:id="@+id/tab_layout"

@@ -54,10 +54,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<<<<<<< Updated upstream
     <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
     <string name="Price_150">150.000đ</string>
     <string name="mango_cream_cake">Mango Cream Cake</string>
     <string name="code">#000122</string>
+=======
+    <string name="order_status">Đơn hàng</string>
+    <string name="code">#000122</string>
+    >>>>>>> Stashed changes
 
     <!--Product details-->
     <string name="see_review"><u>Xem đánh giá</u></string>
