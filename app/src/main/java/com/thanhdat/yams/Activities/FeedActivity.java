@@ -11,10 +11,9 @@ import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.PostAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class FeedAcitvity extends AppCompatActivity {
+public class FeedActivity extends AppCompatActivity {
 
     RecyclerView rcvFeed;
     List<Post> posts;
@@ -22,7 +21,7 @@ public class FeedAcitvity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_acitvity);
+        setContentView(R.layout.activity_feed_activity);
         linkViews();
         configRecyclerView();
         initData();
