@@ -13,7 +13,7 @@
         android:layout_height="160dp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/mTop"
-        app:srcCompat="@drawable/logo_pink" />
+        app:srcCompat="@drawable/img_logo_pink" />
 
     <EditText
         android:layout_width="match_parent"
@@ -114,14 +114,16 @@
             android:id="@+id/imbFacebookLogin"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="8dp"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            app:srcCompat="@drawable/img_facebook" />
 
         <ImageButton
             android:id="@+id/imbGoogleLogin"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="8dp"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            app:srcCompat="@drawable/img_google" />
     </LinearLayout>
 </LinearLayout>
