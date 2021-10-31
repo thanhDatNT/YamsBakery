@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
@@ -18,17 +21,24 @@ public class FeedActivity extends AppCompatActivity {
     RecyclerView rcvFeed;
     List<Post> posts;
     PostAdapter adapter;
+    private LinearLayout favoriteTab, homeTab, dietTab, profileTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_activity);
         linkViews();
+        navigateTabs();
         configRecyclerView();
         initData();
     }
 
     private void linkViews() {
+
         rcvFeed = findViewById(R.id.rcvFeed);
+        homeTab= findViewById(R.id.feedNav);
+        favoriteTab= findViewById(R.id.favoriteNav);
+        dietTab= findViewById(R.id.dietNav);
+        profileTab= findViewById(R.id.profileNav);
     }
 
     private void configRecyclerView() {
@@ -47,5 +57,35 @@ public class FeedActivity extends AppCompatActivity {
         adapter= new PostAdapter(getApplicationContext(),posts);
         posts.add(new Post(R.drawable.img_logo_pink,R.drawable.mangocake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 8389 người khác","Yams Store","Chủ nhật cùng những em bánh vàng tươi","Xem tất cả 94 bình luận"));
         rcvFeed.setAdapter(adapter);
+    }
+
+    private void navigateTabs() {
+        favoriteTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FeedActivity.this, FavoriteActivity.class));
+            }
+        });
+        homeTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FeedActivity.this, MainActivity.class));
+            }
+        });
+        dietTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FeedActivity.this, DietActivity.class));
+            }
+        });
+        profileTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FeedActivity.this, ProfileActivity.class));
+            }
+        });
+
+
+
     }
 }

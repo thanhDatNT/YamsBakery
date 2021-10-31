@@ -81,11 +81,19 @@
     <string name="date">31/10/2021</string>
     <string name="shipment1">Giao hàng cho shipper</string>
     <string name="time1">9:00AM</string>
-    <string name="shipment2">Giao hàng cho shipper</string>
+    <string name="shipment2">Đang giao</string>
     <string name="time2">9:15AM</string>
     <string name="shipment3">Đơn hàng đang được vận chuyển</string>
     <string name="time3">9:30AM</string>
     <string name="order_code">Mã đơn hàng:</string>
     <string name="x2">x2</string>
+
+    <!--Feed-->
+    <string name="yams_store">Yams Store</string>
+    <string name="address">Hồ Chí Minh</string>
+    <string name="Like">minhxxxx và 922 người khác đã thích</string>
+    <string name="caption">Chủ nhật cùng những em bánh concept vàng tươi</string>
+    <string name="hashtag">#Yams #Mango #Lime #Cheese</string>
+    <string name="see_all_coments">Xem tất cả bình luận</string>
 
 </resources>
