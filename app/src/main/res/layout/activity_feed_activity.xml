@@ -41,7 +41,7 @@
                 android:text="Yams Feed"
                 android:textColor="@color/primary"
                 android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="@dimen/textHeader" />
 
             <FrameLayout
                 android:layout_width="0dp"
