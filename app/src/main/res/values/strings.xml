@@ -64,5 +64,6 @@
     <string name="currency"><u>đ</u></string>
     <string name="discription_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
 
-
+    <!--Favorite-->
+    <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
 </resources>
