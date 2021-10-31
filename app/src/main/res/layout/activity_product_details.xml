@@ -55,7 +55,8 @@
 
                 <TextView
                     android:id="@+id/txtProductDetailName"
-                    android:layout_width="350dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
                     android:text="Bánh Brownie"
@@ -146,7 +147,7 @@
 
             <TextView
                 android:id="@+id/txtProductDetailDiscrip"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/discription_product"
@@ -170,7 +171,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="M - Đường kính 17cm"
                     android:textColor="@color/textColor"
@@ -178,7 +180,8 @@
 
                 <TextView
                     android:id="@+id/txtMPlusPrice"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+80000"
@@ -186,8 +189,8 @@
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
             </LinearLayout>
@@ -200,7 +203,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="L - Đường kính 20cm"
                     android:textColor="@color/textColor"
@@ -208,7 +212,8 @@
 
                 <TextView
                     android:id="@+id/txtLPlusPrice"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+120000"
@@ -216,7 +221,7 @@
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:layout_width="match_parent"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
@@ -230,7 +235,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="XL - Đường kính 23cm"
                     android:textColor="@color/textColor"
@@ -238,7 +244,8 @@
 
                 <TextView
                     android:id="@+id/txtXLPlusPrice"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+150000"
@@ -246,7 +253,7 @@
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:layout_width="match_parent"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
@@ -270,7 +277,8 @@
 
                 <TextView
                     android:id="@+id/txtNameTopping1"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Cream"
                     android:textColor="@color/textColor"
@@ -278,7 +286,8 @@
 
                 <TextView
                     android:id="@+id/txtPriceTopping1"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+20000"
@@ -286,7 +295,7 @@
                     android:textSize="16sp" />
 
                 <CheckBox
-                    android:layout_width="match_parent"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
@@ -301,7 +310,8 @@
 
                 <TextView
                     android:id="@+id/txtNameTopping2"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Chocolate"
                     android:textColor="@color/textColor"
@@ -309,7 +319,8 @@
 
                 <TextView
                     android:id="@+id/txtPriceTopping2"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+10000"
@@ -317,7 +328,7 @@
                     android:textSize="16sp" />
 
                 <CheckBox
-                    android:layout_width="match_parent"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
@@ -332,7 +343,8 @@
 
                 <TextView
                     android:id="@+id/txtNameTopping3"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Fruit"
                     android:textColor="@color/textColor"
@@ -340,7 +352,8 @@
 
                 <TextView
                     android:id="@+id/txtPriceTopping3"
-                    android:layout_width="90dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="+20000"
@@ -348,7 +361,7 @@
                     android:textSize="16sp" />
 
                 <CheckBox
-                    android:layout_width="match_parent"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:buttonTint="@color/primary"
                     android:checked="false" />
