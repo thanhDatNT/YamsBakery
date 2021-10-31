@@ -53,9 +53,9 @@ public class FeedActivity extends AppCompatActivity {
         posts = new ArrayList<>();
         posts.add(new Post(R.drawable.img_logo_pink,R.drawable.cake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 8389 người khác","Yams Store","Chủ nhật cùng những em bánh vàng tươi","Xem tất cả 94 bình luận"));
 
-        posts.add(new Post(R.drawable.img_logo_pink,R.drawable.bdcake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 8389 người khác","Yams Store","Chủ nhật cùng những em bánh vàng tươi","Xem tất cả 94 bình luận"));
+        posts.add(new Post(R.drawable.img_logo_pink,R.drawable.bdcake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 6189 người khác","Yams Store","It's your birthday party","Xem tất cả 60 bình luận"));
         adapter= new PostAdapter(getApplicationContext(),posts);
-        posts.add(new Post(R.drawable.img_logo_pink,R.drawable.mangocake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 8389 người khác","Yams Store","Chủ nhật cùng những em bánh vàng tươi","Xem tất cả 94 bình luận"));
+        posts.add(new Post(R.drawable.img_logo_pink,R.drawable.mangocake,R.drawable.ic_more,R.drawable.ic_favorite_border,R.drawable.comment,"Yams Store","Ho Chi Minh","minhxuan và 9789 người khác","Yams Store","Happy Birthday to you","Xem tất cả 67 bình luận"));
         rcvFeed.setAdapter(adapter);
     }
 
