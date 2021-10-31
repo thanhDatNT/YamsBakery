@@ -52,13 +52,7 @@
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
-    <string name="Price_150">150.000đ</string>
-    <string name="mango_cream_cake">Mango Cream Cake</string>
-    <string name="code">#000122</string>
-    <string name="order_status">Đơn hàng</string>
+
 
     <!--Product details-->
     <string name="see_review"><u>Xem đánh giá</u></string>
@@ -75,11 +69,12 @@
     <string name="Rating">4.5</string>
 
     <!--- OrderStatus-->
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
     <string name="Price_150">150.000đ</string>
     <string name="mango_cream_cake">Mango Cream Cake</string>
     <string name="code">#000122</string>
+    <string name="order_status">Đơn hàng</string>
     <string name="pending">Chờ xác nhận</string>
     <string name="details">Chi tiết</string>
     <string name="date">31/10/2021</string>
