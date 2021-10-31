@@ -8,20 +8,21 @@
     android:layout_margin="10dp">
 
 
-
     <ScrollView
         android:id="@+id/svProductDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="95dp"
         android:orientation="vertical"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scrollbars="vertical">
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <!--Product image-->
@@ -57,9 +58,9 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
-                    android:text="BROWNIE"
+                    android:text="Bánh Brownie"
                     android:textColor="@color/textColor"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <ImageButton
@@ -86,7 +87,7 @@
                     android:id="@+id/txtStarVote"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:text="4.5"
                     android:textColor="@color/textColor"
                     android:textSize="16sp"
@@ -150,7 +151,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/discription_product"
                 android:textColor="@color/textColor"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <!--Size-->
             <TextView
@@ -173,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:text="M - Đường kính 17cm"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtMPlusPrice"
@@ -182,7 +183,7 @@
                     android:gravity="end"
                     android:text="+80000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -203,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:text="L - Đường kính 20cm"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtLPlusPrice"
@@ -212,7 +213,7 @@
                     android:gravity="end"
                     android:text="+120000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -233,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:text="XL - Đường kính 23cm"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtXLPlusPrice"
@@ -242,7 +243,7 @@
                     android:gravity="end"
                     android:text="+150000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -273,7 +274,7 @@
                     android:layout_height="wrap_content"
                     android:text="Cream"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtPriceTopping1"
@@ -282,7 +283,7 @@
                     android:gravity="end"
                     android:text="+20000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <CheckBox
                     android:layout_width="match_parent"
@@ -304,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:text="Chocolate"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtPriceTopping2"
@@ -313,7 +314,7 @@
                     android:gravity="end"
                     android:text="+10000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <CheckBox
                     android:layout_width="match_parent"
@@ -335,7 +336,7 @@
                     android:layout_height="wrap_content"
                     android:text="Fruit"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txtPriceTopping3"
@@ -344,7 +345,7 @@
                     android:gravity="end"
                     android:text="+20000"
                     android:textColor="@color/textColor"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <CheckBox
                     android:layout_width="match_parent"
@@ -367,87 +368,94 @@
                 android:layout_height="wrap_content"
                 android:text="Để lại lời nhắn của bạn"
                 android:textColor="@color/textColor"
-                android:textSize="14sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
 
             <EditText
                 android:id="@+id/edtNote"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_bg_thin_stroke"
-                android:textColor="@color/textColor"
-                android:textSize="14sp" />
+                android:textColor="@color/inactive"
+                android:textSize="16sp"
+                android:padding="5dp"/>
         </LinearLayout>
     </ScrollView>
 
     <!--Add quantity-->
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="0dp"
-        android:orientation="vertical"
-        android:elevation="4dp"
         android:background="@color/white"
+        android:elevation="4dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:paddingVertical="6dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="5dp">
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal">
+
             <ImageButton
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_subtract"
-                android:background="@drawable/imb_bg_circle"/>
+                android:background="@drawable/imb_bg_circle"
+                android:src="@drawable/ic_subtract" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center_vertical"
                 android:text="01"
-                android:textStyle="bold"
                 android:textColor="@color/textColor"
                 android:textSize="22sp"
-                android:layout_marginHorizontal="20dp"
-                android:gravity="center_vertical"/>
+                android:textStyle="bold" />
+
             <ImageButton
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_add_item"
-                android:background="@drawable/imb_bg_circle"/>
+                android:background="@drawable/imb_bg_circle"
+                android:src="@drawable/ic_add_item" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="5dp">
+            android:layout_gravity="center_horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddToPayment"
                 android:layout_width="130dp"
                 android:layout_height="38dp"
-                android:text="120000"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="@dimen/buttonTextSize"
-                android:paddingHorizontal="5dp"
-                android:textAllCaps="false"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/button_bg_gradient"
-                android:layout_marginRight="20dp"/>
+                android:paddingHorizontal="5dp"
+                android:text="120000"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttonTextSize"
+                android:textStyle="bold" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddToCart"
                 android:layout_width="130dp"
                 android:layout_height="38dp"
-                android:text="Add to cart"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/primary"
-                android:textStyle="bold"
-                android:textSize="@dimen/buttonTextSize"
+                android:background="@drawable/edittext_background"
                 android:paddingHorizontal="5dp"
+                android:text="Add to cart"
                 android:textAllCaps="false"
-                android:background="@drawable/edittext_background"/>
+                android:textColor="@color/primary"
+                android:textSize="@dimen/buttonTextSize"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
