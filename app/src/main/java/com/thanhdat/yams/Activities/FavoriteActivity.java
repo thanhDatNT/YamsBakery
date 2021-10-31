@@ -1,9 +1,10 @@
 package com.thanhdat.yams.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;

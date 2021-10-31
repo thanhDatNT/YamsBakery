@@ -50,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Macaroon"
+                    android:text="@string/macaroon"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/textColor"/>
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="18.000đ"
+                        android:text="@string/prices"
                         android:layout_margin="5dp"
                         android:textSize="16sp"
 
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="22.000đ"
+                        android:text="@string/Oldprices"
                         android:textSize="16sp"
 
                         android:textColor="@color/inactive"
@@ -106,7 +106,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end|bottom"
                             android:layout_marginEnd="6dp"
-                            android:text="4.5"
+                            android:text="@string/Rating"
                             android:textSize="14sp"
                             android:drawableEnd="@drawable/ic_star"
                             android:drawablePadding="4dp"/>
@@ -119,11 +119,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:text="25"/>
+                                android:text="@string/quantity"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+"/>
+                                android:text="@string/plus"/>
 
                         </LinearLayout>
 
