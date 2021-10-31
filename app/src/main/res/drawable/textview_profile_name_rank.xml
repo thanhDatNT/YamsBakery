@@ -5,7 +5,7 @@
     <stroke
         android:color="@color/primary"
         android:width="0.7dp"
-        android:dashGap="10px"
-        android:dashWidth="30px"/>
+        android:dashGap="5px"
+        android:dashWidth="5px"/>
     <corners android:radius="12dp"/>
 </shape>
