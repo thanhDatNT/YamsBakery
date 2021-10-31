@@ -32,7 +32,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.8"
                 android:gravity="center"
-                android:text="Yams Feed"
+                android:text="@string/yams_feed"
                 android:textColor="@color/primary"
                 android:textStyle="bold"
                 android:textSize="@dimen/textHeader" />
