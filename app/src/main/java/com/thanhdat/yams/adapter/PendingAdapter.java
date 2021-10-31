@@ -71,7 +71,7 @@ public class PendingAdapter extends BaseAdapter {
         return view;
     }
 
-    private class ViewHolder{
+    private static class ViewHolder{
         ImageView imvThumb;
         TextView txtCode, txtName, txtPrice;
 

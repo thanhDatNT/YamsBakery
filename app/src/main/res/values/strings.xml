@@ -96,5 +96,8 @@
     <string name="hashtag">#Yams #Mango #Lime #Cheese</string>
     <string name="see_all_coments">Xem tất cả bình luận</string>
     <string name="yams_feed">Yams Feed</string>
+    <string name="reorder">Mua lại</string>
+    <string name="on_shipping">Đã giao</string>
+    <string name="review">Đánh giá</string>
 
 </resources>
