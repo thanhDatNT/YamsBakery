@@ -21,7 +21,7 @@ public class FeedActivity extends AppCompatActivity {
     RecyclerView rcvFeed;
     List<Post> posts;
     PostAdapter adapter;
-    private LinearLayout favoriteTab, homeTab, dietTab, profileTab;
+    private LinearLayout homepageTab, favoriteTab,  dietTab, profileTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class FeedActivity extends AppCompatActivity {
     private void linkViews() {
 
         rcvFeed = findViewById(R.id.rcvFeed);
-        homeTab= findViewById(R.id.feedNav);
+        homepageTab= findViewById(R.id.feedNav);
         favoriteTab= findViewById(R.id.favoriteNav);
         dietTab= findViewById(R.id.dietNav);
         profileTab= findViewById(R.id.profileNav);
@@ -66,7 +66,7 @@ public class FeedActivity extends AppCompatActivity {
                 startActivity(new Intent(FeedActivity.this, FavoriteActivity.class));
             }
         });
-        homeTab.setOnClickListener(new View.OnClickListener() {
+        homepageTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FeedActivity.this, MainActivity.class));
