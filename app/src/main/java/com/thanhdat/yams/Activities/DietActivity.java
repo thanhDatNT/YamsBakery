@@ -7,17 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
+import com.thanhdat.yams.adapter.DietAdapter;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class DietActivity extends AppCompatActivity {
     RadioButton radNam,radNu;
     Button btnTinhBMI;
     EditText edtNhapWeight,edtNhapHeight;
+    ListView lvDietProduct;
+    ArrayList<Diet>diets;
+    DietAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,8 @@ public class DietActivity extends AppCompatActivity {
 
         edtNhapHeight=findViewById(R.id.edtNhapHeigt);
         edtNhapWeight=findViewById(R.id.edtNhapWeight);
+
+        lvDietProduct=findViewById(R.id.lvDietProduct);
 
     }
     private void addEvent() {
@@ -70,8 +79,16 @@ public class DietActivity extends AppCompatActivity {
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        diets=new ArrayList<Diet>();
+                        diets.add(new Diet(R.drawable.diet_pearmuffins,"Pear Muffins","30 000đ","Những chiếc bánh nướng xốp béo ngậy này rất ngon khi ấm nóng khi kẹo bơ cứng vẫn còn chảy",4.8,25.0));
+                        diets.add(new Diet(R.drawable.dietcoffee_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.dietburst_muffins,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.dietdrizzle_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        adapter=new DietAdapter(DietActivity.this,R.layout.items_diet_product,diets);
+                        lvDietProduct.setAdapter(adapter);
+                        dialog.dismiss();
                     }
+
                 });
                 Button btnReType = dialog.findViewById(R.id.btnReType);
                 btnReType.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +96,7 @@ public class DietActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         edtNhapHeight.setText("");
                         edtNhapWeight.setText("");
+                        lvDietProduct.setAdapter(null);
 
                         dialog.dismiss();
                     }
