@@ -52,13 +52,7 @@
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
-    <string name="Price_150">150.000đ</string>
-    <string name="mango_cream_cake">Mango Cream Cake</string>
-    <string name="code">#000122</string>
-    <string name="order_status">Đơn hàng</string>
+
 
     <!--Product details-->
     <string name="see_review"><u>Xem đánh giá</u></string>
@@ -73,4 +67,25 @@
     <string name="quantity">25</string>
     <string name="plus">+</string>
     <string name="Rating">4.5</string>
+
+    <!--- OrderStatus-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
+    <string name="description2">Vị xoài và kem tươi</string>
+    <string name="Price_150">150.000đ</string>
+    <string name="mango_cream_cake">Mango Cream Cake</string>
+    <string name="code">#000122</string>
+    <string name="order_status">Đơn hàng</string>
+    <string name="pending">Chờ xác nhận</string>
+    <string name="details">Chi tiết</string>
+    <string name="date">31/10/2021</string>
+    <string name="shipment1">Giao hàng cho shipper</string>
+    <string name="time1">9:00AM</string>
+    <string name="shipment2">Giao hàng cho shipper</string>
+    <string name="time2">9:15AM</string>
+    <string name="shipment3">Đơn hàng đang được vận chuyển</string>
+    <string name="time3">9:30AM</string>
+    <string name="order_code">Mã đơn hàng:</string>
+    <string name="x2">x2</string>
+
 </resources>
