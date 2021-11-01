@@ -24,7 +24,6 @@ public class ChooseTime extends AppCompatActivity {
     ImageButton btnBack;
     TextView txtTime, txtDate;
 
-
     Calendar c;
 
     DatePickerDialog dpd;
@@ -42,6 +41,7 @@ public class ChooseTime extends AppCompatActivity {
 
         btnBack = (ImageButton) findViewById(R.id.btnBack);
 
+        //Date
         btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,24 +59,22 @@ public class ChooseTime extends AppCompatActivity {
                 dpd.show();;
             }
         });
-
-//        btnTime.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                c = Calendar.getInstance();
-//                int minute = c.get(Calendar.MINUTE);
-//                int hour = c.get(Calendar.HOUR_OF_DAY);
-//
-//                tpd = new TimePickerDialog(ChooseTime.this, new TimePickerDialog.OnTimeSetListener() {
-//                    @Override
-//                    public void onTimeSet(TimePicker timePicker, int mMinute, int mHour) {
-//                        txtTime.setText(mMinute +" : " + mHour);
-//                    }
-//                }, minute, hour);
-//                tpd.show();;
-//
-//            }
-//        });
+        //Time
+        btnTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int minute = c.get(Calendar.MINUTE);
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                c = Calendar.getInstance();
+                tpd = new TimePickerDialog(ChooseTime.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int mHour, int mMinute) {
+                        txtTime.setText((mHour) + ":" + mMinute);
+                    }
+                }, hour, minute, false);
+                tpd.show();;
+            }
+        });
 
         //back payment
         btnBack.setOnClickListener(new View.OnClickListener() {

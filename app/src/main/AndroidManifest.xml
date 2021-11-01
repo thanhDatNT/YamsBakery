@@ -17,6 +17,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
     </activity>
         <activity
             android:name=".Activities.ChooseTime"
@@ -32,10 +33,12 @@
         <activity
             android:name=".Activities.ProductDetailsActivity"
             android:exported="true">
+
         </activity>
         <activity
             android:name=".Activities.DietActivity"
             android:exported="true">
+
         </activity>
         <activity
             android:name=".Activities.FeedActivity"
@@ -51,6 +54,7 @@
         <activity
             android:name=".Activities.FavoriteActivity"
             android:exported="true" >
+
 
         </activity>
     </application>
