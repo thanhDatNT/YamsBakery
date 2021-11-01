@@ -31,7 +31,6 @@
     <string name="logout_profile">Đăng xuất</string>
 
 
-
     <string name="name">DIET WITH YAMS</string>
     <string name="gender">Giới tính</string>
     <string name="height">Chiều cao</string>
@@ -52,8 +51,6 @@
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
 
 
-
-
     <!--Product details-->
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
@@ -63,7 +60,7 @@
     <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
     <string name="prices">18.000đ</string>
-    <string name="Oldprices">22.000đ</string>
+    <string name="Old_prices">22.000đ</string>
     <string name="quantity">25</string>
     <string name="plus">+</string>
     <string name="Rating">4.5</string>
@@ -85,5 +82,35 @@
     <string name="shipment3">Đơn hàng đang được vận chuyển</string>
     <string name="time3">9:30AM</string>
     <string name="order_code">Mã đơn hàng:</string>
+
+    <!--    payment-->
+    <string name="payment">Payment</string>
+    <string name="delivery_address">Địa chỉ giao hàng</string>
+    <string name="address">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
+    <string name="Time">Thời gian giao hàng</string>
+    <string name="time_delivery">27/10/2021 – 7:00AM</string>
+    <string name="Method_delivery">Phương thức nhận hàng</string>
+    <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
+    <string name="price_80">80.000</string>
+    <string name="đ">đ</string>
+    <string name="store">Đến lấy tại cửa hàng</string>
+    <string name="none">0</string>
+    <string name="mess">Tin nhắn:</string>
+    <string name="Note">Lưu ý cho người bán</string>
+    <string name="payment_method">Phương thức thanh toán</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="cod">Thanh toán khi nhận hàng</string>
+    <string name="sum">Tổng tiền hàng</string>
+    <string name="price_35000">35.000đ</string>
+    <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
+    <string name="coupons_delivery">giảm giá phí vận chuyển</string>
+    <string name="price_coupons">-20.000đ</string>
+    <string name="total_payment">Tổng Thanh toán</string>
+    <string name="price_50000">50.000đ</string>
+    <string name="yams_coupons">Yams coupons</string>
+    <string name="choose_coupons">Chọn hoặc nhập mã</string>
+    <string name="order">Đặt hàng</string>
+    <string name="logan">Bánh ngon chuẩn gu</string>
+    <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
 
 </resources>

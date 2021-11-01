@@ -56,9 +56,9 @@
                 <TextView
                     android:id="@+id/txtProductDetailName"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
+                    android:layout_weight="1"
                     android:text="Bánh Brownie"
                     android:textColor="@color/textColor"
                     android:textSize="24sp"
@@ -172,8 +172,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="M - Đường kính 17cm"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -181,8 +181,8 @@
                 <TextView
                     android:id="@+id/txtMPlusPrice"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+80000"
                     android:textColor="@color/textColor"
@@ -204,8 +204,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="L - Đường kính 20cm"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -213,8 +213,8 @@
                 <TextView
                     android:id="@+id/txtLPlusPrice"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+120000"
                     android:textColor="@color/textColor"
@@ -236,8 +236,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="XL - Đường kính 23cm"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -245,8 +245,8 @@
                 <TextView
                     android:id="@+id/txtXLPlusPrice"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+150000"
                     android:textColor="@color/textColor"
@@ -278,8 +278,8 @@
                 <TextView
                     android:id="@+id/txtNameTopping1"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Cream"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -287,8 +287,8 @@
                 <TextView
                     android:id="@+id/txtPriceTopping1"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+20000"
                     android:textColor="@color/textColor"
@@ -311,8 +311,8 @@
                 <TextView
                     android:id="@+id/txtNameTopping2"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Chocolate"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -320,8 +320,8 @@
                 <TextView
                     android:id="@+id/txtPriceTopping2"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+10000"
                     android:textColor="@color/textColor"
@@ -344,8 +344,8 @@
                 <TextView
                     android:id="@+id/txtNameTopping3"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Fruit"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
@@ -353,8 +353,8 @@
                 <TextView
                     android:id="@+id/txtPriceTopping3"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end"
                     android:text="+20000"
                     android:textColor="@color/textColor"
@@ -379,19 +379,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:text="Để lại lời nhắn của bạn"
                 android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:layout_marginBottom="5dp"/>
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/edtNote"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_bg_thin_stroke"
+                android:padding="5dp"
                 android:textColor="@color/inactive"
-                android:textSize="16sp"
-                android:padding="5dp"/>
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 

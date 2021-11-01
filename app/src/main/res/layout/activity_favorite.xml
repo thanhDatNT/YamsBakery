@@ -20,12 +20,11 @@
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_gravity="center_horizontal"
-            android:drawableStart="@drawable/ic_back"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bánh ngon chuẩn gu"
+            android:text="@string/logan"
             android:textColor="@color/secondary"
             android:layout_gravity="center_horizontal"
             />
@@ -39,7 +38,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:hint="Tìm kiếm"
+                android:hint="@string/search"
+                android:paddingStart="10dp"
                 android:drawableStart="@drawable/ic_search"
                 android:background="@drawable/edittext_background"
                 />
@@ -53,137 +53,138 @@
             android:dividerHeight="0dp"
             />
     </LinearLayout>
+
+
+        <!--    Home Navigation -->
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <!--    Home Navigation -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@color/white"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:paddingVertical="6dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:id="@+id/homeNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <!--    Home Navigation -->
-            <LinearLayout
-                android:id="@+id/homeNav"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:src="@drawable/ic_home_inactive" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_home_inactive"
-                    app:tint="@color/primary" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/home"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!--    Favorite Navigation -->
-            <LinearLayout
-                android:id="@+id/favoriteNav"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@string/home"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_favorite_inactive" />
+        <!--    Favorite Navigation -->
+        <LinearLayout
+            android:id="@+id/favoriteNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/favorite"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!--    Diet Navigation -->
-            <LinearLayout
-                android:id="@+id/dietNav"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:gravity="center"
-                android:orientation="vertical">
+                app:srcCompat="@drawable/ic_favorite_active" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_diet_inactive" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/diet"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!--    Feed Navigation -->
-            <LinearLayout
-                android:id="@+id/feedNav"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@string/favorite"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_feed_inactive" />
+        <!--    Diet Navigation -->
+        <LinearLayout
+            android:id="@+id/dietNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/feed"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!--   Profile Navigation -->
-            <LinearLayout
-                android:id="@+id/profileNav"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
+                app:srcCompat="@drawable/ic_diet_inactive" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@string/diet"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_account_inactive" />
+        <!--    Feed Navigation -->
+        <LinearLayout
+            android:id="@+id/feedNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/profile"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_feed_inactive" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/feed"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--   Profile Navigation -->
+        <LinearLayout
+            android:id="@+id/profileNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_account_inactive" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/profile"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
