@@ -68,27 +68,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!--    Home Navigation -->
         <LinearLayout
             android:id="@+id/homeNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_home_inactive" />
+                android:src="@drawable/ic_home_inactive"
+                app:tint="@color/inactive" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/home"
+                android:gravity="center"
+                android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!--    Favorite Navigation -->
@@ -96,23 +97,24 @@
             android:id="@+id/favoriteNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_favorite_active" />
+                app:srcCompat="@drawable/ic_favorite_active"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/favorite"
+                android:gravity="center"
                 android:textColor="@color/primary"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!--    Diet Navigation -->
@@ -120,23 +122,23 @@
             android:id="@+id/dietNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_diet_inactive" />
+                app:srcCompat="@drawable/ic_diet_inactive"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/diet"
-                android:textColor="@color/inactive"
+                android:gravity="center"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!--    Feed Navigation -->
@@ -144,9 +146,9 @@
             android:id="@+id/feedNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -156,11 +158,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/feed"
+                android:gravity="center"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!--   Profile Navigation -->
@@ -168,9 +170,9 @@
             android:id="@+id/profileNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -180,14 +182,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/profile"
+                android:gravity="center"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

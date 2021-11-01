@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:backgroundTint="@color/lightPink">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text="TextView"
+            android:padding="8dp"
+            android:maxLines="2"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.3"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/img_bdcake" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

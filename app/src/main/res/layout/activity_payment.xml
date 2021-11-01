@@ -156,7 +156,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="110dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/lightPink"
                     android:orientation="vertical"
@@ -171,7 +171,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_time" />
+                            android:src="@drawable/ic_delivery_24" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -182,7 +182,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="start"
                                 android:text="@string/Method_delivery"
                                 android:textColor="@color/primary"
                                 android:textSize="20sp" />
@@ -321,7 +320,7 @@
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/cake"
+                                    android:src="@drawable/img_cake"
                                     />
                             </androidx.cardview.widget.CardView>
 
@@ -406,7 +405,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_time" />
+                            android:src="@drawable/ic_payment"
+                            app:tint="@color/primary"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -416,7 +416,8 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingStart="10dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -441,6 +442,7 @@
                                 android:text="@string/view_all" />
 
                             <ImageButton
+                                android:id="@+id/btnOpenChoosePaymentMethod"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ic_see_more"

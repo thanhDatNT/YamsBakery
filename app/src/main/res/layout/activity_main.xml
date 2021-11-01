@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     android:background="@color/bgLayout"
     tools:context=".Activities.MainActivity">
 
@@ -92,19 +93,40 @@
 
         </LinearLayout>
 
-
-        <EditText
-            android:id="@+id/edtSearchHome"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="0dp"
             android:layout_weight="0.4"
-            android:ems="10"
-            android:padding="8dp"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="6dp"
-            android:background="@drawable/edittext_background"
-            android:inputType="textPersonName"
-            android:hint="@string/search" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtSearchHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:padding="8dp"
+                android:layout_weight="0.8"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="6dp"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="@string/search" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSearchHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/button_bg_gradient"
+                android:layout_marginHorizontal="4dp"
+                android:textAllCaps="false"
+                android:text="Tìm"
+                android:visibility="gone"
+                android:textSize="17sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -141,7 +163,7 @@
                     app:sliderAutoCycleDirection="right"
                     app:sliderIndicatorAnimationDuration="300"
                     app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="8dp"
+                    app:sliderIndicatorMargin="6dp"
                     app:sliderIndicatorOrientation="horizontal"
                     app:sliderIndicatorPadding="1dp"
                     app:sliderIndicatorRadius="2dp"
@@ -156,7 +178,7 @@
             <GridView
                 android:id="@+id/gvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="200dp"
                 android:numColumns="4"
                 android:layout_marginTop="@dimen/mTop"/>
 

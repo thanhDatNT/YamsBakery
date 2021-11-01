@@ -8,10 +8,8 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.PendingAdapter;
 import com.thanhdat.yams.adapter.PreviousAdapter;
 
 import java.util.ArrayList;
@@ -41,10 +39,10 @@ public class PreviousOrderFragment extends Fragment {
     }
     private ArrayList<PreviousOrder> initData() {
         previousOrders = new ArrayList<>();
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
 
         return previousOrders;
     }

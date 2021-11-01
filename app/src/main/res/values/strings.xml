@@ -30,6 +30,7 @@
     <string name="noti_profile">Thông báo</string>
     <string name="logout_profile">Đăng xuất</string>
 
+
     <!--Diet with yams-->
     <string name="name">DIET WITH YAMS</string>
     <string name="gender">Giới tính</string>
@@ -49,6 +50,7 @@
     <string name="sumerPudding">Summer Pudding</string>
     <string name="price">30.000đ</string>
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
+
     <string name="myBMI">BMI của bạn</string>
     <string name="CalculateBMI">Tính BMI</string>
 
@@ -151,6 +153,8 @@
     <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
     <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
+    <string name="Choose_payment_method">Chọn phương thức thanh toán</string>
+    <string name="cod_text">Phí thu hộ 0đ, ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ</string>
 
 
 

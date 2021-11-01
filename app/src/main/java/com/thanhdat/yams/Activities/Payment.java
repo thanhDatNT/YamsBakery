@@ -14,6 +14,7 @@ import com.thanhdat.yams.R;
 public class Payment extends AppCompatActivity {
 
     ImageButton btnOpenChooseTime;
+    ImageButton btnOpenChoosePaymentMethod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +26,28 @@ public class Payment extends AppCompatActivity {
     }
 
     private void linkViews() {
+
         btnOpenChooseTime = findViewById(R.id.btnOpenChooseTime);
+        btnOpenChoosePaymentMethod = findViewById(R.id.btnOpenChoosePaymentMethod);
     }
 
     private void addEvents() {
+        //Open Activity_choose_time
         btnOpenChooseTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Open Activity_choose_time
+
                 Intent intent = new Intent(Payment.this, ChooseTime.class );
                 startActivity(intent);
+            }
+        });
+
+        //Open PaymentMethod
+        btnOpenChoosePaymentMethod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent = new Intent(Payment.this, PaymentMethod.class);
+               startActivity(intent);
             }
         });
 
