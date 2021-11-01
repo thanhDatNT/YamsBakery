@@ -16,7 +16,7 @@
             android:orientation="horizontal"
             android:padding="10dp">
             <ImageButton
-                android:id="@+id/btnBackToProduct"
+                android:id="@+id/imbBackToProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back"
@@ -35,7 +35,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:padding="10dp">
         <TextView
             android:id="@+id/txtAvgStarVote"
@@ -84,6 +84,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvReviewItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"/>
