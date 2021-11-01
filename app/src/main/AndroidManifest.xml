@@ -68,6 +68,7 @@
         </activity>
         <activity
             android:name=".Activities.FavoriteActivity"
+
             android:exported="true" />
 
     </application>

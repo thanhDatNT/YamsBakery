@@ -123,7 +123,6 @@
             android:id="@+id/txtPublisher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="@string/yams_store"
             android:textColor="#202121"
             android:textStyle="bold" />
