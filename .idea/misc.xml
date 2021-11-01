@@ -42,10 +42,19 @@
         <entry key="..\:/HK5/DO_AN/Github/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.184375" />
         <entry key="..\:/HK5/DO_AN/Github/YamsBakery/app/src/main/res/layout/showresult.xml" value="0.184375" />
         <entry key="..\:/HK5/DO_AN/Github/YamsBakery/app/src/main/res/layout/viewholder_new_product.xml" value="0.184375" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_add.xml" value="0.2171875" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_cart.xml" value="0.4" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_diet.xml" value="0.20104166666666667" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_favorite.xml" value="0.20104166666666667" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_feed_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/activity_product_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.4" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_diet_product.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
