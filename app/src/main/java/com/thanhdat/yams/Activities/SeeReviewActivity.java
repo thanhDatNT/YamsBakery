@@ -5,11 +5,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.thanhdat.yams.Models.SeeReviewItem;
@@ -55,10 +53,10 @@ public class SeeReviewActivity extends AppCompatActivity {
 
     private void initData() {
         items = new ArrayList<>();
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.avatar_profile,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
-        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Kích cỡ: ","Size L - Đường kính 20cm","Fruit","Toppings: ",R.drawable.avatar_profile_2,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.avatar_profile,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.avatar_profile,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
+        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.img_photo1,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
+        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Kích cỡ: ","Size L - Đường kính 20cm","Fruit","Toppings: ",R.drawable.img_photo2,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
+        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.img_photo1,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
+        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Kích cỡ: ","Size M - Đường kính 17cm","Chocolate","Toppings: ",R.drawable.img_photo1,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.img_product_detail));
 
         adapter = new SeeReviewAdapter(getApplicationContext(),items);
 

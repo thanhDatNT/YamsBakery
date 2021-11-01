@@ -320,7 +320,7 @@
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/cake"
+                                    android:src="@drawable/img_cake"
                                     />
                             </androidx.cardview.widget.CardView>
 

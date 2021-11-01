@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -58,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void addEventSuggestion() {
         ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","top"));
-        newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","promo"));
-        newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","new"));
+        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","top"));
+        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","new"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","top"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","new"));
         gvSuggestion.setAdapter(new SuggestionAdapter(this, R.layout.viewholder_new_product, newProducts));
     }
 
@@ -70,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rcvPromotion.setLayoutManager(layoutManager);
         ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","promo"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","promo"));
-        newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","promo"));
-        newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","promo"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","promo"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","promo"));
         rcvPromotion.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
     }
 
@@ -82,11 +81,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rcvPopular.setLayoutManager(layoutManager);
         ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","top"));
-        newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","top"));
-        newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","top"));
+        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","top"));
+        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","top"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","top"));
+        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","top"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","top"));
         rcvPopular.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
     }
 
@@ -107,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rcvNewProduct.setLayoutManager(layoutManager);
         ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","new"));
-        newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","new"));
-        newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","new"));
+        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","new"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","new"));
+        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","new"));
+        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","new"));
+        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","new"));
         rcvNewProduct.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
     }
 
@@ -183,12 +182,6 @@ public class MainActivity extends AppCompatActivity {
             edtSearch.clearFocus();
             btnSearch.setVisibility(View.GONE);
         }
-        imbCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, IntroActivity.class));
-            }
-        });
     }
 
     private void linkViews() {

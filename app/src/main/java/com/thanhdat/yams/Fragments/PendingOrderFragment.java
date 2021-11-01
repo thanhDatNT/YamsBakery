@@ -39,12 +39,12 @@ public class PendingOrderFragment extends Fragment {
     }
     private ArrayList<PendingOrder> initData(){
         pendingOrders = new ArrayList<>();
-        pendingOrders.add(new PendingOrder("Mango Cream Cake",R.drawable.cake,"#000122",150000));
-        pendingOrders.add(new PendingOrder("Chocolate Cream Cake",R.drawable.cake,"#000121",150000));
-        pendingOrders.add(new PendingOrder("Cheese Tart",R.drawable.cake,"#000124",150000));
-        pendingOrders.add(new PendingOrder("Vanila CupCake",R.drawable.cake,"#000125",150000));
-        pendingOrders.add(new PendingOrder("Fruit Cake",R.drawable.cake,"#000126",100000));
-        pendingOrders.add(new PendingOrder("StrawBerry Cake",R.drawable.cake,"#000127",150000));
+        pendingOrders.add(new PendingOrder("Mango Cream Cake",R.drawable.img_cake,"#000122",150000));
+        pendingOrders.add(new PendingOrder("Chocolate Cream Cake",R.drawable.img_cake,"#000121",150000));
+        pendingOrders.add(new PendingOrder("Cheese Tart",R.drawable.img_cake,"#000124",150000));
+        pendingOrders.add(new PendingOrder("Vanila CupCake",R.drawable.img_cake,"#000125",150000));
+        pendingOrders.add(new PendingOrder("Fruit Cake",R.drawable.img_cake,"#000126",100000));
+        pendingOrders.add(new PendingOrder("StrawBerry Cake",R.drawable.img_cake,"#000127",150000));
         return pendingOrders;
 
     }

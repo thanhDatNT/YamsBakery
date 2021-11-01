@@ -52,10 +52,10 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initData() {
         dataList= new ArrayList<>();
-        dataList.add(new SimpleViewGroup(R.drawable.bdcake, "New York Cheesecake"));
+        dataList.add(new SimpleViewGroup(R.drawable.img_bdcake, "New York Cheesecake"));
         dataList.add(new SimpleViewGroup(R.drawable.img_cate4, "Salted Egg Sponge Cake"));
-        dataList.add(new SimpleViewGroup(R.drawable.mangocake, "Green tea Mochi"));
-        dataList.add(new SimpleViewGroup(R.drawable.cake, "Lemon Blueberry Cheesecake"));
+        dataList.add(new SimpleViewGroup(R.drawable.img_mango_cake, "Green tea Mochi"));
+        dataList.add(new SimpleViewGroup(R.drawable.img_cake, "Lemon Blueberry Cheesecake"));
     }
 
     private void linkViews() {

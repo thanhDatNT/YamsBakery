@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.CartAdapter;
-import com.thanhdat.yams.adapter.DietAdapter;
 
 import java.util.ArrayList;
 
@@ -38,13 +37,13 @@ public class CartActivity extends AppCompatActivity {
     }
     private void initData() {
         carts = new ArrayList<Cart>();
-        carts.add(new Cart(R.drawable.fruitcake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(R.drawable.cake_chocolate,"Chocolate Cake","S",200000,1,10));
-        carts.add(new Cart(R.drawable.cake2,"Tart Egg","S",20000,2,20));
-        carts.add(new Cart(R.drawable.fruitcake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(R.drawable.fruitcake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(R.drawable.fruitcake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(R.drawable.fruitcake,"Fruit Cake","M",230000,1,10));
+        carts.add(new Cart(R.drawable.img_fruitcake,"Fruit Cake","M",230000,1,10));
+        carts.add(new Cart(R.drawable.img_cake,"Chocolate Cake","S",200000,1,10));
+        carts.add(new Cart(R.drawable.img_summer_pudding,"Tart Egg","S",20000,2,20));
+        carts.add(new Cart(R.drawable.img_fruitcake,"Fruit Cake","M",230000,1,10));
+        carts.add(new Cart(R.drawable.img_fruitcake,"Fruit Cake","M",230000,1,10));
+        carts.add(new Cart(R.drawable.img_fruitcake,"Fruit Cake","M",230000,1,10));
+        carts.add(new Cart(R.drawable.img_fruitcake,"Fruit Cake","M",230000,1,10));
     }
     private void loadData() {
         adapter=new CartAdapter(CartActivity.this,R.layout.items_cart,carts);

@@ -3,13 +3,10 @@ package com.thanhdat.yams.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
@@ -46,11 +43,11 @@ public class FavoriteActivity extends AppCompatActivity {
 
     private void initData() {
         favorites = new ArrayList<Favorite>();
-        favorites.add(new Favorite(R.drawable.bdcake, "Dumplings", 35000, 30000, 5, 15));
-        favorites.add(new Favorite(R.drawable.cake2, "Tarks trứng", 15000, 20000, 4.5, 25));
-        favorites.add(new Favorite(R.drawable.cake3, "Gato", 100000, 110000, 5, 15));
-        favorites.add(new Favorite(R.drawable.cake4, "Cup cake", 20000, 22000, 4.5, 10));
-        favorites.add(new Favorite(R.drawable.cake5, "strawberry cake", 35000, 3000, 5, 5));
+        favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 30000, 5, 15));
+        favorites.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 15000, 20000, 4.5, 25));
+        favorites.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 110000, 5, 15));
+        favorites.add(new Favorite(R.drawable.img_pink_cake, "Cup cake", 20000, 22000, 4.5, 10));
+        favorites.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 35000, 3000, 5, 5));
     }
 
     private void loadData() {

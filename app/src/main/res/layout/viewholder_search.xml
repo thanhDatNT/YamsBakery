@@ -29,6 +29,6 @@
             android:layout_height="80dp"
             android:layout_weight="0.3"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/bdcake" />
+            app:srcCompat="@drawable/img_bdcake" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
