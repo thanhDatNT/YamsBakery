@@ -8,8 +8,10 @@
 
     <ImageView
         android:id="@+id/imgCategory"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/img_cate1" />
 
     <TextView

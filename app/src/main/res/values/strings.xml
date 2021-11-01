@@ -31,7 +31,6 @@
     <string name="logout_profile">Đăng xuất</string>
 
 
-
     <string name="name">DIET WITH YAMS</string>
     <string name="gender">Giới tính</string>
     <string name="height">Chiều cao</string>
@@ -50,8 +49,6 @@
     <string name="sumerPudding">Summer Pudding</string>
     <string name="price">30.000đ</string>
     <string name="pudding">Món bánh pudding túy của Anh này, được đóng gói với những quả mọng mùa hè ngon ngọt</string>
-
-
 
 
     <!--Product details-->

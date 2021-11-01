@@ -1,24 +1,28 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Models.Banner;
-import com.thanhdat.yams.Models.Category;
+import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.CategoryAdapter;
+import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.adapter.NewProductAdapter;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
 import com.thanhdat.yams.adapter.SuggestionAdapter;
@@ -29,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private SliderView sliderBanner;
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
+    private ImageButton imbCart;
     EditText edtSearch;
     private LinearLayout favoriteTab, feedTab, dietTab, profileTab;
+    ImageButton imbNotify;
+    private AppCompatButton btnSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         linkViews();
-        edtSearch.setFocusable(false);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        edtSearch.clearFocus();
         navigateTabs();
         addEventSliderBanner();
         addEventNewProduct();
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<NewProduct> newProducts= new ArrayList<>();
         newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","top"));
         newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.pink_cake, "Pink Biscuit", "50000","4.1","promo"));
+        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","promo"));
         newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","top"));
         newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","new"));
         gvSuggestion.setAdapter(new SuggestionAdapter(this, R.layout.viewholder_new_product, newProducts));
@@ -63,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         rcvPromotion.setLayoutManager(layoutManager);
         ArrayList<NewProduct> newProducts= new ArrayList<>();
         newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","promo"));
-        newProducts.add(new NewProduct(R.drawable.pink_cake, "Pink Biscuit", "50000","4.1","promo"));
+        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","promo"));
         newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","promo"));
         newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","promo"));
         newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","promo"));
@@ -76,23 +84,23 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<NewProduct> newProducts= new ArrayList<>();
         newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","top"));
         newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.pink_cake, "Pink Biscuit", "50000","4.1","top"));
+        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","top"));
         newProducts.add(new NewProduct(R.drawable.mangocake, "Macaroon", "35000","4.7","top"));
         newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","top"));
         rcvPopular.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
     }
 
     private void addEventCategory() {
-        ArrayList<Category> categories= new ArrayList<>();
-        categories.add(new Category(R.drawable.img_cate1, "Cheese"));
-        categories.add(new Category(R.drawable.img_cate2, "Pudding"));
-        categories.add(new Category(R.drawable.img_cate3, "Birthday cake"));
-        categories.add(new Category(R.drawable.img_cate4, "Tiramisu"));
-        categories.add(new Category(R.drawable.img_cate3, "Biscuit"));
-        categories.add(new Category(R.drawable.img_cate1, "Cookie"));
-        categories.add(new Category(R.drawable.img_cate4, "Donut"));
-        categories.add(new Category(R.drawable.img_cate2, "Macaroon"));
-        gvCategory.setAdapter(new CategoryAdapter(this, R.layout.viewholder_category, categories));
+        ArrayList<SimpleViewGroup> categories= new ArrayList<>();
+        categories.add(new SimpleViewGroup(R.drawable.img_cate1, "Cheese"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate2, "Pudding"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate3, "Birthday cake"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate4, "Tiramisu"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate3, "Biscuit"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate1, "Cookie"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate4, "Donut"));
+        categories.add(new SimpleViewGroup(R.drawable.img_cate2, "Macaroon"));
+        gvCategory.setAdapter(new SimpleViewGroupAdapter(this, R.layout.viewholder_category, categories));
     }
 
     private void addEventNewProduct() {
@@ -103,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         newProducts.add(new NewProduct(R.drawable.cake, "Fruit Cake", "39000","4.8","new"));
         newProducts.add(new NewProduct(R.drawable.summer_pudding, "Matcha Cookie", "65000","4.3","new"));
         newProducts.add(new NewProduct(R.drawable.bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.pink_cake, "Pink Biscuit", "50000","4.1","new"));
+        newProducts.add(new NewProduct(R.drawable.cake, "Pink Biscuit", "50000","4.1","new"));
         rcvNewProduct.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
     }
 
@@ -112,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         banners.add(new Banner(R.drawable.img_banner1));
         banners.add(new Banner(R.drawable.img_banner2));
         banners.add(new Banner(R.drawable.img_banner3));
-        banners.add(new Banner(R.drawable.profile_banner_sale));
+        banners.add(new Banner(R.drawable.img_banner4));
         sliderBanner.setSliderAdapter(new SliderBannerAdapter(banners, this));
 //        Config Slider Banner
         sliderBanner.setIndicatorAnimation(IndicatorAnimationType.SLIDE);
@@ -145,6 +153,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
         });
+
+        imbNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NotificationActivity.class));
+            }
+        });
+        edtSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    btnSearch.setVisibility(View.VISIBLE);
+                    btnSearch.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            edtSearch.clearFocus();
+                            startActivity(new Intent(MainActivity.this, SearchActivity.class));
+                        }
+                    });
+                }
+                else{
+                    edtSearch.clearFocus();
+                    btnSearch.setVisibility(View.GONE);
+                }
+            }
+        });
+        if(hasWindowFocus()){
+            edtSearch.clearFocus();
+            btnSearch.setVisibility(View.GONE);
+        }
+        imbCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, IntroActivity.class));
+            }
+        });
     }
 
     private void linkViews() {
@@ -159,5 +203,8 @@ public class MainActivity extends AppCompatActivity {
         feedTab= findViewById(R.id.feedNav);
         dietTab= findViewById(R.id.dietNav);
         profileTab= findViewById(R.id.profileNav);
+        imbNotify= findViewById(R.id.imbNotificationHome);
+        imbCart= findViewById(R.id.imbCartHome);
+        btnSearch= findViewById(R.id.buttonSearchHome);
     }
 }
