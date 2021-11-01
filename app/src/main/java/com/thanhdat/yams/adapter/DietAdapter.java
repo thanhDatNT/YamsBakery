@@ -67,7 +67,7 @@ public class DietAdapter extends BaseAdapter {
         holder.txtPrice.setText(diet.getDietPrice());
         holder.txtContent.setText(diet.getDietContent());
         holder.txtRating.setText(String.valueOf(diet.getDietRating()));
-        holder.txtQuantity.setText(String.valueOf(diet.getDietQuantity()));
+        holder.txtQuantity.setText(String.valueOf(diet.getDietQuantity())+ "+");
         return view;
     }
     public static class ViewHolder{

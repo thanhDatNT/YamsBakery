@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
-        <activity android:name=".Activities.SearchActivity"></activity>
+
+        <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
             android:name=".Activities.OrderStatusActivity"
@@ -23,6 +24,35 @@
         <activity
             android:name=".Activities.FeedActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".Activities.PaymentMethod"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".Activities.Payment"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".Activities.SeeReviewActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Activities.CartActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".Activities.ChooseTime"
+            android:exported="true">
+
+        </activity>
+
         <activity
             android:name=".Activities.ProfileActivity"
             android:exported="true" />
@@ -39,6 +69,7 @@
         <activity
             android:name=".Activities.FavoriteActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>

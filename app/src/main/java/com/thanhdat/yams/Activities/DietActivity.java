@@ -3,10 +3,12 @@ package com.thanhdat.yams.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -25,12 +27,15 @@ public class DietActivity extends AppCompatActivity {
     ListView lvDietProduct;
     ArrayList<Diet>diets;
     DietAdapter adapter;
+    LinearLayout favoriteTab, feedTab, profileTab,homeTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet);
         linkView();
         addEvent();
+        navigateTabs();
+
     }
 
 
@@ -43,6 +48,11 @@ public class DietActivity extends AppCompatActivity {
         edtNhapWeight=findViewById(R.id.edtNhapWeight);
 
         lvDietProduct=findViewById(R.id.lvDietProduct);
+        homeTab=findViewById(R.id.homeNav);
+        favoriteTab= findViewById(R.id.favoriteNav);
+        feedTab= findViewById(R.id.feedNav);
+        profileTab= findViewById(R.id.profileNav);
+
 
     }
     private void addEvent() {
@@ -80,10 +90,10 @@ public class DietActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         diets=new ArrayList<Diet>();
-                        diets.add(new Diet(R.drawable.diet_pearmuffins,"Pear Muffins","30 000đ","Những chiếc bánh nướng xốp béo ngậy này rất ngon khi ấm nóng khi kẹo bơ cứng vẫn còn chảy",4.8,25.0));
-                        diets.add(new Diet(R.drawable.dietcoffee_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.dietburst_muffins,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.dietdrizzle_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.summer_pudding,"Pear Muffins","30 000đ","Những chiếc bánh nướng xốp béo ngậy này rất ngon khi ấm nóng khi kẹo bơ cứng vẫn còn chảy",4.8,25.0));
+                        diets.add(new Diet(R.drawable.summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.fruitcake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         adapter=new DietAdapter(DietActivity.this,R.layout.items_diet_product,diets);
                         lvDietProduct.setAdapter(adapter);
                         dialog.dismiss();
@@ -105,5 +115,40 @@ public class DietActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void navigateTabs() {
+
+        homeTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DietActivity.this, MainActivity.class));
+            }
+        });
+        favoriteTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DietActivity.this, FavoriteActivity.class));
+            }
+        });
+
+        feedTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DietActivity.this, FeedActivity.class));
+            }
+        });
+        profileTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DietActivity.this, ProfileActivity.class));
+            }
+        });
+    }
+
+
+
+
+
+
 
 }
