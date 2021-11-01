@@ -32,7 +32,6 @@ public class CartActivity extends AppCompatActivity {
     }
 
 
-
     private void LinkView() {
         lvCartProduct=findViewById(R.id.lvCartProduct);
         imvBack = findViewById(R.id.imvBack);
