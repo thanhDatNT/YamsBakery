@@ -3,6 +3,8 @@ package com.thanhdat.yams.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -15,11 +17,11 @@ import com.thanhdat.yams.adapter.FavoriteAdapter;
 import java.util.ArrayList;
 
 public class FavoriteActivity extends AppCompatActivity {
-
+    EditText edtFavorite;
     ListView lvFavorite;
     ArrayList<Favorite> favorites;
     FavoriteAdapter adapter;
-    LinearLayout favoriteTab, feedTab, profileTab,homeTab;
+    LinearLayout dietTab, feedTab, profileTab,homeTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,10 @@ public class FavoriteActivity extends AppCompatActivity {
     }
 
     private void linkViews() {
-
+        edtFavorite= findViewById(R.id.edtSearchFavorite);
         lvFavorite = findViewById(R.id.lvFavorite);
         homeTab=findViewById(R.id.homeNav);
-        favoriteTab= findViewById(R.id.favoriteNav);
+        dietTab= findViewById(R.id.dietNav);
         feedTab= findViewById(R.id.feedNav);
         profileTab= findViewById(R.id.profileNav);
     }
@@ -63,10 +65,10 @@ public class FavoriteActivity extends AppCompatActivity {
                 startActivity(new Intent(FavoriteActivity.this, MainActivity.class));
             }
         });
-        favoriteTab.setOnClickListener(new View.OnClickListener() {
+        dietTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FavoriteActivity.this, FavoriteActivity.class));
+                startActivity(new Intent(FavoriteActivity.this, DietActivity.class));
             }
         });
 

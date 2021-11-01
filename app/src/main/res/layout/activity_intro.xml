@@ -27,7 +27,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         app:srcCompat="@drawable/img_chef" />
 
     <LinearLayout
@@ -60,5 +60,15 @@
             android:layout_marginHorizontal="4dp"
             android:textStyle="bold"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bỏ qua >>"
+        android:textColor="@color/white"
+        android:gravity="end"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/mTop"/>
 
 </LinearLayout>

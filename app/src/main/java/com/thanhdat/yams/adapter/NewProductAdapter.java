@@ -1,15 +1,19 @@
 package com.thanhdat.yams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
 
@@ -19,11 +23,13 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.Vi
     Context context;
     int layout;
     ArrayList<NewProduct> newProducts;
+    OnClickInterface onClickInterface;
 
-    public NewProductAdapter(Context context, int layout, ArrayList<NewProduct> newProduct) {
+    public NewProductAdapter(Context context, int layout, ArrayList<NewProduct> newProduct, OnClickInterface onClickInterface) {
         this.context = context;
         this.newProducts = newProduct;
         this.layout= layout;
+        this.onClickInterface= onClickInterface;
     }
 
     @NonNull
@@ -40,7 +46,12 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.Vi
         holder.tvPrice.setText(newProducts.get(position).getPrice());
         holder.tvRating.setText(newProducts.get(position).getRating());
         holder.tvTag.setText(newProducts.get(position).getTag());
-
+        holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickInterface.setClick(position);
+            }
+        });
     }
 
     @Override
@@ -51,6 +62,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.Vi
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
         TextView tvName, tvPrice, tvRating, tvTag;
+        LinearLayout layoutProduct;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +71,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.Vi
             tvPrice= itemView.findViewById(R.id.tvPriceHome);
             tvRating= itemView.findViewById(R.id.tvRatingHome);
             tvTag= itemView.findViewById(R.id.tvTagProductHome);
+            layoutProduct= itemView.findViewById(R.id.layoutProduct);
         }
     }
 }

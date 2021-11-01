@@ -6,11 +6,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.thanhdat.yams.R;
 
 public class IntroActivity extends AppCompatActivity {
     private AppCompatButton btnSignIn, btnSignUp;
+    private TextView tvSkip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,17 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(new Intent(IntroActivity.this, LoginActivity.class));
             }
         });
+        tvSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(IntroActivity.this, MainActivity.class));
+            }
+        });
     }
 
     private void linkViews() {
         btnSignIn= findViewById(R.id.buttonSignInIntro);
         btnSignUp= findViewById(R.id.buttonSignUpIntro);
+        tvSkip= findViewById(R.id.tvSkip);
     }
 }

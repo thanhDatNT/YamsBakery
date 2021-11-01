@@ -13,11 +13,14 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
+import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
@@ -32,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private SliderView sliderBanner;
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
-    private ImageButton imbCart;
+    private ImageButton imbCart, imbNotify;
     EditText edtSearch;
     private LinearLayout favoriteTab, feedTab, dietTab, profileTab;
-    ImageButton imbNotify;
     private AppCompatButton btnSearch;
+    private OnClickInterface onClickInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","promo"));
         newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","promo"));
         newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","promo"));
-        rcvPromotion.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
+        rcvPromotion.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts, onClickInterface));
     }
 
     private void addEventPopular() {
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","top"));
         newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","top"));
         newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","top"));
-        rcvPopular.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
+        rcvPopular.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts, onClickInterface));
     }
 
     private void addEventCategory() {
@@ -111,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
         newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","new"));
         newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","new"));
         newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","new"));
-        rcvNewProduct.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts));
+        rcvNewProduct.setAdapter(new NewProductAdapter(this,R.layout.viewholder_new_product, newProducts, onClickInterface));
+
     }
 
     private void addEventSliderBanner() {
@@ -128,6 +132,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateTabs() {
+        onClickInterface= new OnClickInterface() {
+            @Override
+            public void setClick(int abc) {
+                startActivity(new Intent(MainActivity.this, ProductDetailsActivity.class));
+            }
+        };
         favoriteTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,6 +192,13 @@ public class MainActivity extends AppCompatActivity {
             edtSearch.clearFocus();
             btnSearch.setVisibility(View.GONE);
         }
+        imbCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
+            }
+        });
+
     }
 
     private void linkViews() {
