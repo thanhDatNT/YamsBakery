@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.smarteist.autoimageslider.SliderViewAdapter;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.SliderVH> {
     ArrayList<Banner> banners;
     Context context;
-    LinearLayout.LayoutParams params;
 
     public SliderBannerAdapter(ArrayList<Banner> banners, Context context) {
         this.banners = banners;
@@ -26,17 +26,14 @@ public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.S
 
     @Override
     public SliderVH onCreateViewHolder(ViewGroup parent) {
-        params= new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        LinearLayout linearLayout= new LinearLayout(context);
-        linearLayout.setLayoutParams(params);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        View inflate = LayoutInflater.from(parent.getContext()).inflate((XmlPullParser) linearLayout, null);
-        return null;
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_slider_banner, null);
+        return new SliderVH(inflate);
     }
 
     @Override
     public void onBindViewHolder(SliderVH viewHolder, int position) {
-
+        Banner banner= banners.get(position);
+        viewHolder.imvBanner.setImageResource(banner.getBanner());
     }
 
     @Override
@@ -46,9 +43,12 @@ public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.S
 
     class SliderVH extends SliderViewAdapter.ViewHolder{
         View itemView;
+        ImageView imvBanner;
 
         public SliderVH(View itemView) {
             super(itemView);
+            imvBanner= itemView.findViewById(R.id.imvBannerHome);
+            this.itemView= itemView;
         }
     }
 }

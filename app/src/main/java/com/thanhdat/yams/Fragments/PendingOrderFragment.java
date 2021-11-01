@@ -40,11 +40,11 @@ public class PendingOrderFragment extends Fragment {
     private ArrayList<PendingOrder> initData(){
         pendingOrders = new ArrayList<>();
         pendingOrders.add(new PendingOrder("Mango Cream Cake",R.drawable.cake,"#000122",150000));
-        pendingOrders.add(new PendingOrder("Chocolate Cream Cake",R.drawable.cake1,"#000121",80000));
-        pendingOrders.add(new PendingOrder("Cheese Tart",R.drawable.cake2,"#000124",50000));
-        pendingOrders.add(new PendingOrder("Vanila CupCake",R.drawable.cake3,"#000125",20000));
-        pendingOrders.add(new PendingOrder("Fruit Cake",R.drawable.cake4,"#000126",100000));
-        pendingOrders.add(new PendingOrder("StrawBerry Cake",R.drawable.cake5,"#000127",50000));
+        pendingOrders.add(new PendingOrder("Chocolate Cream Cake",R.drawable.cake,"#000121",150000));
+        pendingOrders.add(new PendingOrder("Cheese Tart",R.drawable.cake,"#000124",150000));
+        pendingOrders.add(new PendingOrder("Vanila CupCake",R.drawable.cake,"#000125",150000));
+        pendingOrders.add(new PendingOrder("Fruit Cake",R.drawable.cake,"#000126",100000));
+        pendingOrders.add(new PendingOrder("StrawBerry Cake",R.drawable.cake,"#000127",150000));
         return pendingOrders;
 
     }

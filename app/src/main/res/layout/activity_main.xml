@@ -96,7 +96,7 @@
         <EditText
             android:id="@+id/edtSearchHome"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="24dp"
             android:layout_weight="0.4"
             android:ems="10"
             android:padding="8dp"
@@ -127,30 +127,36 @@
             android:orientation="vertical" >
 
 <!--            Automatic Slider Banner-->
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/imageSliderHome"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="132dp"
-                app:sliderAnimationDuration="300"
-                app:sliderAutoCycleDirection="right"
-                app:sliderIndicatorAnimationDuration="300"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="8dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="1dp"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="@color/primary"
-                app:sliderIndicatorUnselectedColor="@color/inactive"
-                app:sliderScrollTimeInSec="3"
-                app:sliderStartAutoCycle="true"/>
+                app:cardCornerRadius="20dp">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSliderHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:sliderAnimationDuration="300"
+                    app:sliderAutoCycleDirection="right"
+                    app:sliderIndicatorAnimationDuration="300"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="8dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="1dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="@color/primary"
+                    app:sliderIndicatorUnselectedColor="@color/inactive"
+                    app:sliderScrollTimeInSec="3"
+                    app:sliderStartAutoCycle="true"/>
+            </androidx.cardview.widget.CardView>
 
 
 <!--            Grid Categories-->
             <GridView
                 android:id="@+id/gvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="260dp"
                 android:numColumns="4"
                 android:layout_marginTop="@dimen/mTop"/>
 
@@ -202,7 +208,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/mTop"/>
 
-            <!--            Suggestion Recycler View-->
+            <!--            Suggestion Grid View-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -212,10 +218,13 @@
                 android:textStyle="bold"
                 android:textSize="18sp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvSuggestion"
+            <GridView
+                android:id="@+id/gvSuggestion"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="920dp"
+                android:numColumns="2"
+                android:verticalSpacing="20dp"
+                android:horizontalSpacing="20dp"
                 android:layout_marginBottom="@dimen/mBot"
                 android:layout_marginTop="@dimen/mTop"/>
         </LinearLayout>

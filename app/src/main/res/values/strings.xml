@@ -54,7 +54,7 @@
     <!--Product details-->
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
-    <string name="discription_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
+    <string name="description_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
 
     <!--Favorite-->
     <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
@@ -66,8 +66,9 @@
     <string name="Rating">4.5</string>
 
     <!--- OrderStatus-->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="description">Bánh xoài kem tươi với vị xoài tươi mát và kem tươi béo ngậy</string>
+    <string name="description2">Vị xoài và kem tươi</string>
     <string name="Price_150">150.000đ</string>
     <string name="mango_cream_cake">Mango Cream Cake</string>
     <string name="code">#000122</string>
@@ -77,11 +78,36 @@
     <string name="date">31/10/2021</string>
     <string name="shipment1">Giao hàng cho shipper</string>
     <string name="time1">9:00AM</string>
-    <string name="shipment2">Giao hàng cho shipper</string>
+    <string name="shipment2">Đang giao</string>
     <string name="time2">9:15AM</string>
     <string name="shipment3">Đơn hàng đang được vận chuyển</string>
     <string name="time3">9:30AM</string>
     <string name="order_code">Mã đơn hàng:</string>
+    <string name="x2">x2</string>
+
+
+
+    <!--- cart-->
+    <string name="fruitcake">Fruit Cake</string>
+    <string name="catagory">Phân loại: Size</string>
+    <string name="remain">Còn</string>
+    <string name="all">Tất cả</string>
+    <string name="total">Tổng số tiền:(</string>
+    <string name="sanpham"> sản phẩm</string>
+
+    <!--Feed-->
+    <string name="yams_store">Yams Store</string>
+    <string name="address">Hồ Chí Minh</string>
+    <string name="Like">minhxxxx và 922 người khác đã thích</string>
+    <string name="caption">Chủ nhật cùng những em bánh concept vàng tươi</string>
+    <string name="hashtag">#Yams #Mango #Lime #Cheese</string>
+    <string name="see_all_coments">Xem tất cả bình luận</string>
+    <string name="yams_feed">Yams Feed</string>
+    <string name="reorder">Mua lại</string>
+    <string name="on_shipping">Đã giao</string>
+    <string name="review">Đánh giá</string>
+    <string name="order">Đơn hàng</string>
+
 
     <!--    payment-->
     <string name="payment">Payment</string>

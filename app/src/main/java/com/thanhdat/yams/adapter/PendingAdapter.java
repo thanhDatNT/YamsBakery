@@ -1,5 +1,6 @@
 package com.thanhdat.yams.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,7 @@ public class PendingAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
@@ -63,13 +65,13 @@ public class PendingAdapter extends BaseAdapter {
         PendingOrder pendingOrder = pendingOrders.get(i);
         holder.imvThumb.setImageResource(pendingOrder.getOrderThumb());
         holder.txtName.setText(pendingOrder.getOrderName());
-        holder.txtPrice.setText(String.valueOf(pendingOrder.getOrderPrice()));
+        holder.txtPrice.setText(String.format("%g",pendingOrder.getOrderPrice())+"đ");
         holder.txtCode.setText(pendingOrder.getOrderCode());
 
         return view;
     }
 
-    private class ViewHolder{
+    private static class ViewHolder{
         ImageView imvThumb;
         TextView txtCode, txtName, txtPrice;
 
