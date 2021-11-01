@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_back.xml" value="0.25925925925925924" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_calendar.xml" value="0.25925925925925924" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_cart.xml" value="0.17835051546391753" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_favorite_active.xml" value="0.2703125" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_payment.xml" value="0.17835051546391753" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_time.xml" value="0.25925925925925924" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/drawable/ic_your_order.xml" value="0.17835051546391753" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_cart.xml" value="0.1482638888888889" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_choose_time.xml" value="0.12" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_diet.xml" value="0.2111111111111111" />
@@ -16,8 +19,9 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_order_status.xml" value="0.25416666666666665" />
-        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_payment.xml" value="0.25416666666666665" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_payment.xml" value="0.176" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_payment2.xml" value="0.23854166666666668" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_payment_method.xml" value="0.16944444444444445" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_product_details.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_profile.xml" value="0.2111111111111111" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
