@@ -55,6 +55,17 @@
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
     <string name="description_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
+    <string name="size_m">M - Đường kính 17cm</string>
+    <string name="size_l">L - Đường kính 20cm</string>
+    <string name="size_xl">XL - Đường kính 23cm</string>
+    <string name="topping1">Cream</string>
+    <string name="topping2">Chocolate</string>
+    <string name="topping3">Fruits</string>
+    <string name="description_text">Mô tả: </string>
+    <string name="size">Kích cỡ: </string>
+    <string name="toppings">Toppings: </string>
+    <string name="note">Notes: </string>
+
 
     <!--Favorite-->
     <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
@@ -85,7 +96,6 @@
     <string name="x2">x2</string>
 
 
-
     <!--- cart-->
     <string name="fruitcake">Fruit Cake</string>
     <string name="catagory">Phân loại: Size</string>
@@ -107,6 +117,8 @@
     <string name="review">Đánh giá</string>
     <string name="order">Đơn hàng</string>
 
+    <!--See review-->
+    <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
     <!--    payment-->
     <string name="payment">Payment</string>

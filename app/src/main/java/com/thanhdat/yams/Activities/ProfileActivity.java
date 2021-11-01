@@ -8,13 +8,20 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
+import com.thanhdat.yams.adapter.SliderBannerAdapter;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private LinearLayout homeTab,favoriteTab, feedTab, dietTab;
     private ImageButton imbToOrderStatus;
-
+    private SliderView sliderBannerProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         linkViews();
         navigateTabs();
         addEventImageButton();
+        addEventSliderBanner();
     }
 
     private void linkViews() {
@@ -32,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
         dietTab = findViewById(R.id.dietNav);
 
         imbToOrderStatus = findViewById(R.id.imbToOrderStatus);
+
+        sliderBannerProfile = findViewById(R.id.imageSliderProfile);
     }
 
     private void navigateTabs() {
@@ -63,12 +73,27 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private void addEventImageButton() {
+
+        //click to order status activity
         imbToOrderStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileActivity.this,OrderStatusActivity.class));
             }
         });
+
+    }
+
+    private void addEventSliderBanner() {
+        ArrayList<Banner> banners= new ArrayList<>();
+        banners.add(new Banner(R.drawable.img_banner1));
+        banners.add(new Banner(R.drawable.img_banner2));
+        banners.add(new Banner(R.drawable.img_banner3));
+        sliderBannerProfile.setSliderAdapter(new SliderBannerAdapter(banners, this));
+//        Config Slider Banner profile
+        sliderBannerProfile.setIndicatorAnimation(IndicatorAnimationType.SLIDE);
+        sliderBannerProfile.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderBannerProfile.startAutoCycle();
     }
 
 }
