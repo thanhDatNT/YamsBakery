@@ -57,14 +57,24 @@
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
     <string name="description_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
+    <string name="size_m">M - Đường kính 17cm</string>
+    <string name="size_l">L - Đường kính 20cm</string>
+    <string name="size_xl">XL - Đường kính 23cm</string>
+    <string name="topping1">Cream</string>
+    <string name="topping2">Chocolate</string>
+    <string name="topping3">Fruits</string>
+    <string name="description_text">Mô tả: </string>
+    <string name="size">Kích cỡ: </string>
+    <string name="toppings">Toppings: </string>
+    <string name="note">Notes: </string>
+
 
     <!--Favorite-->
     <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
     <string name="prices">18.000đ</string>
-    <string name="Oldprices">22.000đ</string>
+    <string name="Old_prices">22.000đ</string>
     <string name="quantity">25</string>
-    <string name="plus">+</string>
     <string name="Rating">4.5</string>
 
     <!--- OrderStatus-->
@@ -88,7 +98,6 @@
     <string name="x2">x2</string>
 
 
-
     <!--- cart-->
     <string name="fruitcake">Fruit Cake</string>
     <string name="catagory">Phân loại: Size</string>
@@ -108,6 +117,39 @@
     <string name="reorder">Mua lại</string>
     <string name="on_shipping">Đã giao</string>
     <string name="review">Đánh giá</string>
+    <string name="order">Đơn hàng</string>
 
+    <!--See review-->
+    <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
+
+    <!--    payment-->
+    <string name="payment">Payment</string>
+    <string name="delivery_address">Địa chỉ giao hàng</string>
+    <string name="address_TĐ">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
+    <string name="Time">Thời gian giao hàng</string>
+    <string name="time_delivery">27/10/2021 – 7:00AM</string>
+    <string name="Method_delivery">Phương thức nhận hàng</string>
+    <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
+    <string name="price_80">80.000</string>
+    <string name="đ">đ</string>
+    <string name="store">Đến lấy tại cửa hàng</string>
+    <string name="none">0</string>
+    <string name="mess">Tin nhắn:</string>
+    <string name="Note">Lưu ý cho người bán</string>
+    <string name="payment_method">Phương thức thanh toán</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="cod">Thanh toán khi nhận hàng</string>
+    <string name="sum">Tổng tiền hàng</string>
+    <string name="price_35000">35.000đ</string>
+    <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
+    <string name="coupons_delivery">giảm giá phí vận chuyển</string>
+    <string name="price_coupons">-20.000đ</string>
+    <string name="total_payment">Tổng Thanh toán</string>
+    <string name="price_50000">50.000đ</string>
+    <string name="yams_coupons">Yams coupons</string>
+    <string name="choose_coupons">Chọn hoặc nhập mã</string>
+    <string name="Order">Đặt hàng</string>
+    <string name="logan">Bánh ngon chuẩn gu</string>
+    <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
 
 </resources>

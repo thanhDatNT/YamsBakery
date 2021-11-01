@@ -44,6 +44,7 @@ public class PreviousOrderFragment extends Fragment {
         previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
         previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
         previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.cake, "Vị xoài và kem tươi", 150000));
 
         return previousOrders;
     }

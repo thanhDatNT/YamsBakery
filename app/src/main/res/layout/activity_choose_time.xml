@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ChooseTime"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/ic_back"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:padding="10dp"
+            android:text="@string/choose_time_delivery"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Giao ngay"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/primary"
+            android:checked="false" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Chọn ngày giao"
+            android:layout_weight="1"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            />
+        <ImageButton
+            android:id="@+id/btnDate"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_calendar"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Chọn thời gian giao"
+            android:layout_weight="1"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            />
+        <ImageButton
+            android:id="@+id/btnTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:src="@drawable/ic_time"/>
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="30dp"
+        android:id="@+id/btnConfirm"
+        android:layout_width="130dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_bg_gradient"
+        android:paddingHorizontal="5dp"
+        android:text="Xác nhận"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/buttonTextSize"
+        android:textStyle="bold" />
+</LinearLayout>

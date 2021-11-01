@@ -61,15 +61,14 @@ public class FavoriteAdapter extends BaseAdapter {
         }else {
             holder = (ViewHolder) view.getTag();
         }
-
         //Binding data
         Favorite f = favoriteList.get(i);
         holder.imvThumb.setImageResource(f.getProductThumb());
         holder.txtName.setText(f.getProductName());
-        holder.txtPrice.setText(String.valueOf(f.getProductPrice()));
-        holder.txtOldPrice.setText(String.valueOf(f.getProductOldPrice()));
+        holder.txtOldPrice.setText(String.format("%g",f.getProductPrice()) + "đ");
+        holder.txtPrice.setText(String.format("%g",f.getProductPrice()) + "đ");
         holder.txtRating.setText(String.valueOf(f.getProductRating()));
-        holder.txtQuantity.setText(String.valueOf(f.getProductQuantity()));
+        holder.txtQuantity.setText(String.valueOf(f.getProductQuantity()) + "+");
 
         return view;
 
