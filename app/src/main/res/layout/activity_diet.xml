@@ -32,14 +32,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="70dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/gender"
                 android:textColor="@color/primary"
                 android:textSize="20sp"
@@ -81,15 +81,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
                 android:text="@string/height"
+                android:layout_gravity="center_vertical"
+
                 android:textColor="@color/primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -110,7 +111,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/cm"
                 android:textColor="@color/inactive" />
         </LinearLayout>
@@ -118,21 +119,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/weight"
                 android:textColor="@color/primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
+
                 android:id="@+id/edtNhapWeight"
+                android:layout_gravity="center"
                 android:layout_width="140sp"
                 android:layout_height="45dp"
                 android:layout_marginStart="20dp"
@@ -140,13 +143,14 @@
                 android:gravity="center"
                 android:hint="@string/nhapweight"
                 android:inputType="numberSigned"
-                android:textColor="@color/inactive"
+                android:textColor="@color/primary"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/kg"
                 android:textColor="@color/inactive" />
         </LinearLayout>
@@ -158,22 +162,17 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_bg_gradient"
-            android:text="Tính BMI"
+            android:text="@string/CalculateBMI"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:textSize="18sp" />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <ListView
                 android:id="@+id/lvDietProduct"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp" />
-        </LinearLayout>
-
 
     </LinearLayout>
 
