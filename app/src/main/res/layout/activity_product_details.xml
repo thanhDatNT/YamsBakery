@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.ProductDetailsActivity"
-    android:layout_margin="10dp">
+    android:padding="10dp">
 
 
     <ScrollView
@@ -140,13 +140,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mô tả:"
+                android:text="@string/description_text"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtProductDetailDiscrip"
+                android:id="@+id/txtProductDetailDescrip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -158,7 +158,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kích cỡ"
+                android:text="@string/size"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -174,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="M - Đường kính 17cm"
+                    android:text="@string/size_m"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -206,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="L - Đường kính 20cm"
+                    android:text="@string/size_l"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -238,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="XL - Đường kính 23cm"
+                    android:text="@string/size_xl"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -263,7 +263,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Toppings"
+                android:text="@string/toppings"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -280,7 +280,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cream"
+                    android:text="@string/topping1"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -313,7 +313,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Chocolate"
+                    android:text="@string/topping2"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -346,7 +346,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Fruit"
+                    android:text="@string/topping3"
                     android:textColor="@color/textColor"
                     android:textSize="16sp" />
 
@@ -371,7 +371,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Notes"
+                android:text="@string/note"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
