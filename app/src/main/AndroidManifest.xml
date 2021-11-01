@@ -12,6 +12,11 @@
         <activity
             android:name=".Activities.Payment"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
     </activity>
         <activity
             android:name=".Activities.ChooseTime"
@@ -20,6 +25,8 @@
         <activity
             android:name=".Activities.OrderStatusActivity"
             android:exported="true">
+
+
         </activity>
 
         <activity
@@ -42,7 +49,10 @@
 
         <activity android:name=".Activities.MainActivity" />
         <activity
-            android:name=".Activities.FavoriteActivity"/>
+            android:name=".Activities.FavoriteActivity"
+            android:exported="true" >
+
+        </activity>
     </application>
 
 </manifest>

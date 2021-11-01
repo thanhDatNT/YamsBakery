@@ -59,10 +59,9 @@
     <!--Favorite-->
     <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
-    <string name="prices">18.000đ</string>
-    <string name="Old_prices">22.000đ</string>
+    <string name="prices">18.000</string>
+    <string name="Old_prices">22.000</string>
     <string name="quantity">25</string>
-    <string name="plus">+</string>
     <string name="Rating">4.5</string>
 
     <!--- OrderStatus-->
@@ -112,7 +111,7 @@
     <!--    payment-->
     <string name="payment">Payment</string>
     <string name="delivery_address">Địa chỉ giao hàng</string>
-    <string name="address">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
+    <string name="address_TĐ">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
     <string name="Time">Thời gian giao hàng</string>
     <string name="time_delivery">27/10/2021 – 7:00AM</string>
     <string name="Method_delivery">Phương thức nhận hàng</string>
@@ -135,7 +134,7 @@
     <string name="price_50000">50.000đ</string>
     <string name="yams_coupons">Yams coupons</string>
     <string name="choose_coupons">Chọn hoặc nhập mã</string>
-    <string name="order">Đặt hàng</string>
+    <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
     <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
 

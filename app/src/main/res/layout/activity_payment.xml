@@ -89,7 +89,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/address"
+                            android:text="@string/address_TĐ"
                             android:textColor="@color/inactive" />
                     </LinearLayout>
 
@@ -600,7 +600,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button_bg_gradient"
             android:paddingHorizontal="5dp"
-            android:text="@string/order"
+            android:text="@string/Order"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/buttonTextSize"
