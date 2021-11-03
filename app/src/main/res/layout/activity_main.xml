@@ -55,7 +55,7 @@
                     android:id="@+id/tvTotalCartItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="2"
                     android:gravity="center"
                     android:paddingHorizontal="5dp"
                     android:background="@drawable/textview_dot"
@@ -78,17 +78,15 @@
                     android:backgroundTint="@color/white"
                     app:srcCompat="@drawable/ic_notifications" />
 
-                <TextView
-                    android:id="@+id/tvNotificationDot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingHorizontal="8dp"
-                    android:background="@drawable/textview_dot"
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginTop="3dp"
-                    android:textColor="@color/textColor"/>
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/textview_dot"/>
+
             </FrameLayout>
 
         </LinearLayout>
@@ -136,7 +134,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +163,7 @@
                     app:sliderIndicatorGravity="center_horizontal|bottom"
                     app:sliderIndicatorMargin="6dp"
                     app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="1dp"
+                    app:sliderIndicatorPadding="2dp"
                     app:sliderIndicatorRadius="2dp"
                     app:sliderIndicatorSelectedColor="@color/primary"
                     app:sliderIndicatorUnselectedColor="@color/inactive"
@@ -254,137 +252,138 @@
 
 <!--    Bottom Navigation-->
 
-            <LinearLayout
+    <LinearLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!--    Home Navigation -->
+        <LinearLayout
+            android:id="@+id/homeNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="6dp"
-                android:orientation="horizontal"
-                android:elevation="4dp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:src="@drawable/ic_home_inactive"
+                app:tint="@color/primary" />
 
-<!--    Home Navigation -->
-                <LinearLayout
-                    android:id="@+id/homeNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="0.2"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/home"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_home_inactive"
-                        app:tint="@color/primary" />
+        <!--    Favorite Navigation -->
+        <LinearLayout
+            android:id="@+id/favoriteNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home"
-                        android:gravity="center"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_favorite_inactive" />
 
-                <!--    Favorite Navigation -->
-                <LinearLayout
-                    android:id="@+id/favoriteNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="0.2"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/favorite"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_favorite_inactive" />
+        <!--    Diet Navigation -->
+        <LinearLayout
+            android:id="@+id/dietNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/favorite"
-                        android:gravity="center"
-                        android:textColor="@color/inactive"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_diet_inactive" />
 
-                <!--    Diet Navigation -->
-                <LinearLayout
-                    android:id="@+id/dietNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="0.2"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/diet"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_diet_inactive" />
+        <!--    Feed Navigation -->
+        <LinearLayout
+            android:id="@+id/feedNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/diet"
-                        android:gravity="center"
-                        android:textColor="@color/inactive"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_feed_inactive" />
 
-                <!--    Feed Navigation -->
-                <LinearLayout
-                    android:id="@+id/feedNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="0.2"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/feed"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_feed_inactive" />
+        <!--   Profile Navigation -->
+        <LinearLayout
+            android:id="@+id/profileNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/feed"
-                        android:gravity="center"
-                        android:textColor="@color/inactive"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_account_inactive" />
 
-                <!--   Profile Navigation -->
-                <LinearLayout
-                    android:id="@+id/profileNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="0.2"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_account_inactive" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/profile"
-                        android:gravity="center"
-                        android:textColor="@color/inactive"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/profile"
+                android:textColor="@color/inactive"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
