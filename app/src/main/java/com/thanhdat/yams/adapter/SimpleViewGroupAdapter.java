@@ -8,30 +8,30 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Models.Category;
+import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
 
-public class CategoryAdapter extends BaseAdapter {
+public class SimpleViewGroupAdapter extends BaseAdapter {
     Context context;
     int layout;
-    ArrayList<Category> categories;
+    ArrayList<SimpleViewGroup> dataList;
 
-    public CategoryAdapter(Context context, int layout, ArrayList<Category> categories) {
+    public SimpleViewGroupAdapter(Context context, int layout, ArrayList<SimpleViewGroup> dataList) {
         this.context = context;
         this.layout = layout;
-        this.categories = categories;
+        this.dataList = dataList;
     }
 
     @Override
     public int getCount() {
-        return categories.size();
+        return dataList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return categories.get(position);
+        return dataList.get(position);
     }
 
     @Override
@@ -58,9 +58,9 @@ public class CategoryAdapter extends BaseAdapter {
         else{
             holder= (ViewHolder) convertView.getTag();
         }
-        Category category= categories.get(position);
-        holder.imvImage.setImageResource(category.getImage());
-        holder.tvName.setText(category.getCate());
+        SimpleViewGroup data= dataList.get(position);
+        holder.imvImage.setImageResource(data.getImage());
+        holder.tvName.setText(data.getCate());
         return convertView;
     }
 }

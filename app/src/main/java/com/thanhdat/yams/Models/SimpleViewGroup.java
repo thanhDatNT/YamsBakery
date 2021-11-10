@@ -1,10 +1,10 @@
 package com.thanhdat.yams.Models;
 
-public class Category {
+public class SimpleViewGroup {
     private int image;
     private String cate;
 
-    public Category(int image, String cate) {
+    public SimpleViewGroup(int image, String cate) {
         this.image = image;
         this.cate = cate;
     }
