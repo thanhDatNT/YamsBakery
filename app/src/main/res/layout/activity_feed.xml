@@ -88,10 +88,11 @@
         android:id="@+id/rcvFeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/mTop"
-        android:layout_marginBottom="@dimen/mBot"
+        android:layout_marginTop="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
     <!--    Bottom Navigation-->
 
     <LinearLayout

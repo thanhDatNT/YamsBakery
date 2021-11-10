@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/homeNav"
+    android:icon="@drawable/ic_home_inactive"
+    android:title="@string/home"/>
+    <item android:id="@+id/favoriteNav"
+        android:icon="@drawable/ic_favorite_inactive"
+        android:title="@string/favorite"/>
+    <item android:id="@+id/dietNav"
+        android:icon="@drawable/ic_diet_inactive"
+        android:title="@string/diet"/>
+    <item android:id="@+id/feedNav"
+        android:icon="@drawable/ic_feed_inactive"
+        android:title="@string/feed"/>
+    <item android:id="@+id/accountNav"
+        android:icon="@drawable/ic_account_inactive"
+        android:title="@string/account"/>
+</menu>
