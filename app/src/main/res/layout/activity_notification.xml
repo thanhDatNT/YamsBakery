@@ -5,43 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".Activities.NotificationActivity">
 
-    <LinearLayout
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarNotification"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_heading_gradient"
-        android:gravity="center"
-        android:elevation="4dp"
-        android:paddingHorizontal="@dimen/pad"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imvBackHome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            app:srcCompat="@drawable/ic_arrow_back" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/textHeader"
-            android:textStyle="bold"
-            android:text="@string/noti_profile" />
-
-        <ImageView
-            android:id="@+id/imvEmptyNotify"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            app:srcCompat="@drawable/ic_delete" />
-
-
-    </LinearLayout>
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="@string/noti_profile"
+        app:titleTextColor="@color/white"
+        app:contentInsetStart="0dp"
+        app:menu="@menu/notification_heading"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <ListView
         android:id="@+id/lvNotification"

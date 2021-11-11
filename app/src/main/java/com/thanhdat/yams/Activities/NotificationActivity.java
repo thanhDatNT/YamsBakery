@@ -1,15 +1,20 @@
 package com.thanhdat.yams.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
@@ -19,7 +24,7 @@ import java.util.ArrayList;
 
 public class NotificationActivity extends AppCompatActivity {
     private ListView lvNotify;
-    private ImageView imvBack;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +37,24 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        imvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(NotificationActivity.this, MainActivity.class));
-            }
-        });
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.notification_heading, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()== R.id.mnuDelete){
+            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void addDataListView() {
@@ -51,6 +68,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     private void initViews() {
         lvNotify=findViewById(R.id.lvNotification);
-        imvBack= findViewById(R.id.imvBackHome);
+        toolbar= findViewById(R.id.toolbarNotification);
     }
 }

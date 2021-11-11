@@ -49,7 +49,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="115dp"
-        app:cardCornerRadius="100dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@+id/txtRank"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtName"

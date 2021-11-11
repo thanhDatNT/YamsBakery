@@ -65,17 +65,15 @@
                     android:backgroundTint="@color/white"
                     app:srcCompat="@drawable/ic_notifications" />
 
-                <TextView
-                    android:id="@+id/tvNotificationDot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingHorizontal="8dp"
-                    android:background="@drawable/textview_dot"
+                <View
+                    android:id="@+id/viewNotificationDot"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginTop="3dp"
-                    android:textColor="@color/textColor"/>
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/textview_dot"/>
+
             </FrameLayout>
 
         </LinearLayout>
@@ -91,29 +89,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <!--    Bottom Navigation-->
 
     <LinearLayout
+        android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="6dp"
-        android:orientation="horizontal"
-        android:elevation="4dp"
         android:background="@color/white"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!--    Home Navigation -->
         <LinearLayout
             android:id="@+id/homeNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -124,11 +125,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home"
                 android:gravity="center"
+                android:text="@string/home"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!--    Favorite Navigation -->
@@ -136,9 +137,9 @@
             android:id="@+id/favoriteNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -148,11 +149,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/favorite"
                 android:gravity="center"
+                android:text="@string/favorite"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!--    Diet Navigation -->
@@ -160,9 +161,9 @@
             android:id="@+id/dietNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -172,11 +173,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/diet"
                 android:gravity="center"
+                android:text="@string/diet"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!--    Feed Navigation -->
@@ -184,9 +185,9 @@
             android:id="@+id/feedNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -197,11 +198,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/feed"
                 android:gravity="center"
+                android:text="@string/feed"
                 android:textColor="@color/primary"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!--   Profile Navigation -->
@@ -209,9 +210,9 @@
             android:id="@+id/profileNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.2"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -221,11 +222,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/profile"
                 android:gravity="center"
+                android:text="@string/profile"
                 android:textColor="@color/inactive"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

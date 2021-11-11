@@ -25,7 +25,7 @@ public class FeedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_activity);
+        setContentView(R.layout.activity_feed);
         linkViews();
         navigateTabs();
         configRecyclerView();
@@ -35,7 +35,7 @@ public class FeedActivity extends AppCompatActivity {
     private void linkViews() {
 
         rcvFeed = findViewById(R.id.rcvFeed);
-        homepageTab= findViewById(R.id.feedNav);
+        homepageTab= findViewById(R.id.homeNav);
         favoriteTab= findViewById(R.id.favoriteNav);
         dietTab= findViewById(R.id.dietNav);
         profileTab= findViewById(R.id.profileNav);
