@@ -18,7 +18,7 @@ public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return new HomeFragment();
-            case 1: return new PreviousOrderFragment();
+            case 1: ;
 //            case 2:
 //            case 3:
 //            case 4:

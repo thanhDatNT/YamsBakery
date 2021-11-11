@@ -138,9 +138,9 @@
             <!--            Automatic Slider Banner-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="@dimen/mTop"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="12dp">
 
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/imageSliderHome"
@@ -162,12 +162,19 @@
 
 
             <!--            Grid Categories-->
-            <GridView
-                android:id="@+id/gvCategory"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:layout_marginTop="@dimen/mTop"
-                android:numColumns="4" />
+                app:cardCornerRadius="12dp">
+
+                <GridView
+                    android:id="@+id/gvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="4" />
+
+            </androidx.cardview.widget.CardView>
 
             <!--            New Products Recycler View-->
             <TextView
