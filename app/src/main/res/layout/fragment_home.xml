@@ -1,133 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".Fragments.HomeFragment">
 
-    <!--Elevation is an attr to make view float (Z-Axis)-->
-    <!--    Start Header-->
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:translationZ="4dp"
+        android:backgroundTint="@color/white"
+        android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:fitsSystemWindows="true"
+        app:contentScrim="@color/white"
+        app:layout_scrollFlags="exitUntilCollapsed|scroll"
+        android:animateLayoutChanges="false">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+
+            <SearchView
+                android:id="@+id/svSearchHome"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="12dp"
+                android:queryBackground="@null"
+                android:queryHint="@string/search"
+                android:iconifiedByDefault="false"
+                android:searchIcon="@drawable/ic_search"
+                android:background="@drawable/edittext_background"/>
+        </LinearLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            android:background="@color/white"
+            android:paddingTop="20dp"
+            style="@style/ThemeOverlay.AppCompat.Light"
+            android:theme="?attr/actionBarTheme">
 
             <TextView
-                android:id="@+id/tvHello"
-                android:layout_width="0dp"
+                android:id="@+id/tvGreetHome"
+                android:layout_width="wrap_content"
+                android:maxWidth="288dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.8"
-                android:text="Chào buổi sáng, Quỳnh!"
+                android:text="Hello, Nguyen Thanh Dat"
                 android:textColor="@color/primary"
-                android:textSize="18sp" />
+                android:textSize="16sp"/>
 
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.1">
-
-                <ImageButton
-                    android:id="@+id/imbCartHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    app:srcCompat="@drawable/ic_cart" />
-
-                <TextView
-                    android:id="@+id/tvTotalCartItem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="2dp"
-                    android:background="@drawable/textview_dot"
-                    android:gravity="center"
-                    android:paddingHorizontal="5dp"
-                    android:text="2"
-                    android:textColor="@color/textColor" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.1">
-
-                <ImageButton
-                    android:id="@+id/imbNotificationHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    app:srcCompat="@drawable/ic_notifications" />
-
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/textview_dot" />
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.4"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/edtSearchHome"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.8"
-                android:background="@drawable/edittext_background"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="6dp"
-                android:ems="10"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:padding="8dp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonSearchHome"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="4dp"
-                android:layout_weight="0.2"
-                android:background="@drawable/button_bg_gradient"
-                android:text="Tìm"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-    </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,7 +87,7 @@
             <!--            Automatic Slider Banner-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="@dimen/mTop"
                 app:cardCornerRadius="12dp">
 
@@ -162,21 +111,15 @@
 
 
             <!--            Grid Categories-->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:layout_marginTop="@dimen/mTop"
-                app:cardCornerRadius="12dp">
-
                 <GridView
                     android:id="@+id/gvCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/mTop"
                     android:numColumns="4" />
 
-            </androidx.cardview.widget.CardView>
-
             <!--            New Products Recycler View-->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -245,4 +188,4 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
