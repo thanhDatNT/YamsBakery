@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
+import com.thanhdat.yams.Contants.Constant;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
@@ -18,8 +21,8 @@ import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
     private GridView gvSuggest, gvNearly;
-    private ImageView imvBackToHome;
-    private EditText edtSearch;
+    private Toolbar toolbar;
+    private SearchView searchView;
     ArrayList<SimpleViewGroup> dataList;
     SimpleViewGroupAdapter adapter;
 
@@ -28,20 +31,25 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         linkViews();
-        edtSearch.clearFocus();
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initData();
         addAdapter();
         addEvents();
     }
 
     private void addEvents() {
-        imvBackToHome.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, MainActivity.class));
+                finish();
             }
         });
+//        Get Intent from Main Activity
+        Intent intent= getIntent();
+        String query= intent.getStringExtra(Constant.STRING_INTENT);
+        searchView.setQueryHint(query);
     }
 
     private void addAdapter() {
@@ -61,7 +69,7 @@ public class SearchActivity extends AppCompatActivity {
     private void linkViews() {
         gvNearly= findViewById(R.id.gvNearlySearch);
         gvSuggest= findViewById(R.id.gvSuggestSearch);
-        imvBackToHome= findViewById(R.id.imvBackHome);
-        edtSearch= findViewById(R.id.edtSearch);
+        toolbar= findViewById(R.id.toolbarSearch);
+        searchView= findViewById(R.id.svSearchActivity);
     }
 }

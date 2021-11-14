@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateTabs() {
-
+//      Handle when click navigation buttons
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

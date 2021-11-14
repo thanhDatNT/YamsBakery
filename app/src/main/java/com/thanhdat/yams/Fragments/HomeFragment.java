@@ -1,15 +1,23 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +25,10 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -27,6 +38,7 @@ import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Activities.SearchActivity;
+import com.thanhdat.yams.Contants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.NewProduct;
@@ -37,17 +49,17 @@ import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
 import com.thanhdat.yams.adapter.SuggestionAdapter;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     private SliderView sliderBanner;
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
-    private ImageButton imbCart, imbNotify;
-    private EditText edtSearch;
-
+    private Toolbar toolbar;
+    private NestedScrollView scrollView;
+    private android.widget.SearchView searchView;
     private OnClickInterface onClickInterface;
-    private AppCompatButton btnSearch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,18 +71,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-        edtSearch= view.findViewById(R.id.edtSearchHome);
         sliderBanner= view.findViewById(R.id.imageSliderHome);
         rcvNewProduct= view.findViewById(R.id.rcvNewProducts);
         rcvPopular= view.findViewById(R.id.rcvPopular);
         rcvPromotion= view.findViewById(R.id.rcvPromotion);
         gvCategory= view.findViewById(R.id.gvCategory);
         gvSuggestion= view.findViewById(R.id.gvSuggestion);
-        imbNotify= view.findViewById(R.id.imbNotificationHome);
-        imbCart= view.findViewById(R.id.imbCartHome);
-        btnSearch= view.findViewById(R.id.buttonSearchHome);
+        toolbar= view.findViewById(R.id.toolbarHome);
+        scrollView= view.findViewById(R.id.scrollViewHome);
+        searchView= view.findViewById(R.id.svSearchHome);
 
-        edtSearch.clearFocus();
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        setHasOptionsMenu(true);
         configAndNavigate();
         addEventSliderBanner();
         addEventNewProduct();
@@ -144,10 +156,10 @@ public class HomeFragment extends Fragment {
 
     private void addEventSliderBanner() {
         ArrayList<Banner> banners= new ArrayList<>();
-        banners.add(new Banner(R.drawable.img_banner1));
-        banners.add(new Banner(R.drawable.img_banner2));
-        banners.add(new Banner(R.drawable.img_banner3));
-        banners.add(new Banner(R.drawable.img_banner4));
+        banners.add(new Banner(R.drawable.img_banner_1));
+        banners.add(new Banner(R.drawable.img_banner_2));
+        banners.add(new Banner(R.drawable.img_banner_3));
+        banners.add(new Banner(R.drawable.img_banner_4));
         sliderBanner.setSliderAdapter(new SliderBannerAdapter(banners, getContext()));
 //        Config Slider Banner
         sliderBanner.setIndicatorAnimation(IndicatorAnimationType.SLIDE);
@@ -155,35 +167,67 @@ public class HomeFragment extends Fragment {
         sliderBanner.startAutoCycle();
     }
 
-
     private void configAndNavigate() {
         onClickInterface= abc -> startActivity(new Intent(getContext(), ProductDetailsActivity.class));
-        imbNotify.setOnClickListener(v -> startActivity(new Intent(getContext(), NotificationActivity.class)));
-        edtSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        toolbar.inflateMenu(R.menu.homepage_heading);
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    btnSearch.setVisibility(View.VISIBLE);
-                    btnSearch.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            edtSearch.clearFocus();
-                            startActivity(new Intent(getContext(), SearchActivity.class));
-                        }
-                    });
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(scrollY > 15){
+                    toolbar.getMenu().getItem(0).setVisible(true);
+                    SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
+
+                    searchView2.setQueryHint("Wedding cake");
+                    searchEvent(searchView2);
                 }
                 else{
-                    edtSearch.clearFocus();
-                    btnSearch.setVisibility(View.GONE);
+                    toolbar.getMenu().getItem(0).setVisible(false);
                 }
             }
         });
-        if(getActivity().hasWindowFocus()){
-            edtSearch.clearFocus();
-            btnSearch.setVisibility(View.GONE);
-        }
-        imbCart.setOnClickListener(v -> startActivity(new Intent(getContext(), CartActivity.class)));
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.mnuNotificationHome){
+                    startActivity(new Intent(getContext(), NotificationActivity.class));
+                }
+                if(item.getItemId() == R.id.mnuCartHome){
+                    startActivity(new Intent(getContext(), CartActivity.class));
+                }
 
+                return false;
+            }
+        });
+        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                intent.putExtra(Constant.STRING_INTENT, query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
+    private void searchEvent(SearchView searchView){
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                intent.putExtra(Constant.STRING_INTENT, query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+    }
 }
