@@ -63,12 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, DietActivity.class));
             }
         });
-        feedTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, FeedActivity.class));
-            }
-        });
+
     }
 
 
