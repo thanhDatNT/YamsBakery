@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment{
     private GridView gvCategory, gvSuggestion;
     private Toolbar toolbar;
     private NestedScrollView scrollView;
-    private android.widget.SearchView searchView;
+    private SearchView searchView;
     private OnClickInterface onClickInterface;
 
     @Override
@@ -181,12 +181,13 @@ public class HomeFragment extends Fragment{
                 if(scrollY > 15){
                     toolbar.getMenu().getItem(0).setVisible(true);
                     SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
-
+                    searchView2.setIconifiedByDefault(false);
                     searchView2.setQueryHint("Wedding cake");
                     searchEvent(searchView2);
                 }
                 else{
                     toolbar.getMenu().getItem(0).setVisible(false);
+
                 }
             }
         });
@@ -203,20 +204,7 @@ public class HomeFragment extends Fragment{
                 return false;
             }
         });
-        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(getContext(), SearchActivity.class);
-                intent.putExtra(Constant.STRING_INTENT, query);
-                startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+        searchEvent(searchView);
     }
 
     private void searchEvent(SearchView searchView){
