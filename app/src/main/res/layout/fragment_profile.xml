@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".Fragments.ProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarLayoutProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ThemeOverlay.AppCompat"
         android:fitsSystemWindows="true">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent"
             android:fitsSystemWindows="true">
+
             <!-- cover profile-->
             <ImageView
                 android:id="@+id/imvCover"
@@ -26,24 +30,23 @@
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_pink_cake"
-                app:layout_collapseMode="parallax"/>
+                app:layout_collapseMode="pin"/>
+
             <LinearLayout
                 android:id="@+id/lnProfileInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="@dimen/pad"
                 android:layout_gravity="bottom"
                 android:orientation="horizontal"
-                app:layout_collapseMode="parallax">
+                app:layout_collapseMode="pin">
 
                 <!-- user name-->
                 <TextView
                     android:id="@+id/txtName"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="45dp"
-                    android:layout_weight="1"
+                    android:layout_weight="0.35"
                     android:background="@drawable/textview_profile_name_rank"
                     android:gravity="center"
                     android:padding="8dp"
@@ -53,12 +56,16 @@
                     android:textStyle="bold" />
 
                 <!-- user rank-->
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3" />
+
                 <TextView
                     android:id="@+id/txtRank"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="45dp"
+                    android:layout_weight="0.35"
                     android:background="@drawable/textview_profile_name_rank"
                     android:gravity="center"
                     android:padding="8dp"
@@ -71,8 +78,12 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarProfile"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                style="@style/ThemeOverlay.AppCompat.Light"
+                android:paddingTop="24dp"
+                android:paddingBottom="8dp"
+                android:theme="?attr/actionBarTheme"
                 app:layout_collapseMode="pin">
                 <TextView
                     android:id="@+id/txtTitleProfile"
@@ -87,17 +98,23 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatBtnAva"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imgProfile"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:elevation="2dp"
-        android:background="@drawable/img_photo1"
+        app:cardCornerRadius="40dp"
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/appbarLayoutProfile"
-        app:layout_anchorGravity="center|bottom"/>
+        app:layout_anchorGravity="center|bottom">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/img_photo1"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewProfile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -107,6 +124,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="36dp">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView3"
                 android:layout_width="match_parent"
@@ -170,7 +188,7 @@
                             android:src="@drawable/ic_your_order" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="10dp"
