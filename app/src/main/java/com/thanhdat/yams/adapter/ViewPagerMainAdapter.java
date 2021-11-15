@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.thanhdat.yams.Fragments.FeedFragment;
 import com.thanhdat.yams.Fragments.HomeFragment;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
+import com.thanhdat.yams.Fragments.ProfileFragment;
 
 public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
     public ViewPagerMainAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -22,7 +23,7 @@ public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
             case 1: ;
 //            case 2:
             case 3: return new FeedFragment();
-//            case 4:
+            case 4: return new ProfileFragment();
             default: return new HomeFragment();
         }
     }

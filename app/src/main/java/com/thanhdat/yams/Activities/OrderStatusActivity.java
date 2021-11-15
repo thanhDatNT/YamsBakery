@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
+import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.ViewPagerOrderStatusAdapter;
 
@@ -42,7 +43,7 @@ public class OrderStatusActivity extends AppCompatActivity {
         imbBackToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderStatusActivity.this,ProfileActivity.class));
+                startActivity(new Intent(OrderStatusActivity.this, ProfileFragment.class));
             }
         });
     }

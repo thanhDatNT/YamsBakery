@@ -3,13 +3,13 @@ package com.thanhdat.yams.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.FavoriteAdapter;
@@ -83,7 +83,7 @@ public class FavoriteActivity extends AppCompatActivity {
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FavoriteActivity.this, ProfileActivity.class));
+                startActivity(new Intent(FavoriteActivity.this, ProfileFragment.class));
             }
         });
     }
