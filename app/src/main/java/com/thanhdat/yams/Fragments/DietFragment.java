@@ -1,11 +1,15 @@
-package com.thanhdat.yams.Activities;
+package com.thanhdat.yams.Fragments;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -13,7 +17,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.DietAdapter;
@@ -21,47 +24,50 @@ import com.thanhdat.yams.adapter.DietAdapter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class DietActivity extends AppCompatActivity {
+
+public class DietFragment extends Fragment {
     RadioButton radNam,radNu;
     Button btnTinhBMI;
     EditText edtNhapWeight,edtNhapHeight;
     ListView lvDietProduct;
-    ArrayList<Diet>diets;
+    ArrayList<Diet> diets;
     DietAdapter adapter;
     LinearLayout favoriteTab, feedTab, profileTab,homeTab;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diet);
-        linkView();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_diet, container, false);
+        radNam=view.findViewById(R.id.radNam);
+        radNu=view.findViewById(R.id.radNu);
+        btnTinhBMI=view.findViewById(R.id.btnTinhBMI);
+
+        edtNhapHeight=view.findViewById(R.id.edtNhapHeigt);
+        edtNhapWeight=view.findViewById(R.id.edtNhapWeight);
+
+        lvDietProduct=view.findViewById(R.id.lvDietProduct);
+        homeTab=view.findViewById(R.id.homeNav);
+        favoriteTab= view.findViewById(R.id.favoriteNav);
+        feedTab= view.findViewById(R.id.feedNav);
+        profileTab=view.findViewById(R.id.profileNav);
+
+
         addEvent();
-        navigateTabs();
 
+        return view;
     }
 
-
-    private void linkView() {
-        radNam=findViewById(R.id.radNam);
-        radNu=findViewById(R.id.radNu);
-        btnTinhBMI=findViewById(R.id.btnTinhBMI);
-
-        edtNhapHeight=findViewById(R.id.edtNhapHeigt);
-        edtNhapWeight=findViewById(R.id.edtNhapWeight);
-
-        lvDietProduct=findViewById(R.id.lvDietProduct);
-        homeTab=findViewById(R.id.homeNav);
-        favoriteTab= findViewById(R.id.favoriteNav);
-        feedTab= findViewById(R.id.feedNav);
-        profileTab= findViewById(R.id.profileNav);
-
-
-    }
     private void addEvent() {
         btnTinhBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Dialog dialog= new Dialog(DietActivity.this);
+                Dialog dialog= new Dialog(getContext());
                 dialog.setContentView(R.layout.showresult);
                 double chieucao = Double.parseDouble(edtNhapHeight.getText().toString());
                 double cannang=Double.parseDouble(edtNhapWeight.getText().toString());
@@ -95,7 +101,8 @@ public class DietActivity extends AppCompatActivity {
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        adapter=new DietAdapter(DietActivity.this,R.layout.items_diet_product,diets);
+                        adapter=new DietAdapter((Activity) getContext(),R.layout.items_diet_product,diets);
+
                         lvDietProduct.setAdapter(adapter);
                         dialog.dismiss();
                     }
@@ -116,43 +123,5 @@ public class DietActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void navigateTabs() {
-
-        homeTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DietActivity.this, MainActivity.class));
-            }
-        });
-        favoriteTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DietActivity.this, FavoriteActivity.class));
-            }
-        });
-
-
-
-//        feedTab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DietActivity.this, FeedActivity.class));
-//            }
-//        });
-
-        profileTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DietActivity.this, ProfileFragment.class));
-            }
-        });
-    }
-
-
-
-
-
-
 
 }

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends BaseAdapter {
@@ -25,6 +27,14 @@ public class CartAdapter extends BaseAdapter {
         this.cartList = cartList;
     }
 
+
+    public void AddListItemAdapter(List<Cart> itemPlus)
+    {
+        //add list  to current array list of data
+        cartList.addAll(itemPlus);
+        //notify UI
+        this.notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return cartList.size();
@@ -63,7 +73,8 @@ public class CartAdapter extends BaseAdapter {
         holder.imvThumb.setImageResource(cart.getCartThumb());
         holder.txtName.setText(cart.getCartName());
         holder.txtSize.setText(cart.getCartSize());
-        holder.txtPrice.setText(String.valueOf(cart.getCartPrice()));
+        DecimalFormat decimalFormat = new DecimalFormat("######");
+        holder.txtPrice.setText(decimalFormat.format(cart.getCartPrice())+"đ");
         holder.txtNumber.setText(String.valueOf(cart.getCartNumber()));
         holder.txtRemain.setText(String.valueOf(cart.getCartRemain()));
 
