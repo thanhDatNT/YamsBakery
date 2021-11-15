@@ -1,30 +1,25 @@
 package com.thanhdat.yams.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class PostAdapter extends BaseAdapter {
 
     Context context;
     int post_item;
     ArrayList<Post> posts;
+
 
     public PostAdapter(Context context, int post_item, ArrayList<Post> posts) {
         this.context = context;

@@ -73,6 +73,13 @@ public class FavoriteActivity extends AppCompatActivity {
         });
 
 
+//        feedTab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(FavoriteActivity.this, FeedActivity.class));
+//            }
+//        });
+
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

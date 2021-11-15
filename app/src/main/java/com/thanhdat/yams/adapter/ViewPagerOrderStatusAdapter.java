@@ -10,8 +10,8 @@ import com.thanhdat.yams.Fragments.PendingOrderFragment;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.Fragments.ShippingOrderFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+public class ViewPagerOrderStatusAdapter extends FragmentStatePagerAdapter {
+    public ViewPagerOrderStatusAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 
