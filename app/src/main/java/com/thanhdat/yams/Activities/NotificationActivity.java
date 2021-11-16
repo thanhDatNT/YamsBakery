@@ -57,6 +57,7 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()== R.id.mnuDelete){
+
             Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
 
         }

@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Models;
 
 public class Cart {
+    public int CartID;
     private int CartThumb;
     private String CartName;
     private String CartSize;
@@ -8,13 +9,22 @@ public class Cart {
     private int CartNumber;
     private int CartRemain;
 
-    public Cart(int cartThumb, String cartName, String cartSize, double cartPrice, int cartNumber, int cartRemain) {
+    public Cart(int cartID, int cartThumb, String cartName, String cartSize, double cartPrice, int cartNumber, int cartRemain) {
+        CartID = cartID;
         CartThumb = cartThumb;
         CartName = cartName;
         CartSize = cartSize;
         CartPrice = cartPrice;
         CartNumber = cartNumber;
         CartRemain = cartRemain;
+    }
+
+    public int getCartID() {
+        return CartID;
+    }
+
+    public void setCartID(int cartID) {
+        CartID = cartID;
     }
 
     public int getCartThumb() {
