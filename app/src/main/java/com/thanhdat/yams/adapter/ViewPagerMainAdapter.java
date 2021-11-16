@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.thanhdat.yams.Fragments.DietFragment;
 import com.thanhdat.yams.Fragments.HomeFragment;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 
@@ -19,7 +20,7 @@ public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
         switch (position){
             case 0: return new HomeFragment();
             case 1: return new PreviousOrderFragment();
-//            case 2:
+            case 2: return new DietFragment();
 //            case 3:
 //            case 4:
             default: return new HomeFragment();
