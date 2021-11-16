@@ -65,12 +65,12 @@ public class FavoriteActivity extends AppCompatActivity {
                 startActivity(new Intent(FavoriteActivity.this, MainActivity.class));
             }
         });
-        dietTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FavoriteActivity.this, DietActivity.class));
-            }
-        });
+//        dietTab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(FavoriteActivity.this, DietActivity.class));
+//            }
+//        });
 
 
 //        feedTab.setOnClickListener(new View.OnClickListener() {
