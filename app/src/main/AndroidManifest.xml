@@ -46,9 +46,6 @@
 
         </activity>
 
-        <activity
-            android:name=".Fragments.ProfileFragment"
-            android:exported="true" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
 
