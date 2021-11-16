@@ -3,16 +3,19 @@ package com.thanhdat.yams.adapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.thanhdat.yams.Fragments.FeedFragment;
 import com.thanhdat.yams.Fragments.HomeFragment;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
-import com.thanhdat.yams.Fragments.ProfileFragment;
 
-public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
-    public ViewPagerMainAdapter(@NonNull FragmentManager fm, int behavior) {
+public class ViewPagerFeedAdapter extends FragmentPagerAdapter {
+    public ViewPagerFeedAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
+    }
+
+    public ViewPagerFeedAdapter(@NonNull FragmentManager fm) {
+        super(fm);
     }
 
     @NonNull
@@ -23,7 +26,7 @@ public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {
             case 1: ;
 //            case 2:
             case 3: return new FeedFragment();
-            case 4: return new ProfileFragment();
+//            case 4:
             default: return new HomeFragment();
         }
     }

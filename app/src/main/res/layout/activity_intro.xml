@@ -16,12 +16,13 @@
         app:srcCompat="@drawable/img_logo_white" />
 
     <TextView
+        android:id="@+id/tvSlogan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/slogan"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="32sp"
         android:layout_marginVertical="16dp"
         android:textStyle="bold"/>
 
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/signIn"
+            android:textAllCaps="false"
             android:textSize="@dimen/buttonTextSize"
             android:textColor="@color/primary"
             android:background="@drawable/button_white_bg"
@@ -55,6 +57,7 @@
             android:layout_weight="0.5"
             android:text="@string/signUp"
             android:textSize="@dimen/buttonTextSize"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:background="@drawable/button_white_border"
             android:layout_marginHorizontal="4dp"

@@ -10,8 +10,9 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
+import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.ViewPagerAdapter;
+import com.thanhdat.yams.adapter.ViewPagerOrderStatusAdapter;
 
 public class OrderStatusActivity extends AppCompatActivity {
     private TabLayout yamsTabLayout;
@@ -32,8 +33,8 @@ public class OrderStatusActivity extends AppCompatActivity {
         yamsViewPager = findViewById(R.id.view_pager);
         imbBackToProfile = findViewById(R.id.imbBackToProfile);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        yamsViewPager.setAdapter(viewPagerAdapter);
+        ViewPagerOrderStatusAdapter viewPagerOrderStatusAdapter = new ViewPagerOrderStatusAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        yamsViewPager.setAdapter(viewPagerOrderStatusAdapter);
         yamsTabLayout.setupWithViewPager(yamsViewPager);
 
     }
@@ -42,7 +43,7 @@ public class OrderStatusActivity extends AppCompatActivity {
         imbBackToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderStatusActivity.this,ProfileActivity.class));
+                startActivity(new Intent(OrderStatusActivity.this, ProfileFragment.class));
             }
         });
     }

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.DietAdapter;
@@ -131,16 +132,19 @@ public class DietActivity extends AppCompatActivity {
             }
         });
 
-        feedTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DietActivity.this, FeedActivity.class));
-            }
-        });
+
+
+//        feedTab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(DietActivity.this, FeedActivity.class));
+//            }
+//        });
+
         profileTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DietActivity.this, ProfileActivity.class));
+                startActivity(new Intent(DietActivity.this, ProfileFragment.class));
             }
         });
     }
