@@ -63,12 +63,14 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, DietActivity.class));
             }
         });
-        feedTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, FeedActivity.class));
-            }
-        });
+
+//        feedTab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(ProfileActivity.this, FeedActivity.class));
+//            }
+//        });
+
     }
 
 
@@ -86,9 +88,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void addEventSliderBanner() {
         ArrayList<Banner> banners= new ArrayList<>();
-        banners.add(new Banner(R.drawable.img_banner1));
-        banners.add(new Banner(R.drawable.img_banner2));
-        banners.add(new Banner(R.drawable.img_banner3));
+        banners.add(new Banner(R.drawable.img_banner_1));
+        banners.add(new Banner(R.drawable.img_banner_2));
+        banners.add(new Banner(R.drawable.img_banner_3));
         sliderBannerProfile.setSliderAdapter(new SliderBannerAdapter(banners, this));
 //        Config Slider Banner profile
         sliderBannerProfile.setIndicatorAnimation(IndicatorAnimationType.SLIDE);

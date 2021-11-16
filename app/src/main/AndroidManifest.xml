@@ -38,9 +38,7 @@
         <activity
             android:name=".Activities.ProductDetailsActivity"
             android:exported="true" />
-        <activity
-            android:name=".Activities.FeedActivity"
-            android:exported="true" />
+
 
         <activity
             android:name=".Activities.PaymentMethod"
@@ -49,14 +47,24 @@
         </activity>
 
 
+
         <activity
-            android:name=".Activities.ProfileActivity"
-            android:exported="true" />
+            android:name=".Activities.ProfileActivity">
+
+        </activity>
+
+
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
 
+
         <activity android:name=".Activities.IntroActivity"/>
         <activity android:name=".Activities.MainActivity">
+
+
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,10 +72,13 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Activities.FavoriteActivity"
 
-            android:exported="true" />
+        <activity
+            android:name=".Activities.FavoriteActivity">
+            
+        </activity>
+
+
 
     </application>
 

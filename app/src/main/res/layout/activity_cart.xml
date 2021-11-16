@@ -38,21 +38,21 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <ListView
+
+                android:id="@+id/lvCartProduct"
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
-
-                <ListView
-
-                    android:id="@+id/lvCartProduct"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:divider="@null"
-                    android:dividerHeight="0dp"
-                    android:scrollingCache="true"
-                    android:smoothScrollbar="true" />
-            </LinearLayout>
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollingCache="true"
+                android:smoothScrollbar="true" />
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/linearLayout11"
             android:layout_width="match_parent"

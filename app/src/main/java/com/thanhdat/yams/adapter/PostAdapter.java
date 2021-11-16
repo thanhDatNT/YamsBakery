@@ -1,83 +1,75 @@
 package com.thanhdat.yams.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
+public class PostAdapter extends BaseAdapter {
 
-    Context fContext;
-    ArrayList<Post> fPost;
+    Context context;
+    int post_item;
+    ArrayList<Post> posts;
 
-    public PostAdapter(Context fContext, List<Post> fPost) {
-        this.fContext = fContext;
-        this.fPost = (ArrayList<Post>) fPost;
-    }
 
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View customView = inflater.inflate(R.layout.post_item,parent,false);
-
-        return new ViewHolder(customView);
+    public PostAdapter(Context context, int post_item, ArrayList<Post> posts) {
+        this.context = context;
+        this.post_item = post_item;
+        this.posts = posts;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imvLogo.setImageResource(fPost.get(position).getPostLogo());
-        holder.imvThumb.setImageResource(fPost.get(position).getPostThumb());
-        holder.imvMore.setImageResource(fPost.get(position).getPostMoreIcon());
-        holder.imvLike.setImageResource(fPost.get(position).getPostLikeIcon());
-        holder.imvComment.setImageResource(fPost.get(position).getPostCommentIcon());
-        holder.txtUser.setText(fPost.get(position).getPostUser());
-        holder.txtAddress.setText(fPost.get(position).getPostAddress());
-        holder.txtLike.setText(fPost.get(position).getPostLike());
-        holder.txtPublisher.setText(fPost.get(position).getPostPublisher());
-        holder.txtDescription.setText(fPost.get(position).getPostDescription());
-        holder.txtSeeComment.setText(fPost.get(position).getPostSeeComment());
-
+    public int getCount() {
+        return posts.size();
     }
 
     @Override
-    public int getItemCount() {
-        return fPost.size();
+    public Object getItem(int i) {
+        return posts.get(i);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-        public ImageView imvLogo, imvThumb, imvMore, imvLike, imvComment;
-        public TextView txtUser, txtAddress, txtLike, txtPublisher, txtDescription, txtHashtag, txtSeeComment;
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imvLogo = itemView.findViewById(R.id.imvLogo);
-            imvThumb = itemView.findViewById(R.id.imvThumb);
-            imvMore = itemView.findViewById(R.id.imvMore);
-            imvLike = itemView.findViewById(R.id.imvLike);
-            imvComment = itemView.findViewById(R.id.imvComment);
-            txtUser = itemView.findViewById(R.id.txtUser);
-            txtAddress = itemView.findViewById(R.id.txtAddress);
-            txtLike = itemView.findViewById(R.id.txtLike);
-            txtPublisher = itemView.findViewById(R.id.txtPublisher);
-            txtDescription = itemView.findViewById(R.id.txtDescription);
+        ViewHolder holder = null;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(view==null){
+            holder = new ViewHolder();
+            view = inflater.inflate(post_item,null);
+            holder.imvThumb = view.findViewById(R.id.imvPostThumb);
+            holder.txtLike = view.findViewById(R.id.txtLike);
+            holder.txtDescription = view.findViewById(R.id.txtDescription);
+            holder.txtHashtag = view.findViewById(R.id.txtHashtag);
+            view.setTag(holder);
 
-            txtSeeComment = itemView.findViewById(R.id.txtSeeComment);
+        }else{
+            holder = (ViewHolder) view.getTag();
         }
+
+        //Binding data
+        Post p = posts.get(i);
+        holder.imvThumb.setImageResource(p.getPostThumb());
+        holder.txtLike.setText(p.getPostLike());
+        holder.txtDescription.setText(p.getPostDescription());
+        holder.txtHashtag.setText(p.getPostHashtag());
+        return view;
+    }
+    private static class ViewHolder{
+        ImageView imvThumb;
+        TextView txtLike, txtDescription, txtHashtag;
     }
 }
