@@ -44,6 +44,7 @@ public class FavoriteActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
         favorites = new ArrayList<Favorite>();
         favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 30000, 5, 15));
         favorites.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 15000, 20000, 4.5, 25));
@@ -71,8 +72,8 @@ public class FavoriteActivity extends AppCompatActivity {
 //                startActivity(new Intent(FavoriteActivity.this, DietActivity.class));
 //            }
 //        });
-
-
+//
+//
 //        feedTab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

@@ -14,6 +14,7 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_choose_time.xml" value="0.12" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_diet.xml" value="0.2111111111111111" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_favorite.xml" value="0.152" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_feed.xml" value="0.15902777777777777" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_feed_activity.xml" value="0.13229166666666667" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_intro.xml" value="0.1" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.1" />
@@ -28,10 +29,13 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/activity_see_review.xml" value="0.16944444444444445" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/favorite_item.xml" value="0.176" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_diet.xml" value="0.1" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.16" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.12222222222222222" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.13576388888888888" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_otpcode.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_pending_order.xml" value="0.1" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.1" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.12222222222222222" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_reset_password.xml" value="0.264" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.16944444444444445" />
