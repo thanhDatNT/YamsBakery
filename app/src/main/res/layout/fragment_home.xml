@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"/>
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/svSearchHome"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -43,7 +43,8 @@
                 android:queryBackground="@null"
                 android:queryHint="@string/search"
                 android:iconifiedByDefault="false"
-                android:searchIcon="@drawable/ic_search"
+                app:searchHintIcon="@drawable/ic_search"
+                app:searchIcon="@drawable/ic_search"
                 android:background="@drawable/edittext_background"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar

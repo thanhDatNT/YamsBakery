@@ -51,7 +51,6 @@
         </activity>
 
 
-<<<<<<< HEAD
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
 
@@ -59,36 +58,13 @@
             android:exported="true"/>
         <activity android:name=".Activities.IntroActivity"
             android:exported="true">
-=======
-
-        <activity
-            android:name=".Activities.ProfileActivity">
-
-        </activity>
-
-
-        <activity android:name=".Activities.RegisterActivity" />
-        <activity android:name=".Activities.LoginActivity" />
-
-
-        <activity android:name=".Activities.IntroActivity"/>
-        <activity android:name=".Activities.MainActivity">
-
-
-
-
-
->>>>>>> b89a9e140b5d5ffbfb72ca1cf2690ce449b1b7ce
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b89a9e140b5d5ffbfb72ca1cf2690ce449b1b7ce
         <activity
             android:name=".Activities.FavoriteActivity">
             
