@@ -167,9 +167,14 @@ public class HomeFragment extends Fragment{
         sliderBanner.startAutoCycle();
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.homepage_heading, menu);
+    }
+
     private void configAndNavigate() {
         onClickInterface= abc -> startActivity(new Intent(getContext(), ProductDetailsActivity.class));
-        toolbar.inflateMenu(R.menu.homepage_heading);
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
