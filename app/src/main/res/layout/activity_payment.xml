@@ -99,7 +99,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="50dp"
                         android:background="?android:selectableItemBackground"
-                        android:src="@drawable/ic_baseline_edit"
+                        android:src="@drawable/ic_edit"
                         app:tint="@color/primary" />
                 </LinearLayout>
 
