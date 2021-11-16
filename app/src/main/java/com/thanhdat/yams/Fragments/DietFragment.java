@@ -102,7 +102,7 @@ public class DietFragment extends Fragment {
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         adapter=new DietAdapter((Activity) getContext(),R.layout.items_diet_product,diets);
-                        //rcvPromotion.setAdapter(new NewProductAdapter(getContext(),R.layout.viewholder_new_product, newProducts, onClickInterface));
+
                         lvDietProduct.setAdapter(adapter);
                         dialog.dismiss();
                     }
