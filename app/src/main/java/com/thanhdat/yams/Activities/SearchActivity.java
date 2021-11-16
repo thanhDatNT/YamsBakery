@@ -6,13 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.SearchView;
 
-import com.thanhdat.yams.Contants.Constant;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
