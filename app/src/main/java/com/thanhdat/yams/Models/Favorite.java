@@ -4,15 +4,13 @@ public class Favorite {
     private int productThumb;
     private String productName;
     private double productPrice;
-    private double productOldPrice;
     private double productRating;
     private double productQuantity;
 
-    public Favorite(int productThumb, String productName, double productPrice, double productOldPrice, double productRating, double productQuantity) {
+    public Favorite(int productThumb, String productName, double productPrice, double productRating, double productQuantity) {
         this.productThumb = productThumb;
         this.productName = productName;
         this.productPrice = productPrice;
-        this.productOldPrice = productOldPrice;
         this.productRating = productRating;
         this.productQuantity = productQuantity;
     }
@@ -39,14 +37,6 @@ public class Favorite {
 
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
-    }
-
-    public double getProductOldPrice() {
-        return productOldPrice;
-    }
-
-    public void setProductOldPrice(double productOldPrice) {
-        this.productOldPrice = productOldPrice;
     }
 
     public double getProductRating() {

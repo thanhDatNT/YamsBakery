@@ -10,19 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Models.Favorite;
+import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteAdapter extends BaseAdapter {
 
     Activity context;
-    int item_listview;
+    int favorite_item;
     List<Favorite> favoriteList;
 
     public FavoriteAdapter(Activity context, int item_listview, List<Favorite> favoriteList) {
         this.context = context;
-        this.item_listview = item_listview;
+        this.favorite_item = item_listview;
         this.favoriteList = favoriteList;
     }
 
@@ -48,11 +51,10 @@ public class FavoriteAdapter extends BaseAdapter {
             //link item view
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(item_listview, null);
+            view = inflater.inflate(favorite_item, null);
             holder.imvThumb = view.findViewById(R.id.imvThumb);
             holder.txtName = view.findViewById(R.id.txtName);
             holder.txtPrice = view.findViewById(R.id.txtPrice);
-            holder.txtOldPrice = view.findViewById(R.id.txtOldPrice);
             holder.txtDescription = view.findViewById(R.id.txtDescription);
             holder.txtRating = view.findViewById(R.id.txtRating);
             holder.txtQuantity = view.findViewById(R.id.txtQuantity);
@@ -65,10 +67,10 @@ public class FavoriteAdapter extends BaseAdapter {
         Favorite f = favoriteList.get(i);
         holder.imvThumb.setImageResource(f.getProductThumb());
         holder.txtName.setText(f.getProductName());
-        holder.txtOldPrice.setText(String.format("%g",f.getProductPrice()) + "đ");
-        holder.txtPrice.setText(String.format("%g",f.getProductPrice()) + "đ");
-        holder.txtRating.setText(String.valueOf(f.getProductRating()));
-        holder.txtQuantity.setText(String.valueOf(f.getProductQuantity()) + "+");
+        DecimalFormat decimalFormat = new DecimalFormat("######");
+        holder.txtPrice.setText(decimalFormat.format(f.getProductPrice())+" đ");
+        holder.txtRating.setText(decimalFormat.format(f.getProductRating()));
+        holder.txtQuantity.setText(decimalFormat.format(f.getProductQuantity()) + "+");
 
         return view;
 
@@ -76,7 +78,7 @@ public class FavoriteAdapter extends BaseAdapter {
 
     public static class ViewHolder{
         ImageView imvThumb;
-        TextView txtName, txtPrice, txtOldPrice, txtDescription,txtRating, txtQuantity;
+        TextView txtName, txtPrice, txtDescription,txtRating, txtQuantity;
 
     }
 }
