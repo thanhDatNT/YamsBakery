@@ -1,5 +1,6 @@
 package com.thanhdat.yams.Fragments;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,10 +20,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.thanhdat.yams.Activities.IntroActivity;
+import com.thanhdat.yams.Activities.LoginActivity;
+import com.thanhdat.yams.Activities.OrderStatusActivity;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
@@ -35,6 +42,8 @@ public class ProfileFragment extends Fragment {
     private SliderView sliderBannerProfile;
     private NestedScrollView scrollView;
     private  CardView imgProfile;
+    private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnNoti, lnLogout;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +62,16 @@ public class ProfileFragment extends Fragment {
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
 
+        lnOrder = view.findViewById(R.id.lnOrderProfile);
+        lnVoucher = view.findViewById(R.id.lnVoucherProfile);
+        lnMessage = view.findViewById(R.id.lnMessageProfile);
+        lnLanguage = view.findViewById(R.id.lnLanguageProfile);
+        lnNoti = view.findViewById(R.id.lnNotiProfile);
+        lnLogout = view.findViewById(R.id.lnLogoutProfile);
+
         addEventSliderBanner();
         addEventCollapsing();
+        addEventFunction();
 
         return view;
     }
@@ -91,5 +108,54 @@ public class ProfileFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.profile_heading, menu);
+    }
+
+    private void addEventFunction() {
+        //To order status
+        lnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), OrderStatusActivity.class));
+            }
+        });
+
+        //Change language
+        lnLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create new fragment and transaction
+                
+            }
+        });
+
+        //Logout function
+        lnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.dialog_logout);
+
+
+                Button btnConfirm = dialog.findViewById(R.id.btnConfirmLogout);
+                Button btnCancel = dialog.findViewById(R.id.btnCancelLogout);
+
+                //Confirm logout
+                btnConfirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getContext(), LoginActivity.class));
+                    }
+                });
+
+                //Cancel logout
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 }

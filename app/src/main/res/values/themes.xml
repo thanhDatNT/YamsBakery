@@ -14,5 +14,11 @@
         <!-- Customize your theme here. -->
 
     </style>
+    <style name="RatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="colorControlNormal">@color/inactive</item>
+        <item name="colorControlActivated">@color/startRating</item>
+        <item name="android:minHeight">15dp</item>
+        <item name="android:maxHeight">15dp</item>
+    </style>
 
 </resources>
