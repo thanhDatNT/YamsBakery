@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Activities.MainActivity"
+    >
 
 
     <RelativeLayout
@@ -80,18 +82,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvPostThumb">
 
-        <ImageView
-            android:id="@+id/imvLike"
+        <CheckBox
+            android:id="@+id/btnLike"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_favorite_border" />
+            android:background="@drawable/ic_like"
+            android:stateListAnimator="@animator/anim_like"
+            android:button="@null"
+            android:checked="false"
+
+            />
 
         <ImageView
             android:id="@+id/imvComment"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/imvLike"
+            android:layout_toEndOf="@+id/btnLike"
             android:src="@drawable/img_comment" />
 
     </RelativeLayout>
