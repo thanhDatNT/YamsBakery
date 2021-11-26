@@ -19,13 +19,13 @@
         <activity android:name=".Activities.MapActivity" />
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
-
         <activity
             android:name=".Activities.FunctionProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.CategoryActivity"
             android:exported="false" />
+
 
         <activity
             android:name=".Activities.SettingChangePWActivity"
@@ -68,15 +68,15 @@
 
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.IntroActivity" />
-        <activity android:name=".Activities.MainActivity" android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activities.FavoriteActivity" />
+    <activity android:name=".Activities.MainActivity" android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-    </application>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
+
+</application>
 </manifest>
