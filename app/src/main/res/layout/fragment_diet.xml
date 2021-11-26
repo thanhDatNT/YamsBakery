@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/white"
+        android:elevation="4dp"
         android:gravity="center"
         android:paddingTop="20dp"
         android:text="@string/name"
         android:textColor="@color/primary"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
     <androidx.core.widget.NestedScrollView
 

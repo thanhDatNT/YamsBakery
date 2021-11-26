@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,6 +30,8 @@ import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Activities.FunctionProfileActivity;
 import com.thanhdat.yams.Activities.IntroActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
+import com.thanhdat.yams.Activities.MainActivity;
+import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Activities.SettingAccount;
@@ -71,13 +74,6 @@ public class ProfileFragment extends Fragment {
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
 
-
-
-        addEventSliderBanner();
-        addEventCollapsing();
-        //addEventEditProfile();
-
-
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
 
@@ -88,13 +84,17 @@ public class ProfileFragment extends Fragment {
         lnNoti = view.findViewById(R.id.lnNotiProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
 
+        ((MainActivity)getActivity()).setSupportActionBar(toolbarProfile);
+        setHasOptionsMenu(true);
+
         addEventSliderBanner();
         addEventCollapsing();
         addEventFunction();
 
-
+        addEventEditProfile();
         return view;
     }
+
 
 
 
@@ -114,17 +114,11 @@ public class ProfileFragment extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if(activity != null){
             activity.setSupportActionBar(toolbarProfile);
+            if(activity.getSupportActionBar() != null){
+                activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        }
-        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(scrollY > 10){
-                    imgProfile.setVisibility(View.GONE);
-                }
-                else{imgProfile.setVisibility(View.VISIBLE);}
             }
-        });
+        }
     }
 
     @Override
@@ -180,6 +174,18 @@ public class ProfileFragment extends Fragment {
             }
         }
     };
+    private void addEventEditProfile() {
+        toolbarProfile.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId()==R.id.mnuEditProfile)
+                {
+                    startActivity(new Intent(getContext(), SettingAccount.class));
+                }
+                return false;
+            }
+        });
+    }
 
 
 }

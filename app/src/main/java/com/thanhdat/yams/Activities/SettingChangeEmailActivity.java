@@ -28,8 +28,7 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingChangeEmailActivity.this,SettingAccount.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
     }

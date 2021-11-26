@@ -47,8 +47,7 @@ public class SettingMyProfileActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingMyProfileActivity.this,SettingAccount.class);
-                startActivity(intent);
+               onBackPressed();
             }
         });
 

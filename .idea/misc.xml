@@ -66,31 +66,24 @@
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/ic_noti_setting.xml" value="0.18020833333333333" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/ic_notifications.xml" value="0.18020833333333333" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/ic_plus.xml" value="0.18020833333333333" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/ic_search.xml" value="0.17835051546391753" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/ic_see_more.xml" value="0.18020833333333333" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/line.xml" value="0.18020833333333333" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/drawable/line_profile.xml" value="0.18020833333333333" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_category.xml" value="0.176" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_diet.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_function_profile.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_notification.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_order_status.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_product_details.xml" value="0.152" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_profile.xml" value="0.1676975945017182" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/activity_see_review.xml" value="0.176" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/dialog_logout.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_diet.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.176" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.1676975945017182" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_language.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_write_review.xml" value="0.176" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_write_review.xml" value="0.264" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/items_diet_product.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.16944444444444445" />
-        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/previous_order_item.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/see_review_item.xml" value="0.176" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/showresult.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_category.xml" value="0.16944444444444445" />
@@ -153,6 +146,7 @@
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic__lock.xml" value="0.26615384615384613" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_add.xml" value="0.2171875" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_edit.xml" value="0.26615384615384613" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_edit_white.xml" value="0.2703125" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_email.xml" value="0.26615384615384613" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_location.xml" value="0.26615384615384613" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/drawable/ic_lock.xml" value="0.26615384615384613" />
@@ -181,12 +175,14 @@
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/footer_view_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_diet.xml" value="0.2" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_diet__cakes_.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.264" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_language.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_otpcode.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_pending_order.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.19947916666666668" />
-        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_reset_password.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_setting_my_profile.xml" value="0.4" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.25416666666666665" />

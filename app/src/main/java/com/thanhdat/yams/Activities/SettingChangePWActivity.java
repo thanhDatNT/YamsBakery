@@ -29,8 +29,7 @@ public class SettingChangePWActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingChangePWActivity.this,SettingAccount.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
     }
