@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
+
+        <activity
+            android:name=".Activities.FunctionProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.CategoryActivity"
+            android:exported="false" />
+
+
         <activity
             android:name=".Activities.SettingChangePWActivity"
             android:exported="true" />
@@ -24,16 +33,14 @@
 
         </activity>
 
-
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
             android:name=".Activities.Payment"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".Activities.SeeReviewActivity"
+
 
             android:exported="true" >
 
@@ -69,5 +76,4 @@
 
 
 </application>
-
 </manifest>
