@@ -43,7 +43,7 @@ public class OrderStatusActivity extends AppCompatActivity {
         imbBackToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderStatusActivity.this, ProfileFragment.class));
+                onBackPressed();
             }
         });
     }

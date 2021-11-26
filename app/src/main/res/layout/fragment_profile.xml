@@ -47,7 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"
-                    android:background="@drawable/textview_profile_name_rank"
+                    android:background="@drawable/bg_lightpink_dashstroke"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/name_profile"
@@ -66,7 +66,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"
-                    android:background="@drawable/textview_profile_name_rank"
+                    android:background="@drawable/bg_lightpink_dashstroke"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/rank_profile"
@@ -98,8 +98,8 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/imgProfile"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgProfile"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:cardCornerRadius="40dp"
@@ -198,11 +198,10 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <ImageButton
+                        <ImageView
                             android:id="@+id/imbToOrderStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="?android:selectableItemBackground"
                             android:src="@drawable/ic_see_more" />
 
                     </LinearLayout>
@@ -235,10 +234,9 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="?android:selectableItemBackground"
                             android:src="@drawable/ic_see_more" />
 
                     </LinearLayout>
@@ -271,10 +269,9 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="?android:selectableItemBackground"
                             android:src="@drawable/ic_see_more" />
 
                     </LinearLayout>
@@ -307,10 +304,9 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="?android:selectableItemBackground"
                             android:src="@drawable/ic_see_more" />
 
                     </LinearLayout>

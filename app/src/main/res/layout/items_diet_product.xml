@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         app:cardCornerRadius="20dp"
         android:elevation="2dp">
         <TextView
@@ -17,25 +17,29 @@
             android:background="@drawable/bg_product"/>
         <LinearLayout
             android:layout_width="match_parent"
+            android:weightSum="10"
             android:layout_height="130dp">
             <androidx.cardview.widget.CardView
-                android:layout_width="110dp"
+                android:layout_width="0dp"
+                android:layout_weight="3.5"
                 android:layout_height="110dp"
                 android:layout_gravity="center_vertical"
                 app:cardCornerRadius="20dp"
                 android:elevation="2dp"
                 android:layout_marginLeft="10dp">
+
                 <ImageView
                     android:id="@+id/imvThumb"
-                    android:layout_width="110dp"
+                    android:layout_width="135dp"
                     android:layout_height="110dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/img_summer_pudding"
-                    />
+                    android:src="@drawable/img_summer_pudding" />
             </androidx.cardview.widget.CardView>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_weight="6.5"
+                android:layout_width="0dp"
                 android:layout_height="130dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/txtName"
@@ -57,18 +61,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:weightSum="10"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical">
                     <TextView
                         android:id="@+id/txtContent"
-                        android:layout_width="180dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="7"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="@string/pudding"
                         android:textSize="14sp"
                         android:textColor="@color/inactive"/>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center_vertical">
@@ -87,7 +94,7 @@
                                 android:id="@+id/txtQuantity"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_gravity="center_horizontal"
                                 android:text="@string/quantity"/>
 
                     </LinearLayout>
@@ -113,4 +120,4 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
-</androidx.cardview.widget.CardView>
+</LinearLayout>
