@@ -1,13 +1,9 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
@@ -21,15 +17,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -38,7 +27,7 @@ import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Activities.SearchActivity;
-import com.thanhdat.yams.Contants.Constant;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.NewProduct;
@@ -49,7 +38,6 @@ import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
 import com.thanhdat.yams.adapter.SuggestionAdapter;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment{
@@ -58,7 +46,7 @@ public class HomeFragment extends Fragment{
     private GridView gvCategory, gvSuggestion;
     private Toolbar toolbar;
     private NestedScrollView scrollView;
-    private android.widget.SearchView searchView;
+    private SearchView searchView;
     private OnClickInterface onClickInterface;
 
     @Override
@@ -181,12 +169,13 @@ public class HomeFragment extends Fragment{
                 if(scrollY > 15){
                     toolbar.getMenu().getItem(0).setVisible(true);
                     SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
-
+                    searchView2.setIconifiedByDefault(false);
                     searchView2.setQueryHint("Wedding cake");
                     searchEvent(searchView2);
                 }
                 else{
                     toolbar.getMenu().getItem(0).setVisible(false);
+
                 }
             }
         });
@@ -203,20 +192,7 @@ public class HomeFragment extends Fragment{
                 return false;
             }
         });
-        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(getContext(), SearchActivity.class);
-                intent.putExtra(Constant.STRING_INTENT, query);
-                startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+        searchEvent(searchView);
     }
 
     private void searchEvent(SearchView searchView){

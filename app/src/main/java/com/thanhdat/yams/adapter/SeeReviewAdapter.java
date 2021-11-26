@@ -41,11 +41,6 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.imvAvaReview.setImageResource(seeReviewItems.get(position).getReviewAva());
         holder.imvProductReview.setImageResource(seeReviewItems.get(position).getReviewProductThumb());
-        holder.imvStar1.setImageResource(seeReviewItems.get(position).getImvStar1());
-        holder.imvStar2.setImageResource(seeReviewItems.get(position).getImvStar2());
-        holder.imvStar3.setImageResource(seeReviewItems.get(position).getImvStar3());
-        holder.imvStar4.setImageResource(seeReviewItems.get(position).getImvStar4());
-        holder.imvStar5.setImageResource(seeReviewItems.get(position).getImvStar5());
 
         holder.txtNameReview.setText(seeReviewItems.get(position).getReviewName());
         holder.txtReviewText.setText(seeReviewItems.get(position).getReviewText());
@@ -68,11 +63,6 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
             //link views
             imvAvaReview = itemView.findViewById(R.id.imvAvaReview);
             imvProductReview = itemView.findViewById(R.id.imvProductReview);
-            imvStar1 = itemView.findViewById(R.id.imvStar1);
-            imvStar2 = itemView.findViewById(R.id.imvStar2);
-            imvStar3 = itemView.findViewById(R.id.imvStar3);
-            imvStar4 = itemView.findViewById(R.id.imvStar4);
-            imvStar5 = itemView.findViewById(R.id.imvStar5);
 
 
             txtNameReview = itemView.findViewById(R.id.txtNameReview);

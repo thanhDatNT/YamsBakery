@@ -28,14 +28,13 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         View view =  inflater.inflate(R.layout.fragment_feed, container, false);
         lvFeed = view.findViewById(R.id.lvFeed);
         adapter = new PostAdapter(getContext(),R.layout.post_item,initData());
         lvFeed.setAdapter(adapter);
         return view;
     }
+
     private ArrayList<Post> initData(){
         posts = new ArrayList<>();
         posts.add(new Post(R.drawable.img_mango_cake,"123 lượt thích","Bánh xoài kem tươi","#yams #mango"));

@@ -30,6 +30,7 @@
     <string name="language_profile">Ngôn ngữ</string>
     <string name="noti_profile">Thông báo</string>
     <string name="logout_profile">Đăng xuất</string>
+    <string name="warning_message">Bạn chắc chắn muốn đăng xuất?</string>
 
 
     <!--Diet with yams-->
@@ -163,6 +164,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
     <!--    setting account-->
     <string name="setting_account">Thiết lập tài khoản</string>
     <string name="myprofile">Hồ sơ của tôi</string>
@@ -178,4 +180,22 @@
     <string name="oldPW">Mật khẩu cũ</string>
     <string name="newPW">Mật khẩu mới</string>
     <string name="retypePW">Nhập lại mật khẩu</string>
+
+    <!--Function fragment of profile-->
+    <string name="change_lang">Thay đổi ngôn ngữ</string>
+    <string name="vietnam">Tiếng Việt (Việt Nam)</string>
+    <string name="english">English (United States)</string>
+    <string name="japan">Japanese (Japan)</string>
+    <string name="add_lang">Thêm ngôn ngữ</string>
+    <string name="cancel">Hủy bỏ</string>
+
+    <!--Writing review-->
+    <string name="write_review_title">Viết đánh giá</string>
+    <string name="see_review_title">Đánh giá sản phẩm</string>
+    <string name="cake_name">Bánh kem hương vani</string>
+    <string name="category">Phân loại: Nhân dâu tây</string>
+    <string name="review_hint">Hãy chia sẻ cảm nhận của bạn về loại bánh này!</string>
+    <string name="delivery">Vận chuyển và xử lý đơn hàng:</string>
+    <string name="service">Chăm sóc khách hàng:</string>
+
 </resources>

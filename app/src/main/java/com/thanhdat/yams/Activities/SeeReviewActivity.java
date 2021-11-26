@@ -22,7 +22,7 @@ public class SeeReviewActivity extends AppCompatActivity {
     ArrayList<SeeReviewItem> items;
     SeeReviewAdapter adapter;
 
-    ImageButton imbBackToProduct;
+//    ImageButton imbBackToProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +32,12 @@ public class SeeReviewActivity extends AppCompatActivity {
         linkViews();
         configRecyclerView();
         initData();
-        addEvent();
+//        addEvent();
 
     }
 
     private void linkViews() {
         rcvReviewItem = findViewById(R.id.rcvReviewItem);
-
-        imbBackToProduct = findViewById(R.id.imbBackToProduct);
     }
 
     private void configRecyclerView() {
@@ -63,14 +61,14 @@ public class SeeReviewActivity extends AppCompatActivity {
         rcvReviewItem.setAdapter(adapter);
     }
 
-    private void addEvent() {
-        imbBackToProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
-            }
-        });
-    }
+//    private void addEvent() {
+//        imbBackToProduct.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
+//            }
+//        });
+//    }
 
 
 }
