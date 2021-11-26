@@ -129,38 +129,62 @@
     <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
     <!--    payment-->
-    <string name="payment">Payment</string>
+    <string name="payment">Thanh toán</string>
     <string name="delivery_address">Địa chỉ giao hàng</string>
     <string name="address_TĐ">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
     <string name="Time">Thời gian giao hàng</string>
     <string name="time_delivery">27/10/2021 – 7:00AM</string>
     <string name="Method_delivery">Phương thức nhận hàng</string>
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
-    <string name="price_80">80.000</string>
+    <string name="price_80">80.000 đ</string>
     <string name="đ">đ</string>
     <string name="store">Đến lấy tại cửa hàng</string>
-    <string name="none">0</string>
+    <string name="none">0 đ</string>
     <string name="mess">Tin nhắn:</string>
     <string name="Note">Lưu ý cho người bán</string>
     <string name="payment_method">Phương thức thanh toán</string>
     <string name="view_all">Xem tất cả</string>
-    <string name="cod">Thanh toán khi nhận hàng</string>
+    <string name="cod_payment_method"><u>Thanh toán khi nhận hàng</u></string>
+    <string name="cod_payment">Thanh toán khi nhận hàng</string>
+
     <string name="sum">Tổng tiền hàng</string>
-    <string name="price_35000">35.000đ</string>
+    <string name="price_35000">35.000 đ</string>
     <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
-    <string name="coupons_delivery">giảm giá phí vận chuyển</string>
-    <string name="price_coupons">-20.000đ</string>
+    <string name="coupons_delivery">Giảm giá phí vận chuyển</string>
+    <string name="price_coupons">-20.000 đ</string>
     <string name="total_payment">Tổng Thanh toán</string>
-    <string name="price_50000">50.000đ</string>
+    <string name="price_50000">50.000 đ</string>
     <string name="yams_coupons">Yams coupons</string>
     <string name="choose_coupons">Chọn hoặc nhập mã</string>
     <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
-    <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
+    <string name="choose_time_delivery">CHỌN THỜI GIAN GIAO HÀNG</string>
     <string name="Choose_payment_method">Chọn phương thức thanh toán</string>
     <string name="cod_text">Phí thu hộ 0đ, ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Payment method-->
+    <string name="momo">MoMo</string>
+    <string name="zalopay">ZaloPay</string>
+    <string name="internet_banking"><u>Internet Banking</u></string>
+    <string name="vi_dien_tu"><u>Ví điện tử</u></string>
+    <string name="choose_bank">Chọn ngân hàng</string>
+
+<!--    payment success-->
+
+    <string name="order_success">Đơn hàng thành công</string>
+    <string name="madonhang">Mã đơn hàng của bạn là: #260101 .Yams sẽ sớm giao hàng đến bạn</string>
+    <string name="see_order_status">Xem trạng thái đơn hàng</string>
+    <string name="enter_coupons">Nhập mã giảm giá ở đây</string>
+    <string name="apply">Áp dụng</string>
+    <string name="coupon_20k">Giảm 10k cho đơn hàng từ 200k</string>
+    <string name="hsd">HSD: 01/01/2022</string>
+    <string name="choose">Chọn</string>
+    <string name="coupons_50k">Giảm 50k cho đơn hàng từ 500k</string>
+    <string name="free_ship_200k">Miễn phí vận chuyển cho đơn hàng từ 200k</string>
+    <string name="free_ship_500k">Miễn phí vận chuyển cho đơn hàng từ 500k</string>
+    <string name="desription">Lớp bánh mềm cùng bột phủ matcha tạo hương vị độc đáo</string>
 
 
 </resources>
