@@ -121,9 +121,10 @@
         android:padding="5dp">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_payment"
+            android:layout_weight="0.2"
             app:tint="@color/primary"/>
 
             <LinearLayout

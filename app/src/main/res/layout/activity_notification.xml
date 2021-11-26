@@ -17,13 +17,18 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         style="@style/ThemeOverlay.AppCompat.Light"
-        app:title="@string/noti_profile"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:titleTextColor="@color/white"
         app:contentInsetStart="0dp"
         app:menu="@menu/notification_heading"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/noti_profile"
+            android:gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <ListView
         android:id="@+id/lvNotification"

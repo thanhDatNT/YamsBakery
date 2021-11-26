@@ -74,9 +74,9 @@ public class ProfileFragment extends Fragment {
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
 
+
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
-
         lnOrder = view.findViewById(R.id.lnOrderProfile);
         lnVoucher = view.findViewById(R.id.lnVoucherProfile);
         lnMessage = view.findViewById(R.id.lnMessageProfile);
@@ -91,7 +91,9 @@ public class ProfileFragment extends Fragment {
         addEventCollapsing();
         addEventFunction();
 
+
         addEventEditProfile();
+
         return view;
     }
 
