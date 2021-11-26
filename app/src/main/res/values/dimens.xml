@@ -10,5 +10,8 @@
     <dimen name="padHorizon">28dp</dimen>
 <!--    Text-->
     <dimen name="textHeader">20sp</dimen>
+    <dimen name="textContent">16sp</dimen>
+<!--    Radius-->
+    <dimen name="cornerRadius">12dp</dimen>
 
 </resources>

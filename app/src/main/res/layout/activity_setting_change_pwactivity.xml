@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.SettingChangePWActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="60dp"
+        android:weightSum="10"
+        android:elevation="4dp"
+        >
+        <ImageButton
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_weight="7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="@string/ChangePwd"
+            android:textColor="@color/primary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edtOldPW"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="@string/oldPW"
+            android:background="@drawable/botron"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/ic_lock"
+            />
+
+        <EditText
+            android:id="@+id/edtNewPW"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="@string/newPW"
+            android:background="@drawable/botron"
+            android:textColor="@color/primary"
+            android:layout_marginTop="50dp"
+            android:textSize="18sp"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/ic_lock"
+            />
+        <EditText
+            android:id="@+id/edtReType"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="@string/retypePW"
+            android:background="@drawable/botron"
+            android:textColor="@color/primary"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/ic_lock"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTinhBMI"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_bg_gradient"
+            android:text="@string/Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

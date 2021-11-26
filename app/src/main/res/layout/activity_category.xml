@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.CategoryActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/pad">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCategory"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/ic_back_pink">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birthday cake"
+            android:textSize="@dimen/textHeader"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSearchCategory"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:queryBackground="@null"
+        android:queryHint="@string/search"
+        android:iconifiedByDefault="false"
+        app:searchHintIcon="@drawable/ic_search"
+        app:searchIcon="@drawable/ic_search"
+        android:background="@drawable/edittext_background"/>
+    <ListView
+        android:id="@+id/lvProductCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

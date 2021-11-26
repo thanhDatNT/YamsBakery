@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +19,12 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Diet;
+import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.DietAdapter;
+import com.thanhdat.yams.adapter.NewProductAdapter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -29,10 +34,14 @@ public class DietFragment extends Fragment {
     RadioButton radNam,radNu;
     Button btnTinhBMI;
     EditText edtNhapWeight,edtNhapHeight;
-    ListView lvDietProduct;
-    ArrayList<Diet> diets;
+    RecyclerView rcvDietProduct;
+    TextView txtSuggest;
+
+
+    //    ListView lvDietProduct;
+//    ArrayList<Diet> diets;
     DietAdapter adapter;
-    LinearLayout favoriteTab, feedTab, profileTab,homeTab;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,13 +59,9 @@ public class DietFragment extends Fragment {
         edtNhapHeight=view.findViewById(R.id.edtNhapHeigt);
         edtNhapWeight=view.findViewById(R.id.edtNhapWeight);
 
-        lvDietProduct=view.findViewById(R.id.lvDietProduct);
-        homeTab=view.findViewById(R.id.homeNav);
-        favoriteTab= view.findViewById(R.id.favoriteNav);
-        feedTab= view.findViewById(R.id.feedNav);
-        profileTab=view.findViewById(R.id.profileNav);
+        rcvDietProduct=view.findViewById(R.id.rcvDietProduct);
 
-
+        txtSuggest = view.findViewById(R.id.txtSuggest);
         addEvent();
 
         return view;
@@ -91,19 +96,28 @@ public class DietFragment extends Fragment {
                 else if(30<=BMI)
                     txtResult.setText("Béo phì 3");
 
-
                 Button btnConfirm= dialog.findViewById(R.id.btnConfirm);
+                ArrayList<Diet> diets= new ArrayList<>();
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        diets=new ArrayList<Diet>();
+                        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                        rcvDietProduct.setLayoutManager(layoutManager);
+
+                        //diets=new ArrayList<Diet>();
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Pear Muffins","30 000đ","Những chiếc bánh nướng xốp béo ngậy này rất ngon khi ấm nóng khi kẹo bơ cứng vẫn còn chảy",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
                         diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        adapter=new DietAdapter((Activity) getContext(),R.layout.items_diet_product,diets);
-
-                        lvDietProduct.setAdapter(adapter);
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
+                        adapter=new DietAdapter( getContext(),diets);
+                        rcvDietProduct.setAdapter(adapter);
+                        txtSuggest.setVisibility(View.VISIBLE);
                         dialog.dismiss();
                     }
 
@@ -114,7 +128,7 @@ public class DietFragment extends Fragment {
                     public void onClick(View view) {
                         edtNhapHeight.setText("");
                         edtNhapWeight.setText("");
-                        lvDietProduct.setAdapter(null);
+                        rcvDietProduct.setAdapter(null);
 
                         dialog.dismiss();
                     }
