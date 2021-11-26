@@ -26,9 +26,11 @@ import androidx.fragment.app.FragmentTransaction;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.thanhdat.yams.Activities.FunctionProfileActivity;
 import com.thanhdat.yams.Activities.IntroActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
@@ -56,7 +58,6 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile,container, false);
 
         //link views
-        //imbToOrderStatus = view.findViewById(R.id.imbToOrderStatus);
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
         scrollView= view.findViewById(R.id.scrollViewProfile);
@@ -92,6 +93,7 @@ public class ProfileFragment extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if(activity != null){
              activity.setSupportActionBar(toolbarProfile);
+
         }
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
@@ -111,27 +113,26 @@ public class ProfileFragment extends Fragment {
     }
 
     private void addEventFunction() {
-        //To order status
-        lnOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        lnOrder.setOnClickListener(myClick);
+        lnVoucher.setOnClickListener(myClick);
+        lnMessage.setOnClickListener(myClick);
+        lnLanguage.setOnClickListener(myClick);
+        lnLogout.setOnClickListener(myClick);
+    }
+
+    View.OnClickListener myClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(view.getId() == R.id.lnOrderProfile){
                 startActivity(new Intent(getContext(), OrderStatusActivity.class));
             }
-        });
-
-        //Change language
-        lnLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Create new fragment and transaction
-                
+            //start function activity
+            if(view.getId() == R.id.lnVoucherProfile || view.getId() == R.id.lnMessageProfile || view.getId() == R.id.lnLanguageProfile){
+                Intent intent = new Intent(getContext(), FunctionProfileActivity.class);
+                intent.setFlags(view.getId());
+                startActivity(intent);
             }
-        });
-
-        //Logout function
-        lnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            if(view.getId() == R.id.lnLogoutProfile){
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dialog_logout);
 
@@ -156,6 +157,6 @@ public class ProfileFragment extends Fragment {
                 });
                 dialog.show();
             }
-        });
-    }
+        }
+    };
 }
