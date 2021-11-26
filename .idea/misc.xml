@@ -29,6 +29,8 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/favorite_item.xml" value="0.176" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.16944444444444445" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_otpcode.xml" value="0.25416666666666665" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_payment.xml" value="0.16944444444444445" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_payment_method.xml" value="0.16944444444444445" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_pending_order.xml" value="0.1" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.1" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_reset_password.xml" value="0.1" />

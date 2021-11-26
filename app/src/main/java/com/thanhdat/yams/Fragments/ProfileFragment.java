@@ -70,17 +70,8 @@ public class ProfileFragment extends Fragment {
         //link views
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
-
-        imbEditProfile = view.findViewById(R.id.imbEditProfile);
-
-        addEventSliderBanner();
-        addEventCollapsing();
-        addEventEditProfile();
-
-
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
-
         lnOrder = view.findViewById(R.id.lnOrderProfile);
         lnVoucher = view.findViewById(R.id.lnVoucherProfile);
         lnMessage = view.findViewById(R.id.lnMessageProfile);
@@ -91,8 +82,6 @@ public class ProfileFragment extends Fragment {
         addEventSliderBanner();
         addEventCollapsing();
         addEventFunction();
-
-
         return view;
     }
 
@@ -113,14 +102,14 @@ public class ProfileFragment extends Fragment {
     private void addEventCollapsing() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if(activity != null){
-             activity.setSupportActionBar(toolbarProfile);
+            activity.setSupportActionBar(toolbarProfile);
 
         }
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if(scrollY > 10){
-                   imgProfile.setVisibility(View.GONE);
+                    imgProfile.setVisibility(View.GONE);
                 }
                 else{imgProfile.setVisibility(View.VISIBLE);}
             }
@@ -181,14 +170,5 @@ public class ProfileFragment extends Fragment {
         }
     };
 
-    private void addEventEditProfile() {
-        imbEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), SettingAccount.class);
-                startActivity(intent);
-            }
-        });
 
-    }
 }

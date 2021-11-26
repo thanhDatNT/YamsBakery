@@ -5,13 +5,13 @@
         android:icon="@drawable/ic_search"
         android:title="@string/search"
         android:visible="false"
-        app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="android.widget.SearchView"
         />
     <item android:id="@+id/mnuCartHome"
     android:icon="@drawable/ic_cart"
     android:title="@string/order"
-    app:showAsAction="ifRoom"/>
+    app:showAsAction="always"/>
     <item android:icon="@drawable/ic_notifications"
         android:id="@+id/mnuNotificationHome"
         app:showAsAction="always"

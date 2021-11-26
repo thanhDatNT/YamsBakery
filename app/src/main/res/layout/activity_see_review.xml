@@ -72,8 +72,34 @@
             android:textStyle="bold"
             android:textColor="@color/textColor"
             android:textSize="18sp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginRight="15dp"/>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            android:layout_gravity="center"/>
+
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,8 +108,6 @@
             android:rating="4.9"
             android:stepSize="0.1"
             android:isIndicator="true"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
             android:transformPivotX="0dp"/>
     </LinearLayout>
 
@@ -91,6 +115,8 @@
         android:id="@+id/rcvReviewItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="-20dp"
-        android:padding="10dp"/>
+        android:padding="10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
