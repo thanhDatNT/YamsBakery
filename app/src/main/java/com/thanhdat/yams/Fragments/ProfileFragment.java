@@ -31,6 +31,12 @@ import com.thanhdat.yams.Activities.IntroActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
+import com.thanhdat.yams.Activities.SettingAccount;
+
+import com.thanhdat.yams.Activities.IntroActivity;
+import com.thanhdat.yams.Activities.LoginActivity;
+import com.thanhdat.yams.Activities.OrderStatusActivity;
+
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
@@ -42,9 +48,13 @@ public class ProfileFragment extends Fragment {
     //private ImageButton imbToOrderStatus;
     private Toolbar toolbarProfile;
     private SliderView sliderBannerProfile;
+
+    ImageButton imbEditProfile;
+
     private NestedScrollView scrollView;
     private  CardView imgProfile;
     private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnNoti, lnLogout;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +70,14 @@ public class ProfileFragment extends Fragment {
         //link views
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
+
+        imbEditProfile = view.findViewById(R.id.imbEditProfile);
+
+        addEventSliderBanner();
+        addEventCollapsing();
+        addEventEditProfile();
+
+
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
 
@@ -74,8 +92,11 @@ public class ProfileFragment extends Fragment {
         addEventCollapsing();
         addEventFunction();
 
+
         return view;
     }
+
+
 
     private void addEventSliderBanner() {
         ArrayList<Banner> banners= new ArrayList<>();
@@ -159,4 +180,15 @@ public class ProfileFragment extends Fragment {
             }
         }
     };
+
+    private void addEventEditProfile() {
+        imbEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SettingAccount.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 }

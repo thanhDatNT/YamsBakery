@@ -34,7 +34,7 @@
 
 
     <!--Diet with yams-->
-    <string name="name">DIET WITH YAMS</string>
+    <string name="name">Diet With Yams</string>
     <string name="gender">Giới tính</string>
     <string name="height">Chiều cao</string>
     <string name="weight">Cân nặng</string>
@@ -55,6 +55,7 @@
 
     <string name="myBMI">BMI của bạn</string>
     <string name="CalculateBMI">Tính BMI</string>
+    <string name="suggestion">Đề xuất</string>
 
 
     <!--Product details-->
@@ -78,7 +79,7 @@
     <string name="macaroon">Macaroon</string>
     <string name="prices">18.000đ</string>
     <string name="Old_prices">22.000đ</string>
-    <string name="quantity">25</string>
+    <string name="quantity">25+</string>
     <string name="Rating">4.5</string>
 
     <!--- OrderStatus-->
@@ -163,6 +164,23 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <!--    setting account-->
+    <string name="setting_account">Thiết lập tài khoản</string>
+    <string name="myprofile">Hồ sơ của tôi</string>
+    <string name="ChangeEmail">Thay đổi Email</string>
+    <string name="ChangePwd">Thay đổi mật khẩu</string>
+    <string name="ChangeAddress">Địa chỉ</string>
+    <string name="ChangeAvt">Thay đổi ảnh đại diện</string>
+    <string name="NameUser">Tên</string>
+    <string name="Q">Như Quỳnh</string>
+    <string name="youremail">Email của bạn :</string>
+    <string name="mail">quynhvtn19411@st.uel.edu.vn</string>
+    <string name="newEmail">Nhập email mới</string>
+    <string name="oldPW">Mật khẩu cũ</string>
+    <string name="newPW">Mật khẩu mới</string>
+    <string name="retypePW">Nhập lại mật khẩu</string>
+
     <!--Function fragment of profile-->
     <string name="change_lang">Thay đổi ngôn ngữ</string>
     <string name="vietnam">Tiếng Việt (Việt Nam)</string>
@@ -179,6 +197,5 @@
     <string name="review_hint">Hãy chia sẻ cảm nhận của bạn về loại bánh này!</string>
     <string name="delivery">Vận chuyển và xử lý đơn hàng:</string>
     <string name="service">Chăm sóc khách hàng:</string>
-
 
 </resources>
