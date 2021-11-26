@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.SearchView;
-import android.widget.Toolbar;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -45,9 +45,9 @@ public class HomeFragment extends Fragment{
     private SliderView sliderBanner;
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
-    private android.widget.Toolbar toolbar;
+    private androidx.appcompat.widget.Toolbar toolbar;
     private NestedScrollView scrollView;
-    private android.widget.SearchView searchView;
+    private androidx.appcompat.widget.SearchView searchView;
     private OnClickInterface onClickInterface;
 
     @Override
@@ -70,7 +70,7 @@ public class HomeFragment extends Fragment{
         scrollView= view.findViewById(R.id.scrollViewHome);
         searchView= view.findViewById(R.id.svSearchHome);
 
-        ((MainActivity)getActivity()).setActionBar(toolbar);
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
         configAndNavigate();
         addEventSliderBanner();
@@ -156,15 +156,20 @@ public class HomeFragment extends Fragment{
         sliderBanner.startAutoCycle();
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.homepage_heading, menu);
+    }
+
     private void configAndNavigate() {
         onClickInterface= abc -> startActivity(new Intent(getContext(), ProductDetailsActivity.class));
-        toolbar.inflateMenu(R.menu.homepage_heading);
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if(scrollY > 15){
                     toolbar.getMenu().getItem(0).setVisible(true);
-                    android.widget.SearchView searchView2= (android.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
+                    androidx.appcompat.widget.SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
                     searchView2.setIconifiedByDefault(false);
                     searchView2.setQueryHint("Wedding cake");
                     searchEvent(searchView2);
@@ -190,8 +195,8 @@ public class HomeFragment extends Fragment{
         searchEvent(searchView);
     }
 
-    private void searchEvent(android.widget.SearchView searchView){
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    private void searchEvent(androidx.appcompat.widget.SearchView searchView){
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Intent intent = new Intent(getContext(), MapActivity.class);

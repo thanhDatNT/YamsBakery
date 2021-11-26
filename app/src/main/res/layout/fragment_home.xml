@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"/>
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/svSearchHome"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -47,13 +47,14 @@
                 app:searchIcon="@drawable/ic_search"
                 android:background="@drawable/edittext_background"/>
         </LinearLayout>
-        <Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:layout_collapseMode="pin"
             android:background="@color/white"
+            app:menu="@menu/homepage_heading"
             android:paddingTop="20dp"
             style="@style/ThemeOverlay.AppCompat.Light"
             android:theme="?attr/actionBarTheme">
@@ -67,7 +68,7 @@
                 android:textColor="@color/primary"
                 android:textSize="16sp"/>
 
-        </Toolbar>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
