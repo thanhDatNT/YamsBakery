@@ -14,6 +14,7 @@
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_weight="8.5"
+        android:layout_marginStart="10dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/choose_time_delivery"
@@ -84,6 +85,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_calendar"
             android:layout_weight="1.5"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -97,7 +99,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Chọn ngày giao"
+            android:text="Chọn giờ giao"
             android:textColor="@color/textColor"
             android:textSize="18sp"
             />
@@ -115,8 +117,5 @@
             android:src="@drawable/ic_clock"
             android:layout_weight="1.5"/>
     </LinearLayout>
-
-
-
 
 </LinearLayout>

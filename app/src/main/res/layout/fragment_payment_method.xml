@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:id="@+id/layoutContainerPaymentMethod">
+>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutContainerPaymentMethod"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
 
     <!--header-->
     <androidx.cardview.widget.CardView
@@ -214,5 +226,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/buttonTextSize"
         android:textStyle="bold" />
-
+    </LinearLayout>
+</FrameLayout>
 </LinearLayout>

@@ -13,9 +13,9 @@ import android.widget.RadioButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.thanhdat.yams.Activities.FunctionProfileActivity;
-import com.thanhdat.yams.Activities.OrderStatusActivity;
+
 import com.thanhdat.yams.R;
 
 public class ChooseBankFragment extends Fragment {
@@ -24,9 +24,9 @@ public class ChooseBankFragment extends Fragment {
     Button btnConfirm;
     private LinearLayout lnBIDV, lnOCB, lnVietcombank, lnVietinbank, lnSacombank;
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose_bank,container, false);
 
         //link views
@@ -55,7 +55,10 @@ public class ChooseBankFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if(view.getId() == R.id.btnBackToPaymentMethod) {
-                startActivity(new Intent(getContext(), ChoosePaymentMethodFragment.class));
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layoutContainerChooseBank, new ChoosePaymentMethodFragment());
+                fragmentTransaction.commit();
 
             }
             //start function activity

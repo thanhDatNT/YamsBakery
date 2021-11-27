@@ -161,7 +161,7 @@
     <string name="choose_coupons">Chọn hoặc nhập mã</string>
     <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
-    <string name="choose_time_delivery">CHỌN THỜI GIAN GIAO HÀNG</string>
+    <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
     <string name="Choose_payment_method">Chọn phương thức thanh toán</string>
     <string name="cod_text">Phí thu hộ 0đ, ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -184,9 +184,7 @@
     <string name="coupon_20k">Giảm 10k cho đơn hàng từ 200k</string>
     <string name="hsd">HSD: 01/01/2022</string>
     <string name="choose">Chọn</string>
-    <string name="coupons_50k">Giảm 50k cho đơn hàng từ 500k</string>
-    <string name="free_ship_200k">Miễn phí vận chuyển cho đơn hàng từ 200k</string>
-    <string name="free_ship_500k">Miễn phí vận chuyển cho đơn hàng từ 500k</string>
+
     <string name="desription">Lớp bánh mềm cùng bột phủ matcha tạo hương vị độc đáo</string>
 
 

@@ -15,27 +15,28 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent">
         <!--header-->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarNotification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            style="@style/ThemeOverlay.AppCompat.Light"
-            app:navigationIcon="@drawable/ic_back_pink"
-            app:titleTextColor="@color/white"
-            app:contentInsetStart="0dp"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:padding="10dp">
-            <TextView
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_pink"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/white"
+                />
+
+            <TextView
+                android:layout_width="410dp"
+                android:layout_height="80dp"
+                android:gravity="center"
                 android:text="@string/payment"
-                android:layout_gravity="center"
                 android:textColor="@color/primary"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-        </androidx.appcompat.widget.Toolbar>
+                android:textSize="@dimen/textHeader"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
         <!--    end header-->
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -285,14 +286,12 @@
 
                         </LinearLayout>
                     </LinearLayout>
-                    <!--                    chổ này nè nhi oi-->
 
-                    <!--                    hú hú-->
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvNewProducts"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/mTop" />
+                        android:layout_marginTop="30dp" />
 
                     <!--product mẫu-->
                     <!--                    <androidx.cardview.widget.CardView-->
@@ -459,6 +458,7 @@
                             android:layout_marginTop="10dp">
 
                             <TextView
+                                android:id="@+id/txtPaymentMethod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="10dp"
@@ -538,7 +538,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/total_payment"
                                     android:textColor="@color/primary"
-                                    android:textSize="20sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -594,7 +594,7 @@
                 android:paddingStart="5dp"
                 android:text="@string/yams_coupons"
                 android:textColor="@color/primary"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_weight="4.2"

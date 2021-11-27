@@ -1,9 +1,8 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.ImageButton;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
+import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Fragments.VoucherFragment;
 import com.thanhdat.yams.R;
 
@@ -18,6 +18,7 @@ public class Payment extends AppCompatActivity {
 
     ImageButton btnOpenChooseTime;
     ImageButton btnOpenChoosePaymentMethod, btnOpenVoucher;
+    AppCompatButton btnAddToPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class Payment extends AppCompatActivity {
         btnOpenChooseTime = findViewById(R.id.btnOpenChooseTime);
         btnOpenChoosePaymentMethod = findViewById(R.id.btnOpenChoosePaymentMethod);
         btnOpenVoucher = findViewById(R.id.btnOpenVoucher);
+        btnAddToPayment = findViewById(R.id.btnAddToPayment);
     }
 
     private void addEvents() {
@@ -70,6 +72,16 @@ public class Payment extends AppCompatActivity {
             }
         });
 
+        //Open Payment success
+        btnAddToPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                PaymentSuccessFragment fragment= new PaymentSuccessFragment();
+                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
+           }
+        });
+
     }
 
     private void clickOpenBottomSheetDialog() {
@@ -80,9 +92,9 @@ public class Payment extends AppCompatActivity {
         bottomSheetDialog.setContentView(viewDialog);
         bottomSheetDialog.show();
 
-//Ngăn người dùng bấm ra ngoài dialog để thoát
+            //Ngăn người dùng bấm ra ngoài dialog
         bottomSheetDialog.setCancelable(false);
-//Tắt dialog
+
         ImageButton imvCancel = viewDialog.findViewById(R.id.imvCancel);
         imvCancel.setOnClickListener(new View.OnClickListener() {
             @Override

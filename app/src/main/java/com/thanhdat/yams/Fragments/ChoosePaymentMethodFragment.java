@@ -80,14 +80,13 @@ public class ChoosePaymentMethodFragment extends Fragment {
                 startActivity(new Intent(getContext(), Payment.class));
             }
 
-            //start function activity
+            //fragment to fragment
             if (view.getId() == R.id.btnOpenChooseBank) {
 
-                FragmentManager fm = getFragmentManager();
-                ChooseBankFragment fragment= new ChooseBankFragment();
-                fm.beginTransaction().replace(R.id.layoutContainerPaymentMethod, fragment).commit();
-
-                btnOpenChooseBank.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layoutContainerPaymentMethod, new ChooseBankFragment());
+                fragmentTransaction.commit();
 
 
             }
