@@ -39,10 +39,10 @@ public class PreviousOrderFragment extends Fragment {
     }
     private ArrayList<PreviousOrder> initData() {
         previousOrders = new ArrayList<>();
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "Vị xoài và kem tươi", 150000));
+        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "Vị xoài và kem tươi", 150000));
 
         return previousOrders;
     }
