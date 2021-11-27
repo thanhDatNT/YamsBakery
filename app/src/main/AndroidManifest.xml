@@ -38,7 +38,7 @@
             android:exported="true" />
         <activity
             android:name=".Activities.SettingAccount"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.Payment"
             android:exported="true" />
@@ -60,6 +60,7 @@
         <activity
             android:name=".Activities.PaymentMethod"
             android:exported="true" />
+
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />
