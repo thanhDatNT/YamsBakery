@@ -27,6 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/noti_profile"
+            android:textSize="@dimen/textHeader"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,7 +39,8 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:dividerHeight="0dp"
-        android:layout_marginTop="@dimen/mTop"
-        android:paddingHorizontal="@dimen/pad"/>
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="@dimen/pad"
+        android:divider="@null"/>
 
 </LinearLayout>
