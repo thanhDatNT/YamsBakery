@@ -6,29 +6,29 @@
     android:layout_height="match_parent">
 
     <!--header-->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        style="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_back_pink"
-        app:titleTextColor="@color/white"
-        app:contentInsetStart="0dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:padding="10dp">
-        <TextView
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnBackToPaymentMethod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/choose_bank"
-            android:layout_gravity="center"
-            android:textColor="@color/primary"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:src="@drawable/ic_back_pink"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            />
 
-    </androidx.appcompat.widget.Toolbar>
-<!--    end header-->
+        <TextView
+            android:layout_width="410dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="@string/choose_bank"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+    <!--    end header-->
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/svSearchHome"
@@ -43,6 +43,7 @@
         android:background="@drawable/edittext_background"/>
 
     <LinearLayout
+        android:id="@+id/lnBIDV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -60,6 +61,7 @@
             android:paddingStart="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lnOCB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -77,6 +79,7 @@
             android:paddingStart="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lnVietcombank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -94,6 +97,7 @@
             android:paddingStart="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lnVietinbank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -111,6 +115,7 @@
             android:paddingStart="18dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lnSacombank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -128,7 +133,7 @@
             android:paddingStart="20dp"/>
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAddToPayment"
+        android:id="@+id/btnConfirm"
         android:layout_width="130dp"
         android:layout_height="38dp"
         android:layout_gravity="center_horizontal"

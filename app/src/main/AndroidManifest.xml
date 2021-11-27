@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
 
-<!--        <meta-data-->
-<!--            android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="@string/google_maps_key" />-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-<!--        <activity android:name=".Activities.MapActivity" />-->
+        <activity android:name=".Activities.MapActivity" />
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
@@ -46,7 +46,13 @@
 
         <activity
             android:name=".Activities.Payment"
-            android:exported="true" />
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.SeeReviewActivity"
             android:exported="true" />
@@ -71,11 +77,11 @@
         <activity android:name=".Activities.IntroActivity" />
 
     <activity android:name=".Activities.MainActivity" android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+<!--        <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN" />-->
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
     </activity>
 
 </application>

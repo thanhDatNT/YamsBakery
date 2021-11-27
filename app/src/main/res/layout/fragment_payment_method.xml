@@ -4,30 +4,32 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/layoutContainerPaymentMethod">
 
     <!--header-->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        style="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_back_pink"
-        app:titleTextColor="@color/white"
-        app:contentInsetStart="0dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="250dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnBackToPayment"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Choose_payment_method"
+            android:src="@drawable/ic_back_pink"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="410dp"
+            android:layout_height="80dp"
             android:gravity="center"
+            android:text="@string/Choose_payment_method"
             android:textColor="@color/primary"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-    </androidx.appcompat.widget.Toolbar>
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
     <!--    end header-->
 
     <LinearLayout
@@ -56,7 +58,7 @@
                 android:gravity="start"
                 android:text="@string/vi_dien_tu"
                 android:textColor="@color/primary"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <!--        radio-->
@@ -78,14 +80,14 @@
                     android:layout_height="match_parent"
                     android:text="@string/momo"
                     android:textColor="@color/textColor"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:padding="10dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/zalopay"
                     android:textColor="@color/textColor"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:padding="10dp"/>
             </LinearLayout>
             <LinearLayout
@@ -129,29 +131,25 @@
             android:layout_weight="1.5"
             android:src="@drawable/ic_payment"
             app:tint="@color/primary" />
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5.7"
-            android:orientation="vertical">
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+
+                android:layout_weight="5"
                 android:text="@string/internet_banking"
                 android:textColor="@color/primary"
-                android:textSize="20sp" />
-        </LinearLayout>
+                android:textSize="18sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2.3"
-            android:gravity="center_vertical"
-            android:paddingStart="15dp"
+            android:layout_weight="3"
+            android:gravity="center"
             android:text="@string/view_all" />
 
         <ImageButton
-            android:id="@+id/btnOpenChoosePaymentMethod"
+            android:id="@+id/btnOpenChooseBank"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
@@ -186,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cod_payment_method"
                 android:textColor="@color/primary"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="6.8"/>
             <RadioButton
                 android:id="@+id/radCod"
@@ -216,4 +214,5 @@
         android:textColor="@color/white"
         android:textSize="@dimen/buttonTextSize"
         android:textStyle="bold" />
+
 </LinearLayout>

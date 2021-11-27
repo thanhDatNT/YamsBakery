@@ -1,22 +1,23 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.thanhdat.yams.Fragments.ChoosePaymentMethod;
+import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
+import com.thanhdat.yams.Fragments.VoucherFragment;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.ViewPagerOrderStatusAdapter;
 
 public class Payment extends AppCompatActivity {
 
     ImageButton btnOpenChooseTime;
-    ImageButton btnOpenChoosePaymentMethod;
+    ImageButton btnOpenChoosePaymentMethod, btnOpenVoucher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,32 +29,44 @@ public class Payment extends AppCompatActivity {
     }
 
     private void linkViews() {
-        ChoosePaymentMethod paymentMethod = new ChoosePaymentMethod(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-
         btnOpenChooseTime = findViewById(R.id.btnOpenChooseTime);
         btnOpenChoosePaymentMethod = findViewById(R.id.btnOpenChoosePaymentMethod);
-
-
+        btnOpenVoucher = findViewById(R.id.btnOpenVoucher);
     }
 
     private void addEvents() {
-        //Open Activity_choose_time
+            //Open ChooseTimeFragment
         btnOpenChooseTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 clickOpenBottomSheetDialog();
 
             }
         });
 
-        //Open PaymentMethod
+        //Open ChoosePaymentMethodFragment
         btnOpenChoosePaymentMethod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(Payment.this, ChoosePaymentMethod.class));
+                FragmentManager fm = getSupportFragmentManager();
+                ChoosePaymentMethodFragment fragment= new ChoosePaymentMethodFragment();
+                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
+
+                    btnOpenChoosePaymentMethod.setVisibility(View.GONE);
+
+            }
+        });
+
+        //Open voucher
+        btnOpenVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                VoucherFragment fragment= new VoucherFragment();
+                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
+
+                btnOpenVoucher.setVisibility(View.GONE);
             }
         });
 
@@ -77,8 +90,5 @@ public class Payment extends AppCompatActivity {
                 bottomSheetDialog.dismiss();
             }
         });
-
-
     }
-
 }

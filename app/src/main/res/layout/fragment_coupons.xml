@@ -2,38 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <!--header-->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        style="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_back_pink"
-        app:titleTextColor="@color/white"
-        app:contentInsetStart="0dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:padding="10dp">
-        <TextView
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnBackToPayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/yams_coupons"
-            android:layout_gravity="center"
-            android:textColor="@color/primary"
+            android:src="@drawable/ic_back_pink"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="410dp"
+            android:layout_height="80dp"
+            android:gravity="center"
             android:textSize="24sp"
-            android:textStyle="bold"/>
-    </androidx.appcompat.widget.Toolbar>
+            android:text="@string/yams_coupons"
+            android:textColor="@color/primary"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
     <!--    end header-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="10"
-        android:padding="20dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <EditText
+            android:id="@+id/edtVoucher"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="6"
@@ -60,6 +65,7 @@
         app:cardCornerRadius="10dp">
             <!-- Your order -->
             <LinearLayout
+                android:id="@+id/lnVoucher200k"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/lightPink"
@@ -72,7 +78,7 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/img_voucher"
+                    android:src="@drawable/ic_voucher"
                     android:layout_weight="1.5"/>
             <LinearLayout
                 android:layout_width="0dp"
@@ -85,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/coupon_20k"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
@@ -106,7 +112,7 @@
                     android:text="@string/choose"
                     android:layout_weight="1.5"
                     android:gravity="center_vertical"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/primary"/>
             </LinearLayout>
 
@@ -119,6 +125,7 @@
         app:cardCornerRadius="10dp">
         <!-- Your order -->
         <LinearLayout
+            android:id="@+id/lnVoucher500k"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/lightPink"
@@ -131,7 +138,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_voucher"
+                android:src="@drawable/ic_voucher"
                 android:layout_weight="1.5"/>
             <LinearLayout
                 android:layout_width="0dp"
@@ -144,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/coupons_50k"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
@@ -165,7 +172,7 @@
                 android:text="@string/choose"
                 android:layout_weight="1.5"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/primary"/>
         </LinearLayout>
 
@@ -178,6 +185,7 @@
         app:cardCornerRadius="10dp">
         <!-- Your order -->
         <LinearLayout
+            android:id="@+id/lnFreeShip200k"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/lightPink"
@@ -190,7 +198,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_freeshipping"
+                android:src="@drawable/ic_shipping_active"
                 android:layout_weight="1.5"/>
             <LinearLayout
                 android:layout_width="0dp"
@@ -203,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/free_ship_200k"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
@@ -224,7 +232,7 @@
                 android:text="@string/choose"
                 android:layout_weight="1.5"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/primary"/>
         </LinearLayout>
 
@@ -237,6 +245,7 @@
         app:cardCornerRadius="10dp">
         <!-- Your order -->
         <LinearLayout
+            android:id="@+id/lnFreeShip500k"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/lightPink"
@@ -249,7 +258,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_freeshipping"
+                android:src="@drawable/ic_shipping_active"
                 android:layout_weight="1.5"/>
             <LinearLayout
                 android:layout_width="0dp"
@@ -262,7 +271,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/free_ship_500k"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
@@ -283,7 +292,7 @@
                 android:text="@string/choose"
                 android:layout_weight="1.5"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/primary"/>
         </LinearLayout>
 

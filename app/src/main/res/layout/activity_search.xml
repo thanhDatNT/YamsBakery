@@ -12,9 +12,9 @@
         android:id="@+id/toolbarSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_heading_gradient"
         android:minHeight="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        android:background="@drawable/bg_heading_gradient">
+        app:navigationIcon="@drawable/ic_arrow_back">
 
         <SearchView
             android:id="@+id/svSearchActivity"
@@ -22,11 +22,11 @@
             android:layout_height="40dp"
             android:layout_marginVertical="4dp"
             android:layout_marginRight="12dp"
+            android:background="@drawable/edittext_background"
+            android:iconifiedByDefault="false"
             android:queryBackground="@null"
             android:queryHint="@string/search"
-            android:iconifiedByDefault="false"
-            android:searchIcon="@drawable/ic_search"
-            android:background="@drawable/edittext_background"/>
+            android:searchIcon="@drawable/ic_search" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView

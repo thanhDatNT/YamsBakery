@@ -137,7 +137,7 @@
     <string name="address_TĐ">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
     <string name="Time">Thời gian giao hàng</string>
     <string name="time_delivery">27/10/2021 – 7:00AM</string>
-    <string name="Method_delivery">Phương thức nhận hàng</string>
+    <string name="Method_delivery"><u>Phương thức nhận hàng</u></string>
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
     <string name="price_80">80.000 đ</string>
     <string name="đ">đ</string>
@@ -145,7 +145,7 @@
     <string name="none">0 đ</string>
     <string name="mess">Tin nhắn:</string>
     <string name="Note">Lưu ý cho người bán</string>
-    <string name="payment_method">Phương thức thanh toán</string>
+    <string name="payment_method"><u>Phương thức thanh toán</u></string>
     <string name="view_all">Xem tất cả</string>
     <string name="cod_payment_method"><u>Thanh toán khi nhận hàng</u></string>
     <string name="cod_payment">Thanh toán khi nhận hàng</string>
@@ -179,7 +179,7 @@
     <string name="order_success">Đơn hàng thành công</string>
     <string name="madonhang">Mã đơn hàng của bạn là: #260101 .Yams sẽ sớm giao hàng đến bạn</string>
     <string name="see_order_status">Xem trạng thái đơn hàng</string>
-    <string name="enter_coupons">Nhập mã giảm giá ở đây</string>
+    <string name="enter_coupons">Nhập mã giảm giá</string>
     <string name="apply">Áp dụng</string>
     <string name="coupon_20k">Giảm 10k cho đơn hàng từ 200k</string>
     <string name="hsd">HSD: 01/01/2022</string>
