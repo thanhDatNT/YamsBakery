@@ -31,7 +31,7 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View customView = inflater.inflate(R.layout.see_review_item,parent,false);
+        View customView = inflater.inflate(R.layout.item_see_review,parent,false);
 
         return new ViewHolder(customView);
     }

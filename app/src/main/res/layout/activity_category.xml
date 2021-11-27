@@ -12,8 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:navigationIcon="@drawable/ic_back_pink">
+        app:navigationIcon="@drawable/ic_back_pink"
+        android:layout_marginBottom="14dp">
         <TextView
+            android:id="@+id/txtCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Birthday cake"
@@ -22,16 +24,48 @@
             android:textStyle="bold"
             android:gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearchCategory"
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:id="@+id/svSearchCategory"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginVertical="10dp"-->
+<!--        android:queryBackground="@null"-->
+<!--        android:queryHint="@string/search"-->
+<!--        android:iconifiedByDefault="false"-->
+<!--        app:searchHintIcon="@drawable/ic_search"-->
+<!--        app:searchIcon="@drawable/ic_search"-->
+<!--        android:background="@drawable/edittext_background"/>-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:queryBackground="@null"
-        android:queryHint="@string/search"
-        android:iconifiedByDefault="false"
-        app:searchHintIcon="@drawable/ic_search"
-        app:searchIcon="@drawable/ic_search"
-        android:background="@drawable/edittext_background"/>
+        android:layout_height="wrap_content"
+        android:gravity="end">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:layout_marginEnd="10dp"
+            android:text="Lọc theo giá:"
+            android:textSize="@dimen/textContent"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:gravity="center" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:background="@drawable/bg_lightpink_dashstroke">
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lvProductCategory"
         android:layout_width="match_parent"

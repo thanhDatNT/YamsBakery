@@ -81,9 +81,9 @@
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
                 style="@style/ThemeOverlay.AppCompat.Light"
+                app:menu="@menu/profile_heading"
                 android:paddingTop="24dp"
                 android:paddingBottom="8dp"
-
                 android:theme="?attr/actionBarTheme"
                 app:layout_collapseMode="pin">
                 <TextView

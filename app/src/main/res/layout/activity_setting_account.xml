@@ -14,7 +14,7 @@
         android:elevation="4dp"
         >
             <ImageButton
-                android:id="@+id/imvBack"
+                android:id="@+id/imbBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -83,14 +83,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:src="@drawable/line_profile"
-                android:layout_marginVertical="4dp"
-
-                />
-
             <!-- change email -->
             <LinearLayout
                 android:id="@+id/lnChangeEmail"
@@ -125,12 +117,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:src="@drawable/line_profile"
-                android:layout_marginVertical="4dp"/>
-
             <!-- ChangePassword -->
             <LinearLayout
                 android:id="@+id/lnChangePwd"
@@ -163,12 +149,6 @@
                     android:src="@drawable/ic_see_more" />
 
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:src="@drawable/line_profile"
-                android:layout_marginVertical="4dp"/>
 
             <!-- Address -->
             <LinearLayout

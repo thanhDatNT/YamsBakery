@@ -17,15 +17,26 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Activities.MapActivity" />
+        <activity android:name=".Activities.MapActivity"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
             android:name=".Activities.FunctionProfileActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".Activities.CategoryActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
 
 
         <activity
@@ -42,20 +53,14 @@
             android:exported="true">
 
         </activity>
-
-
         <activity
             android:name=".Activities.Payment"
             android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".Activities.SeeReviewActivity"
             android:exported="true" />
+
         <activity
             android:name=".Activities.CartActivity"
             android:exported="true" />
@@ -76,13 +81,15 @@
 
         <activity android:name=".Activities.IntroActivity" />
 
-    <activity android:name=".Activities.MainActivity" android:exported="true" >
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
 
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
-    </activity>
+        <activity android:name=".Activities.MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 </application>
 </manifest>

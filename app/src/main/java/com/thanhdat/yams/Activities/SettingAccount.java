@@ -5,20 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.thanhdat.yams.R;
 
 public class SettingAccount extends AppCompatActivity {
     LinearLayout lnMyProfile,lnChangeEmail,lnChangePwd;
+    ImageButton imbBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_account);
         linkView();
         addEventTabSetting();
+        addEventBack();
     }
-
 
 
 
@@ -26,6 +29,8 @@ public class SettingAccount extends AppCompatActivity {
         lnMyProfile=findViewById(R.id.lnMyProfile);
         lnChangeEmail=findViewById(R.id.lnChangeEmail);
         lnChangePwd=findViewById(R.id.lnChangePwd);
+
+        imbBack = findViewById(R.id.imbBack);
     }
 
     private void addEventTabSetting() {
@@ -52,4 +57,13 @@ public class SettingAccount extends AppCompatActivity {
         });
 
     }
+    private void addEventBack() {
+        imbBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
 }
