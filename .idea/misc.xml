@@ -146,15 +146,18 @@
         <entry key="..\:/HK5/DO_AN/Github/YamsBakery/app/src/main/res/layout/viewholder_new_product.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/bg_lightpink_dashstroke.xml" value="0.1" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/border_table.xml" value="0.20052083333333334" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/line.xml" value="0.20052083333333334" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_feed_comment.xml" value="0.16666666666666666" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.184375" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_order_detail.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_order_status.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_diet.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.22" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_language.xml" value="0.184375" />
-        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_order_detail.xml" value="0.22" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_order_detail.xml" value="0.3333333333333333" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_pending_order.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.184375" />

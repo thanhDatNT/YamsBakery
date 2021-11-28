@@ -1,6 +1,7 @@
 package com.thanhdat.yams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Activities.FeedCommentActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
@@ -54,6 +56,16 @@ public class PostAdapter extends BaseAdapter {
             holder.txtLike = view.findViewById(R.id.txtLike);
             holder.txtDescription = view.findViewById(R.id.txtDescription);
             holder.txtHashtag = view.findViewById(R.id.txtHashtag);
+            holder.txtComment = view.findViewById(R.id.txtSeeComment);
+
+            holder.txtComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, FeedCommentActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
             view.setTag(holder);
 
         }else{
@@ -66,10 +78,12 @@ public class PostAdapter extends BaseAdapter {
         holder.txtLike.setText(p.getPostLike());
         holder.txtDescription.setText(p.getPostDescription());
         holder.txtHashtag.setText(p.getPostHashtag());
+
         return view;
     }
     private static class ViewHolder{
         ImageView imvThumb;
-        TextView txtLike, txtDescription, txtHashtag;
+        TextView txtLike, txtDescription, txtHashtag, txtComment;
+
     }
 }

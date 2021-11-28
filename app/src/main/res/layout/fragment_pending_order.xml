@@ -8,6 +8,8 @@
         android:id="@+id/lvPending"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:clickable="false"
         android:dividerHeight="0dp"
         android:divider="@null"/>
 

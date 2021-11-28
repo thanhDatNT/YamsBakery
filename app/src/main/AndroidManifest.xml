@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
-        <activity android:name=".Activities.ChatActivity"></activity>
+        <activity
+            android:name=".Activities.OrderDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.FeedCommentActivity"
+            android:exported="true" />
+        <activity android:name=".Activities.ChatActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -60,7 +66,6 @@
         <activity
             android:name=".Activities.PaymentMethod"
             android:exported="true" />
-
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />

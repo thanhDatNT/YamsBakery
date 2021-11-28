@@ -6,16 +6,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.MainActivity;
+import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.Models.Post;
@@ -27,6 +32,7 @@ import com.thanhdat.yams.adapter.PostAdapter;
 import java.util.ArrayList;
 
 public class FavoriteFragment extends Fragment {
+
     ListView lvFavorite;
     ArrayList<Favorite> favorites;
     FavoriteAdapter adapter;
@@ -40,6 +46,7 @@ public class FavoriteFragment extends Fragment {
         lvFavorite.setAdapter(adapter);
         return view;
     }
+
 
     private ArrayList<Favorite> initData(){
         favorites = new ArrayList<Favorite>();

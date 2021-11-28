@@ -1,18 +1,21 @@
 package com.thanhdat.yams.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.thanhdat.yams.Activities.OrderDetailActivity;
 import com.thanhdat.yams.R;
 
 
 public class ShippingOrderFragment extends Fragment {
 
-
+    TextView txtCode;
 
     public ShippingOrderFragment() {
         // Required empty public constructor
@@ -23,6 +26,15 @@ public class ShippingOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shipping_order, container, false);
+        View view = inflater.inflate(R.layout.fragment_shipping_order, container, false);
+
+        txtCode = view.findViewById(R.id.txtShippingCode);
+        txtCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), OrderDetailActivity.class));
+            }
+        });
+        return view;
     }
 }
