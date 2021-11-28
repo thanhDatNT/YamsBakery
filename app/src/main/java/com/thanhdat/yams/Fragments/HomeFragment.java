@@ -25,6 +25,7 @@ import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
+import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
@@ -185,7 +186,7 @@ public class HomeFragment extends Fragment{
                     startActivity(new Intent(getContext(), NotificationActivity.class));
                 }
                 if(item.getItemId() == R.id.mnuCartHome){
-                    startActivity(new Intent(getContext(), CartActivity.class));
+                    startActivity(new Intent(getContext(), PaymentActivity.class));
                 }
                 return false;
             }

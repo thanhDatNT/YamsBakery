@@ -7,12 +7,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
@@ -24,6 +30,7 @@ import com.thanhdat.yams.adapter.PaymentAdapter;
 import com.thanhdat.yams.adapter.SeeReviewAdapter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -34,6 +41,9 @@ public class PaymentActivity extends AppCompatActivity {
     RecyclerView rcvPaymentProduct;
     ArrayList<PaymentProduct> paymentProducts;
     PaymentAdapter adapter;
+    Calendar c;
+    DatePickerDialog dpd;
+    TimePickerDialog tpd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +90,7 @@ public class PaymentActivity extends AppCompatActivity {
 
 
     private void addEvents() {
-            //Open ChooseTimeFragment
+
         btnOpenChooseTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,7 +147,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void clickOpenBottomSheetDialog() {
-
+        c = Calendar.getInstance();
         View viewDialog = getLayoutInflater().inflate(R.layout.fragment_choose_time, null);
 
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
@@ -152,6 +162,43 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bottomSheetDialog.dismiss();
+            }
+        });
+        ImageButton imbDate, imbTime;
+        TextView txtTime, txtDate;
+        txtTime = viewDialog.findViewById(R.id.txtTime);
+        txtDate = viewDialog.findViewById(R.id.txtDate);
+        imbDate= viewDialog.findViewById(R.id.btnDate);
+        imbDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int day = c.get(Calendar.DAY_OF_MONTH);
+                int month = c.get(Calendar.MONTH);
+                int year = c.get(Calendar.YEAR);
+
+                dpd = new DatePickerDialog(PaymentActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                        txtDate.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
+                    }
+                }, day, month, year);
+                dpd.show();
+            }
+        });
+        imbTime= viewDialog.findViewById(R.id.btnTime);
+        imbTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int minute = c.get(Calendar.MINUTE);
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                Log.d("TAG", "Time picker");
+                tpd = new TimePickerDialog(PaymentActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int mHour, int mMinute) {
+                        txtTime.setText((mHour) + ":" + mMinute);
+                    }
+                }, hour, minute, false);
+                tpd.show();
             }
         });
     }
