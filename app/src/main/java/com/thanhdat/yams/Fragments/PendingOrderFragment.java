@@ -3,6 +3,8 @@ package com.thanhdat.yams.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -21,28 +23,24 @@ import com.thanhdat.yams.adapter.PendingAdapter;
 import java.util.ArrayList;
 
 
-public class PendingOrderFragment extends Fragment {
-
-    OnClickInterface onClickInterface;
-
+public class PendingOrderFragment extends Fragment{
     public PendingOrderFragment() {
         // Required empty public constructor
     }
+    OnClickInterface clickInterface;
     ListView lvPending;
     ArrayList<PendingOrder> pendingOrders;
     PendingAdapter pendingAdapter;
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pending_order, container, false);
         lvPending = view.findViewById(R.id.lvPending);
-        pendingAdapter = new PendingAdapter(getContext(),R.layout.pending_order_item,initData());
+        pendingAdapter = new PendingAdapter(getContext(),R.layout.pending_order_item,initData(), clickInterface);
         lvPending.setAdapter(pendingAdapter);
-
-        goToOrderDetail();
-
+        clickInterface= abc -> startActivity(new Intent(getContext(), OrderDetailActivity.class));
         return view;
     }
 
@@ -58,12 +56,4 @@ public class PendingOrderFragment extends Fragment {
 
     }
 
-    private void goToOrderDetail() {
-        lvPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getContext(),OrderDetailActivity.class));
-            }
-        });
-    }
 }
