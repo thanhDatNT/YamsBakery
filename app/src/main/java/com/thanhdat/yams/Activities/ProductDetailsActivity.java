@@ -175,18 +175,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
         public void onClick(View view) {
             if(view.getId() == R.id.imbAdd){
                 quantity += 1;
-                total*=2;
+                //total*=2;
             }
             if(view.getId() == R.id.imbSubtract){
                 if(quantity > 1){
                     quantity -= 1;
-                    total/=2;
+                    //total/=2;
                 }else {
                     Toast.makeText(ProductDetailsActivity.this, "Số lượng sản phẩm phải lớn hơn 0!", Toast.LENGTH_SHORT).show();
                 }
             }
             txtProductQuantity.setText(Integer.toString(quantity));
-            btnPayment.setText(Integer.toString(total));
+            //btnPayment.setText(Integer.toString(total));
         }
     };
 }

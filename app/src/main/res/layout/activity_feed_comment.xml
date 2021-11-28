@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarComment"
         android:background="?android:attr/windowBackground">
 
         <TextView
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recycler_view"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/toolbarComment"
         android:layout_above="@id/bottom"/>
 
     <RelativeLayout

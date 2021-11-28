@@ -51,39 +51,13 @@ public class FeedFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_feed, container, false);
         //link Views
         toolbarFeed = view.findViewById(R.id.toolbarFeed);
-
         lvFeed = view.findViewById(R.id.lvFeed);
+
         adapter = new PostAdapter(getContext(),R.layout.post_item,initData());
         lvFeed.setAdapter(adapter);
 
-        ((MainActivity)getActivity()).setSupportActionBar(toolbarFeed);
-        setHasOptionsMenu(true);
-        ((MainActivity)getActivity()).getSupportActionBar().setTitle(null);
-
         goToCartOrNotification();
         return view;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.feed_heading,menu);
-    }
-
-    private void goToCartOrNotification() {
-        toolbarFeed.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId() == R.id.mnuNotificationFeed){
-                    startActivity(new Intent(getContext(), NotificationActivity.class));
-                }
-                if(item.getItemId() == R.id.mnuCartFeed){
-                    startActivity(new Intent(getContext(), CartActivity.class));
-                }
-                return false;
-            }
-        });
-
     }
 
     private ArrayList<Post> initData(){
@@ -96,5 +70,34 @@ public class FeedFragment extends Fragment {
 
     }
 
+    private void goToCartOrNotification() {
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if(activity != null){
+            activity.setSupportActionBar(toolbarFeed);
+            if(activity.getSupportActionBar() != null){
+                activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                activity.getSupportActionBar().setTitle(null);
+            }
+        }
+        toolbarFeed.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.mnuCartFeed){
+                    startActivity(new Intent(getContext(), CartActivity.class));
+                }
+                if(item.getItemId() == R.id.mnuNotificationFeed){
+                    startActivity(new Intent(getContext(),NotificationActivity.class));
+                }
+                return false;
+            }
+        });
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.feed_heading, menu);
+    }
 
 }

@@ -8,29 +8,22 @@
     android:orientation="vertical"
     android:paddingHorizontal="10dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/imbBackToOrderStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_pink"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/white"
-            />
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarOrderDetail"
+        android:background="?android:attr/windowBackground">
 
         <TextView
-            android:id="@+id/txtOrderDetailHeader"
-            android:layout_width="410dp"
-            android:layout_height="80dp"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Chi tiết đơn hàng"
-            android:textColor="@color/primary"
             android:textSize="@dimen/textHeader"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
-    </androidx.cardview.widget.CardView>
 
     <TableLayout
         android:layout_width="match_parent"

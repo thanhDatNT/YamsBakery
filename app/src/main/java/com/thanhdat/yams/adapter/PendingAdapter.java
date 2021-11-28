@@ -7,8 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
 
@@ -17,15 +21,16 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class PendingAdapter extends BaseAdapter {
-
+    OnClickInterface clickInterface;
     Context context;
     int pending_order_item;
     ArrayList<PendingOrder> pendingOrders;
 
-    public PendingAdapter(Context context, int pending_order_item, ArrayList<PendingOrder> pendingOrders) {
+    public PendingAdapter(Context context, int pending_order_item, ArrayList<PendingOrder> pendingOrders, OnClickInterface clickInterface) {
         this.context = context;
         this.pending_order_item = pending_order_item;
         this.pendingOrders = pendingOrders;
+        this.clickInterface= clickInterface;
     }
 
     @Override
@@ -55,6 +60,7 @@ public class PendingAdapter extends BaseAdapter {
             holder.txtCode = view.findViewById(R.id.txtPendingCode);
             holder.txtName = view.findViewById(R.id.txtPendingName);
             holder.txtPrice = view.findViewById(R.id.txtPendingPrice);
+            holder.layout= view.findViewById(R.id.pendingOrderLayout);
             view.setTag(holder);
 
         }else{
@@ -67,13 +73,18 @@ public class PendingAdapter extends BaseAdapter {
         holder.txtName.setText(pendingOrder.getOrderName());
         holder.txtPrice.setText(String.format("%g",pendingOrder.getOrderPrice())+"đ");
         holder.txtCode.setText(pendingOrder.getOrderCode());
-
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickInterface.setClick(0);
+            }
+        });
         return view;
     }
 
-    private static class ViewHolder{
+    class ViewHolder{
         ImageView imvThumb;
         TextView txtCode, txtName, txtPrice;
-
+        LinearLayout layout;
     }
 }

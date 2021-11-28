@@ -17,7 +17,7 @@
         android:minHeight="?attr/actionBarSize"
         app:layout_collapseMode="pin"
         android:background="@color/white"
-        app:menu="@menu/homepage_heading"
+        app:menu="@menu/feed_heading"
         android:paddingTop="20dp"
         style="@style/ThemeOverlay.AppCompat.Light"
         android:theme="?attr/actionBarTheme">
