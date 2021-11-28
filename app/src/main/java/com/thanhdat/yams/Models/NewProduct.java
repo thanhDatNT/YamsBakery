@@ -2,16 +2,14 @@ package com.thanhdat.yams.Models;
 
 public class NewProduct {
     private int thumb;
-    private String name, description, tag;
-    private double price, rating;
+    private String name, price, rating, tag;
 
-    public NewProduct(int thumb, String name, String description, String tag, double price, double rating) {
+    public NewProduct(int thumb, String name, String price, String rating, String tag) {
         this.thumb = thumb;
         this.name = name;
-        this.description = description;
-        this.tag = tag;
         this.price = price;
         this.rating = rating;
+        this.tag = tag;
     }
 
     public int getThumb() {
@@ -30,12 +28,20 @@ public class NewProduct {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPrice() {
+        return price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getTag() {
@@ -44,21 +50,5 @@ public class NewProduct {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
     }
 }

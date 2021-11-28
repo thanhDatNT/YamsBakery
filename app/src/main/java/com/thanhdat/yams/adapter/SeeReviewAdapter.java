@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,8 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
         holder.txtSizeReview.setText(seeReviewItems.get(position).getReviewSize());
         holder.txtToppingReview.setText(seeReviewItems.get(position).getReviewTopping());
 
+        holder.rtbSeeReviewItem.setRating((float) seeReviewItems.get(position).getReviewRating());
+
     }
 
     @Override
@@ -56,22 +59,21 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imvAvaReview, imvProductReview, imvStar1, imvStar2, imvStar3, imvStar4, imvStar5;
-        TextView txtNameReview, txtReviewText, txtSizeReview, txtToppingReview, txtSizeView, txtToppingView;
+        ImageView imvAvaReview, imvProductReview;
+        TextView txtNameReview, txtReviewText, txtSizeReview, txtToppingReview;
+        RatingBar rtbSeeReviewItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //link views
             imvAvaReview = itemView.findViewById(R.id.imvAvaReview);
             imvProductReview = itemView.findViewById(R.id.imvProductReview);
 
-
             txtNameReview = itemView.findViewById(R.id.txtNameReview);
             txtReviewText = itemView.findViewById(R.id.txtReviewText);
             txtSizeReview = itemView.findViewById(R.id.txtSizeReview);
             txtToppingReview = itemView.findViewById(R.id.txtToppingReview);
-            txtSizeView = itemView.findViewById(R.id.txtSizeView);
-            txtToppingView = itemView.findViewById(R.id.txtToppingView);
 
+            rtbSeeReviewItem = itemView.findViewById(R.id.rtbSeeReviewItem);
         }
     }
 }

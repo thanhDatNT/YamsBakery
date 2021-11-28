@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.thanhdat.yams.Activities.ChatActivity;
 import com.thanhdat.yams.Activities.FunctionProfileActivity;
 import com.thanhdat.yams.Activities.IntroActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
@@ -144,7 +145,10 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getContext(), OrderStatusActivity.class));
             }
             //start function activity
-            if(view.getId() == R.id.lnVoucherProfile || view.getId() == R.id.lnMessageProfile || view.getId() == R.id.lnLanguageProfile){
+            if(view.getId() == R.id.lnMessageProfile){
+                startActivity(new Intent(getContext(), ChatActivity.class));
+            }
+            if(view.getId() == R.id.lnVoucherProfile || view.getId() == R.id.lnLanguageProfile){
                 Intent intent = new Intent(getContext(), FunctionProfileActivity.class);
                 intent.setFlags(view.getId());
                 startActivity(intent);

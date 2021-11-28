@@ -67,7 +67,7 @@ public class DietFragment extends Fragment {
             public void onClick(View view) {
 
                 Dialog dialog= new Dialog(getContext());
-                dialog.setContentView(R.layout.showresult);
+                dialog.setContentView(R.layout.dialog_show_bmi);
                 double chieucao = Double.parseDouble(edtNhapHeight.getText().toString());
                 double cannang=Double.parseDouble(edtNhapWeight.getText().toString());
                 DecimalFormat d = new DecimalFormat("0.00");

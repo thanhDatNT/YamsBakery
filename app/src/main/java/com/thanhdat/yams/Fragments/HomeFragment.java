@@ -32,6 +32,7 @@ import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
+import com.thanhdat.yams.adapter.NewProductAdapter;
 import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.adapter.SliderBannerAdapter;
 import com.thanhdat.yams.adapter.SuggestionAdapter;

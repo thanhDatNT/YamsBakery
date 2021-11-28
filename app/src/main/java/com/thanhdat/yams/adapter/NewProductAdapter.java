@@ -1,83 +1,77 @@
 package com.thanhdat.yams.adapter;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Models.Favorite;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
 
-import java.text.DecimalFormat;
-import java.util.List;
+import java.util.ArrayList;
 
-public class NewProductAdapter extends BaseAdapter {
+public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.ViewHolder>{
+    Context context;
+    int layout;
+    ArrayList<NewProduct> newProducts;
+    OnClickInterface onClickInterface;
 
-    Activity context;
-    int new_item;
-    List<NewProduct> newProductList;
-
-    public NewProductAdapter(Activity context, int new_item, List<NewProduct> newProductList) {
+    public NewProductAdapter(Context context, int layout, ArrayList<NewProduct> newProduct, OnClickInterface onClickInterface) {
         this.context = context;
-        this.new_item = new_item;
-        this.newProductList = newProductList;
+        this.newProducts = newProduct;
+        this.layout= layout;
+        this.onClickInterface= onClickInterface;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return newProductList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.imvThumb.setImageResource(newProducts.get(position).getThumb());
+        holder.tvName.setText(newProducts.get(position).getName());
+        holder.tvPrice.setText(newProducts.get(position).getPrice());
+        holder.tvRating.setText(newProducts.get(position).getRating());
+        holder.tvTag.setText(newProducts.get(position).getTag());
+        holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickInterface.setClick(position);
+            }
+        });
     }
 
     @Override
-    public Object getItem(int i) {
-        return newProductList.get(i);
+    public int getItemCount() {
+        return newProducts.size();
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-
-
-        FavoriteAdapter.ViewHolder holder;
-        if(view == null) {
-            //link item view
-            holder = new FavoriteAdapter.ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(new_item, null);
-            holder.imvThumb = view.findViewById(R.id.imvThumb);
-            holder.txtName = view.findViewById(R.id.txtName);
-            holder.txtPrice = view.findViewById(R.id.txtPrice);
-            holder.txtDescription = view.findViewById(R.id.txtDescription);
-            holder.txtRating = view.findViewById(R.id.txtRating);
-
-
-            view.setTag(holder);
-        }else {
-            holder = (FavoriteAdapter.ViewHolder) view.getTag();
-        }
-        //Binding data
-        NewProduct f = newProductList.get(i);
-        holder.imvThumb.setImageResource(f.getThumb());
-        holder.txtName.setText(f.getName());
-        DecimalFormat decimalFormat = new DecimalFormat("######");
-        holder.txtPrice.setText(decimalFormat.format(f.getPrice())+" đ");
-        holder.txtRating.setText(decimalFormat.format(f.getRating()));
-
-
-        return view;
-    }
-    public static class ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
-        TextView txtName, txtPrice, txtDescription,txtRating;
+        TextView tvName, tvPrice, tvRating, tvTag;
+        LinearLayout layoutProduct;
 
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imvThumb= itemView.findViewById(R.id.imvThumbHome);
+            tvName= itemView.findViewById(R.id.tvProductNameHome);
+            tvPrice= itemView.findViewById(R.id.tvPriceHome);
+            tvRating= itemView.findViewById(R.id.tvRatingHome);
+            tvTag= itemView.findViewById(R.id.tvTagProductHome);
+            layoutProduct= itemView.findViewById(R.id.layoutProduct);
+        }
     }
 }
