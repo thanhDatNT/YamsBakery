@@ -76,7 +76,7 @@ public class PendingAdapter extends BaseAdapter {
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickInterface.setClick(0);
+                // clickInterface.setClick(0);
             }
         });
         return view;

@@ -40,7 +40,13 @@ public class PendingOrderFragment extends Fragment{
         lvPending = view.findViewById(R.id.lvPending);
         pendingAdapter = new PendingAdapter(getContext(),R.layout.pending_order_item,initData(), clickInterface);
         lvPending.setAdapter(pendingAdapter);
-        clickInterface= abc -> startActivity(new Intent(getContext(), OrderDetailActivity.class));
+        lvPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        // clickInterface= abc -> startActivity(new Intent(getContext(), OrderDetailActivity.class));
         return view;
     }
 
