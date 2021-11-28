@@ -150,8 +150,11 @@
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/bg_lightpink_dashstroke.xml" value="0.1" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/border_table.xml" value="0.20052083333333334" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/drawable/line.xml" value="0.20052083333333334" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_feed_comment.xml" value="0.1537037037037037" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.184375" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_order_detail.xml" value="0.1537037037037037" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/activity_order_status.xml" value="0.184375" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/footer_view_cart.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_diet.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_favorite.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.22" />
@@ -164,6 +167,7 @@
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.4466666666666667" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/pending_order_item.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.184375" />
+        <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/layout/viewholder_mychat.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/menu/bottom_navigation.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/menu/feed_heading.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/GITHUB/YamsBakery/app/src/main/res/menu/homepage_heading.xml" value="0.184375" />
