@@ -142,8 +142,7 @@ public class CartActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this,MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
     }

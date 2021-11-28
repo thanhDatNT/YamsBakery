@@ -62,6 +62,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
@@ -85,9 +86,6 @@ public class ProfileFragment extends Fragment {
         lnNoti = view.findViewById(R.id.lnNotiProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
 
-        ((MainActivity)getActivity()).setSupportActionBar(toolbarProfile);
-        setHasOptionsMenu(true);
-
         addEventSliderBanner();
         addEventCollapsing();
         addEventFunction();
@@ -97,9 +95,6 @@ public class ProfileFragment extends Fragment {
 
         return view;
     }
-
-
-
 
     private void addEventSliderBanner() {
         ArrayList<Banner> banners= new ArrayList<>();
