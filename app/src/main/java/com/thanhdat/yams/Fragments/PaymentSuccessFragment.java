@@ -13,7 +13,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Activities.OrderStatusActivity;
-import com.thanhdat.yams.Activities.Payment;
+import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.R;
 
 public class PaymentSuccessFragment extends Fragment {
@@ -48,7 +48,7 @@ return view;
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.btnBackToPayment) {
-                    startActivity(new Intent(getContext(), Payment.class));
+                    startActivity(new Intent(getContext(), PaymentActivity.class));
                 }
             }
         });

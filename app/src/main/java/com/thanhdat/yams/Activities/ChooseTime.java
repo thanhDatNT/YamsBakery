@@ -7,7 +7,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,8 +14,6 @@ import android.widget.TimePicker;
 
 import com.thanhdat.yams.R;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ChooseTime extends AppCompatActivity {
@@ -80,7 +77,7 @@ public class ChooseTime extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseTime.this, Payment.class );
+                Intent intent = new Intent(ChooseTime.this, PaymentActivity.class );
                 startActivity(intent);
             }
         });

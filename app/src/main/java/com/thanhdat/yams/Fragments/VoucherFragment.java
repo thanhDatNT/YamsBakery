@@ -9,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.thanhdat.yams.Activities.Payment;
+import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Models.Voucher;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.VoucherAdapter;
@@ -46,7 +44,7 @@ public class VoucherFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.btnBackToPayment) {
-                    startActivity(new Intent(getContext(), Payment.class));
+                    startActivity(new Intent(getContext(), PaymentActivity.class));
                 }
             }
         });
@@ -59,7 +57,7 @@ public class VoucherFragment extends Fragment {
         vouchers.add(new Voucher(R.drawable.ic_voucher, "Giảm 50k cho đơn hàng từ 500k", "1/12/2021"));
         vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 200k", "01/01/2022"));
         vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 200k", "01/01/2022"));
-        vouchers.add(new Voucher(R.drawable.ic_voucher, "Miễn phí vận chuyển cho đơn hàng từ 500k", "01/01/2022"));
+        vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 500k", "01/01/2022"));
 
         return vouchers;
     }

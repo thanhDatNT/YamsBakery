@@ -153,11 +153,13 @@
     <string name="sum">Tổng tiền hàng</string>
     <string name="price_35000">35.000 đ</string>
     <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
-    <string name="coupons_delivery">Giảm giá phí vận chuyển</string>
+    <string name="voucher_delivery">Giảm giá phí vận chuyển</string>
+    <string name="yams_voucher">Yams Voucher</string>
     <string name="price_coupons">-20.000 đ</string>
     <string name="total_payment">Tổng Thanh toán</string>
     <string name="price_50000">50.000 đ</string>
     <string name="yams_coupons">Yams coupons</string>
+    <string name="price_30000">30000 đ</string>
     <string name="choose_coupons">Chọn hoặc nhập mã</string>
     <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
@@ -173,7 +175,7 @@
     <string name="internet_banking"><u>Internet Banking</u></string>
     <string name="vi_dien_tu"><u>Ví điện tử</u></string>
     <string name="choose_bank">Chọn ngân hàng</string>
-
+    <string name="bank_BIDV">BIDV - Ngân hàng đầu tư và phát triển</string>
 <!--    payment success-->
 
     <string name="order_success">Đơn hàng thành công</string>
@@ -220,5 +222,6 @@
     <string name="review_hint">Hãy chia sẻ cảm nhận của bạn về loại bánh này!</string>
     <string name="delivery">Vận chuyển và xử lý đơn hàng:</string>
     <string name="service">Chăm sóc khách hàng:</string>
+
 
 </resources>
