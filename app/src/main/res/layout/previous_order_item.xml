@@ -95,7 +95,7 @@
                         android:layout_marginStart="25dp"
                         android:textColor="@color/white"
                         android:textAllCaps="false"
-                        android:background="@drawable/botron3"
+                        android:background="@drawable/button_bg_gradient"
                         />
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="wrap_content"

@@ -22,7 +22,7 @@
             android:layout_height="40dp"
             android:layout_marginVertical="4dp"
             android:layout_marginRight="12dp"
-            android:background="@drawable/edittext_background"
+            android:background="@drawable/bg_lightpink"
             android:iconifiedByDefault="false"
             android:queryBackground="@null"
             android:queryHint="@string/search"

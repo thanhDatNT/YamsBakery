@@ -74,9 +74,6 @@
             android:name=".Activities.ProductDetailsActivity"
             android:exported="true" />
 
-        <activity
-            android:name=".Activities.PaymentMethod"
-            android:exported="true" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.IntroActivity" />
