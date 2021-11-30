@@ -76,7 +76,7 @@
 
 
     <!--Favorite-->
-    <string name="Discription">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
+    <string name="Description">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
     <string name="prices">18.000đ</string>
     <string name="Old_prices">22.000đ</string>
@@ -222,6 +222,8 @@
     <string name="review_hint">Hãy chia sẻ cảm nhận của bạn về loại bánh này!</string>
     <string name="delivery">Vận chuyển và xử lý đơn hàng:</string>
     <string name="service">Chăm sóc khách hàng:</string>
+    <string name="infor">Thông tin khách hàng</string>
+    <string name="uyennhi">Uyển Nhi | 0392308148</string>
 
 
 </resources>

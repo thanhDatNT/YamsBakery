@@ -77,6 +77,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
             android:text="Date"/>
         <ImageButton
             android:id="@+id/btnDate"
@@ -109,6 +111,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3.5"
             android:textColor="@color/primary"
+            android:textSize="18sp"
             android:text="Time"/>
         <ImageButton
             android:id="@+id/btnTime"

@@ -8,7 +8,7 @@
 
     <!--header-->
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageButton
             android:id="@+id/btnBackToPayment"
@@ -20,7 +20,7 @@
             />
 
         <TextView
-            android:layout_width="410dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
             android:text="@string/payment"
