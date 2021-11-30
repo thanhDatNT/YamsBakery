@@ -8,28 +8,14 @@
     android:background="@drawable/bg_heading_gradient"
     tools:context=".Activities.MapActivity">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imvBack"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            app:srcCompat="@drawable/ic_arrow_back" />
-
-        <SearchView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edittext_background"
-            android:layout_weight="0.9"
-            android:layout_marginStart="12dp"
-            android:searchIcon="@drawable/ic_search"/>
-    </LinearLayout>
+        android:layout_height="?actionBarSize"
+        app:title="Chọn địa chỉ"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:menu="@menu/toolbar_search"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

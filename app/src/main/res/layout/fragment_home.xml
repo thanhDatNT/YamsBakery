@@ -44,7 +44,7 @@
                 android:queryHint="@string/search"
                 android:iconifiedByDefault="false"
                 app:searchIcon="@drawable/ic_search"
-                android:background="@drawable/edittext_background"/>
+                android:background="@drawable/bg_lightpink"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarHome"

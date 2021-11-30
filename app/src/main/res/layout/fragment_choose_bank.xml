@@ -51,7 +51,7 @@
         android:iconifiedByDefault="false"
         app:searchHintIcon="@drawable/ic_search"
         app:searchIcon="@drawable/ic_search"
-        android:background="@drawable/edittext_background"/>
+        android:background="@drawable/bg_lightpink"/>
 
     <LinearLayout
         android:id="@+id/lnBIDV"
