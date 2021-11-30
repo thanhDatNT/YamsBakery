@@ -31,7 +31,7 @@
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
-            android:name=".Activities.FunctionProfileActivity"
+            android:name=".Activities.LanguageActivity"
             android:exported="true" >
 
         </activity>

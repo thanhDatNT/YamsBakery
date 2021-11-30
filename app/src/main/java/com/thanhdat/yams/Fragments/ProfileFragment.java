@@ -1,5 +1,6 @@
 package com.thanhdat.yams.Fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,36 +11,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Activities.ChatActivity;
-import com.thanhdat.yams.Activities.FunctionProfileActivity;
-import com.thanhdat.yams.Activities.IntroActivity;
+import com.thanhdat.yams.Activities.LanguageActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
-import com.thanhdat.yams.Activities.MainActivity;
-import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
-import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Activities.SettingAccount;
-
-import com.thanhdat.yams.Activities.IntroActivity;
-import com.thanhdat.yams.Activities.LoginActivity;
-import com.thanhdat.yams.Activities.OrderStatusActivity;
 
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
@@ -52,12 +46,10 @@ public class ProfileFragment extends Fragment {
     //private ImageButton imbToOrderStatus;
     private Toolbar toolbarProfile;
     private SliderView sliderBannerProfile;
-
-    ImageButton imbEditProfile;
-
+    private SwitchCompat switchNotification;
     private NestedScrollView scrollView;
-    private  CardView imgProfile;
-    private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnNoti, lnLogout;
+    private CardView imgProfile;
+    private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout;
 
 
     @Override
@@ -76,21 +68,20 @@ public class ProfileFragment extends Fragment {
         toolbarProfile = view.findViewById(R.id.toolbarProfile);
         sliderBannerProfile = view.findViewById(R.id.imageSliderProfile);
 
+        switchNotification = view.findViewById(R.id.switchNotification);
 
         scrollView= view.findViewById(R.id.scrollViewProfile);
         imgProfile= view.findViewById(R.id.imgProfile);
+
         lnOrder = view.findViewById(R.id.lnOrderProfile);
         lnVoucher = view.findViewById(R.id.lnVoucherProfile);
         lnMessage = view.findViewById(R.id.lnMessageProfile);
         lnLanguage = view.findViewById(R.id.lnLanguageProfile);
-        lnNoti = view.findViewById(R.id.lnNotiProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
 
         addEventSliderBanner();
         addEventCollapsing();
         addEventFunction();
-
-
         addEventEditProfile();
 
         return view;
@@ -114,7 +105,6 @@ public class ProfileFragment extends Fragment {
             activity.setSupportActionBar(toolbarProfile);
             if(activity.getSupportActionBar() != null){
                 activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
             }
         }
     }
@@ -131,47 +121,57 @@ public class ProfileFragment extends Fragment {
         lnMessage.setOnClickListener(myClick);
         lnLanguage.setOnClickListener(myClick);
         lnLogout.setOnClickListener(myClick);
+        
+        //notification
+        switchNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Toast.makeText(getContext(), "Đã " + (switchNotification.isChecked() ? "bật" : "tắt") + " thông báo!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {
+        @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View view) {
-            if(view.getId() == R.id.lnOrderProfile){
-                startActivity(new Intent(getContext(), OrderStatusActivity.class));
-            }
-            //start function activity
-            if(view.getId() == R.id.lnMessageProfile){
-                startActivity(new Intent(getContext(), ChatActivity.class));
-            }
-            if(view.getId() == R.id.lnVoucherProfile || view.getId() == R.id.lnLanguageProfile){
-                Intent intent = new Intent(getContext(), FunctionProfileActivity.class);
-                intent.setFlags(view.getId());
-                startActivity(intent);
-            }
-            if(view.getId() == R.id.lnLogoutProfile){
-                Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.dialog_logout);
+            switch (view.getId()){
+                case R.id.lnOrderProfile:
+                    startActivity(new Intent(getContext(), OrderStatusActivity.class));
+                    break;
+                case R.id.lnVoucherProfile:
+                    //startActivity(new Intent(getContext(), .class));
+                    break;
+                case R.id.lnMessageProfile:
+                    startActivity(new Intent(getContext(), ChatActivity.class));
+                    break;
+                case R.id.lnLanguageProfile:
+                    startActivity(new Intent(getContext(), LanguageActivity.class));
+                    break;
+                case R.id.lnLogoutProfile:
+                    Dialog dialog = new Dialog(getContext());
+                    dialog.setContentView(R.layout.dialog_logout);
 
+                    Button btnConfirm = dialog.findViewById(R.id.btnConfirmLogout);
+                    Button btnCancel = dialog.findViewById(R.id.btnCancelLogout);
 
-                Button btnConfirm = dialog.findViewById(R.id.btnConfirmLogout);
-                Button btnCancel = dialog.findViewById(R.id.btnCancelLogout);
+                    //Confirm logout
+                    btnConfirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getContext(), LoginActivity.class));
+                        }
+                    });
 
-                //Confirm logout
-                btnConfirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getContext(), LoginActivity.class));
-                    }
-                });
-
-                //Cancel logout
-                btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
+                    //Cancel logout
+                    btnCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                    break;
             }
         }
     };

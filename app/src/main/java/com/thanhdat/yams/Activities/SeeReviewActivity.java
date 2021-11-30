@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
@@ -24,7 +26,8 @@ public class SeeReviewActivity extends AppCompatActivity {
     SeeReviewAdapter adapter;
 
     Toolbar toolbarSeeReview;
-
+    RatingBar rtbRating;
+    TextView txtAvgRating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +38,15 @@ public class SeeReviewActivity extends AppCompatActivity {
         configRecyclerView();
         initData();
         addEventBack();
+        addEventRating();
 
     }
 
     private void linkViews() {
         rcvReviewItem = findViewById(R.id.rcvReviewItem);
         toolbarSeeReview = findViewById(R.id.toolbarSeeReview);
+        rtbRating = findViewById(R.id.rtbRating);
+        txtAvgRating = findViewById(R.id.txtAvgRating);
     }
 
     private void configRecyclerView() {
@@ -78,5 +84,14 @@ public class SeeReviewActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void addEventRating() {
+        float rating = 0;
+        //to do?
+
+        rtbRating.setRating(Float.parseFloat(txtAvgRating.getText().toString()));
+
+    }
+
 
 }

@@ -81,24 +81,27 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //add product to payment?
-
+                startActivity(new Intent(ProductDetailsActivity.this,PaymentActivity.class));
             }
         });
 
         //Back previous
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(null);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+        }
     }
 
     @SuppressLint("SetTextI18n")
     public void totalMoney() {
         //Size total money
+        btnPayment.setText(txtMPrice.getText().toString());
         radGroupSize.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

@@ -1,48 +1,35 @@
-package com.thanhdat.yams.Fragments;
+package com.thanhdat.yams.Activities;
 
-import android.content.Intent;
-import android.graphics.Color;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
-import com.thanhdat.yams.Activities.MainActivity;
-import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.R;
 
-public class LanguageFragment extends Fragment {
-
+public class LanguageActivity extends AppCompatActivity{
     RadioGroup radGroupLanguage;
     RadioButton radVietNam, radEnglish, radJapan;
     Toolbar toolbarLanguage;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_language, container, false);
-        //link views
-        radGroupLanguage = view.findViewById(R.id.radGroupLanguage);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_language);
 
-        radVietNam = view.findViewById(R.id.radVietNam);
-        radEnglish = view.findViewById(R.id.radEnglish);
-        radJapan = view.findViewById(R.id.radJapan);
+        radGroupLanguage = findViewById(R.id.radGroupLanguage);
 
-        toolbarLanguage = view.findViewById(R.id.toolbarLanguage);
+        radVietNam = findViewById(R.id.radVietNam);
+        radEnglish = findViewById(R.id.radEnglish);
+        radJapan = findViewById(R.id.radJapan);
+
+        toolbarLanguage = findViewById(R.id.toolbarLanguage);
 
         addEvent();
-
-        return view;
     }
-
     private void addEvent() {
         radVietNam.setTextColor(getResources().getColor(R.color.primary));
 
@@ -65,23 +52,16 @@ public class LanguageFragment extends Fragment {
             }
         });
 
-        //back to profile
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if(activity != null){
-            activity.setSupportActionBar(toolbarLanguage);
-            if(activity.getSupportActionBar() != null){
-                activity.getSupportActionBar().setTitle(null);
-            }
+        //back to previous
+        setSupportActionBar(toolbarLanguage);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(null);
             toolbarLanguage.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //back to profile fragment
-                    if(getActivity() != null){
-                        getActivity().onBackPressed();
-                    }
+                    onBackPressed();
                 }
             });
         }
-
     }
 }
