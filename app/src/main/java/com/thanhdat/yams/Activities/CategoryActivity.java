@@ -1,25 +1,17 @@
 package com.thanhdat.yams.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.CartAdapter;
 import com.thanhdat.yams.adapter.FavoriteAdapter;
 
 import java.util.ArrayList;
@@ -84,7 +76,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
 
     private void addEventListView() {
 
-        adapter = new FavoriteAdapter(CategoryActivity.this,R.layout.favorite_item,initData());
+        adapter = new FavoriteAdapter(CategoryActivity.this,R.layout.item_favorite,initData());
         lvProductCategory.setAdapter(adapter);
 
     }
