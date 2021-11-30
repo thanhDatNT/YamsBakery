@@ -14,7 +14,11 @@
         android:theme="@style/Theme.Yams">
 
         <activity android:name=".Activities.ChatActivity"></activity>
+        <activity
+            android:name=".Activities.WriteReviewActivity"
+            android:exported="true">
 
+        </activity>
         <activity
             android:name=".Activities.OrderDetailActivity"
             android:exported="true" />

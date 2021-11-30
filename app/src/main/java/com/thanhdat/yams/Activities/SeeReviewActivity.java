@@ -80,7 +80,7 @@ public class SeeReviewActivity extends AppCompatActivity {
         toolbarSeeReview.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
             }
         });
     }
