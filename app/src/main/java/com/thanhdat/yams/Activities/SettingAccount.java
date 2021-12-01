@@ -34,29 +34,51 @@ public class SettingAccount extends AppCompatActivity {
     }
 
     private void addEventTabSetting() {
-        lnMyProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        lnMyProfile.setOnClickListener(MyClickEdit);
+        lnChangeEmail.setOnClickListener(MyClickEdit);
+        lnChangePwd.setOnClickListener(MyClickEdit);
+
+//        lnMyProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SettingAccount.this,SettingMyProfileActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        lnChangeEmail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SettingAccount.this,SettingChangeEmailActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        lnChangePwd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SettingAccount.this,SettingChangePWActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+    }
+    View.OnClickListener MyClickEdit = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(view.getId()==R.id.lnMyProfile)
+            {
                 Intent intent = new Intent(SettingAccount.this,SettingMyProfileActivity.class);
                 startActivity(intent);
             }
-        });
-        lnChangeEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            if(view.getId()==R.id.lnChangeEmail){
                 Intent intent = new Intent(SettingAccount.this,SettingChangeEmailActivity.class);
-                startActivity(intent);
+                 startActivity(intent);
             }
-        });
-        lnChangePwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            if(view.getId()==R.id.lnChangePwd){
                 Intent intent = new Intent(SettingAccount.this,SettingChangePWActivity.class);
                 startActivity(intent);
             }
-        });
-
-    }
+        }
+    };
     private void addEventBack() {
         imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
