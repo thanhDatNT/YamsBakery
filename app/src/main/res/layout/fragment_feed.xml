@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.FeedFragment"
+    android:paddingHorizontal="12dp"
     android:orientation="vertical">
 
     <!--    Start Header-->
@@ -19,6 +20,7 @@
         android:background="@color/white"
         app:menu="@menu/feed_heading"
         android:paddingTop="20dp"
+        android:elevation="4dp"
         style="@style/ThemeOverlay.AppCompat.Light"
         android:theme="?attr/actionBarTheme">
 

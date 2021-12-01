@@ -45,19 +45,17 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbarOrderDetail);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
-
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_back_pink);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+      Toolbar toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
+        setSupportActionBar(toolbarOrderDetail);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(null);
+            toolbarOrderDetail.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+        }
 
     }
 }

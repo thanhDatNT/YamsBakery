@@ -44,18 +44,17 @@ public class OrderStatusActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
+        Toolbar toolbarOrderStatus = findViewById(R.id.toolbarOrderStatus);
         setSupportActionBar(toolbarOrderStatus);
-        getSupportActionBar().setTitle(null);
-
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_back_pink);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        toolbarOrderStatus.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(null);
+            toolbarOrderStatus.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+        }
 
     }
 }

@@ -94,13 +94,13 @@
 
             />
 
-        <ImageView
-            android:id="@+id/imvComment"
+        <ImageButton
+            android:id="@+id/imbAddComment"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/chkLike"
-            android:src="@drawable/img_comment" />
+            android:background="@drawable/img_comment"
+            android:layout_marginStart="10dp"/>
 
     </RelativeLayout>
 
@@ -111,7 +111,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
         android:text="123 lượt thích"
-        android:textColor="#202121"
+        android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
@@ -131,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yams_store"
-            android:textColor="#202121"
+            android:textColor="@color/textColor"
             android:textStyle="bold" />
 
         <TextView
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="@string/caption"
-            android:textColor="#202121" />
+            android:textColor="@color/textColor" />
     </LinearLayout>
 
     <TextView
@@ -161,7 +161,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
         android:text="@string/see_all_coments"
-        android:textColor="#97989A"
+        android:textColor="@color/inactive"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHashtag" />
 
