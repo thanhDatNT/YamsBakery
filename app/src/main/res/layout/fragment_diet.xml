@@ -8,18 +8,31 @@
     android:orientation="vertical"
     android:fitsSystemWindows="false"
     tools:context=".Fragments.DietFragment">
-    <TextView
-        android:id="@+id/txtTitle"
+<!--     heading diet-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDiet"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         android:elevation="4dp"
-        android:gravity="center"
-        android:paddingTop="20dp"
-        android:text="@string/name"
-        android:textColor="@color/primary"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        app:layout_collapseMode="pin"
+        android:background="@color/white"
+        app:menu="@menu/diet_heading"
+        style="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/txtDietHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/name"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+<!--    end heading-->
     <androidx.core.widget.NestedScrollView
 
         android:layout_width="match_parent"

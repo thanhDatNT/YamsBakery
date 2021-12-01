@@ -1,14 +1,21 @@
 package com.thanhdat.yams.Fragments;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +23,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.DietAdapter;
@@ -30,6 +39,7 @@ public class DietFragment extends Fragment {
     EditText edtNhapWeight,edtNhapHeight;
     RecyclerView rcvDietProduct;
     TextView txtSuggest;
+    Toolbar toolbarDiet;
 
 
     //    ListView lvDietProduct;
@@ -40,6 +50,7 @@ public class DietFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -56,11 +67,41 @@ public class DietFragment extends Fragment {
         rcvDietProduct=view.findViewById(R.id.rcvDietProduct);
 
         txtSuggest = view.findViewById(R.id.txtSuggest);
+
+        toolbarDiet = view.findViewById(R.id.toolbarDiet);
         addEvent();
+        addEventToCart();
 
         return view;
     }
 
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.diet_heading,menu);
+    }
+    private void addEventToCart() {
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if(activity != null){
+            activity.setSupportActionBar(toolbarDiet);
+            if(activity.getSupportActionBar() != null){
+                activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                activity.getSupportActionBar().setTitle(null);
+            }
+        }
+        toolbarDiet.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(getContext(), CartActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
+
+    }
     private void addEvent() {
         btnTinhBMI.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +117,7 @@ public class DietFragment extends Fragment {
                 TextView txtBMI = dialog.findViewById(R.id.txtBMI);
                 TextView txtResult =dialog.findViewById(R.id.txtResult);
 
-                txtBMI.setText(d.format(BMI) +"");
+                txtBMI.setText(d.format(BMI) +" ");
                 if(BMI<16)
                     txtResult.setText("Quá gầy");
                 else if (16<=BMI && BMI<18)

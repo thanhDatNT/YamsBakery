@@ -6,74 +6,97 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activities.SettingChangePWActivity">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarChangePwd"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="60dp"
-        android:weightSum="10"
-        android:elevation="4dp"
-        >
-        <ImageButton
-            android:id="@+id/imvBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_back_pink" />
-
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/ic_back_pink"
+        app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginStart="-1dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        android:background="@color/white">
         <TextView
-            android:layout_weight="7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
             android:text="@string/ChangePwd"
             android:textColor="@color/primary"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginEnd="34dp"/>
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:layout_margin="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/edtOldPW"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="@string/oldPW"
-            android:background="@drawable/botron"
-            android:textColor="@color/primary"
-            android:textSize="18sp"
-            android:paddingLeft="15dp"
-            android:drawableLeft="@drawable/ic_lock"
-            />
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="true"
+            app:boxBackgroundMode="none"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/primary"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtOldPW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/oldPW"
+                android:background="@drawable/botron"
+                android:textColor="@color/primary"
+                android:inputType="textPassword"
+                android:textSize="18sp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="true"
+            app:boxBackgroundMode="none"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/primary"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNewPW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/newPW"
+                android:background="@drawable/botron"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="true"
+            app:boxBackgroundMode="none"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/primary"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtRetypePW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/retypePW"
+                android:background="@drawable/botron"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:inputType="textPassword"
+                />
 
-        <EditText
-            android:id="@+id/edtNewPW"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="@string/newPW"
-            android:background="@drawable/botron"
-            android:textColor="@color/primary"
-            android:layout_marginTop="50dp"
-            android:textSize="18sp"
-            android:paddingLeft="15dp"
-            android:drawableLeft="@drawable/ic_lock"
-            />
-        <EditText
-            android:id="@+id/edtReType"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="@string/retypePW"
-            android:background="@drawable/botron"
-            android:textColor="@color/primary"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp"
-            android:paddingLeft="15dp"
-            android:drawableLeft="@drawable/ic_lock"
-            />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnTinhBMI"

@@ -186,7 +186,7 @@ public class HomeFragment extends Fragment{
                     startActivity(new Intent(getContext(), NotificationActivity.class));
                 }
                 if(item.getItemId() == R.id.mnuCartHome){
-                    startActivity(new Intent(getContext(), PaymentActivity.class));
+                    startActivity(new Intent(getContext(), CartActivity.class));
                 }
                 return false;
             }

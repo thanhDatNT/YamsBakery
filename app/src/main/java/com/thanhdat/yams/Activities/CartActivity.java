@@ -2,6 +2,7 @@ package com.thanhdat.yams.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -23,7 +25,8 @@ public class CartActivity extends AppCompatActivity {
     ListView lvCartProduct;
     ArrayList<Cart> carts;
     CartAdapter adapter;
-    ImageView imvBack;
+    Toolbar toolbarCart;
+    Button btnOrder;
     Handler mHandler;
     View  footerView;
     int currentId=0;
@@ -37,8 +40,10 @@ public class CartActivity extends AppCompatActivity {
         initData();
         loadData();
         addEvent();
+        AddToPayment();
         backTab();
     }
+
 
     private void addEvent() {
         lvCartProduct.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -61,7 +66,8 @@ public class CartActivity extends AppCompatActivity {
 
     private void LinkView() {
         lvCartProduct=findViewById(R.id.lvCartProduct);
-        imvBack = findViewById(R.id.imvBack);
+        toolbarCart=findViewById(R.id.toolbarCart);
+        btnOrder = findViewById(R.id.btnOrder);
 
     }
     private void initData() {
@@ -137,9 +143,20 @@ public class CartActivity extends AppCompatActivity {
         mHandler.sendMessage(msg);
     }
 }
+    private void AddToPayment() {
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this,PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     private void backTab() {
-        imvBack.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(toolbarCart);
+        getSupportActionBar().setTitle(null);
+        toolbarCart.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
