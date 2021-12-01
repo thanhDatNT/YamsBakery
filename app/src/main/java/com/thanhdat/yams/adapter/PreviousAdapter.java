@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Activities.SeeReviewActivity;
+import com.thanhdat.yams.Activities.WriteReviewActivity;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
@@ -57,7 +58,7 @@ public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.Previo
     }
 
     private void goToSeeReview() {
-        Intent intent = new Intent(context, SeeReviewActivity.class);
+        Intent intent = new Intent(context, WriteReviewActivity.class);
         context.startActivity(intent);
     }
 
