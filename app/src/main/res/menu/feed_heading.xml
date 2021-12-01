@@ -5,9 +5,9 @@
     <item android:id="@+id/mnuCartFeed"
     android:icon="@drawable/ic_cart"
     android:title="@string/order"
-    app:showAsAction="always"/>
+    app:showAsAction="ifRoom"/>
     <item android:icon="@drawable/ic_notifications"
         android:id="@+id/mnuNotificationFeed"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:title="@string/noti_profile"/>
 </menu>
