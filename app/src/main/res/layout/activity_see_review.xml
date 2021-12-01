@@ -28,7 +28,8 @@
                 android:textSize="@dimen/textHeader"
                 android:textColor="@color/primary"
                 android:textStyle="bold"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_marginEnd="34dp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
