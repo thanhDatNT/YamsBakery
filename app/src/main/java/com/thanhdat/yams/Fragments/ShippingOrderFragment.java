@@ -15,8 +15,6 @@ import com.thanhdat.yams.R;
 
 public class ShippingOrderFragment extends Fragment {
 
-    TextView txtCode;
-
     public ShippingOrderFragment() {
         // Required empty public constructor
     }
@@ -28,13 +26,6 @@ public class ShippingOrderFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shipping_order, container, false);
 
-        txtCode = view.findViewById(R.id.txtShippingCode);
-        txtCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), OrderDetailActivity.class));
-            }
-        });
         return view;
     }
 }

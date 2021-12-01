@@ -36,24 +36,11 @@ public class FeedCommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_comment);
 
-        Toolbar toolbar = findViewById(R.id.toolbarComment);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
+        addEventToolbar();
 
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_back_pink);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        addComment = findViewById(R.id.add_comment);
-        imageProfile = findViewById(R.id.image_profile);
-        post = findViewById(R.id.post);
-
+        addComment = findViewById(R.id.txtAddComment);
+        imageProfile = findViewById(R.id.imvProfileComment);
+        post = findViewById(R.id.btnPostComment);
 
         Intent intent = getIntent();
         postId = intent.getStringExtra("postId");
@@ -86,6 +73,22 @@ public class FeedCommentActivity extends AppCompatActivity {
 
 
         getComment();
+    }
+
+    private void addEventToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbarComment);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+
+        Drawable drawable = getResources().getDrawable(R.drawable.ic_back_pink);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void getComment() {

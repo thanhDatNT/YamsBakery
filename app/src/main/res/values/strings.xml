@@ -128,6 +128,12 @@
     <string name="review">Đánh giá</string>
     <string name="order">Đơn hàng</string>
 
+    <string name="comments">Bình luận</string>
+    <string name="add_a_comment">Thêm bình luận...</string>
+    <string name="post">ĐĂNG</string>
+
+
+
     <!--See review-->
     <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
@@ -224,6 +230,7 @@
     <string name="service">Chăm sóc khách hàng:</string>
     <string name="infor">Thông tin khách hàng</string>
     <string name="uyennhi">Uyển Nhi | 0392308148</string>
+    <string name="order_detail">Chi tiết đơn hàng</string>
 
 
 </resources>

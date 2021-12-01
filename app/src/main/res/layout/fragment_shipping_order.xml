@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".Fragments.PendingOrderFragment">
-
+    tools:context=".Fragments.PendingFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,37 +21,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
+            android:layout_gravity="center"
             android:text="@string/order_code"
-            android:textColor="@color/textColor" />
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/title" />
 
         <TextView
             android:id="@+id/txtShippingCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
             android:text="@string/code"
             android:textColor="@color/textColor"
+            android:textSize="@dimen/title"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
         <ImageView
+            android:id="@+id/imvCalendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -64,43 +58,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/imvCalendar"
             android:text="@string/date"
             android:textColor="@color/primary" />
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewShipping1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             app:cardCornerRadius="80dp">
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/circle" />
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_receipt"
                 app:tint="@color/primary" />
-
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -108,31 +98,38 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/cardViewShipping1"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
             android:text="@string/shipment1"
             android:textColor="@color/inactive" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="95dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/time1"
             android:textColor="@color/inactive" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        <ImageView
+            android:id="@+id/ivmLine1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:rotation="90"
+            android:src="@drawable/line"
+            android:layout_below="@+id/cardViewShipping1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="-30dp"/>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewShipping2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/ivmLine1"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="10dp"
             app:cardCornerRadius="80dp">
 
@@ -147,65 +144,44 @@
                 android:layout_gravity="center"
                 android:src="@drawable/ic_shipping"
                 app:tint="@color/primary" />
-
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/shipment2"
+            android:layout_below="@+id/ivmLine1"
+            android:layout_toEndOf="@+id/cardViewShipping2"
             android:layout_marginStart="10dp"
-            android:textColor="@color/inactive"
-            tools:layout_editor_absoluteX="103dp"
-            tools:layout_editor_absoluteY="264dp" />
+            android:layout_marginTop="10dp"
+            android:text="@string/shipment2"
+            android:textColor="@color/inactive" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="170dp"
+            android:layout_below="@id/ivmLine1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/time2"
             android:textColor="@color/inactive" />
-    </LinearLayout>
 
-
-    <ImageView
-        android:id="@+id/imvLine1"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="-20dp"
-        android:rotation="90"
-        android:src="@drawable/line"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="-20dp"
-        android:rotation="90"
-        android:src="@drawable/line"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvLine1">
+        <ImageView
+            android:id="@+id/ivmLine2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/cardViewShipping2"
+            android:layout_marginStart="-30dp"
+            android:rotation="90"
+            android:src="@drawable/line"/>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewShipping3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_below="@id/ivmLine2"
             android:layout_marginStart="10dp"
             app:cardCornerRadius="80dp">
 
@@ -220,33 +196,28 @@
                 android:layout_gravity="center"
                 android:src="@drawable/ic_payment"
                 app:tint="@color/white" />
-
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@id/ivmLine2"
+            android:layout_toEndOf="@+id/cardViewShipping3"
             android:text="@string/shipment3"
             android:layout_marginStart="10dp"
-            android:textColor="@color/primary"
-            tools:layout_editor_absoluteX="110dp"
-            tools:layout_editor_absoluteY="194dp" />
+            android:layout_marginTop="10dp"
+            android:textColor="@color/primary"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/ivmLine2"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/time3"
             android:textColor="@color/primary" />
-    </LinearLayout>
 
-
-
-
-
-
-
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

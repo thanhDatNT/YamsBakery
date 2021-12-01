@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,10 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.thanhdat.yams.Activities.CartActivity;
-import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
-import com.thanhdat.yams.Activities.ProductDetailsActivity;
-import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.PostAdapter;
@@ -53,7 +49,7 @@ public class FeedFragment extends Fragment {
         toolbarFeed = view.findViewById(R.id.toolbarFeed);
         lvFeed = view.findViewById(R.id.lvFeed);
 
-        adapter = new PostAdapter(getContext(),R.layout.post_item,initData());
+        adapter = new PostAdapter(getContext(),R.layout.item_post,initData());
         lvFeed.setAdapter(adapter);
 
         goToCartOrNotification();
