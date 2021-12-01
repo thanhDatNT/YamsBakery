@@ -67,8 +67,8 @@ public class NotificationActivity extends AppCompatActivity {
     private void addDataListView() {
         ArrayList<SimpleViewGroup> dataNotifications= new ArrayList<>();
         dataNotifications.add(new SimpleViewGroup(R.drawable.ic_new_releases_notify, "Bạn có #3 mã giảm giá chưa sử dụng tại kho voucher. Dùng ngay trước khi hết hạn nào!"));
-        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirmation_notify, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
-        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirmation_notify, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
+        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
+        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
         lvNotify.setAdapter(new SimpleViewGroupAdapter(this, R.layout.viewholder_notification, dataNotifications));
 
     }

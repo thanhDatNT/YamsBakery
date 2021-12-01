@@ -4,13 +4,15 @@
     <dimen name="buttonBorderRadius">24dp</dimen>
 <!--    Margin-->
     <dimen name="mTop">32dp</dimen>
-    <dimen name="mBot">100dp</dimen>
+    <dimen name="mBot">60dp</dimen>
 <!--    Padding-->
     <dimen name="pad">12dp</dimen>
     <dimen name="padHorizon">28dp</dimen>
 <!--    Text-->
     <dimen name="textHeader">20sp</dimen>
+    <dimen name="textMainHeader">24sp</dimen>
     <dimen name="textContent">16sp</dimen>
+    <dimen name="title">18sp</dimen>
 <!--    Radius-->
     <dimen name="cornerRadius">12dp</dimen>
 

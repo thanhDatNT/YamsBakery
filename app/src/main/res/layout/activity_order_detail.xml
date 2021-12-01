@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activities.OrderDetailActivity"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarOrderDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chi tiết đơn hàng"
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/bg_lightpink_dashstroke">
+
+        <TableRow>
+            <TextView
+                android:layout_height="30dp"
+                android:text="Thời gian dự kiến"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent"
+                />
+            <TextView
+                android:text="Mã đơn hàng"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="20 phút"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent"
+                />
+            <TextView
+                android:id="@+id/txtOrderDetailCode"
+                android:text="#1002"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:textColor="@color/textColor"
+        android:text="@string/order"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_product">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewDetail"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="15dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="20dp">
+                <ImageView
+                    android:id="@+id/imvOrderDetailThumb"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_cake" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_toEndOf="@+id/cardViewDetail"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txtOrderDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mango_cream_cake"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSizeOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="M - 20cm"
+                    android:textColor="@color/inactive"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số lượng: 1"
+                    android:textColor="@color/inactive"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrderDetailPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="50dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:text="@string/Price_150"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txtTime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:text="@string/time1"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvBullet1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/txtTime1"
+            android:layout_toEndOf="@+id/txtTime1"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/bullet"
+            app:tint="@color/inactive" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/imvBullet1"
+            android:text="Chờ xác nhận"
+            android:textColor="@color/inactive" />
+
+        <ImageView
+            android:id="@+id/imvLine1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/imvBullet1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="42dp"
+            android:rotation="90"
+            android:src="@drawable/line"
+            app:tint="@color/inactive" />
+
+        <TextView
+            android:id="@+id/txtTime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imvLine1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:text="@string/time2"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvBullet2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imvLine1"
+            android:layout_alignBottom="@+id/txtTime2"
+            android:layout_toEndOf="@+id/txtTime2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/bullet" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imvLine1"
+            android:layout_alignStart="@id/imvBullet2"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="Đang chuẩn bị"
+            android:textColor="@color/primary" />
+
+        <ImageView
+            android:id="@+id/imvLine2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/imvBullet2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="42dp"
+            android:rotation="90"
+            android:src="@drawable/line"
+            app:tint="@color/inactive" />
+        <TextView
+            android:id="@+id/txtTime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imvLine2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:text="@string/time3"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvBullet3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imvLine2"
+            android:layout_alignBottom="@+id/txtTime3"
+            android:layout_toEndOf="@+id/txtTime3"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/bullet"
+            app:tint="@color/inactive" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/imvBullet3"
+            android:layout_below="@+id/imvLine2"
+            android:text="Dự kiến giao hàng"
+            android:textColor="@color/inactive"
+            />
+    </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_gradient"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:text="Hủy đơn hàng"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/button_white_border"
+            android:backgroundTint="@color/lightPink"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            android:text="Về trang chủ"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+

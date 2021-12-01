@@ -1,6 +1,8 @@
 package com.thanhdat.yams.Models;
 
-public class PendingOrder {
+import java.io.Serializable;
+
+public class PendingOrder implements Serializable {
     private String orderName;
     private  int orderThumb;
     private String orderCode;

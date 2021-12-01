@@ -8,11 +8,11 @@
     android:background="@color/white"
     tools:context=".Activities.MainActivity">
 
-   <androidx.viewpager.widget.ViewPager
-       android:id="@+id/layoutContainerMain"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_above="@id/navigationMain"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/layoutContainerMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigationMain" />
 
     <!--    Bottom Navigation-->
     <com.google.android.material.bottomnavigation.BottomNavigationView

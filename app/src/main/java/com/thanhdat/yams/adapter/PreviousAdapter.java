@@ -1,75 +1,90 @@
 package com.thanhdat.yams.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.thanhdat.yams.Activities.SeeReviewActivity;
+import com.thanhdat.yams.Activities.WriteReviewActivity;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PreviousAdapter extends BaseAdapter {
+public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.PreviousViewHolder> {
+    List<PreviousOrder> previousOrderList;
     Context context;
-    int previous_order_item;
-    ArrayList<PreviousOrder> previousOrders;
 
-    public PreviousAdapter(Context context, int previous_order_item, ArrayList<PreviousOrder> previousOrders) {
+    public PreviousAdapter(Context context,List<PreviousOrder> previousOrderList) {
         this.context = context;
-        this.previous_order_item = previous_order_item;
-        this.previousOrders = previousOrders;
+        this.previousOrderList = previousOrderList;
+    }
+
+    @NonNull
+    @Override
+    public PreviousViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_previous_order,parent,false);
+
+        return new PreviousViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return previousOrders.size();
+    public void onBindViewHolder(@NonNull PreviousViewHolder holder, int position) {
+        PreviousOrder previousOrder = previousOrderList.get(position);
+        holder.imvPreviousThumb.setImageResource(previousOrder.getPreviousThumb());
+        holder.txtPreviousName.setText(previousOrder.getPreviousName());
+        holder.txtPreviousContent.setText(previousOrder.getPreviousContent());
+        holder.txtPreviousQuantity.setText(String.format("X%s",previousOrder.getPreviousQuantity()));
+        holder.txtPreviousPrice.setText(String.format("%g",previousOrder.getPreviousPrice())+"đ");
+
+        holder.txtReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSeeReview();
+            }
+        });
+
+    }
+
+    private void goToSeeReview() {
+        Intent intent = new Intent(context, WriteReviewActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void release(){
+        context = null;
     }
 
     @Override
-    public Object getItem(int i) {
-        return previousOrders.get(i);
+    public int getItemCount() {
+        return previousOrderList.size();
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
+    public class PreviousViewHolder extends RecyclerView.ViewHolder{
 
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        PreviousAdapter.ViewHolder holder = null;
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if(view ==null){
-            holder = new PreviousAdapter.ViewHolder();
-            view = inflater.inflate(previous_order_item,null);
-            holder.imvThumb = view.findViewById(R.id.imvPreviousThumb);
-            holder.txtContent = view.findViewById(R.id.txtPreviousContent);
-            holder.txtName = view.findViewById(R.id.txtPreviousName);
-            holder.txtPrice = view.findViewById(R.id.txtPreviousPrice);
-            view.setTag(holder);
+        ImageView imvPreviousThumb;
+        TextView txtPreviousName, txtPreviousContent, txtPreviousQuantity, txtPreviousPrice, txtReview;
+        public PreviousViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imvPreviousThumb = itemView.findViewById(R.id.imvPreviousThumb);
+            txtPreviousName = itemView.findViewById(R.id.txtPreviousName);
+            txtPreviousContent = itemView.findViewById(R.id.txtPreviousContent);
+            txtPreviousQuantity = itemView.findViewById(R.id.txtPreviousQuantity);
+            txtPreviousPrice = itemView.findViewById(R.id.txtPreviousPrice);
 
-        }else{
-            holder = (PreviousAdapter.ViewHolder) view.getTag();
+            txtReview = itemView.findViewById(R.id.txtReview);
         }
-
-        //Binding Data
-        PreviousOrder previousOrder = previousOrders.get(i);
-        holder.imvThumb.setImageResource(previousOrder.getPreviousThumb());
-        holder.txtName.setText(previousOrder.getPreviousName());
-        holder.txtPrice.setText(String.format("%g",previousOrder.getPreviousPrice())+"đ");
-        holder.txtContent.setText(previousOrder.getPreviousContent());
-
-        return view;
-    }
-    private static class ViewHolder{
-        ImageView imvThumb;
-        TextView txtContent, txtName, txtPrice;
-
     }
 }
 

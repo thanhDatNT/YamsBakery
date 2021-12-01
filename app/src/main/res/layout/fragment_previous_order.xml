@@ -24,10 +24,10 @@
             android:layout_marginStart="10dp"
             android:text="@string/date"/>
     </LinearLayout>
-    <ListView
-        android:id="@+id/lvPrevious"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvPrevious"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

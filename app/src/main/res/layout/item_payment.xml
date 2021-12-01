@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_margin="@dimen/pad"
+    app:cardCornerRadius="20dp"
+    android:elevation="2dp"
+    android:id="@+id/layoutProduct"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/bg_product"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical"
+            app:cardCornerRadius="20dp"
+            android:elevation="2dp"
+            android:layout_marginStart="10dp">
+            <ImageView
+                android:id="@+id/imvThumb"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_matcha_maracon" />
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/macaroon"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/title"
+                android:textStyle="bold" />
+
+                <TextView
+                    android:paddingTop="5dp"
+                    android:id="@+id/txtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/prices"
+                    android:paddingStart="5dp"
+                    android:textSize="@dimen/textContent"
+                    android:drawableStart="@drawable/ic_tag"
+                    android:textColor="@color/primary"
+                    android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Description"
+                android:textColor="@color/inactive"
+                android:paddingTop="10dp"
+                android:textSize="@dimen/textContent" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Số lượng: 2"
+                android:textSize="@dimen/textContent"
+                android:gravity="bottom|end"
+                android:paddingEnd="20dp"
+                android:padding="5dp"
+                android:textColor="@color/primary"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

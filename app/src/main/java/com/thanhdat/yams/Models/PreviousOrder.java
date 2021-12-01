@@ -2,15 +2,17 @@ package com.thanhdat.yams.Models;
 
 public class PreviousOrder {
     private String previousName;
-    private  int previousThumb;
+    private int previousThumb;
     private String previousContent;
     private double previousPrice;
+    private int previousQuantity;
 
-    public PreviousOrder(String previousName, int previousThumb, String previousContent, double previousPrice) {
+    public PreviousOrder(String previousName, int previousThumb, String previousContent, double previousPrice, int previousQuantity) {
         this.previousName = previousName;
         this.previousThumb = previousThumb;
         this.previousContent = previousContent;
         this.previousPrice = previousPrice;
+        this.previousQuantity = previousQuantity;
     }
 
     public String getPreviousName() {
@@ -43,5 +45,13 @@ public class PreviousOrder {
 
     public void setPreviousPrice(double previousPrice) {
         this.previousPrice = previousPrice;
+    }
+
+    public double getPreviousQuantity() {
+        return previousQuantity;
+    }
+
+    public void setPreviousQuantity(int previousQuantity) {
+        this.previousQuantity = previousQuantity;
     }
 }

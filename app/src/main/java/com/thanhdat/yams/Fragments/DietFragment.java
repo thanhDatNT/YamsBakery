@@ -1,6 +1,5 @@
 package com.thanhdat.yams.Fragments;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 
@@ -14,17 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Diet;
-import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.adapter.DietAdapter;
-import com.thanhdat.yams.adapter.NewProductAdapter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -73,7 +67,7 @@ public class DietFragment extends Fragment {
             public void onClick(View view) {
 
                 Dialog dialog= new Dialog(getContext());
-                dialog.setContentView(R.layout.showresult);
+                dialog.setContentView(R.layout.dialog_show_bmi);
                 double chieucao = Double.parseDouble(edtNhapHeight.getText().toString());
                 double cannang=Double.parseDouble(edtNhapWeight.getText().toString());
                 DecimalFormat d = new DecimalFormat("0.00");
