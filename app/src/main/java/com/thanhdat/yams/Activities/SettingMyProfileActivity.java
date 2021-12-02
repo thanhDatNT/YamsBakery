@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -17,21 +18,24 @@ public class SettingMyProfileActivity extends AppCompatActivity {
     ListView lvMyProfile;
     ArrayList<SettingMyProfile> profileArrayList;
     SettingMyProfileAdapter adapter;
-    ImageView imvBack;
+    Toolbar toolbarMyProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_my_profile);
         linkView();
         addEvent();
-        addEventTabBack();
+        EventTabBack();
+
     }
+
 
 
 
     private void linkView() {
         lvMyProfile=findViewById(R.id.lvMyProfile);
-        imvBack = findViewById(R.id.imvBack);
+        toolbarMyProfile=findViewById(R.id.toolbarMyProfile);
+//        imvBack = findViewById(R.id.imvBack);
     }
     private void addEvent() {
         profileArrayList=new ArrayList<SettingMyProfile>();
@@ -41,11 +45,13 @@ public class SettingMyProfileActivity extends AppCompatActivity {
         adapter = new SettingMyProfileAdapter(SettingMyProfileActivity.this,R.layout.items_setting_myprofile,profileArrayList);
         lvMyProfile.setAdapter(adapter);
     }
-    private void addEventTabBack() {
-        imvBack.setOnClickListener(new View.OnClickListener() {
+    private void  EventTabBack() {
+        setSupportActionBar(toolbarMyProfile);
+        getSupportActionBar().setTitle(null);
+        toolbarMyProfile.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               onBackPressed();
+                onBackPressed();
             }
         });
 

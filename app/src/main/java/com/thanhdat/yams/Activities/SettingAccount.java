@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,15 +13,15 @@ import android.widget.LinearLayout;
 import com.thanhdat.yams.R;
 
 public class SettingAccount extends AppCompatActivity {
-    LinearLayout lnMyProfile,lnChangeEmail,lnChangePwd;
-    ImageButton imbBack;
+    LinearLayout lnMyProfile,lnChangeEmail,lnChangePwd,lnChangeAddress;
+    Toolbar toolbarSettingAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_account);
         linkView();
         addEventTabSetting();
-        addEventBack();
+        addEventTabBack();
     }
 
 
@@ -29,41 +30,54 @@ public class SettingAccount extends AppCompatActivity {
         lnMyProfile=findViewById(R.id.lnMyProfile);
         lnChangeEmail=findViewById(R.id.lnChangeEmail);
         lnChangePwd=findViewById(R.id.lnChangePwd);
+        lnChangeAddress=findViewById(R.id.lnChangeAddress);
 
-        imbBack = findViewById(R.id.imbBack);
+        toolbarSettingAccount = findViewById(R.id.toolbarSettingAccount);
+
     }
 
     private void addEventTabSetting() {
-        lnMyProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        lnMyProfile.setOnClickListener(MyClickEdit);
+        lnChangeEmail.setOnClickListener(MyClickEdit);
+        lnChangePwd.setOnClickListener(MyClickEdit);
+        lnChangeAddress.setOnClickListener(MyClickEdit);
+
+
+    }
+    View.OnClickListener MyClickEdit = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(view.getId()==R.id.lnMyProfile)
+            {
                 Intent intent = new Intent(SettingAccount.this,SettingMyProfileActivity.class);
                 startActivity(intent);
             }
-        });
-        lnChangeEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            if(view.getId()==R.id.lnChangeEmail){
                 Intent intent = new Intent(SettingAccount.this,SettingChangeEmailActivity.class);
-                startActivity(intent);
+                 startActivity(intent);
             }
-        });
-        lnChangePwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            if(view.getId()==R.id.lnChangePwd){
                 Intent intent = new Intent(SettingAccount.this,SettingChangePWActivity.class);
                 startActivity(intent);
             }
-        });
-
-    }
-    private void addEventBack() {
-        imbBack.setOnClickListener(new View.OnClickListener() {
+            if(view.getId()==R.id.lnChangeAddress){
+                // acivity map
+            }
+        }
+    };
+    private void addEventTabBack() {
+        setSupportActionBar(toolbarSettingAccount);
+        getSupportActionBar().setTitle(null);
+        toolbarSettingAccount.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+
     }
+
+
+
 
 }

@@ -5,41 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".Activities.SettingAccount">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSettingAccount"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="60dp"
-        android:weightSum="10"
-        android:elevation="4dp"
-        >
-            <ImageButton
-                android:id="@+id/imbBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_back_pink" />
-
-            <TextView
-                android:layout_weight="7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/setting_account"
-                android:textColor="@color/primary"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/ic_back_pink"
+        app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginStart="-1dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_account"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginEnd="34dp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:elevation="2dp"
         app:cardCornerRadius="12dp">

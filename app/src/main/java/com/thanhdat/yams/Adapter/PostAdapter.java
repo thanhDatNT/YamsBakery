@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,8 +58,17 @@ public class PostAdapter extends BaseAdapter {
             holder.txtDescription = view.findViewById(R.id.txtDescription);
             holder.txtHashtag = view.findViewById(R.id.txtHashtag);
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
+            holder.imbAddComment = view.findViewById(R.id.imbAddComment);
 
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, FeedCommentActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+            holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, FeedCommentActivity.class);
@@ -84,6 +94,7 @@ public class PostAdapter extends BaseAdapter {
     private static class ViewHolder{
         ImageView imvThumb;
         TextView txtLike, txtDescription, txtHashtag, txtComment;
+        ImageButton imbAddComment;
 
     }
 }

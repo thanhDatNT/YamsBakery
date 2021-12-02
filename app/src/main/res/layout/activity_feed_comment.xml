@@ -4,35 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.FeedCommentActivity">
+    tools:context=".Activities.FeedCommentActivity"
+    android:paddingHorizontal="12dp">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarComment"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_back_pink"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginBottom="10dp">
-
+        android:layout_marginStart="-16dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        android:background="@color/white">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/comments"
+            android:textColor="@color/primary"
             android:textSize="@dimen/textHeader"
             android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_gravity="center"/>
+            android:gravity="center"
+            android:layout_marginEnd="34dp"/>
     </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarComment">
+
+        <TextView
+            android:id="@+id/txtPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yams_store"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/txtPublisher"
+            android:text="@string/caption"
+            android:textColor="#202121" />
+
+        <TextView
+            android:id="@+id/txtHashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDescription"
+            android:layout_alignStart="@+id/txtDescription"
+            android:layout_marginTop="3dp"
+            android:text="@string/hashtag"
+            android:textColor="@color/primary" />
+    </RelativeLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/layoutBottom"
-        android:layout_below="@id/toolbarComment" />
+        android:layout_below="@id/relativeLayoutPost" />
 
     <RelativeLayout
         android:id="@+id/layoutBottom"
@@ -52,7 +92,7 @@
             android:src="@drawable/img_logo_pink" />
 
         <EditText
-            android:id="@+id/txtAddComment"
+            android:id="@+id/edtAddComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

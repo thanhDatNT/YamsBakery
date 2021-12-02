@@ -105,6 +105,7 @@
 
 
     <!--- cart-->
+    <string name="Cart">Đơn hàng </string>
     <string name="fruitcake">Fruit Cake</string>
     <string name="catagory">Phân loại: Size</string>
     <string name="remain">Còn</string>
