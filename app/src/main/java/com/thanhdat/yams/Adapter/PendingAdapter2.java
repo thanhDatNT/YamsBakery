@@ -1,4 +1,4 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
 import android.content.Context;
 import android.content.Intent;

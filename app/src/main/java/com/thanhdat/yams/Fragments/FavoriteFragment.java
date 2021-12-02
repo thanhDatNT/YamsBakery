@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.FavoriteAdapter;
+import com.thanhdat.yams.Adapter.FavoriteAdapter;
 
 import java.util.ArrayList;
 

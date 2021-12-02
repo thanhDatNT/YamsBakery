@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.PendingAdapter2;
+import com.thanhdat.yams.Adapter.PendingAdapter2;
 
 import java.util.ArrayList;
 import java.util.List;

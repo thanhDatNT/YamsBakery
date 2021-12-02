@@ -1,25 +1,20 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.thanhdat.yams.Activities.SeeReviewActivity;
 import com.thanhdat.yams.Activities.WriteReviewActivity;
-import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.PreviousViewHolder> {

@@ -1,21 +1,17 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.PaymentProduct;
 import com.thanhdat.yams.R;
 

@@ -9,13 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.SeeReviewAdapter;
+import com.thanhdat.yams.Adapter.SeeReviewAdapter;
 
 import java.util.ArrayList;
 

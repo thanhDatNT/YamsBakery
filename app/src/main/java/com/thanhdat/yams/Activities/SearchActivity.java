@@ -12,7 +12,7 @@ import android.widget.SearchView;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 
 import java.util.ArrayList;
 

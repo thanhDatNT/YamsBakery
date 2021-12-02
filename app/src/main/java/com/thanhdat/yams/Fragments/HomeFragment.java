@@ -21,7 +21,6 @@ import android.widget.GridView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
@@ -33,10 +32,10 @@ import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.NewProduct;
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.NewProductAdapter;
-import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
-import com.thanhdat.yams.adapter.SliderBannerAdapter;
-import com.thanhdat.yams.adapter.SuggestionAdapter;
+import com.thanhdat.yams.Adapter.NewProductAdapter;
+import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapter.SliderBannerAdapter;
+import com.thanhdat.yams.Adapter.SuggestionAdapter;
 
 import java.util.ArrayList;
 

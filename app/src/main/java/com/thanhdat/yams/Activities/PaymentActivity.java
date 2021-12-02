@@ -2,21 +2,17 @@ package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -28,7 +24,7 @@ import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Fragments.VoucherFragment;
 import com.thanhdat.yams.Models.PaymentProduct;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.PaymentProductAdapter;
+import com.thanhdat.yams.Adapter.PaymentProductAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;

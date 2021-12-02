@@ -1,4 +1,4 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,6 @@ import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends BaseAdapter {

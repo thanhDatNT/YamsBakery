@@ -1,4 +1,4 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

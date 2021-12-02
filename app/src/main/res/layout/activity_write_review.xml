@@ -77,6 +77,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="3dp"/>
         <RatingBar
+            android:id="@+id/rtbReviewRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:theme="@style/RatingBar"
@@ -89,6 +90,7 @@
             android:transformPivotX="0dp"/>
     </LinearLayout>
     <EditText
+        android:id="@+id/edtReviewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/review_hint"
@@ -105,11 +107,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp">
+        android:layout_marginVertical="16dp"
+        android:gravity="center_vertical">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUploadImage"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:text="Đăng tải hình ảnh"
             android:textColor="@color/primary"
             android:textSize="@dimen/textContent"
@@ -117,18 +120,31 @@
             android:drawableTop="@drawable/ic_camera"
             android:background="@drawable/bg_lightpink_dashstroke"
             android:padding="8dp"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnUploadVideo"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImage1"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Đăng tải video"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/textContent"
-            android:textAllCaps="false"
-            android:drawableTop="@drawable/ic_video"
-            android:background="@drawable/bg_lightpink_dashstroke"
-            android:padding="8dp"
-            android:layout_marginStart="16dp"/>
+            android:layout_height="100dp"
+            app:cardCornerRadius="@dimen/cornerRadius"
+            android:layout_marginHorizontal="@dimen/pad">
+            <ImageView
+                android:id="@+id/imvReviewImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btnUploadVideo"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Đăng tải video"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:textSize="@dimen/textContent"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:drawableTop="@drawable/ic_video"-->
+<!--            android:background="@drawable/bg_lightpink_dashstroke"-->
+<!--            android:padding="8dp"-->
+<!--            android:layout_marginStart="16dp"/>-->
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -138,6 +154,7 @@
         android:textColor="@color/textColor"
         android:layout_marginBottom="10dp" />
     <RatingBar
+        android:id="@+id/rtbDeliveryRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/RatingBar"
@@ -157,6 +174,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="-10dp"/>
     <RatingBar
+        android:id="@+id/rtbServiceRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/RatingBar"

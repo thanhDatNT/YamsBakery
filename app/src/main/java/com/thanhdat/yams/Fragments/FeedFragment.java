@@ -22,7 +22,7 @@ import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.PostAdapter;
+import com.thanhdat.yams.Adapter.PostAdapter;
 
 import java.util.ArrayList;
 

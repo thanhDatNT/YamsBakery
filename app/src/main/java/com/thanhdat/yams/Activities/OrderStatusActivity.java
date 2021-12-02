@@ -5,17 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
-import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.ViewPagerOrderStatusAdapter;
+import com.thanhdat.yams.Adapter.ViewPagerOrderStatusAdapter;
 
 public class OrderStatusActivity extends AppCompatActivity {
     private TabLayout yamsTabLayout;

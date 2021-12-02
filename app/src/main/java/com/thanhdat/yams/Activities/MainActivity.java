@@ -2,10 +2,7 @@ package com.thanhdat.yams.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -13,10 +10,8 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.thanhdat.yams.Fragments.HomeFragment;
-import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.ViewPagerMainAdapter;
+import com.thanhdat.yams.Adapter.ViewPagerMainAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

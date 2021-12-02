@@ -3,22 +3,17 @@ package com.thanhdat.yams.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 
 import java.util.ArrayList;
 

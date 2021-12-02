@@ -1,4 +1,4 @@
-package com.thanhdat.yams.adapter;
+package com.thanhdat.yams.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,7 +12,6 @@ import com.thanhdat.yams.Fragments.FavoriteFragment;
 import com.thanhdat.yams.Fragments.FeedFragment;
 
 import com.thanhdat.yams.Fragments.HomeFragment;
-import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.Fragments.ProfileFragment;
 
 public class ViewPagerMainAdapter extends FragmentStatePagerAdapter {

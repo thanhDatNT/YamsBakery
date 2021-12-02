@@ -3,7 +3,6 @@ package com.thanhdat.yams.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,7 +14,7 @@ import android.widget.ListView;
 
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.CartAdapter;
+import com.thanhdat.yams.Adapter.CartAdapter;
 
 import java.util.ArrayList;
 

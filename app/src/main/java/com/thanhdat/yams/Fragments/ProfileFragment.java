@@ -12,9 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +35,7 @@ import com.thanhdat.yams.Activities.SettingAccount;
 
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.adapter.SliderBannerAdapter;
+import com.thanhdat.yams.Adapter.SliderBannerAdapter;
 
 import java.util.ArrayList;
 
