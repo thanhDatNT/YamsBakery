@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/com/thanhdat/yams/Adapter/CartAdapter.java
 package com.thanhdat.yams.Adapter;
-=======
-package com.thanhdat.yams.Adapters;
->>>>>>> Stashed changes:app/src/main/java/com/thanhdat/yams/Adapters/CartAdapter.java
 
 import android.app.Activity;
 import android.content.Context;

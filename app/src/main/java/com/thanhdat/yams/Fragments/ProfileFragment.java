@@ -35,11 +35,7 @@ import com.thanhdat.yams.Activities.SettingAccount;
 
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.SliderBannerAdapter;
-=======
-import com.thanhdat.yams.Adapters.SliderBannerAdapter;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

@@ -14,11 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.MessageListAdapter;
-=======
-import com.thanhdat.yams.Adapters.MessageListAdapter;
->>>>>>> Stashed changes
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

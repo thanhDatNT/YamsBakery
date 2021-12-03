@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/com/thanhdat/yams/Adapter/PostAdapter.java
 package com.thanhdat.yams.Adapter;
-=======
-package com.thanhdat.yams.Adapters;
->>>>>>> Stashed changes:app/src/main/java/com/thanhdat/yams/Adapters/PostAdapter.java
 
 import android.content.Context;
 import android.content.Intent;

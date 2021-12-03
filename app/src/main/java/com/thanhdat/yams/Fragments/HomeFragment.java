@@ -40,10 +40,6 @@ import com.thanhdat.yams.Adapter.NewProductAdapter;
 import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.Adapter.SliderBannerAdapter;
 import com.thanhdat.yams.Adapter.SuggestionAdapter;
-import com.thanhdat.yams.Adapters.NewProductAdapter;
-import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
-import com.thanhdat.yams.Adapters.SliderBannerAdapter;
-import com.thanhdat.yams.Adapters.SuggestionAdapter;
 
 import java.util.ArrayList;
 

@@ -17,10 +17,7 @@ import android.widget.ListView;
 
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.CartAdapter;
-=======
-import com.thanhdat.yams.Adapters.CartAdapter;
 
 import java.util.ArrayList;
 

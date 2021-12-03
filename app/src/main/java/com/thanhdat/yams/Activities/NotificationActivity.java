@@ -13,11 +13,7 @@ import android.widget.Toast;
 
 import com.thanhdat.yams.Models.SimpleViewGroup;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
-=======
-import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

@@ -14,11 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Models.Voucher;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.VoucherAdapter;
-=======
-import com.thanhdat.yams.Adapters.VoucherAdapter;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/com/thanhdat/yams/Adapter/SeeReviewAdapter.java
 package com.thanhdat.yams.Adapter;
-=======
-package com.thanhdat.yams.Adapters;
->>>>>>> Stashed changes:app/src/main/java/com/thanhdat/yams/Adapters/SeeReviewAdapter.java
 
 import android.annotation.SuppressLint;
 import android.content.Context;

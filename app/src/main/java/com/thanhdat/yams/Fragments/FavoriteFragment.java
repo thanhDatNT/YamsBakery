@@ -11,11 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.FavoriteAdapter;
-=======
-import com.thanhdat.yams.Adapters.FavoriteAdapter;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

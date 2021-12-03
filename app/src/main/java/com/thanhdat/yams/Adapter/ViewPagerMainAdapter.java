@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/com/thanhdat/yams/Adapter/ViewPagerMainAdapter.java
 package com.thanhdat.yams.Adapter;
-=======
-package com.thanhdat.yams.Adapters;
->>>>>>> Stashed changes:app/src/main/java/com/thanhdat/yams/Adapters/ViewPagerMainAdapter.java
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

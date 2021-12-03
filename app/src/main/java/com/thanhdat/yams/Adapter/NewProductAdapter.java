@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/com/thanhdat/yams/Adapter/NewProductAdapter.java
 package com.thanhdat.yams.Adapter;
-=======
-package com.thanhdat.yams.Adapters;
->>>>>>> Stashed changes:app/src/main/java/com/thanhdat/yams/Adapters/NewProductAdapter.java
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -10,11 +10,7 @@ import android.widget.ListView;
 
 import com.thanhdat.yams.Models.SettingMyProfile;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.SettingMyProfileAdapter;
-=======
-import com.thanhdat.yams.Adapters.SettingMyProfileAdapter;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

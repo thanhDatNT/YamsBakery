@@ -27,11 +27,7 @@ import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
-<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.DietAdapter;
-=======
-import com.thanhdat.yams.Adapters.DietAdapter;
->>>>>>> Stashed changes
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
