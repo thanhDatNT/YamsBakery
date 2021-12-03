@@ -22,7 +22,11 @@ import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.PostAdapter;
+=======
+import com.thanhdat.yams.Adapters.PostAdapter;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

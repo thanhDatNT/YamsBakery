@@ -14,7 +14,11 @@ import android.widget.TextView;
 
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.SeeReviewAdapter;
+=======
+import com.thanhdat.yams.Adapters.SeeReviewAdapter;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 

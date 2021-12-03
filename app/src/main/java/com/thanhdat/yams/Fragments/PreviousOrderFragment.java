@@ -12,7 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.PreviousAdapter;
+=======
+import com.thanhdat.yams.Adapters.PreviousAdapter;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.List;

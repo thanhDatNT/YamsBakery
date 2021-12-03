@@ -24,7 +24,11 @@ import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Fragments.VoucherFragment;
 import com.thanhdat.yams.Models.PaymentProduct;
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.PaymentProductAdapter;
+=======
+import com.thanhdat.yams.Adapters.PaymentProductAdapter;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.Calendar;

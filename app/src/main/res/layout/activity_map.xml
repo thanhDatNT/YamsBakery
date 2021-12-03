@@ -9,13 +9,19 @@
     tools:context=".Activities.MapActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMap"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:title="Chọn địa chỉ"
-        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:menu="@menu/toolbar_search"/>
+        app:navigationIcon="@drawable/ic_arrow_back">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconifiedByDefault="false"
+            app:searchIcon="@drawable/ic_search"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_lightpink"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
