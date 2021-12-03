@@ -6,41 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Activities.ChatActivity">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout10"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarChat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
+        android:elevation="3dp"
+        android:translationZ="2dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
         android:background="@drawable/bg_heading_gradient"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imvBackChat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            app:srcCompat="@drawable/ic_arrow_back" />
-
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:gravity="center"
             android:text="Chat with Yams"
+            android:textSize="@dimen/textHeader"
+            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1" />
-    </LinearLayout>
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/layoutChat"

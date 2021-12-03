@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.SearchView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -27,6 +29,7 @@ import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Activities.SearchActivity;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
@@ -37,6 +40,10 @@ import com.thanhdat.yams.Adapter.NewProductAdapter;
 import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 import com.thanhdat.yams.Adapter.SliderBannerAdapter;
 import com.thanhdat.yams.Adapter.SuggestionAdapter;
+import com.thanhdat.yams.Adapters.NewProductAdapter;
+import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapters.SliderBannerAdapter;
+import com.thanhdat.yams.Adapters.SuggestionAdapter;
 
 import java.util.ArrayList;
 
@@ -46,7 +53,7 @@ public class HomeFragment extends Fragment{
     private GridView gvCategory, gvSuggestion;
     private androidx.appcompat.widget.Toolbar toolbar;
     private NestedScrollView scrollView;
-    private androidx.appcompat.widget.SearchView searchView;
+    private SearchView searchView;
     private OnClickInterface onClickInterface;
 
     @Override
@@ -70,6 +77,7 @@ public class HomeFragment extends Fragment{
         searchView= view.findViewById(R.id.svSearchHome);
 
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         setHasOptionsMenu(true);
         configAndNavigate();
         addEventSliderBanner();
@@ -167,18 +175,20 @@ public class HomeFragment extends Fragment{
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if(scrollY > 15){
-                    toolbar.getMenu().getItem(0).setVisible(true);
-                    androidx.appcompat.widget.SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
-                    searchView2.setIconifiedByDefault(false);
-                    searchView2.setQueryHint("Wedding cake");
-                    searchEvent(searchView2);
+//                    toolbar.getMenu().getItem(0).setVisible(true);
+//                    androidx.appcompat.widget.SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
+//                    searchView2.setIconifiedByDefault(false);
+//                    searchView2.setIconified(false);
+//                    searchView2.setQueryHint("Wedding cake");
+//                    searchEvent(searchView2);
                 }
                 else{
-                    toolbar.getMenu().getItem(0).setVisible(false);
+//                    toolbar.getMenu().getItem(0).setVisible(false);
 
                 }
             }
         });
+        toolbar.setTitle(null);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -191,14 +201,28 @@ public class HomeFragment extends Fragment{
                 return false;
             }
         });
-        searchEvent(searchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                intent.putExtra(Constant.STRING_INTENT, query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     private void searchEvent(androidx.appcompat.widget.SearchView searchView){
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(getContext(), MapActivity.class);
+                Intent intent = new Intent(getContext(), SearchActivity.class);
                 intent.putExtra(Constant.STRING_INTENT, query);
                 startActivity(intent);
                 return false;

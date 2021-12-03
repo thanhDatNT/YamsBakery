@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.MessageListAdapter;
+=======
+import com.thanhdat.yams.Adapters.MessageListAdapter;
+>>>>>>> Stashed changes
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,9 +27,10 @@ import java.util.Locale;
 
 public class ChatActivity extends AppCompatActivity {
     private RecyclerView rcvMessage;
-    private ImageView imvBack, imvGetPhoto, imvSend;
+    private ImageView imvGetPhoto, imvSend;
     private EditText edtMessage;
     private LinearLayout layoutContainer;
+    private Toolbar toolbar;
     String message;
     ArrayList<String> messageList;
     MessageListAdapter adapter;
@@ -45,8 +51,12 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed();
+        });
         messageList= new ArrayList<>();
-        imvBack.setOnClickListener(v -> finish());
         imvSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +82,7 @@ public class ChatActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rcvMessage.setLayoutManager(layoutManager);
         if(messageList.size() > 0){
+//            Add view message to LinearLayout
             view= View.inflate(ChatActivity.this, R.layout.viewholder_yamschat, null);
             TextView myText= view.findViewById(R.id.text_chat_message_yams);
             TextView myTime= view.findViewById(R.id.text_chat_date_yams);
@@ -80,6 +91,7 @@ public class ChatActivity extends AppCompatActivity {
             layoutContainer.addView(view);
             messageList.remove(0);
         }
+//        Add Message to RecyclerView
         messageList.add(message);
         adapter= new MessageListAdapter(this, messageList);
         adapter.setSender(0);
@@ -88,6 +100,7 @@ public class ChatActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+//                Delay 3 seconds, then, the system send a message to user
                 view= View.inflate(ChatActivity.this, R.layout.viewholder_mychat, null);
                 TextView myText= view.findViewById(R.id.text_chat_message_me);
                 TextView myTime= view.findViewById(R.id.text_chat_date_me);
@@ -107,7 +120,7 @@ public class ChatActivity extends AppCompatActivity {
         edtMessage= findViewById(R.id.edtMessage);
         imvGetPhoto= findViewById(R.id.imvPhoto);
         imvSend= findViewById(R.id.imvSend);
-        imvBack= findViewById(R.id.imvBackChat);
         layoutContainer= findViewById(R.id.layoutChat);
+        toolbar= findViewById(R.id.toolbarChat);
     }
 }

@@ -11,7 +11,11 @@ import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thanhdat.yams.R;
+<<<<<<< Updated upstream
 import com.thanhdat.yams.Adapter.ViewPagerMainAdapter;
+=======
+import com.thanhdat.yams.Adapters.ViewPagerMainAdapter;
+>>>>>>> Stashed changes
 
 public class MainActivity extends AppCompatActivity {
 
