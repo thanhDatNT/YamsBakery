@@ -18,7 +18,6 @@
         android:theme="?attr/actionBarTheme"
         style="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:titleTextColor="@color/white"
         app:contentInsetStart="0dp"
         app:menu="@menu/notification_heading"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">

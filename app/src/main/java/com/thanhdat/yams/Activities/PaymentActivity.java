@@ -139,7 +139,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private void clickOpenBottomSheetDialog() {
         c = Calendar.getInstance();
-        View viewDialog = getLayoutInflater().inflate(R.layout.fragment_choose_time, null);
+        View viewDialog = getLayoutInflater().inflate(R.layout.bottom_sheet_choose_time, null);
 
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(viewDialog);

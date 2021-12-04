@@ -15,7 +15,7 @@ import com.thanhdat.yams.R;
 
 public class IntroActivity extends AppCompatActivity {
     private AppCompatButton btnSignIn, btnSignUp;
-    private TextView tvSkip, tvSlogan;
+    private TextView tvSlogan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +46,6 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(new Intent(IntroActivity.this, LoginActivity.class));
             }
         });
-        tvSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
-            }
-        });
 //        Change font family for slogan
         Typeface typeface= Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");
         tvSlogan.setTypeface(typeface);
@@ -61,6 +55,5 @@ public class IntroActivity extends AppCompatActivity {
         btnSignIn= findViewById(R.id.buttonSignInIntro);
         btnSignUp= findViewById(R.id.buttonSignUpIntro);
         tvSlogan= findViewById(R.id.tvSlogan);
-        tvSkip= findViewById(R.id.tvSkip);
     }
 }

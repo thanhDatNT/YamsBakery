@@ -230,18 +230,18 @@
             android:text="@string/cod_text"/>
     </LinearLayout>
     <!--Button-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnConfirm"
-        android:layout_marginTop="20dp"
-        android:layout_width="130dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/button_bg_gradient"
-        android:text="@string/confirm"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/buttonTextSize"
-        android:textStyle="bold" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="130dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_bg_gradient"
+            android:text="@string/Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttonTextSize"
+            android:textStyle="bold" />
     </LinearLayout>
 </FrameLayout>
 </LinearLayout>

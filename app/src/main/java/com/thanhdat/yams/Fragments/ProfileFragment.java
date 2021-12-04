@@ -142,6 +142,7 @@ public class ProfileFragment extends Fragment {
                     break;
                 case R.id.lnMessageProfile:
                     startActivity(new Intent(getContext(), ChatActivity.class));
+                    getActivity().overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
                     break;
                 case R.id.lnLanguageProfile:
                     startActivity(new Intent(getContext(), LanguageActivity.class));

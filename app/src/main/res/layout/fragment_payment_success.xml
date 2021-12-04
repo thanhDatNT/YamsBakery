@@ -6,31 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!--header-->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/btnBackToPayment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_pink"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/white"
-            />
+    <ImageView
+        android:id="@+id/imvGoHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_home_inactive"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/pad"
+        app:tint="@color/primary" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:text="@string/payment"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/textHeader"
-            android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
-    <!--    end header-->
-<ImageView
+    <ImageView
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

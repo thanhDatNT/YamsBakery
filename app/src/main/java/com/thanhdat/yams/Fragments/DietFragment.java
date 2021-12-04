@@ -24,7 +24,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Activities.CartActivity;
-import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.DietAdapter;
@@ -59,7 +58,7 @@ public class DietFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_diet, container, false);
         radNam=view.findViewById(R.id.radNam);
         radNu=view.findViewById(R.id.radNu);
-        btnTinhBMI=view.findViewById(R.id.btnTinhBMI);
+        btnTinhBMI=view.findViewById(R.id.btnConfirmPwChange);
 
         edtNhapHeight=view.findViewById(R.id.edtNhapHeigt);
         edtNhapWeight=view.findViewById(R.id.edtNhapWeight);

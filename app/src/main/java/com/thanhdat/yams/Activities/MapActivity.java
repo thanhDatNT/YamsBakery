@@ -46,7 +46,10 @@ public class MapActivity extends AppCompatActivity {
 
         getLocationPermission();
         setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> {onBackPressed();});
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed();
+            overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+        });
     }
 
     private void getLocationPermission() {

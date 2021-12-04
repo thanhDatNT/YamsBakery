@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_border_prim_color"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_marginTop="22dp"
         android:padding="@dimen/pad"
         android:hint="@string/email"/>
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_border_prim_color"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_marginTop="22dp"
         android:padding="@dimen/pad"
         android:hint="@string/password"/>
