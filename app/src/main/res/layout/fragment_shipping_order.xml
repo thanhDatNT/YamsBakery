@@ -75,26 +75,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
 
-        <androidx.cardview.widget.CardView
+        <ImageButton
             android:id="@+id/cardViewShipping1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="20dp">
-
-            <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/circle"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_receipt"
-                app:tint="@color/primary" />
-        </androidx.cardview.widget.CardView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_receipt"
+            app:tint="@color/primary" />
 
         <TextView
             android:layout_width="wrap_content"

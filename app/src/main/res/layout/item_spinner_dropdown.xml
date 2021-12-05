@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     style="?android:spinnerDropDownItemStyle"
-    android:maxLines="1"
     android:ellipsize="marquee"
     android:textSize="@dimen/textContent"
-    android:textColor="@color/textColor"/>
+    android:textColor="@color/textColor"
+    android:singleLine="true" />
