@@ -1,13 +1,16 @@
 package com.thanhdat.yams.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.thanhdat.yams.Models.ChatView;
 import com.thanhdat.yams.R;
 
 import java.text.SimpleDateFormat;
@@ -17,14 +20,14 @@ import java.util.Locale;
 
 public class MessageListAdapter extends RecyclerView.Adapter {
     private Context mContext;
-    private List<String> mMessageList;
+    private List<ChatView> mMessageList;
     private int sender; // 0: user, 1: admin
     private final int MESSAGE_SEND= 0;
     private final int MESSAGE_RECEIVE= 1;
     String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
 
-    public MessageListAdapter(Context context, List<String> messageList) {
+    public MessageListAdapter(Context context, List<ChatView> messageList) {
         mContext = context;
         mMessageList = messageList;
     }
@@ -60,11 +63,11 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        String message = mMessageList.get(position);
-
+        String message = mMessageList.get(position).getMessage();
+        Bitmap bitmap = mMessageList.get(position).getBitmap();
         switch (holder.getItemViewType()) {
             case MESSAGE_SEND:
-                ((SentMessageHolder) holder).bind(message);
+                ((SentMessageHolder) holder).bind(message, bitmap);
                 break;
             case MESSAGE_RECEIVE:
                 ((ReceivedMessageHolder) holder).bind(message);
@@ -93,15 +96,17 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
     private class SentMessageHolder extends RecyclerView.ViewHolder {
         TextView messageText, timeText;
+        ImageView imvPhoto;
 
         private SentMessageHolder(View itemView) {
             super(itemView);
-
+            imvPhoto= itemView.findViewById(R.id.imvPhotoMessage);
             messageText = itemView.findViewById(R.id.text_chat_message_me);
             timeText = itemView.findViewById(R.id.text_chat_date_me);
         }
 
-        void bind(String message) {
+        void bind(String message, Bitmap bitmap) {
+            imvPhoto.setImageBitmap(bitmap);
             messageText.setText(message);
             timeText.setText(currentTime + ", " + currentDate);
         }

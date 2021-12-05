@@ -232,7 +232,18 @@
                 android:paddingTop="10dp"
                 android:text="@string/cod_text" />
         </LinearLayout>
+<<<<<<< HEAD
         <!--Button-->
+=======
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="50dp"
+            android:paddingTop="10dp"
+            android:text="@string/cod_text"/>
+    </LinearLayout>
+    <!--Button-->
+>>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnConfirm"
             android:layout_width="130dp"
@@ -240,7 +251,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_bg_gradient"
+<<<<<<< HEAD
             android:text="@string/confirm"
+=======
+            android:text="@string/Confirm"
+>>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/buttonTextSize"

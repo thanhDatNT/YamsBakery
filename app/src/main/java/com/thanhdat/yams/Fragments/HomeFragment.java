@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,17 +17,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Activities.CartActivity;
+<<<<<<< HEAD
+=======
+import com.thanhdat.yams.Activities.CategoryActivity;
+>>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Activities.SearchActivity;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
@@ -45,9 +54,10 @@ public class HomeFragment extends Fragment{
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
     private androidx.appcompat.widget.Toolbar toolbar;
-    private NestedScrollView scrollView;
-    private androidx.appcompat.widget.SearchView searchView;
+    private SearchView searchView;
+    private TextView txtGoPromo, txtGoPopular, txtGoNew;
     private OnClickInterface onClickInterface;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,10 +76,13 @@ public class HomeFragment extends Fragment{
         gvCategory= view.findViewById(R.id.gvCategory);
         gvSuggestion= view.findViewById(R.id.gvSuggestion);
         toolbar= view.findViewById(R.id.toolbarHome);
-        scrollView= view.findViewById(R.id.scrollViewHome);
         searchView= view.findViewById(R.id.svSearchHome);
+        txtGoNew= view.findViewById(R.id.tvViewNewProducts);
+        txtGoPopular= view.findViewById(R.id.tvViewPopularProducts);
+        txtGoPromo= view.findViewById(R.id.tvViewPromoProducts);
 
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         setHasOptionsMenu(true);
         configAndNavigate();
         addEventSliderBanner();
@@ -127,6 +140,12 @@ public class HomeFragment extends Fragment{
         categories.add(new SimpleViewGroup(R.drawable.img_cate4, "Donut"));
         categories.add(new SimpleViewGroup(R.drawable.img_cate2, "Macaroon"));
         gvCategory.setAdapter(new SimpleViewGroupAdapter(getContext(), R.layout.viewholder_category, categories));
+        gvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getContext(), CategoryActivity.class));
+            }
+        });
     }
 
     private void addEventNewProduct() {
@@ -163,27 +182,13 @@ public class HomeFragment extends Fragment{
 
     private void configAndNavigate() {
         onClickInterface= abc -> startActivity(new Intent(getContext(), ProductDetailsActivity.class));
-        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(scrollY > 15){
-                    toolbar.getMenu().getItem(0).setVisible(true);
-                    androidx.appcompat.widget.SearchView searchView2= (androidx.appcompat.widget.SearchView) toolbar.getMenu().getItem(0).getActionView();
-                    searchView2.setIconifiedByDefault(false);
-                    searchView2.setQueryHint("Wedding cake");
-                    searchEvent(searchView2);
-                }
-                else{
-                    toolbar.getMenu().getItem(0).setVisible(false);
-
-                }
-            }
-        });
+        toolbar.setTitle(null);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId() == R.id.mnuNotificationHome){
                     startActivity(new Intent(getContext(), NotificationActivity.class));
+                    getActivity().overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
                 }
                 if(item.getItemId() == R.id.mnuCartHome){
                     startActivity(new Intent(getContext(), CartActivity.class));
@@ -191,14 +196,11 @@ public class HomeFragment extends Fragment{
                 return false;
             }
         });
-        searchEvent(searchView);
-    }
 
-    private void searchEvent(androidx.appcompat.widget.SearchView searchView){
-        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(getContext(), MapActivity.class);
+                Intent intent = new Intent(getContext(), SearchActivity.class);
                 intent.putExtra(Constant.STRING_INTENT, query);
                 startActivity(intent);
                 return false;

@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:paddingHorizontal="@dimen/pad">
 
+<<<<<<< HEAD
     <!--header-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarPaymentSuccess"
@@ -33,6 +34,18 @@
     </androidx.appcompat.widget.Toolbar>
     <!--    end header-->
 <ImageView
+=======
+    <ImageView
+        android:id="@+id/imvGoHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_home_inactive"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/pad"
+        app:tint="@color/primary" />
+
+    <ImageView
+>>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

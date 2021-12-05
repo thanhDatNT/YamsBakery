@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/pad">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarWriteReview"
@@ -12,10 +11,9 @@
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/ic_back_pink"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginStart="-16dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
         <TextView
@@ -26,58 +24,140 @@
             android:textColor="@color/primary"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginEnd="34dp"/>
+            android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/cornerRadius">
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/img_cake"
-                android:scaleType="centerCrop"/>
-        </androidx.cardview.widget.CardView>
+        android:paddingHorizontal="@dimen/pad"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginStart="10dp"
-            android:gravity="center">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/cake_name"
-                android:textSize="@dimen/textContent"
-                android:textColor="@color/textColor"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/category"
-                android:textSize="@dimen/textContent"
-                android:textColor="@color/textColor"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp">
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đánh giá của bạn: "
+            android:layout_marginTop="10dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/cornerRadius">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_cake"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cake_name"
+                    android:textSize="@dimen/textContent"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:textSize="@dimen/textContent"
+                    android:textColor="@color/textColor"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đánh giá của bạn: "
+                android:textSize="@dimen/textContent"
+                android:textColor="@color/textColor"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="3dp"/>
+            <RatingBar
+                android:id="@+id/rtbReviewRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/RatingBar"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="0.5"
+                android:isIndicator="false"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:transformPivotX="0dp"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/edtReviewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/review_hint"
+            android:textColorHint="@color/inactive"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textContent"
+            android:inputType="textMultiLine"
+            android:maxLines="6"
+            android:lines="6"
+            android:background="@drawable/edittext_bg_thin_stroke"
+            android:padding="10dp"
+            android:gravity="top"
+            android:layout_marginTop="-28dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:gravity="center_vertical">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnUploadImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Đăng tải hình ảnh"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/textContent"
+                android:textAllCaps="false"
+                android:drawableTop="@drawable/ic_camera"
+                android:background="@drawable/bg_lightpink_dashstroke"
+                android:padding="8dp"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewImage1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="@dimen/cornerRadius"
+                android:layout_marginHorizontal="@dimen/pad">
+                <ImageView
+                    android:id="@+id/imvReviewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+
+            <!--        <androidx.appcompat.widget.AppCompatButton-->
+            <!--            android:id="@+id/btnUploadVideo"-->
+            <!--            android:layout_width="100dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Đăng tải video"-->
+            <!--            android:textColor="@color/primary"-->
+            <!--            android:textSize="@dimen/textContent"-->
+            <!--            android:textAllCaps="false"-->
+            <!--            android:drawableTop="@drawable/ic_video"-->
+            <!--            android:background="@drawable/bg_lightpink_dashstroke"-->
+            <!--            android:padding="8dp"-->
+            <!--            android:layout_marginStart="16dp"/>-->
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delivery"
             android:textSize="@dimen/textContent"
             android:textColor="@color/textColor"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginBottom="10dp" />
         <RatingBar
-            android:id="@+id/rtbReviewRating"
+            android:id="@+id/rtbDeliveryRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:theme="@style/RatingBar"
@@ -88,112 +168,37 @@
             android:scaleX="0.6"
             android:scaleY="0.6"
             android:transformPivotX="0dp"/>
-    </LinearLayout>
-    <EditText
-        android:id="@+id/edtReviewText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/review_hint"
-        android:textColorHint="@color/inactive"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/textContent"
-        android:inputType="textMultiLine"
-        android:maxLines="6"
-        android:lines="6"
-        android:background="@drawable/edittext_bg_thin_stroke"
-        android:padding="10dp"
-        android:gravity="top"
-        android:layout_marginTop="-28dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:gravity="center_vertical">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnUploadImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Đăng tải hình ảnh"
-            android:textColor="@color/primary"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/service"
             android:textSize="@dimen/textContent"
+            android:textColor="@color/textColor"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="-10dp"/>
+        <RatingBar
+            android:id="@+id/rtbServiceRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/RatingBar"
+            android:numStars="5"
+            android:rating="5"
+            android:stepSize="0.5"
+            android:isIndicator="false"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:transformPivotX="0dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpReview"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_gradient"
+            android:text="Đăng đánh giá"
             android:textAllCaps="false"
-            android:drawableTop="@drawable/ic_camera"
-            android:background="@drawable/bg_lightpink_dashstroke"
-            android:padding="8dp"/>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewImage1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:cardCornerRadius="@dimen/cornerRadius"
-            android:layout_marginHorizontal="@dimen/pad">
-            <ImageView
-                android:id="@+id/imvReviewImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"/>
-        </androidx.cardview.widget.CardView>
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/btnUploadVideo"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Đăng tải video"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textSize="@dimen/textContent"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:drawableTop="@drawable/ic_video"-->
-<!--            android:background="@drawable/bg_lightpink_dashstroke"-->
-<!--            android:padding="8dp"-->
-<!--            android:layout_marginStart="16dp"/>-->
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttonTextSize"
+            android:layout_gravity="center"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/delivery"
-        android:textSize="@dimen/textContent"
-        android:textColor="@color/textColor"
-        android:layout_marginBottom="10dp" />
-    <RatingBar
-        android:id="@+id/rtbDeliveryRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:theme="@style/RatingBar"
-        android:numStars="5"
-        android:rating="5"
-        android:stepSize="0.5"
-        android:isIndicator="false"
-        android:scaleX="0.6"
-        android:scaleY="0.6"
-        android:transformPivotX="0dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/service"
-        android:textSize="@dimen/textContent"
-        android:textColor="@color/textColor"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="-10dp"/>
-    <RatingBar
-        android:id="@+id/rtbServiceRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:theme="@style/RatingBar"
-        android:numStars="5"
-        android:rating="5"
-        android:stepSize="0.5"
-        android:isIndicator="false"
-        android:scaleX="0.6"
-        android:scaleY="0.6"
-        android:transformPivotX="0dp"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUpReview"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_bg_gradient"
-        android:text="Đăng đánh giá"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/buttonTextSize"
-        android:layout_gravity="center"/>
+
 
 </LinearLayout>

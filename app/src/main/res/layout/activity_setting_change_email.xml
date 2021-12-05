@@ -76,7 +76,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTinhBMI"
+        android:id="@+id/btnConfirmPwChange"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

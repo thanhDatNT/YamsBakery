@@ -21,8 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="56dp"
+        app:titleEnabled="false"
+        app:title="@null"
         android:fitsSystemWindows="true"
-        app:contentScrim="@color/white"
         app:layout_scrollFlags="exitUntilCollapsed|scroll"
         android:animateLayoutChanges="false">
 
@@ -35,15 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"/>
 
-            <androidx.appcompat.widget.SearchView
+            <SearchView
                 android:id="@+id/svSearchHome"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="12dp"
-                android:queryBackground="@null"
-                android:queryHint="@string/search"
                 android:iconifiedByDefault="false"
-                app:searchIcon="@drawable/ic_search"
+                android:queryHint="@string/search"
+                android:searchIcon="@drawable/ic_search"
                 android:background="@drawable/bg_lightpink"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar
@@ -52,9 +52,9 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:layout_collapseMode="pin"
+            android:paddingTop="20dp"
             android:background="@color/white"
             app:menu="@menu/homepage_heading"
-            android:paddingTop="20dp"
             style="@style/ThemeOverlay.AppCompat.Light"
             android:theme="?attr/actionBarTheme">
 
@@ -121,14 +121,32 @@
 
             <!--            New Products Recycler View-->
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mTop"
-                android:text="@string/newProduct"
-                android:textColor="@color/textColor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/newProduct"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewNewProducts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvNewProducts"
@@ -137,14 +155,32 @@
                 android:layout_marginTop="@dimen/mTop" />
 
             <!--            Popular Recycler View-->
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mTop"
-                android:text="@string/popular"
-                android:textColor="@color/textColor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popular"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewPopularProducts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"/>
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvPopular"
@@ -153,14 +189,32 @@
                 android:layout_marginTop="@dimen/mTop" />
 
             <!--            Promotion Recycler View-->
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mTop"
-                android:text="@string/promo"
-                android:textColor="@color/textColor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/promo"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvViewPromoProducts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"/>
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvPromotion"
@@ -178,14 +232,19 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <GridView
-                android:id="@+id/gvSuggestion"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="920dp"
-                android:layout_marginTop="@dimen/mTop"
-                android:horizontalSpacing="20dp"
-                android:numColumns="2"
-                android:verticalSpacing="20dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/mTop">
+
+                <GridView
+                    android:id="@+id/gvSuggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:horizontalSpacing="20dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="20dp" />
+            </FrameLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

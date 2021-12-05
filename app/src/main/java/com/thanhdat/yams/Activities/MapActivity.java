@@ -2,6 +2,7 @@ package com.thanhdat.yams.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -29,6 +30,7 @@ import com.thanhdat.yams.R;
 public class MapActivity extends AppCompatActivity {
     private GoogleMap mMap;
     private boolean locationPermissionGranted;
+    private Toolbar toolbar;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
@@ -40,7 +42,14 @@ public class MapActivity extends AppCompatActivity {
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         client = LocationServices.getFusedLocationProviderClient(this);
 
+        linkViews();
+
         getLocationPermission();
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed();
+            overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+        });
     }
 
     private void getLocationPermission() {
@@ -63,13 +72,11 @@ public class MapActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         locationPermissionGranted = false;
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    locationPermissionGranted = true;
-                    getCurrentLocation();
-                }
+        if (requestCode == PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                locationPermissionGranted = true;
+                getCurrentLocation();
             }
         }
     }
@@ -90,14 +97,17 @@ public class MapActivity extends AppCompatActivity {
                                 mMap = googleMap;
                                 LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
                                 mMap.addMarker(new MarkerOptions().position(myLocation).title("I am here!"));
-                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 10));
                             }
                         });
                     }
                 }
             });
         }
-
-
     }
+
+    private void linkViews() {
+        toolbar= findViewById(R.id.toolbarMap);
+    }
+
 }
