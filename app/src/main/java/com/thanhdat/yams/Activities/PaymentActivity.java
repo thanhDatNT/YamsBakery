@@ -2,6 +2,7 @@ package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +22,6 @@ import android.widget.TimePicker;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
 import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
-import com.thanhdat.yams.Fragments.VoucherFragment;
 import com.thanhdat.yams.Models.PaymentProduct;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.PaymentProductAdapter;
@@ -34,6 +34,7 @@ public class PaymentActivity extends AppCompatActivity {
     ImageButton btnOpenChooseTime, btnOpenChooseAddress;
     AppCompatButton btnAddToPayment;
     TextView txtOpenChoosePaymentMethod, txtOpenVoucher;
+    Toolbar toolbarPayment;
 
     RecyclerView rcvPaymentProduct;
     PaymentProductAdapter adapter;
@@ -59,6 +60,7 @@ public class PaymentActivity extends AppCompatActivity {
         txtOpenVoucher = findViewById(R.id.txtOpenVoucher);
         btnAddToPayment = findViewById(R.id.btnAddToPayment);
         btnOpenChooseAddress = findViewById(R.id.btnOpenChooseAddress);
+        toolbarPayment = findViewById(R.id.toolbarPayment);
 
         rcvPaymentProduct = findViewById(R.id.rcvPaymentProduct);
     }
@@ -109,10 +111,8 @@ public class PaymentActivity extends AppCompatActivity {
         txtOpenVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fm = getSupportFragmentManager();
-                VoucherFragment fragment= new VoucherFragment();
-                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
-                txtOpenVoucher.setVisibility(View.GONE);
+                Intent intent = new Intent(PaymentActivity.this,VoucherActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -132,6 +132,17 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PaymentActivity.this,MapActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        //Back
+        setSupportActionBar(toolbarPayment);
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setTitle(null);
+        toolbarPayment.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 

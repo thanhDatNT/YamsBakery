@@ -17,28 +17,49 @@
         android:orientation="vertical">
 
     <!--header-->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/btnBackToPaymentMethod"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_pink"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/white"
-            />
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btnBackToPaymentMethod"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_back_pink"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            />-->
 
-        <TextView
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/choose_bank"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:textSize="@dimen/textHeader"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarChooseBank"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:text="@string/choose_bank"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/textHeader"
-            android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:navigationIcon="@drawable/ic_back_pink"
+            app:contentInsetStartWithNavigation="0dp"
+            android:layout_marginStart="-1dp"
+            android:elevation="2dp"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_bank"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/textHeader"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginEnd="34dp"/>
+        </androidx.appcompat.widget.Toolbar>
     <!--    end header-->
 
     <androidx.appcompat.widget.SearchView

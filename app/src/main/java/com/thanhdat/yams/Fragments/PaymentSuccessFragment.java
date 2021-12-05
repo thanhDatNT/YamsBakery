@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Activities.OrderStatusActivity;
@@ -18,7 +19,7 @@ import com.thanhdat.yams.R;
 
 public class PaymentSuccessFragment extends Fragment {
     AppCompatButton btnSeeOrder;
-    ImageButton btnBackToPayment;
+    Toolbar toolbarPaymentSuccess;
 
     @Nullable
     @Override
@@ -27,7 +28,7 @@ public class PaymentSuccessFragment extends Fragment {
 
         //link views
         btnSeeOrder = view.findViewById(R.id.btnSeeOrder);
-        btnBackToPayment = view.findViewById(R.id.btnBackToPayment);
+        toolbarPaymentSuccess = view.findViewById(R.id.toolbarPaymentSuccess);
         //add events
         addEvents();
 
@@ -44,10 +45,10 @@ return view;
             }
         });
 
-        btnBackToPayment.setOnClickListener(new View.OnClickListener() {
+        toolbarPaymentSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view.getId() == R.id.btnBackToPayment) {
+                if (view.getId() == R.id.toolbarPaymentMethod) {
                     startActivity(new Intent(getContext(), PaymentActivity.class));
                 }
             }

@@ -7,24 +7,26 @@
     android:elevation="2dp"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/favorite"
-                android:gravity="center"
-                android:textSize="@dimen/textMainHeader"
-                android:textColor="@color/primary"
-                android:textStyle="bold"
-                android:padding="10dp"
-                />
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_marginBottom="14dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        android:elevation="2dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite"
+            android:textSize="@dimen/textMainHeader"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:gravity="center"
+      />
+    </androidx.appcompat.widget.Toolbar>
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/svSearchHome"
@@ -38,7 +40,6 @@
             app:searchIcon="@drawable/ic_search"
             android:background="@drawable/bg_lightpink"/>
 
-    </LinearLayout>
         <ListView
             android:id="@+id/lvFavorite"
             android:layout_width="match_parent"

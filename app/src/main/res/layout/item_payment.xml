@@ -65,8 +65,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Description"
                 android:textColor="@color/inactive"
+                android:paddingEnd="50dp"
                 android:paddingTop="10dp"
-                android:textSize="@dimen/textContent" />
+               />
 
             <TextView
                 android:id="@+id/txtQuantity"
