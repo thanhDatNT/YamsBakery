@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.SeeReviewActivity"
-    android:orientation="vertical"
-    android:paddingHorizontal="@dimen/pad">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSeeReview"
@@ -14,10 +13,9 @@
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/ic_back_pink"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginStart="-16dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
 
@@ -29,14 +27,15 @@
                 android:textColor="@color/primary"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:layout_marginEnd="34dp"/>
+                android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
-        android:layout_marginTop="6dp">
+        android:layout_marginTop="6dp"
+        android:paddingHorizontal="@dimen/pad">
         <TextView
             android:id="@+id/txtAvgRating"
             android:layout_width="wrap_content"
@@ -75,9 +74,8 @@
         android:id="@+id/rcvReviewItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="@dimen/pad"
         android:layout_marginTop="-25dp">
-
     </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

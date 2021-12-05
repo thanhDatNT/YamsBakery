@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/pad"
     tools:context=".Activities.LanguageActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarLanguage"
@@ -13,10 +12,8 @@
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/ic_back_pink"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginStart="-16dp"
+        android:layout_marginStart="-5dp"
         android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
@@ -28,13 +25,13 @@
             android:textSize="@dimen/textHeader"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginEnd="34dp"/>
+            android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
     <RadioGroup
         android:id="@+id/radGroupLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp">
+        android:paddingHorizontal="@dimen/pad">
         <RadioButton
             android:id="@+id/radVietNam"
             android:layout_width="match_parent"
@@ -42,7 +39,7 @@
             android:layout_margin="6dp"
             android:text="@string/vietnam"
             android:textColor="@color/textColor"
-            android:textSize="16sp"
+            android:textSize="@dimen/textContent"
             android:checked="true"
             android:paddingLeft="10dp"
             android:buttonTint="@color/primary"/>
@@ -53,7 +50,7 @@
             android:layout_margin="6dp"
             android:text="@string/english"
             android:textColor="@color/textColor"
-            android:textSize="16sp"
+            android:textSize="@dimen/textContent"
             android:paddingLeft="10dp"
             android:buttonTint="@color/primary"/>
         <RadioButton
@@ -63,7 +60,7 @@
             android:layout_margin="6dp"
             android:text="@string/japan"
             android:textColor="@color/textColor"
-            android:textSize="16sp"
+            android:textSize="@dimen/textContent"
             android:paddingLeft="10dp"
             android:buttonTint="@color/primary"/>
     </RadioGroup>
@@ -86,6 +83,6 @@
             android:layout_height="wrap_content"
             android:text="@string/add_lang"
             android:textColor="@color/textColor"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/textContent"/>
     </LinearLayout>
 </LinearLayout>
