@@ -28,6 +28,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -50,6 +51,8 @@ public class WriteReviewActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> activityResultLauncher;
     ReviewDatabase db;
 
+    Toolbar toolbarWriteReview;
+
     boolean isCamera, isSelected = false;
 
     @Override
@@ -61,6 +64,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         createBottomSheet();
         addEvent();
         changeOrDeleteImage();
+        backToPrevious();
 
         db = new ReviewDatabase(this);
 
@@ -103,7 +107,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         rtbDeliveryRating = findViewById(R.id.rtbDeliveryRating);
         rtbServiceRating = findViewById(R.id.rtbServiceRating);
 
-
+        toolbarWriteReview = findViewById(R.id.toolbarWriteReview);
     }
 
     private void createBottomSheet() {
@@ -208,13 +212,13 @@ public class WriteReviewActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Chọn tác vụ");
-        menu.add("Sửa ảnh");
+        menu.add("Thay đổi ảnh");
         menu.add("Xóa ảnh");
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if(item.getTitle() == "Sửa ảnh"){
+        if(item.getTitle() == "Thay đổi ảnh"){
             //change image
             sheetDialog.show();
         }
@@ -244,4 +248,17 @@ public class WriteReviewActivity extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
+
+    private void backToPrevious() {
+        setSupportActionBar(toolbarWriteReview);
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setTitle(null);
+        toolbarWriteReview.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
 }

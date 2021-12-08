@@ -233,5 +233,17 @@
     <string name="uyennhi">Uyển Nhi | 0392308148</string>
     <string name="order_detail">Chi tiết đơn hàng</string>
 
+    <!--Cancel order-->
+    <string name="cancel_noti">*Vui lòng chọn lý do hủy đơn hàng. Lưu ý: Việc hủy đơn hàng có thể ảnh hưởng đến giá trị voucher của bạn sau này.</string>
+    <string name="cancel_title">Chọn lý do hủy đơn</string>
+    <string name="cancel_reason1">Muốn thay đổi địa chỉ/thời gian giao hàng</string>
+    <string name="cancel_reason2">Muốn thay đổi sản phẩm (loại, kích thước, topping...)</string>
+    <string name="cancel_reason3">Yams không trả lời thắc mắc của tôi</string>
+    <string name="cancel_reason4">Thời gian dự kiến giao hàng quá lâu</string>
+    <string name="cancel_reason5">Lý do khác</string>
+    <string name="cancel_confirm">Xác nhận</string>
+    <string name="cancel_success_title">Hủy đơn thành công</string>
+    <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
+    <string name="cancel_back_home">Về trang chủ</string>
 
 </resources>

@@ -375,7 +375,7 @@
                 android:hint="Để lại lời nhắn của bạn tại đây..."
                 android:textColorHint="@color/inactive"
                 android:textColor="@color/textColor"
-                android:textSize="14sp" />
+                android:textSize="@dimen/textContent" />
         </LinearLayout>
     </ScrollView>
 

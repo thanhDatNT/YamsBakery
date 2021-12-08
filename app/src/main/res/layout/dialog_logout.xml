@@ -28,23 +28,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnConfirmLogout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="@string/confirm"
-            android:textColor="@color/primary"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:backgroundTint="@color/lightPink"/>
-        <Button
+            android:background="@drawable/button_bg_gradient"/>
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCancelLogout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/cancel"
@@ -52,6 +52,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:backgroundTint="@color/lightPink"/>
+            android:background="@drawable/bg_lightpink"/>
     </LinearLayout>
 </LinearLayout>
