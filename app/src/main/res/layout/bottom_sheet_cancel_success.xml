@@ -42,7 +42,7 @@
             android:background="@drawable/button_bg_gradient"
             android:text="@string/cancel_confirm"
             android:textColor="@color/white"
-            android:textSize="@dimen/buttonTextSize"
+            android:textSize="@dimen/textContent"
             android:textAllCaps="false"
             android:gravity="center"
             android:layout_gravity="center"/>
@@ -54,7 +54,7 @@
             android:background="@drawable/bg_lightpink"
             android:text="@string/cancel_back_home"
             android:textColor="@color/primary"
-            android:textSize="@dimen/buttonTextSize"
+            android:textSize="@dimen/textContent"
             android:textAllCaps="false"
             android:gravity="center"
             android:layout_gravity="center"/>
