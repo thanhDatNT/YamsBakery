@@ -90,7 +90,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="@dimen/mTop"
+                android:layout_marginTop="24dp"
                 app:cardCornerRadius="12dp">
 
                 <com.smarteist.autoimageslider.SliderView
@@ -117,7 +117,7 @@
                 <GridView
                     android:id="@+id/gvCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="206dp"
                     android:layout_marginTop="@dimen/mTop"
                     android:numColumns="4" />
 

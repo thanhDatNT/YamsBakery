@@ -47,8 +47,12 @@ public class FeedCommentActivity extends AppCompatActivity {
 
         Post post = (Post) bundle.get("object_post");
 
-        txtDescription.setText(post.getPostDescription());
-        txtHashtag.setText(post.getPostHashtag());
+        txtDescription.setText(post.getContent());
+        String tags="";
+        for(int j=0; j<post.getTags().size(); j++){
+            tags += "#"+post.getTags().get(j);
+        }
+        txtHashtag.setText(tags);
 
         Intent intent = getIntent();
         postId = intent.getStringExtra("postId");

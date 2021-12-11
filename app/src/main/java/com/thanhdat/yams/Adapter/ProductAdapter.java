@@ -56,7 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             holder.imvLiked.setVisibility(View.GONE);
         }
         if(products.get(position).isPromo()){
-            SpannableString spannableString= new SpannableString(String.valueOf(products.get(position).getPrice()));
+            SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
             holder.tvOldPrice.setText(spannableString);
             holder.tvOldPrice.setVisibility(View.VISIBLE);
