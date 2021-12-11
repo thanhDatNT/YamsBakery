@@ -36,7 +36,13 @@
     </androidx.appcompat.widget.Toolbar>
 
     <!--    End header-->
-
+    <ProgressBar
+        android:id="@+id/progressBarFeed"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mTop"
+        android:layout_gravity="center"/>
 
     <ListView
         android:id="@+id/lvFeed"

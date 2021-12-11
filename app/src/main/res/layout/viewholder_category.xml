@@ -12,7 +12,8 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/img_cate1" />
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_cart" />
 
     <TextView
         android:id="@+id/tvCategory"

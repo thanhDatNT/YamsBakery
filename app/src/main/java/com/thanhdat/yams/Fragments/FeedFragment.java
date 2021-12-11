@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,24 +20,37 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
+
 import com.thanhdat.yams.Activities.ChatActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Post;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.PostAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
-
 public class FeedFragment extends Fragment {
-
+    boolean isLoaded= false;
     Toolbar toolbarFeed;
-
+    ProgressBar progressBar;
     ListView lvFeed;
     ArrayList<Post> posts;
     PostAdapter adapter;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,25 +65,34 @@ public class FeedFragment extends Fragment {
         //link Views
         toolbarFeed = view.findViewById(R.id.toolbarFeed);
         lvFeed = view.findViewById(R.id.lvFeed);
+        progressBar= view.findViewById(R.id.progressBarFeed);
+        posts= new ArrayList<>();
 
-        adapter = new PostAdapter(getContext(),R.layout.item_post,initData());
-        lvFeed.setAdapter(adapter);
-
-        goToCartOrNotification();
+//        Get feed data from API
+        new readFeedDataAPI().execute("https://thanhdatnt.github.io/database/feeds.json");
+        navigate();
+        setUpListView();
         return view;
     }
 
-    private ArrayList<Post> initData(){
-        posts = new ArrayList<>();
-        posts.add(new Post(R.drawable.img_mango_cake,"123 lượt thích","Bánh xoài kem tươi","#yams #mango"));
-        posts.add(new Post(R.drawable.img_bdcake,"123 lượt thích","It's your birthday","#yams #mango"));
-        posts.add(new Post(R.drawable.img_mango_cake,"123 lượt thích","Bánh xoài kem tươi","#yams #mango"));
-        posts.add(new Post(R.drawable.img_mango_cake,"123 lượt thích","Bánh xoài kem tươi","#yams #mango"));
-        return posts;
-
+    private void setUpListView() {
+        Handler handler= new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(isLoaded){
+                    progressBar.setVisibility(View.GONE);
+                    adapter = new PostAdapter(getContext(), R.layout.item_post, posts);
+                    lvFeed.setAdapter(adapter);
+                }
+                else {
+                    setUpListView();
+                }
+            }
+        }, 2000);
     }
 
-    private void goToCartOrNotification() {
+    private void navigate() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if(activity != null){
             activity.setSupportActionBar(toolbarFeed);
@@ -95,6 +120,57 @@ public class FeedFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.feed_heading, menu);
+    }
+
+    private class readFeedDataAPI extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder stringBuilder = new StringBuilder();
+            try {
+                URL url= new URL(strings[0]);
+                InputStreamReader streamReader= new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader reader= new BufferedReader(streamReader);
+                String line="";
+                while((line=reader.readLine()) != null){
+                    stringBuilder.append(line);
+                }
+                reader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return stringBuilder.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            try {
+                JSONObject object= new JSONObject(s);
+                JSONArray array= object.getJSONArray("feeds");
+                ArrayList<String> hashtags= new ArrayList<>();
+                for(int i=0; i<array.length(); i++){
+                    JSONObject feed= array.getJSONObject(i);
+                    Post post= new Post();
+                    post.setContent(feed.getString("content"));
+                    post.setDate(feed.getString("date"));
+                    post.setId(feed.getInt("id"));
+                    post.setLiked(feed.getInt("liked"));
+                    post.setPhoto(feed.getString("image"));
+                    JSONArray tags= feed.getJSONArray("hashtags");
+                    for(int j=0; j<tags.length(); j++){
+                        hashtags.add(tags.getString(j));
+                    }
+                    post.setTags(hashtags);
+                    posts.add(post);
+                }
+                isLoaded= true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

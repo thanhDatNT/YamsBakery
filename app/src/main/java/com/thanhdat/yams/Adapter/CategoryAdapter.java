@@ -8,17 +8,19 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Models.Category;
 import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
 
-public class SimpleViewGroupAdapter extends BaseAdapter {
+public class CategoryAdapter extends BaseAdapter {
     Context context;
     int layout;
-    ArrayList<TextThumbView> dataList;
+    ArrayList<Category> dataList;
 
-    public SimpleViewGroupAdapter(Context context, int layout, ArrayList<TextThumbView> dataList) {
+    public CategoryAdapter(Context context, int layout, ArrayList<Category> dataList) {
         this.context = context;
         this.layout = layout;
         this.dataList = dataList;
@@ -58,9 +60,9 @@ public class SimpleViewGroupAdapter extends BaseAdapter {
         else{
             holder= (ViewHolder) convertView.getTag();
         }
-        TextThumbView data= dataList.get(position);
-        holder.imvImage.setImageResource(data.getImage());
-        holder.tvName.setText(data.getCate());
+        Category data= dataList.get(position);
+        Picasso.get().load(data.getThumb()).into(holder.imvImage);
+        holder.tvName.setText(data.getName());
         return convertView;
     }
 }

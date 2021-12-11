@@ -1,48 +1,60 @@
 package com.thanhdat.yams.Models;
 
+import java.util.List;
+
 public class Post {
+    private int id, liked;
+    private String content, photo, date;
+    private List<String> tags;
 
-    private int postThumb;
-    private String postLike;
-    private String postDescription;
-    private String postHashtag;
-
-    public Post(int postThumb, String postLike, String postDescription, String postHashtag) {
-        this.postThumb = postThumb;
-        this.postLike = postLike;
-        this.postDescription = postDescription;
-        this.postHashtag = postHashtag;
+    public Post() {
     }
 
-    public int getPostThumb() {
-        return postThumb;
+    public int getId() {
+        return id;
     }
 
-    public void setPostThumb(int postThumb) {
-        this.postThumb = postThumb;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPostLike() {
-        return postLike;
+    public int getLiked() {
+        return liked;
     }
 
-    public void setPostLike(String postLike) {
-        this.postLike = postLike;
+    public void setLiked(int liked) {
+        this.liked = liked;
     }
 
-    public String getPostDescription() {
-        return postDescription;
+    public String getContent() {
+        return content;
     }
 
-    public void setPostDescription(String postDescription) {
-        this.postDescription = postDescription;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getPostHashtag() {
-        return postHashtag;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setPostHashtag(String postHashtag) {
-        this.postHashtag = postHashtag;
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }
