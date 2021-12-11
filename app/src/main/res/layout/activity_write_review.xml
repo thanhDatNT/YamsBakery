@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/cornerRadius">
                 <ImageView
+                    android:id="@+id/imvReviewThumb"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/img_cake"
@@ -51,19 +52,34 @@
                 android:layout_marginStart="10dp"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/txtReviewName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/cake_name"
                     android:textSize="@dimen/textContent"
                     android:textColor="@color/textColor"
                     android:textStyle="bold"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    android:textSize="@dimen/textContent"
-                    android:textColor="@color/textColor"
-                    android:layout_marginTop="10dp"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category"
+                        android:textSize="@dimen/textContent"
+                        android:textColor="@color/textColor"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:id="@+id/txtReviewDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_desc"
+                        android:textSize="@dimen/textContent"
+                        android:textColor="@color/textColor"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

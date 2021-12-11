@@ -102,7 +102,14 @@
     <string name="time3">9:30AM</string>
     <string name="order_code">Mã đơn hàng:</string>
     <string name="x2">x2</string>
-
+    <string name="estimated_time">Thời gian dự kiến</string>
+    <string name="code_orders">Mã đơn hàng</string>
+    <string name="minutes_20">20 phút</string>
+    <string name="sizeM">M - 20cm</string>
+    <string name="Quantily">Số lượng: 1</string>
+    <string name="Preparing">Đang chuẩn bị</string>
+    <string name="Estimated_delivery">Dự kiến giao hàng</string>
+    <string name="cancel_order">Hủy đơn hàng</string>
 
     <!--- cart-->
     <string name="Cart">Đơn hàng </string>
@@ -225,7 +232,8 @@
     <string name="write_review_title">Viết đánh giá</string>
     <string name="see_review_title">Đánh giá sản phẩm</string>
     <string name="cake_name">Bánh kem hương vani</string>
-    <string name="category">Phân loại: Nhân dâu tây</string>
+    <string name="category">Phân loại:</string>
+    <string name="category_desc">Nhân dâu tây</string>
     <string name="review_hint">Hãy chia sẻ cảm nhận của bạn về loại bánh này!</string>
     <string name="delivery">Vận chuyển và xử lý đơn hàng:</string>
     <string name="service">Chăm sóc khách hàng:</string>
@@ -245,5 +253,6 @@
     <string name="cancel_success_title">Hủy đơn thành công</string>
     <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
     <string name="cancel_back_home">Về trang chủ</string>
+
 
 </resources>

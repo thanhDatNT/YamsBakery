@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -34,6 +35,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Database.ReviewDatabase;
+import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
 import java.io.ByteArrayOutputStream;
@@ -44,7 +46,8 @@ public class WriteReviewActivity extends AppCompatActivity {
 
     EditText edtReviewText;
     AppCompatButton btnUpReview, btnUploadImage, btnCamera, btnGallery;
-    ImageView imvReviewImage;
+    ImageView imvReviewImage, imvReviewThumb;
+    TextView txtReviewName, txtReviewDesc;
     RatingBar rtbReviewRating, rtbDeliveryRating, rtbServiceRating;
 
     BottomSheetDialog sheetDialog;
@@ -61,6 +64,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write_review);
 
         linkViews();
+        receiveDataFromPrevious();
         createBottomSheet();
         addEvent();
         changeOrDeleteImage();
@@ -102,13 +106,32 @@ public class WriteReviewActivity extends AppCompatActivity {
         btnGallery = findViewById(R.id.btnGallery);
 
         imvReviewImage = findViewById(R.id.imvReviewImage);
+        imvReviewThumb = findViewById(R.id.imvReviewThumb);
+
+        txtReviewName = findViewById(R.id.txtReviewName);
+        txtReviewDesc = findViewById(R.id.txtReviewDesc);
 
         rtbReviewRating = findViewById(R.id.rtbReviewRating);
         rtbDeliveryRating = findViewById(R.id.rtbDeliveryRating);
         rtbServiceRating = findViewById(R.id.rtbServiceRating);
 
         toolbarWriteReview = findViewById(R.id.toolbarWriteReview);
+
+
     }
+
+    private void receiveDataFromPrevious() {
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null){
+            return;
+        }
+
+        PreviousOrder previousOrder = (PreviousOrder) bundle.get("object_previous");
+        txtReviewName.setText(previousOrder.getPreviousName());
+        txtReviewDesc.setText(previousOrder.getPreviousContent());
+        imvReviewThumb.setImageResource(previousOrder.getPreviousThumb());
+    }
+
 
     private void createBottomSheet() {
         if(sheetDialog == null){
