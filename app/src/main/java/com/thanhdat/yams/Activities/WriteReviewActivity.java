@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -28,11 +29,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Database.ReviewDatabase;
+import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
 import java.io.ByteArrayOutputStream;
@@ -43,12 +46,15 @@ public class WriteReviewActivity extends AppCompatActivity {
 
     EditText edtReviewText;
     AppCompatButton btnUpReview, btnUploadImage, btnCamera, btnGallery;
-    ImageView imvReviewImage;
-    RatingBar rtbReviewRating, rtbDeliveryRating, rtbServiceRating;
+    ImageView imvReviewImage, imvReviewThumb;
+    TextView txtReviewSize;
+    RatingBar rtbReviewRating;
 
     BottomSheetDialog sheetDialog;
     ActivityResultLauncher<Intent> activityResultLauncher;
-    ReviewDatabase db;
+    public static ReviewDatabase db;
+
+    Toolbar toolbarWriteReview;
 
     boolean isCamera, isSelected = false;
 
@@ -58,9 +64,11 @@ public class WriteReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write_review);
 
         linkViews();
+        receiveDataFromPrevious();
         createBottomSheet();
         addEvent();
         changeOrDeleteImage();
+        backToPrevious();
 
         db = new ReviewDatabase(this);
 
@@ -98,13 +106,27 @@ public class WriteReviewActivity extends AppCompatActivity {
         btnGallery = findViewById(R.id.btnGallery);
 
         imvReviewImage = findViewById(R.id.imvReviewImage);
+        imvReviewThumb = findViewById(R.id.imvReviewThumb);
+
+        txtReviewSize = findViewById(R.id.txtReviewSize);
 
         rtbReviewRating = findViewById(R.id.rtbReviewRating);
-        rtbDeliveryRating = findViewById(R.id.rtbDeliveryRating);
-        rtbServiceRating = findViewById(R.id.rtbServiceRating);
 
+        toolbarWriteReview = findViewById(R.id.toolbarWriteReview);
 
     }
+
+    private void receiveDataFromPrevious() {
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null){
+            return;
+        }
+
+        PreviousOrder previousOrder = (PreviousOrder) bundle.get("object_previous");
+        txtReviewSize.setText(previousOrder.getPreviousContent());
+        imvReviewThumb.setImageResource(previousOrder.getPreviousThumb());
+    }
+
 
     private void createBottomSheet() {
         if(sheetDialog == null){
@@ -161,26 +183,24 @@ public class WriteReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //insert data
-                String text;
-                double rating, delivery, service;
+                String text, size;
+                double rating;
 
                 text = edtReviewText.getText().toString();
                 rating = rtbReviewRating.getRating();
-                delivery = rtbDeliveryRating.getRating();
-                service = rtbServiceRating.getRating();
+                size = txtReviewSize.getText().toString();
 
                 if(!text.equals("")){
-                    boolean flag = db.insertData(text, convertPhoto(), rating, delivery, service);
+                    boolean flag = db.insertData(text, convertPhoto(), rating, size);
                     if(flag){
-                        Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
                     }else {
                         Toast.makeText(WriteReviewActivity.this, "Fail!", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     Toast.makeText(WriteReviewActivity.this, "Vui lòng nhập lời đánh giá của bạn!", Toast.LENGTH_SHORT).show();
                 }
-
-//                startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
             }
         });
     }
@@ -208,13 +228,13 @@ public class WriteReviewActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Chọn tác vụ");
-        menu.add("Sửa ảnh");
+        menu.add("Thay đổi ảnh");
         menu.add("Xóa ảnh");
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if(item.getTitle() == "Sửa ảnh"){
+        if(item.getTitle() == "Thay đổi ảnh"){
             //change image
             sheetDialog.show();
         }
@@ -244,4 +264,17 @@ public class WriteReviewActivity extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
+
+    private void backToPrevious() {
+        setSupportActionBar(toolbarWriteReview);
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setTitle(null);
+        toolbarWriteReview.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
 }

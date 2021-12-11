@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.thanhdat.yams.Models.PendingOrder;
+import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
 public class FeedCommentActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class FeedCommentActivity extends AppCompatActivity {
     EditText edtAddComment;
     ImageView imvProfile;
     Button btnPost;
+    TextView txtPublisher, txtDescription, txtHashtag;
 
     String postId;
     String authorId;
@@ -36,6 +39,16 @@ public class FeedCommentActivity extends AppCompatActivity {
         edtAddComment = findViewById(R.id.edtAddComment);
         imvProfile = findViewById(R.id.imvProfileComment);
         btnPost = findViewById(R.id.btnPostComment);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null){
+            return;
+        }
+
+        Post post = (Post) bundle.get("object_post");
+
+        txtDescription.setText(post.getPostDescription());
+        txtHashtag.setText(post.getPostHashtag());
 
         Intent intent = getIntent();
         postId = intent.getStringExtra("postId");

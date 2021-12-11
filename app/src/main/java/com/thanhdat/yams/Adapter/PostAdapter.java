@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.thanhdat.yams.Activities.FeedCommentActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;

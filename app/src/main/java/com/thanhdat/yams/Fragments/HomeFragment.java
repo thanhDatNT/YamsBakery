@@ -19,12 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.CartActivity;
 
 import com.thanhdat.yams.Activities.CategoryActivity;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment{
     private SearchView searchView;
     private TextView txtGoPromo, txtGoPopular, txtGoNew;
     private OnClickInterface onClickInterface;
+    ImageView imvImg;
 
 
     @Override
@@ -79,6 +82,8 @@ public class HomeFragment extends Fragment{
         txtGoNew= view.findViewById(R.id.tvViewNewProducts);
         txtGoPopular= view.findViewById(R.id.tvViewPopularProducts);
         txtGoPromo= view.findViewById(R.id.tvViewPromoProducts);
+        imvImg= view.findViewById(R.id.imvloadImage);
+        Picasso.get().load("https://i.ibb.co/bg7qjL3/summer-pudding.png").into(imvImg);
 
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
