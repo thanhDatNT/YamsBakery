@@ -15,6 +15,8 @@
     <string name="feed">Yams Feeds</string>
     <string name="confirm">Xác nhận</string>
     <string name="delete">Xóa tất cả</string>
+    <string name="progress">Bạn chờ Yams một chút nhé…</string>
+    <string name="delPrice"><del>60000</del></string>
 
     <!--Profile-->
     <string name="profile">Tài khoản</string>

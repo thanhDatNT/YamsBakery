@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Models.NewProduct;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
@@ -16,22 +18,22 @@ import java.util.ArrayList;
 public class SuggestionAdapter extends BaseAdapter {
     Context context;
     int layout;
-    ArrayList<NewProduct> newProducts;
+    ArrayList<Product> products;
 
-    public SuggestionAdapter(Context context, int layout, ArrayList<NewProduct> newProducts) {
+    public SuggestionAdapter(Context context, int layout, ArrayList<Product> newProducts) {
         this.context = context;
         this.layout = layout;
-        this.newProducts = newProducts;
+        this.products = newProducts;
     }
 
     @Override
     public int getCount() {
-        return newProducts.size();
+        return products.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return newProducts.get(position);
+        return products.get(position);
     }
 
     @Override
@@ -61,12 +63,12 @@ public class SuggestionAdapter extends BaseAdapter {
         else{
             holder= (ViewHolder) convertView.getTag();
         }
-        NewProduct newProduct= newProducts.get(position);
-        holder.imvThumb.setImageResource(newProduct.getThumb());
-        holder.tvName.setText(newProduct.getName());
-        holder.tvPrice.setText(newProduct.getPrice());
-        holder.tvRating.setText(newProduct.getRating());
-        holder.tvTag.setText(newProduct.getTag());
+        Product product= products.get(position);
+        Picasso.get().load(product.getThumbnail()).into(holder.imvThumb);
+        holder.tvName.setText(product.getName());
+        holder.tvPrice.setText(String.format("%.0f",product.getPrice()));
+        holder.tvRating.setText(String.valueOf(product.getRating()));
+        holder.tvTag.setText(product.getTag());
         return convertView;
     }
 }

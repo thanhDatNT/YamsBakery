@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.FeedCommentActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
@@ -59,6 +60,7 @@ public class PostAdapter extends BaseAdapter {
             holder.txtHashtag = view.findViewById(R.id.txtHashtag);
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
             holder.imbAddComment = view.findViewById(R.id.imbAddComment);
+            holder.txtDate= view.findViewById(R.id.tvDate);
 
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,16 +86,20 @@ public class PostAdapter extends BaseAdapter {
 
         //Binding data
         Post p = posts.get(i);
-        holder.imvThumb.setImageResource(p.getPostThumb());
-        holder.txtLike.setText(p.getPostLike());
-        holder.txtDescription.setText(p.getPostDescription());
-        holder.txtHashtag.setText(p.getPostHashtag());
-
+        Picasso.get().load(p.getPhoto()).into(holder.imvThumb);
+        holder.txtLike.setText(String.valueOf(p.getLiked()));
+        holder.txtDescription.setText(p.getContent());
+        holder.txtDate.setText(p.getDate());
+        String tags="";
+        for(int j=0; j<p.getTags().size(); j++){
+            tags += "#"+p.getTags().get(j);
+        }
+        holder.txtHashtag.setText(tags);
         return view;
     }
     private static class ViewHolder{
         ImageView imvThumb;
-        TextView txtLike, txtDescription, txtHashtag, txtComment;
+        TextView txtLike, txtDescription, txtHashtag, txtComment, txtDate;
         ImageButton imbAddComment;
 
     }

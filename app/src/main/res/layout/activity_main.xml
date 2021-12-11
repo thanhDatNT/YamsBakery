@@ -8,6 +8,25 @@
     android:background="@color/white"
     tools:context=".Activities.MainActivity">
 
+    <TextView
+        android:id="@+id/tvWaiting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textContent"
+        android:textColor="@color/primary"
+        android:layout_above="@id/progressBarHome"
+        android:layout_marginBottom="@dimen/mTop"
+        android:gravity="center"
+        android:text="@string/progress" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBarHome"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/layoutContainerMain"
         android:layout_width="match_parent"
@@ -23,5 +42,6 @@
         app:itemBackground="@color/white"
         android:foreground="?attr/selectableItemBackground"
         app:menu="@menu/bottom_navigation"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>

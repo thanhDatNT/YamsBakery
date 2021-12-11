@@ -1,7 +1,6 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,30 +18,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Activities.CategoryActivity;
 import com.thanhdat.yams.Activities.MainActivity;
-import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
-import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Activities.SearchActivity;
+import com.thanhdat.yams.Adapter.CategoryAdapter;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
-import com.thanhdat.yams.Models.NewProduct;
-import com.thanhdat.yams.Models.SimpleViewGroup;
+import com.thanhdat.yams.Models.Category;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.NewProductAdapter;
-import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapter.ProductAdapter;
 import com.thanhdat.yams.Adapter.SliderBannerAdapter;
 import com.thanhdat.yams.Adapter.SuggestionAdapter;
 
@@ -56,7 +51,8 @@ public class HomeFragment extends Fragment{
     private SearchView searchView;
     private TextView txtGoPromo, txtGoPopular, txtGoNew;
     private OnClickInterface onClickInterface;
-    ImageView imvImg;
+    private NestedScrollView scrollView;
+    ArrayList<Product> productList;
 
 
     @Override
@@ -77,15 +73,16 @@ public class HomeFragment extends Fragment{
         gvSuggestion= view.findViewById(R.id.gvSuggestion);
         toolbar= view.findViewById(R.id.toolbarHome);
         searchView= view.findViewById(R.id.svSearchHome);
+        scrollView= view.findViewById(R.id.scrollViewHome);
         txtGoNew= view.findViewById(R.id.tvViewNewProducts);
         txtGoPopular= view.findViewById(R.id.tvViewPopularProducts);
         txtGoPromo= view.findViewById(R.id.tvViewPromoProducts);
-        imvImg= view.findViewById(R.id.imvloadImage);
-        Picasso.get().load("https://i.ibb.co/bg7qjL3/summer-pudding.png").into(imvImg);
 
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         setHasOptionsMenu(true);
+
+        productList= MainActivity.productList;
         configAndNavigate();
         addEventSliderBanner();
         addEventNewProduct();
@@ -96,71 +93,60 @@ public class HomeFragment extends Fragment{
         return view;
     }
 
-
     private void addEventSuggestion() {
-        ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","top"));
-        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","promo"));
-        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","new"));
-        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_new_product, newProducts));
+        ArrayList<Product> suggestProducts = new ArrayList<>();
+        for (int i= 10; i<=15; i++){
+            suggestProducts.add(productList.get(i));
+        }
+        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts));
     }
 
     private void addEventPromotion() {
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);;
         rcvPromotion.setLayoutManager(layoutManager);
-        ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","promo"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","promo"));
-        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","promo"));
-        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","promo"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","promo"));
-        rcvPromotion.setAdapter(new NewProductAdapter(getContext(),R.layout.viewholder_new_product, newProducts, onClickInterface));
+        ArrayList<Product> promoProducts = new ArrayList<>();
+        for (Product p : productList){
+            if(p.getTag().equals("Promo")){
+                promoProducts.add(p);
+            }
+        }
+        rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, promoProducts, onClickInterface));
     }
 
     private void addEventPopular() {
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);;
         rcvPopular.setLayoutManager(layoutManager);
-        ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","top"));
-        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","top"));
-        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","top"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","top"));
-        rcvPopular.setAdapter(new NewProductAdapter(getContext(),R.layout.viewholder_new_product, newProducts, onClickInterface));
+        ArrayList<Product> popularProducts = new ArrayList<>();
+        for (Product p : productList){
+            if(p.getTag().equals("Popular")){
+                popularProducts.add(p);
+            }
+        }
+        rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, popularProducts, onClickInterface));
+    }
+
+    private void addEventNewProduct() {
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);;
+        rcvNewProduct.setLayoutManager(layoutManager);
+        ArrayList<Product> newProducts = new ArrayList<>();
+        for (Product p : productList){
+            if(p.getTag().equals("New")){
+                newProducts.add(p);
+            }
+        }
+        rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, newProducts, onClickInterface));
+
     }
 
     private void addEventCategory() {
-        ArrayList<SimpleViewGroup> categories= new ArrayList<>();
-        categories.add(new SimpleViewGroup(R.drawable.img_cate1, "Cheese"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate2, "Pudding"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate3, "Birthday cake"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate4, "Tiramisu"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate3, "Biscuit"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate1, "Cookie"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate4, "Donut"));
-        categories.add(new SimpleViewGroup(R.drawable.img_cate2, "Macaroon"));
-        gvCategory.setAdapter(new SimpleViewGroupAdapter(getContext(), R.layout.viewholder_category, categories));
+        ArrayList<Category> categories= MainActivity.categoryList;
+        gvCategory.setAdapter(new CategoryAdapter(getContext(), R.layout.viewholder_category, categories));
         gvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(getContext(), CategoryActivity.class));
             }
         });
-    }
-
-    private void addEventNewProduct() {
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        rcvNewProduct.setLayoutManager(layoutManager);
-        ArrayList<NewProduct> newProducts= new ArrayList<>();
-        newProducts.add(new NewProduct(R.drawable.img_mango_cake, "Macaroon", "35000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Fruit Cake", "39000","4.8","new"));
-        newProducts.add(new NewProduct(R.drawable.img_summer_pudding, "Matcha Cookie", "65000","4.3","new"));
-        newProducts.add(new NewProduct(R.drawable.img_bdcake, "Biscuit", "55000","4.7","new"));
-        newProducts.add(new NewProduct(R.drawable.img_cake, "Pink Biscuit", "50000","4.1","new"));
-        rcvNewProduct.setAdapter(new NewProductAdapter(getContext(),R.layout.viewholder_new_product, newProducts, onClickInterface));
-
     }
 
     private void addEventSliderBanner() {
@@ -183,22 +169,42 @@ public class HomeFragment extends Fragment{
     }
 
     private void configAndNavigate() {
-        onClickInterface= abc -> startActivity(new Intent(getContext(), ProductDetailsActivity.class));
+        onClickInterface= abc -> {
+//            Intent includes Product Id for Product detail activity
+            Intent intent= new Intent(getContext(), ProductDetailsActivity.class);
+            intent.putExtra(Constant.ID_PRODUCT, abc);
+            startActivity(intent);
+        };
         toolbar.setTitle(null);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.mnuSearchHome){
+                    startActivity(new Intent(getContext(), SearchActivity.class));
+                    getActivity().overridePendingTransition(R.animator.translate_slide_enter, R.animator.translate_slide_exit);
+                }
                 if(item.getItemId() == R.id.mnuNotificationHome){
                     startActivity(new Intent(getContext(), NotificationActivity.class));
-                    getActivity().overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                    getActivity().overridePendingTransition(R.animator.translate_slide_enter, R.animator.translate_slide_exit);
                 }
                 if(item.getItemId() == R.id.mnuCartHome){
                     startActivity(new Intent(getContext(), CartActivity.class));
+                    getActivity().overridePendingTransition(R.animator.translate_slide_enter, R.animator.translate_slide_exit);
                 }
                 return false;
             }
         });
-
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(scrollY > 10){
+                    toolbar.getMenu().getItem(0).setVisible(true);
+                }
+                else{
+                    toolbar.getMenu().getItem(0).setVisible(false);
+                }
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
