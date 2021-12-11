@@ -79,7 +79,7 @@ public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.Previo
             super(itemView);
             imvPreviousThumb = itemView.findViewById(R.id.imvPreviousThumb);
             txtPreviousName = itemView.findViewById(R.id.txtPreviousName);
-            txtPreviousContent = itemView.findViewById(R.id.txtPreviousDescription);
+            txtPreviousContent = itemView.findViewById(R.id.txtPreviousSize);
             txtPreviousQuantity = itemView.findViewById(R.id.txtPreviousQuantity);
             txtPreviousPrice = itemView.findViewById(R.id.txtPreviousPrice);
 
