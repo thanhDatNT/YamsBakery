@@ -76,9 +76,7 @@ public class ChoosePaymentMethodFragment extends Fragment {
 
             //fragment to fragment
             if (view.getId() == R.id.txtSeeMore) {
-
-                FragmentTransaction fragmentTransaction = getActivity()
-                        .getSupportFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layoutContainerPaymentMethod, new ChooseBankFragment());
                 fragmentTransaction.commit();
 

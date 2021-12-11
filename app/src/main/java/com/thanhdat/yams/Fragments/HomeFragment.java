@@ -26,10 +26,9 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Activities.CartActivity;
-<<<<<<< HEAD
-=======
+
 import com.thanhdat.yams.Activities.CategoryActivity;
->>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
+
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.MapActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;

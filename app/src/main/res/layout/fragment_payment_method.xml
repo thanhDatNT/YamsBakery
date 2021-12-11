@@ -5,261 +5,247 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
->
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/layoutContainerPaymentMethod">
-
-    <LinearLayout
+    >
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!--header-->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarPaymentMethod"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_marginStart="-1dp"
-            android:background="@color/white"
-            android:elevation="2dp"
-            app:contentInsetStartWithNavigation="0dp"
-            app:navigationIcon="@drawable/ic_back_pink"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="34dp"
-                android:gravity="center"
-                android:text="@string/payment"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/textHeader"
-                android:textStyle="bold" />
-        </androidx.appcompat.widget.Toolbar>
-        <!--    end header-->
+        android:id="@+id/layoutContainerPaymentMethod">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--header-->
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:navigationIcon="@drawable/ic_back_pink"
+                app:contentInsetStartWithNavigation="0dp"
+                android:layout_marginStart="-5dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="2dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Choose_payment_method"
+                    android:textSize="@dimen/textHeader"
+                    android:textColor="@color/primary"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginEnd="46dp"/>
+            </androidx.appcompat.widget.Toolbar>
+            <!--    end header-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:src="@drawable/ic_wallet"
-                    app:tint="@color/primary" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2.5"
-                    android:gravity="start"
-                    android:text="@string/vi_dien_tu"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <!--        radio-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="50dp"
-                    android:layout_weight="8"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:src="@drawable/ic_wallet"
+                        app:tint="@color/primary" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:text="@string/momo"
-                        android:textColor="@color/textColor"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:text="@string/zalopay"
-                        android:textColor="@color/textColor"
+                        android:layout_weight="8.5"
+                        android:gravity="start"
+                        android:text="@string/vi_dien_tu"
+                        android:textColor="@color/primary"
                         android:textSize="18sp" />
                 </LinearLayout>
 
+                <!--        radio-->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
 
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="50dp"
+                        android:layout_weight="8"
                         android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/radMomo"
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:buttonTint="@color/primary" />
+                            android:padding="10dp"
+                            android:text="@string/momo"
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp" />
 
-                        <RadioButton
-                            android:id="@+id/radZaloPay"
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:buttonTint="@color/primary" />
-                    </RadioGroup>
+                            android:padding="10dp"
+                            android:text="@string/zalopay"
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radMomo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:buttonTint="@color/primary" />
+
+                            <RadioButton
+                                android:id="@+id/radZaloPay"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:buttonTint="@color/primary" />
+                        </RadioGroup>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
 
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:src="@drawable/ic_payment"
+                        app:tint="@color/primary" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5.5"
+                        android:text="@string/internet_banking"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtSeeMore"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:drawableEnd="@drawable/ic_see_more_inactive"
+                        android:gravity="center"
+                        android:text="@string/view_all" />
+
+                    <!--        <ImageButton-->
+                    <!--            android:id="@+id/btnOpenChooseBank"-->
+                    <!--            android:layout_width="0dp"-->
+                    <!--            android:layout_height="match_parent"-->
+                    <!--            android:layout_weight="0.5"-->
+                    <!--            android:backgroundTint="@color/white"-->
+                    <!--            android:src="@drawable/ic_see_more"-->
+                    <!--            app:tint="@color/inactive" />-->
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="50dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/bank_BIDV" />
+
+            </LinearLayout>
+            <!--    Thanh toán khi nhận hàng-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <ImageView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:src="@drawable/ic_payment"
-                    app:tint="@color/primary" />
-
-                <TextView
-
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5.5"
-                    android:text="@string/internet_banking"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtSeeMore"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:drawableEnd="@drawable/ic_see_more_inactive"
                     android:gravity="center"
-                    android:text="@string/view_all" />
+                    android:orientation="horizontal"
+                    android:weightSum="10">
 
-                <!--        <ImageButton-->
-                <!--            android:id="@+id/btnOpenChooseBank"-->
-                <!--            android:layout_width="0dp"-->
-                <!--            android:layout_height="match_parent"-->
-                <!--            android:layout_weight="0.5"-->
-                <!--            android:backgroundTint="@color/white"-->
-                <!--            android:src="@drawable/ic_see_more"-->
-                <!--            app:tint="@color/inactive" />-->
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:src="@drawable/ic_your_order"
+                        app:tint="@color/primary" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="50dp"
-                android:paddingTop="10dp"
-                android:text="@string/bank_BIDV" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6.8"
+                        android:text="@string/cod_payment_method"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp" />
 
-        </LinearLayout>
-        <!--    Thanh toán khi nhận hàng-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:src="@drawable/ic_your_order"
-                    app:tint="@color/primary" />
+                    <RadioButton
+                        android:id="@+id/radCod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.7"
+                        android:buttonTint="@color/primary"
+                        android:checked="false" />
+                </LinearLayout>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="6.8"
-                    android:text="@string/cod_payment_method"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radCod"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.7"
-                    android:buttonTint="@color/primary"
-                    android:checked="false" />
+                    android:paddingHorizontal="50dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/cod_text" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="50dp"
-                android:paddingTop="10dp"
-                android:text="@string/cod_text" />
+            <!--Button-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnConfirm"
+                android:layout_width="130dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_bg_gradient"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttonTextSize"
+                android:textStyle="bold" />
         </LinearLayout>
-<<<<<<< HEAD
-        <!--Button-->
-=======
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:paddingTop="10dp"
-            android:text="@string/cod_text"/>
-    </LinearLayout>
-    <!--Button-->
->>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnConfirm"
-            android:layout_width="130dp"
-            android:layout_height="38dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_bg_gradient"
-<<<<<<< HEAD
-            android:text="@string/confirm"
-=======
-            android:text="@string/Confirm"
->>>>>>> fa9698c899647a4164b9941ee0e7049ea44cb330
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/buttonTextSize"
-            android:textStyle="bold" />
-    </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
 </LinearLayout>
