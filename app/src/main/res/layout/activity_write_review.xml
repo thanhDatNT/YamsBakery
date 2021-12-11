@@ -66,15 +66,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/category"
+                        android:text="@string/size"
                         android:textSize="@dimen/textContent"
                         android:textColor="@color/textColor"
                         android:layout_marginTop="10dp"/>
                     <TextView
-                        android:id="@+id/txtReviewDesc"
+                        android:id="@+id/txtReviewSize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/category_desc"
+                        android:text="@string/size_m"
                         android:textSize="@dimen/textContent"
                         android:textColor="@color/textColor"
                         android:layout_marginTop="10dp"

@@ -2,6 +2,8 @@ package com.thanhdat.yams.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,15 +42,14 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imvAvaReview.setImageResource(seeReviewItems.get(position).getReviewAva());
-        holder.imvProductReview.setImageResource(seeReviewItems.get(position).getReviewProductThumb());
+        SeeReviewItem review = seeReviewItems.get(position);
+        holder.txtReviewText.setText(review.getReviewText());
+        holder.txtSizeReview.setText(review.getReviewSize());
+        holder.rtbSeeReviewItem.setRating((float) review.getReviewRating());
 
-        holder.txtNameReview.setText(seeReviewItems.get(position).getReviewName());
-        holder.txtReviewText.setText(seeReviewItems.get(position).getReviewText());
-        holder.txtSizeReview.setText(seeReviewItems.get(position).getReviewSize());
-        holder.txtToppingReview.setText(seeReviewItems.get(position).getReviewTopping());
-
-        holder.rtbSeeReviewItem.setRating((float) seeReviewItems.get(position).getReviewRating());
+        byte[] reviewImage = review.getReviewImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(reviewImage, 0, reviewImage.length);
+        holder.imvReviewImage.setImageBitmap(bitmap);
 
     }
 
@@ -59,19 +60,16 @@ public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imvAvaReview, imvProductReview;
-        TextView txtNameReview, txtReviewText, txtSizeReview, txtToppingReview;
+        ImageView imvReviewImage;
+        TextView txtReviewText, txtSizeReview;
         RatingBar rtbSeeReviewItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //link views
-            imvAvaReview = itemView.findViewById(R.id.imvAvaReview);
-            imvProductReview = itemView.findViewById(R.id.imvProductReview);
+            imvReviewImage = itemView.findViewById(R.id.imvReviewImage);
 
-            txtNameReview = itemView.findViewById(R.id.txtNameReview);
             txtReviewText = itemView.findViewById(R.id.txtReviewText);
             txtSizeReview = itemView.findViewById(R.id.txtSizeReview);
-            txtToppingReview = itemView.findViewById(R.id.txtToppingReview);
 
             rtbSeeReviewItem = itemView.findViewById(R.id.rtbSeeReviewItem);
         }

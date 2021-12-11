@@ -4,26 +4,26 @@ import android.widget.ImageView;
 
 public class SeeReviewItem {
 
-    private String reviewName, reviewText, reviewSize, reviewTopping;
-    private int reviewAva, reviewProductThumb;
+    private int reviewId;
+    private String reviewText;
+    private byte[] reviewImage;
     private double reviewRating;
+    private String reviewSize;
 
-    public SeeReviewItem(String reviewName, String reviewText, String reviewSize, String reviewTopping, int reviewAva, int reviewProductThumb, double reviewRating) {
-        this.reviewName = reviewName;
+    public SeeReviewItem(int reviewId, String reviewText, byte[] reviewImage, double reviewRating, String reviewSize) {
+        this.reviewId = reviewId;
         this.reviewText = reviewText;
-        this.reviewSize = reviewSize;
-        this.reviewTopping = reviewTopping;
-        this.reviewAva = reviewAva;
-        this.reviewProductThumb = reviewProductThumb;
+        this.reviewImage = reviewImage;
         this.reviewRating = reviewRating;
+        this.reviewSize = reviewSize;
     }
 
-    public String getReviewName() {
-        return reviewName;
+    public int getReviewId() {
+        return reviewId;
     }
 
-    public void setReviewName(String reviewName) {
-        this.reviewName = reviewName;
+    public void setReviewId(int reviewId) {
+        this.reviewId = reviewId;
     }
 
     public String getReviewText() {
@@ -34,36 +34,12 @@ public class SeeReviewItem {
         this.reviewText = reviewText;
     }
 
-    public String getReviewSize() {
-        return reviewSize;
+    public byte[] getReviewImage() {
+        return reviewImage;
     }
 
-    public void setReviewSize(String reviewSize) {
-        this.reviewSize = reviewSize;
-    }
-
-    public String getReviewTopping() {
-        return reviewTopping;
-    }
-
-    public void setReviewTopping(String reviewTopping) {
-        this.reviewTopping = reviewTopping;
-    }
-
-    public int getReviewAva() {
-        return reviewAva;
-    }
-
-    public void setReviewAva(int reviewAva) {
-        this.reviewAva = reviewAva;
-    }
-
-    public int getReviewProductThumb() {
-        return reviewProductThumb;
-    }
-
-    public void setReviewProductThumb(int reviewProductThumb) {
-        this.reviewProductThumb = reviewProductThumb;
+    public void setReviewImage(byte[] reviewImage) {
+        this.reviewImage = reviewImage;
     }
 
     public double getReviewRating() {
@@ -72,5 +48,13 @@ public class SeeReviewItem {
 
     public void setReviewRating(double reviewRating) {
         this.reviewRating = reviewRating;
+    }
+
+    public String getReviewSize() {
+        return reviewSize;
+    }
+
+    public void setReviewSize(String reviewSize) {
+        this.reviewSize = reviewSize;
     }
 }
