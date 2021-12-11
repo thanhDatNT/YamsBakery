@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.R;
 
 
@@ -71,6 +72,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void addEvent() {
+//        Test product id
+        Intent intent= getIntent();
+        int productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
+        Toast.makeText(this, "Product id is "+ productID, Toast.LENGTH_LONG).show();
+
         txtSeeReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

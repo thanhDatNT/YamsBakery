@@ -45,10 +45,10 @@ public class PreviousOrderFragment extends Fragment {
 
     private List<PreviousOrder> initData() {
         List<PreviousOrder> previousOrders = new ArrayList<>();
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "Vị xoài và kem tươi", 180000,2));
-        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "Vị đào thanh mát", 170000,1));
-        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "Vị xoài và kem tươi", 160000,3));
-        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "Vị đào thanh mát", 170000,2));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "M-20cm", 180000,2));
+        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "S-16cm", 170000,1));
+        previousOrders.add(new PreviousOrder("Mango Cream cake", R.drawable.img_mango_cake, "L-24cm", 160000,3));
+        previousOrders.add(new PreviousOrder("Peach cake", R.drawable.img_cake, "M-20cm", 170000,2));
         return previousOrders;
     }
 

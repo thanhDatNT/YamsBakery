@@ -49,8 +49,8 @@
 
         <ImageView
             android:id="@+id/imvCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_calendar"
             app:tint="@color/primary" />
@@ -71,30 +71,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingHorizontal="@dimen/pad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
 
-        <androidx.cardview.widget.CardView
+        <ImageButton
             android:id="@+id/cardViewShipping1"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="20dp">
-
-            <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/circle"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_receipt"
-                app:tint="@color/primary" />
-        </androidx.cardview.widget.CardView>
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_receipt"
+            app:tint="@color/primary" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,31 +111,22 @@
             android:layout_height="120dp"
             android:layout_below="@+id/cardViewShipping1"
             android:layout_alignParentStart="true"
+
             android:layout_marginStart="-30dp"
+
+            android:layout_marginStart="-40dp"
+
             android:rotation="90"
             android:src="@drawable/line" />
 
-        <androidx.cardview.widget.CardView
+        <ImageButton
             android:id="@+id/cardViewShipping2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_below="@id/ivmLine1"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
-            app:cardCornerRadius="80dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/circle" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_shipping"
-                app:tint="@color/primary" />
-        </androidx.cardview.widget.CardView>
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_shipping"
+            app:tint="@color/primary" />
 
         <TextView
             android:id="@+id/textView"
@@ -175,31 +154,20 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_below="@+id/cardViewShipping2"
-            android:layout_marginStart="-30dp"
+            android:layout_marginStart="-40dp"
             android:rotation="90"
             android:src="@drawable/line"/>
 
-        <androidx.cardview.widget.CardView
+        <ImageButton
             android:id="@+id/cardViewShipping3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_below="@id/ivmLine2"
-            android:layout_marginStart="10dp"
-            app:cardCornerRadius="80dp">
+            android:background="@drawable/circle_full"
+            android:src="@drawable/ic_payment"
+            app:tint="@color/white" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/circle_full" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_payment"
-                app:tint="@color/white" />
-        </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="wrap_content"

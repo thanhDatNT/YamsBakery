@@ -4,20 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ProductDetailsActivity"
-    android:paddingHorizontal="@dimen/pad">
+    tools:context=".Activities.ProductDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarProduct"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/ic_back_pink"
+        app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginBottom="10dp"
         android:elevation="2dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back_pink"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
         android:id="@+id/svProductDetails"
@@ -29,7 +31,8 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarProduct">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarProduct"
+        android:paddingHorizontal="@dimen/pad">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,18 +56,19 @@
             <!--Product name-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp">
 
                 <TextView
                     android:id="@+id/txtProductDetailName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="3dp"
                     android:layout_weight="1"
                     android:text="Bánh Brownie"
                     android:textColor="@color/textColor"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -119,7 +123,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp">
+                android:layout_marginVertical="16dp">
 
                 <TextView
                     android:id="@+id/txtProductDetailPrice"
@@ -153,7 +157,8 @@
                 android:id="@+id/txtProductDetailDescrip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/description_product"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/textContent" />
@@ -170,7 +175,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="30dp">
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp">
 
                 <RadioGroup
                     android:id="@+id/radGroupSize"
@@ -252,7 +259,8 @@
                 android:text="@string/toppings"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -351,15 +359,9 @@
                 android:text="@string/note"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="Để lại lời nhắn của bạn"
-                android:textColor="@color/textColor"
-                android:textSize="@dimen/textContent" />
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -370,8 +372,10 @@
                 android:lines="4"
                 android:maxLines="4"
                 android:padding="10dp"
+                android:hint="Để lại lời nhắn của bạn tại đây..."
+                android:textColorHint="@color/inactive"
                 android:textColor="@color/textColor"
-                android:textSize="14sp" />
+                android:textSize="@dimen/textContent" />
         </LinearLayout>
     </ScrollView>
 

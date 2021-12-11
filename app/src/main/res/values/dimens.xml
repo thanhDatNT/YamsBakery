@@ -3,7 +3,7 @@
     <dimen name="buttonTextSize">20sp</dimen>
     <dimen name="buttonBorderRadius">24dp</dimen>
 <!--    Margin-->
-    <dimen name="mTop">32dp</dimen>
+    <dimen name="mTop">38dp</dimen>
     <dimen name="mBot">60dp</dimen>
 <!--    Padding-->
     <dimen name="pad">12dp</dimen>

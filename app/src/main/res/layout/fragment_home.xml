@@ -86,10 +86,11 @@
             android:padding="12dp">
 
             <!--            Automatic Slider Banner-->
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="@dimen/mTop"
+                android:layout_marginTop="24dp"
                 app:cardCornerRadius="12dp">
 
                 <com.smarteist.autoimageslider.SliderView
@@ -111,11 +112,12 @@
             </androidx.cardview.widget.CardView>
 
 
+
             <!--            Grid Categories-->
                 <GridView
                     android:id="@+id/gvCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="206dp"
                     android:layout_marginTop="@dimen/mTop"
                     android:numColumns="4" />
 
@@ -140,12 +142,13 @@
                     android:id="@+id/tvViewNewProducts"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/view_all"
+                    android:singleLine="false"
                     android:layout_weight="0.5"
-                    android:gravity="end"
+                    android:text="@string/view_all"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp" />
-
+                    android:gravity="end"
+                    android:textStyle="italic"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -179,7 +182,8 @@
                     android:layout_weight="0.5"
                     android:gravity="end"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textStyle="italic"
+                    android:textSize="16sp"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -213,7 +217,8 @@
                     android:layout_weight="0.5"
                     android:gravity="end"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textStyle="italic"
+                    android:textSize="16sp"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -230,21 +235,16 @@
                 android:text="@string/suggest"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
+                android:layout_marginBottom="@dimen/mTop"
                 android:textStyle="bold" />
 
-            <FrameLayout
+            <GridView
+                android:id="@+id/gvSuggestion"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/mTop">
-
-                <GridView
-                    android:id="@+id/gvSuggestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:horizontalSpacing="20dp"
-                    android:numColumns="2"
-                    android:verticalSpacing="20dp" />
-            </FrameLayout>
+                android:layout_height="700dp"
+                android:horizontalSpacing="20dp"
+                android:numColumns="2"
+                android:verticalSpacing="20dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

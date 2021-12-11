@@ -51,29 +51,29 @@
 
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="4dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_my_profile" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.8"
                     android:layout_marginLeft="10dp"
                     android:text="@string/myprofile"
                     android:textColor="@color/textColor"
                     android:textSize="18sp"
                      />
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_see_more"
-                    />
+                    android:layout_weight="0.1"/>
 
             </LinearLayout>
 
@@ -84,29 +84,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingLeft="10dp"
                 android:paddingVertical="4dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_email" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-
+                    android:layout_weight="0.8"
                     android:text="@string/ChangeEmail"
                     android:textColor="@color/textColor"
                     android:textSize="18sp"
                     />
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_see_more" />
 
             </LinearLayout>
@@ -118,18 +118,18 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingLeft="10dp"
                 android:paddingVertical="4dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_lock" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.8"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:text="@string/ChangePwd"
@@ -138,8 +138,9 @@
                      />
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_see_more" />
 
             </LinearLayout>
@@ -150,19 +151,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:paddingLeft="10dp"
                 android:paddingVertical="4dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_location" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.8"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:text="@string/ChangeAddress"
@@ -171,8 +171,9 @@
                     />
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
                     android:src="@drawable/ic_see_more" />
 
             </LinearLayout>

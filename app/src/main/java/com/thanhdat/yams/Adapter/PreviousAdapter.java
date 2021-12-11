@@ -2,6 +2,7 @@ package com.thanhdat.yams.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,15 +47,19 @@ public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.Previo
         holder.txtReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToSeeReview();
+                goToWriteReview(previousOrder);
             }
         });
 
     }
 
-    private void goToSeeReview() {
+    private void goToWriteReview(PreviousOrder previousOrder) {
         Intent intent = new Intent(context, WriteReviewActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_previous",previousOrder);
+        intent.putExtras(bundle);
         context.startActivity(intent);
+
     }
 
     public void release(){
@@ -74,7 +79,7 @@ public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.Previo
             super(itemView);
             imvPreviousThumb = itemView.findViewById(R.id.imvPreviousThumb);
             txtPreviousName = itemView.findViewById(R.id.txtPreviousName);
-            txtPreviousContent = itemView.findViewById(R.id.txtPreviousContent);
+            txtPreviousContent = itemView.findViewById(R.id.txtPreviousSize);
             txtPreviousQuantity = itemView.findViewById(R.id.txtPreviousQuantity);
             txtPreviousPrice = itemView.findViewById(R.id.txtPreviousPrice);
 

@@ -11,9 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.thanhdat.yams.Models.SimpleViewGroup;
+import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 public class NotificationActivity extends AppCompatActivity {
     private ListView lvNotify;
     private Toolbar toolbar;
-    ArrayList<SimpleViewGroup> dataNotifications;
+    ArrayList<TextThumbView> dataNotifications;
     SimpleViewGroupAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +83,9 @@ public class NotificationActivity extends AppCompatActivity {
 
     private void addDataListView() {
         dataNotifications= new ArrayList<>();
-        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_new_releases_notify, "Bạn có #3 mã giảm giá chưa sử dụng tại kho voucher. Dùng ngay trước khi hết hạn nào!"));
-        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
-        dataNotifications.add(new SimpleViewGroup(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
+        dataNotifications.add(new TextThumbView(R.drawable.ic_new_releases_notify, "Bạn có #3 mã giảm giá chưa sử dụng tại kho voucher. Dùng ngay trước khi hết hạn nào!"));
+        dataNotifications.add(new TextThumbView(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
+        dataNotifications.add(new TextThumbView(R.drawable.ic_confirm, "Đơn hàng #1000s9dv đã được giao thành công. Nhấn để xem thông tin chi tiết."));
         adapter= new SimpleViewGroupAdapter(this, R.layout.viewholder_notification, dataNotifications);
         lvNotify.setAdapter(adapter);
 

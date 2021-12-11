@@ -10,7 +10,7 @@ import android.widget.GridView;
 import android.widget.SearchView;
 
 import com.thanhdat.yams.Constants.Constant;
-import com.thanhdat.yams.Models.SimpleViewGroup;
+import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
 
@@ -20,7 +20,7 @@ public class SearchActivity extends AppCompatActivity {
     private GridView gvSuggest, gvNearly;
     private Toolbar toolbar;
     private SearchView searchView;
-    ArrayList<SimpleViewGroup> dataList;
+    ArrayList<TextThumbView> dataList;
     SimpleViewGroupAdapter adapter;
 
     @Override
@@ -57,10 +57,10 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initData() {
         dataList= new ArrayList<>();
-        dataList.add(new SimpleViewGroup(R.drawable.img_bdcake, "New York Cheesecake"));
-        dataList.add(new SimpleViewGroup(R.drawable.img_pink_cake, "Salted Egg Sponge Cake"));
-        dataList.add(new SimpleViewGroup(R.drawable.img_mango_cake, "Green tea Mochi"));
-        dataList.add(new SimpleViewGroup(R.drawable.img_cake, "Lemon Blueberry Cheesecake"));
+        dataList.add(new TextThumbView(R.drawable.img_bdcake, "New York Cheesecake"));
+        dataList.add(new TextThumbView(R.drawable.img_pink_cake, "Salted Egg Sponge Cake"));
+        dataList.add(new TextThumbView(R.drawable.img_mango_cake, "Green tea Mochi"));
+        dataList.add(new TextThumbView(R.drawable.img_cake, "Lemon Blueberry Cheesecake"));
     }
 
     private void linkViews() {
