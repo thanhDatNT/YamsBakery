@@ -5,27 +5,28 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activities.OrderDetailActivity"
-    android:paddingHorizontal="@dimen/pad"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarOrderDetail"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
+        app:navigationIcon="@drawable/ic_back_pink"
         app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginStart="-5dp"
         android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/order_detail"
-            android:textColor="@color/primary"
             android:textSize="@dimen/textHeader"
+            android:textColor="@color/primary"
             android:textStyle="bold"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <TableLayout
@@ -37,14 +38,14 @@
         <TableRow>
             <TextView
                 android:layout_height="30dp"
-                android:text="Thời gian dự kiến"
+                android:text="@string/estimated_time"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/textContent"
                 />
             <TextView
-                android:text="Mã đơn hàng"
+                android:text="@string/code_orders"
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -55,7 +56,7 @@
 
         <TableRow>
             <TextView
-                android:text="20 phút"
+                android:text="@string/minutes_20"
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -65,7 +66,7 @@
                 />
             <TextView
                 android:id="@+id/txtOrderDetailCode"
-                android:text="#1002"
+                android:text="@string/code"
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -122,8 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@+id/cardViewDetail"
                 android:orientation="vertical"
                 android:gravity="center_vertical">
@@ -134,24 +135,26 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mango_cream_cake"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textContent"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtSizeOption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="M - 20cm"
+                    android:text="@string/sizeM"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/inactive"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/textContent" />
 
                 <TextView
                     android:id="@+id/txtQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Số lượng: 1"
+                    android:text="@string/Quantily"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/inactive"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/textContent" />
             </LinearLayout>
 
             <TextView
@@ -166,7 +169,7 @@
                 android:gravity="center"
                 android:text="@string/Price_150"
                 android:textColor="@color/primary"
-                android:textSize="18sp"
+                android:textSize="@dimen/title"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -212,7 +215,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/imvBullet1"
-            android:text="Chờ xác nhận"
+            android:text="@string/pending"
             android:textColor="@color/inactive" />
 
         <ImageView
@@ -256,7 +259,7 @@
             android:layout_alignStart="@id/imvBullet2"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
-            android:text="Đang chuẩn bị"
+            android:text="@string/Preparing"
             android:textColor="@color/primary" />
 
         <ImageView
@@ -298,7 +301,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/imvBullet3"
             android:layout_below="@+id/imvLine2"
-            android:text="Dự kiến giao hàng"
+            android:text="@string/Estimated_delivery"
             android:textColor="@color/inactive"
             />
     </RelativeLayout>
@@ -310,13 +313,15 @@
         android:gravity="center_horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelOrder"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_gradient"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:text="Hủy đơn hàng"/>
+            android:text="@string/cancel_order"/>
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBackToHome"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -324,7 +329,7 @@
             android:backgroundTint="@color/lightPink"
             android:textAllCaps="false"
             android:textColor="@color/primary"
-            android:text="Về trang chủ"/>
+            android:text="@string/cancel_back_home"/>
 
     </LinearLayout>
 

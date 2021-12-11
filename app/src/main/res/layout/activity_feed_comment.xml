@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.FeedCommentActivity"
-    android:paddingHorizontal="12dp">
+    tools:context=".Activities.FeedCommentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarComment"
@@ -13,29 +12,29 @@
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/ic_back_pink"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginStart="-16dp"
+        android:layout_marginStart="-5dp"
         android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/comments"
-            android:textColor="@color/primary"
             android:textSize="@dimen/textHeader"
+            android:textColor="@color/primary"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginEnd="34dp"/>
+            android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/relativeLayoutPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarComment">
+        android:layout_below="@+id/toolbarComment"
+        android:paddingHorizontal="@dimen/pad">
 
         <TextView
             android:id="@+id/txtPublisher"
@@ -66,13 +65,13 @@
     </RelativeLayout>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/layoutBottom"
-        android:layout_below="@id/relativeLayoutPost" />
+        android:layout_below="@id/relativeLayoutPost"
+        android:padding="@dimen/pad"/>
 
     <RelativeLayout
         android:id="@+id/layoutBottom"
@@ -89,6 +88,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/img_logo_pink" />
 
         <EditText

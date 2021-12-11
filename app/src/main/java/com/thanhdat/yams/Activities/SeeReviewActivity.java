@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Database.ReviewDatabase;
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.SeeReviewAdapter;
@@ -59,13 +61,17 @@ public class SeeReviewActivity extends AppCompatActivity {
 
     private void initData() {
         items = new ArrayList<>();
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
-        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,5));
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
-        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,4));
-        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
-        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,5));
-
+//        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
+//        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,5));
+//        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
+//        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,4));
+//        items.add(new SeeReviewItem("Như Quỳnh","Bánh rất ngon, vị đậm đà, vừa béo vừa thơm. Nói chung là ok ạ. Mọi người nên mua để có thể cảm nhận nha!","Size M - Đường kính 17cm","Chocolate",R.drawable.img_photo1,R.drawable.img_product_detail,4.5));
+//        items.add(new SeeReviewItem("Mai Trang","Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích","Size L - Đường kính 20cm","Fruit",R.drawable.img_photo2,R.drawable.img_product_detail,5));
+        Cursor cursor = WriteReviewActivity.db.getData("SELECT * FROM " + ReviewDatabase.TBL_NAME);
+        while (cursor.moveToNext()){
+            items.add(new SeeReviewItem(cursor.getInt(0), cursor.getString(1), cursor.getBlob(2), cursor.getDouble(3), cursor.getString(4)));
+        }
+        cursor.close();
 
         adapter = new SeeReviewAdapter(getApplicationContext(),items);
 

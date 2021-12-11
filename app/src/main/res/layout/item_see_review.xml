@@ -68,7 +68,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginVertical="5dp">
         <ImageView
-            android:id="@+id/imvProductReview"
+            android:id="@+id/imvReviewImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
@@ -96,26 +96,26 @@
             android:textColor="@color/inactive"
             android:textSize="13sp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="70dp">
-        <TextView
-            android:id="@+id/txtToppingView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/toppings"
-            android:layout_marginRight="2dp"
-            android:textColor="@color/inactive"
-            android:textSize="13sp"/>
-        <TextView
-            android:id="@+id/txtToppingReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/topping2"
-            android:textColor="@color/inactive"
-            android:textSize="13sp"/>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginLeft="70dp">-->
+<!--        <TextView-->
+<!--            android:id="@+id/txtToppingView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/toppings"-->
+<!--            android:layout_marginRight="2dp"-->
+<!--            android:textColor="@color/inactive"-->
+<!--            android:textSize="13sp"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/txtToppingReview"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/topping2"-->
+<!--            android:textColor="@color/inactive"-->
+<!--            android:textSize="13sp"/>-->
+<!--    </LinearLayout>-->
 
 </LinearLayout>

@@ -24,7 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
-import com.thanhdat.yams.Activities.MainActivity;
+
+import com.thanhdat.yams.Activities.ChatActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.Models.Product;
@@ -106,8 +107,8 @@ public class FeedFragment extends Fragment {
                 if(item.getItemId() == R.id.mnuCartFeed){
                     startActivity(new Intent(getContext(), CartActivity.class));
                 }
-                if(item.getItemId() == R.id.mnuNotificationFeed){
-                    startActivity(new Intent(getContext(),NotificationActivity.class));
+                if(item.getItemId() == R.id.mnuChatFeed){
+                    startActivity(new Intent(getContext(), ChatActivity.class));
                 }
                 return false;
             }

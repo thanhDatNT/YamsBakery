@@ -17,8 +17,7 @@ public class ReviewDatabase extends SQLiteOpenHelper {
     public static final String COL_R_TEXT = "R_Text";
     public static final String COL_R_PHOTO = "R_Photo";
     public static final String COL_R_RATING = "R_Rating";
-    public static final String COL_R_DELIVERY = "R_Delivery";
-    public static final String COL_R_SERVICE = "R_Service";
+    public static final String COL_R_SIZE = "R_Size";
 
     public ReviewDatabase(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -26,7 +25,7 @@ public class ReviewDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + TBL_NAME + "(" + COL_R_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_R_TEXT + " VARCHAR(1000), " + COL_R_PHOTO + " BLOB, " + COL_R_RATING + " REAL, " + COL_R_DELIVERY + " REAL, " + COL_R_SERVICE + " REAL)";
+        String sql = "CREATE TABLE IF NOT EXISTS " + TBL_NAME + "(" + COL_R_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_R_TEXT + " VARCHAR(1000), " + COL_R_PHOTO + " BLOB, " + COL_R_RATING + " REAL, " + COL_R_SIZE + " VARCHAR(100))";
         db.execSQL(sql);
     }
 
@@ -44,16 +43,15 @@ public class ReviewDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery(sql,null);
     }
-    public boolean insertData(String text, byte[] photo, double rating, double delivery, double service){
+    public boolean insertData(String text, byte[] photo, double rating, String size){
         try{
             SQLiteDatabase db = getWritableDatabase();
-            String sql = "INSERT INTO " + TBL_NAME + " VALUES(null, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO " + TBL_NAME + " VALUES(null, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.bindString(1, text);
             statement.bindBlob(2, photo);
             statement.bindDouble(3, rating);
-            statement.bindDouble(4, delivery);
-            statement.bindDouble(5, service);
+            statement.bindString(4,size);
 
             statement.executeInsert();
 

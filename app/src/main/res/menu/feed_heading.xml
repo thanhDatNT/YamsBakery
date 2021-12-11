@@ -6,8 +6,8 @@
     android:icon="@drawable/ic_cart"
     android:title="@string/order"
     app:showAsAction="always"/>
-    <item android:icon="@drawable/ic_notifications"
-        android:id="@+id/mnuNotificationFeed"
+    <item android:icon="@drawable/ic_chat"
+        android:id="@+id/mnuChatFeed"
         app:showAsAction="always"
         android:title="@string/noti_profile"/>
 </menu>

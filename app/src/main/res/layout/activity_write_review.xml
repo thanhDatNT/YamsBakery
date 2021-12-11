@@ -33,13 +33,13 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/cornerRadius">
                 <ImageView
+                    android:id="@+id/imvReviewThumb"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/img_cake"
@@ -52,19 +52,34 @@
                 android:layout_marginStart="10dp"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/txtReviewName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/cake_name"
                     android:textSize="@dimen/textContent"
                     android:textColor="@color/textColor"
                     android:textStyle="bold"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    android:textSize="@dimen/textContent"
-                    android:textColor="@color/textColor"
-                    android:layout_marginTop="10dp"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/size"
+                        android:textSize="@dimen/textContent"
+                        android:textColor="@color/textColor"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:id="@+id/txtReviewSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/size_m"
+                        android:textSize="@dimen/textContent"
+                        android:textColor="@color/textColor"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -196,7 +211,7 @@
             android:text="Đăng đánh giá"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/buttonTextSize"
+            android:textSize="@dimen/textContent"
             android:layout_gravity="center"/>
     </LinearLayout>
 

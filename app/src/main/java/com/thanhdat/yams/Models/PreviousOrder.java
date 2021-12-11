@@ -1,6 +1,8 @@
 package com.thanhdat.yams.Models;
 
-public class PreviousOrder {
+import java.io.Serializable;
+
+public class PreviousOrder implements Serializable {
     private String previousName;
     private int previousThumb;
     private String previousContent;
