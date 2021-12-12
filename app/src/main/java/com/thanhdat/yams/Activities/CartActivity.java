@@ -19,11 +19,14 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 import com.google.android.material.snackbar.Snackbar;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.ItemtouchHelperListener;
 import com.thanhdat.yams.Models.Cart;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.CartAdapter;
 import com.thanhdat.yams.TouchHelper.RecycleviewCartTouchHelper;
@@ -33,33 +36,44 @@ import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity implements ItemtouchHelperListener {
     RecyclerView rcvCart;
-    //    ArrayList<Cart> carts;
     CartAdapter adapter;
-    ArrayList<Cart>carts = new ArrayList<>();
+    ArrayList<Cart> carts;
     LinearLayout layoutItemCart;
     Toolbar toolbarCart;
     Button btnOrder;
+    ArrayList<Product> products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
         LinkView();
-        initData();
+        navigate();
         addEventTouch();
         configRecycleView();
+        getIntentAndSaveDB();
 
     }
 
-
-
-    private void LinkView() {
-        rcvCart = findViewById(R.id.rcvCart);
-        layoutItemCart = findViewById(R.id.layoutItemCart);
-        toolbarCart=findViewById(R.id.toolbarCart);
-        btnOrder = findViewById(R.id.btnOrder);
-
+    private void getIntentAndSaveDB() {
+        products= MainActivity.productList;
+        Intent intent= getIntent();
+        Bundle bundle= intent.getBundleExtra(Constant.STRING_INTENT);
+        if(bundle != null){
+            int productID= bundle.getInt(Constant.ID_PRODUCT, 1);
+            int quantity= bundle.getInt(Constant.QUANTITY_PRODUCT, 1);
+            String topping= bundle.getString(Constant.TOPPING_PRODUCT, "");
+            String size= bundle.getString(Constant.SIZE_PRODUCT, "M");
+            double price= bundle.getDouble(Constant.PRICE_PRODUCT, 10);
+            Product product= products.get(productID);
+            String thumb= product.getThumbnail();
+            String name= product.getName();
+            int stock= product.getAvailable();
+            Toast.makeText(this, productID + name, Toast.LENGTH_LONG).show();
+        }
     }
+
     private void configRecycleView() {
         LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         rcvCart.setLayoutManager(manager);
@@ -67,36 +81,18 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         rcvCart.addItemDecoration(itemDecoration);
 
     }
-    private void initData() {
 
-        carts.add(new Cart(1,R.drawable.img_mango_cake,"Birthday Cake","M",70000,1,10));
-        carts.add(new Cart(2,R.drawable.img_summer_pudding,"Summer Pudding","M",100000,1,10));
-        carts.add(new Cart(3,R.drawable.img_matcha_maracon,"Mango Cake","M",30000,1,10));
-        carts.add(new Cart(4,R.drawable.img_matcha_maracon,"Pink Cake","M",60000,1,10));
-        carts.add(new Cart(5,R.drawable.img_mango_cake,"Mango Cake","M",20000,1,10));
-        carts.add(new Cart(6,R.drawable.img_cake,"Mango Cake","M",10000,1,10));
-        carts.add(new Cart(7,R.drawable.img_mango_cake,"Mango Cake","M",90000,1,10));
-        carts.add(new Cart(8,R.drawable.img_mango_cake,"Mango Cake","M",150000,1,10));
-        adapter = new CartAdapter(getApplicationContext(),carts);
-        rcvCart.setAdapter(adapter);
-    }
     private void addEventTouch() {
         ItemTouchHelper.SimpleCallback simpleCallback = new RecycleviewCartTouchHelper(0,ItemTouchHelper.LEFT,this);
         new ItemTouchHelper(simpleCallback).attachToRecyclerView(rcvCart);
     }
 
-    private  ArrayList<Cart> getMoreData(){
-        ArrayList<Cart>arrayList= new ArrayList<>();
-
-        return arrayList;
-
-    }
     public class ThreadGetMoreData extends  Thread{}
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder) {
         if(viewHolder instanceof CartAdapter.CartViewHolder){
-            String nameDelete=carts.get(viewHolder.getAdapterPosition()).getCartName();
+            String nameDelete=carts.get(viewHolder.getAdapterPosition()).getProductName();
             Cart cartItemDelete=carts.get(viewHolder.getAdapterPosition());
             int indexDelete = viewHolder.getAdapterPosition();
 
@@ -113,7 +109,16 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         }
     }
 
-    private void AddToPayment() {
+
+    private void navigate() {
+        setSupportActionBar(toolbarCart);
+        getSupportActionBar().setTitle(null);
+        toolbarCart.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,16 +128,11 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         });
     }
 
-    private void backTab() {
-        setSupportActionBar(toolbarCart);
-        getSupportActionBar().setTitle(null);
-        toolbarCart.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+    private void LinkView() {
+        rcvCart = findViewById(R.id.rcvCart);
+        layoutItemCart = findViewById(R.id.layoutItemCart);
+        toolbarCart=findViewById(R.id.toolbarCart);
+        btnOrder = findViewById(R.id.btnOrder);
+
     }
-
-
 }

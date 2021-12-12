@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayoutCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCart">
@@ -44,80 +44,65 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvCart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout11"
+    <RelativeLayout
+        android:id="@+id/relativeLayoutCart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:background="@color/white"
-        android:orientation="vertical"
+        android:elevation="4dp"
+        android:padding="@dimen/pad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/chkChooseAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/primary"
+            android:text="@string/all"
+            android:textColor="@color/textColor" />
 
-            <CheckBox
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/primary"
-                android:text="@string/all"
-                android:textColor="@color/inactive" />
+                android:text="@string/total"
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/textColor"
+                android:textSize="14sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvTotalCart"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/total"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="sản phẩm):"
-                    android:textColor="@color/inactive"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/money"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
+                android:text="@string/money"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOrder"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/button_bg_gradient"
             android:text="@string/purchase"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

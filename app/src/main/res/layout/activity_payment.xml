@@ -13,30 +13,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarPayment"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:navigationIcon="@drawable/ic_back_pink"
-            app:contentInsetStartWithNavigation="0dp"
+            android:background="@color/white"
             android:elevation="2dp"
-            android:background="@color/white">
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_back_pink"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="45dp"
+                android:gravity="center"
                 android:text="@string/payment"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/textHeader"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginEnd="45dp"/>
+                android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>
         <!--    end header-->
         <LinearLayout
-            android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -45,11 +46,10 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutHeader">
 
             <ScrollView
-                android:id="@+id/svProductDetails"
+                android:id="@+id/svOrderDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:scrollbars="vertical"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
                 app:layout_constraintEnd_toEndOf="@id/linearLayout2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,12 +59,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:background="@color/lightPink"
-                        >
+                        android:orientation="vertical">
+
+<!--                        Customer-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -73,6 +75,7 @@
                             android:weightSum="10"
                             tools:layout_editor_absoluteX="-2dp"
                             tools:layout_editor_absoluteY="63dp">
+
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -85,8 +88,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="7"
                                 android:gravity="center_vertical"
-                                android:orientation="vertical"
-                                >
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -94,15 +96,17 @@
                                     android:text="@string/infor"
                                     android:textColor="@color/textColor"
                                     android:textSize="@dimen/title"
-                                    android:textStyle="bold"
-                                    />
+                                    android:layout_marginBottom="4dp"
+                                    android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:id="@+id/tvCustomer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
                                     android:text="@string/uyennhi"
-                                    android:textColor="@color/inactive"
-                                    android:layout_marginTop="5dp"/>
+                                    android:textColor="@color/textColor" />
+
                             </LinearLayout>
 
 
@@ -114,8 +118,10 @@
                                 android:background="?android:selectableItemBackground"
                                 android:src="@drawable/ic_edit"
                                 app:tint="@color/primary" />
+
                         </LinearLayout>
-                        <!--location-->
+
+                        <!-- Location -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -124,6 +130,7 @@
                             android:weightSum="10"
                             tools:layout_editor_absoluteX="-2dp"
                             tools:layout_editor_absoluteY="63dp">
+
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -136,8 +143,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="7"
                                 android:gravity="center_vertical"
-                                android:orientation="vertical"
-                                >
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -145,15 +151,16 @@
                                     android:text="@string/delivery_address"
                                     android:textColor="@color/textColor"
                                     android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/tvCusAddress"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
+                                    android:layout_marginTop="4dp"
+                                    android:textSize="14sp"
                                     android:text="@string/address_TĐ"
-                                    android:textColor="@color/inactive"
-                                    android:layout_marginTop="5dp"/>
+                                    android:textColor="@color/textColor" />
                             </LinearLayout>
 
 
@@ -165,9 +172,11 @@
                                 android:background="?android:selectableItemBackground"
                                 android:src="@drawable/ic_edit"
                                 app:tint="@color/primary" />
+
                         </LinearLayout>
-                        <!-- end location-->
-                        <!--                TIME-->
+                        <!-- End location-->
+
+                        <!-- Time Delivery-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -175,6 +184,7 @@
                             android:padding="10dp"
                             android:paddingTop="5dp"
                             android:weightSum="10">
+
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -198,11 +208,13 @@
                                     android:textStyle="bold" />
 
                                 <TextView
+                                    android:id="@+id/tvDeliTime"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:layout_marginTop="5dp"
                                     android:text="@string/time_delivery"
-                                    android:textColor="@color/inactive"
-                                    android:layout_marginTop="5dp"/>
+                                    android:textColor="@color/textColor"
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
                             <ImageButton
@@ -211,24 +223,27 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.5"
                                 android:background="?android:selectableItemBackground"
-                                android:src="@drawable/ic_see_more"
+                                android:src="@drawable/ic_edit"
                                 app:tint="@color/primary" />
                         </LinearLayout>
-                        <!--                ENDTIME-->
+                        <!-- End Time Delivery-->
+
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:background="@color/lightPink"
                         android:layout_marginTop="30dp"
-                        >
+                        android:background="@color/lightPink"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:weightSum="10">
+
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -242,154 +257,130 @@
                                 android:layout_weight="8.5"
                                 android:text="@string/Method_delivery"
                                 android:textColor="@color/primary"
-                                android:textSize="18sp" />
-
+                                android:textSize="20sp"/>
 
                         </LinearLayout>
-                        <!--Giao hàng tiêu chuẩn-->
 
-                        <!--        radio-->
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:orientation="horizontal"
                             android:weightSum="10">
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="8.5"
-                                android:orientation="vertical"
-                                android:layout_gravity="center"
-                                >
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:weightSum="10"
-                                    android:layout_marginStart="20dp"
-                                    android:padding="10dp"
-                                    >
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="7"
-                                        android:text="@string/standard_delivery"/>
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="end"
-                                        android:layout_weight="3"
-                                        android:text="@string/price_35000"/>
 
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:weightSum="10"
-                                    android:padding="10dp"
-                                    android:layout_marginStart="20dp"
-                                    >
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="7"
-                                        android:text="@string/store"/>
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="3"
-                                        android:gravity="end"
-                                        android:text="@string/none"/>
-
-                                </LinearLayout>
-                            </LinearLayout>
-                            <LinearLayout
+                            <RelativeLayout
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="88dp"
+                                android:padding="12dp"
+                                android:layout_weight="8.5">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
+                                    android:text="@string/standard_delivery" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
+                                    android:text="@string/price_35000" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
+                                    android:text="@string/store" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
+                                    android:text="@string/none" />
+                            </RelativeLayout>
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_height="88dp"
                                 android:layout_weight="1.5"
-                                android:orientation="vertical"
-                                android:paddingStart="10dp"
-                                >
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical"
-                                    >
-                                    <RadioButton
-                                        android:id="@+id/radMomo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:buttonTint="@color/primary"
-                                        />
-                                    <RadioButton
-                                        android:id="@+id/radZaloPay"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:buttonTint="@color/primary"
-                                        />
-                                </RadioGroup>
-                            </LinearLayout>
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radDelivery"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/primary" />
+
+                                <RadioButton
+                                    android:id="@+id/radPickUp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/primary" />
+                            </RadioGroup>
 
                         </LinearLayout>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvPaymentProduct"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="@dimen/pad"
-                        />
-                    <!--product mẫu-->
-
-                    <!--                    end product mẫu-->
+                        android:orientation="vertical" />
 
                     <!--Lưu ý cho người bán-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp"
                         android:gravity="center"
-                        android:weightSum="10">
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
                             android:text="@string/mess"
                             android:textColor="@color/textColor"
                             android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:layout_weight="3"/>
+                            android:textStyle="bold" />
 
                         <EditText
+                            android:id="@+id/edtCusNote"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="7"
-                            android:hint="@string/Note"
-                            android:paddingEnd="10dp" />
+                            android:layout_weight="0.7"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:hint="@string/Note" />
+
                     </LinearLayout>
-                    <!--END Lưu ý cho người bán-->
 
                     <!--PAYMENT METHOD-->
                     <LinearLayout
                         android:id="@+id/linearLayoutPayment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="110dp"
                         android:background="@color/lightPink"
                         android:orientation="vertical"
                         android:padding="10dp"
                         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginBottom="110dp">
+                        app:layout_constraintStart_toStartOf="parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:weightSum="10"
-                            android:gravity="center_vertical">
+                            android:weightSum="10">
 
                             <ImageView
                                 android:layout_width="0dp"
@@ -401,59 +392,61 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="6.2"
-                                android:paddingStart="5dp"
+                                android:layout_weight="6"
                                 android:text="@string/payment_method"
                                 android:textColor="@color/primary"
                                 android:textSize="18sp" />
-
 
 
                             <TextView
                                 android:id="@+id/txtOpenChoosePaymentMethod"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="2.8"
-                                android:gravity="center"
+                                android:layout_weight="3"
+                                android:gravity="end|center"
                                 android:text="@string/view_all"
-                                android:drawableEnd="@drawable/ic_see_more_inactive"/>
+                                app:drawableEndCompat="@drawable/ic_see_more_inactive" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/txtPaymentMethod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
+                                android:padding="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/textColor"
                                 android:text="@string/cod_payment"
-                                android:textSize="18sp"
-                                android:padding="10dp"/>
+                                android:textSize="16sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:padding="10dp"
-                                android:weightSum="10">
+                                android:padding="10dp">
 
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="6"
+                                    android:layout_weight="0.6"
                                     android:text="@string/sum"
+                                    android:textColor="@color/textColor"
                                     android:textSize="14sp" />
+
                                 <TextView
                                     android:id="@+id/txtPriceProduct"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4"
+                                    android:layout_weight="0.4"
                                     android:gravity="end"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/price_35000" />
                             </LinearLayout>
 
@@ -462,10 +455,12 @@
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
                                 android:weightSum="10">
+
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/sum_delivery"
                                     android:textSize="14sp" />
 
@@ -475,6 +470,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="4"
                                     android:gravity="end"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/price_35000" />
                             </LinearLayout>
 
@@ -484,38 +481,49 @@
                                 android:orientation="horizontal"
                                 android:padding="10dp"
                                 android:weightSum="10">
+
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/voucher_delivery"
                                     android:textSize="14sp" />
+
                                 <TextView
                                     android:id="@+id/txtVoucherDelivery"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="4"
                                     android:gravity="end"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/price_coupons" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:padding="10dp"
                                 android:weightSum="10">
+
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/yams_voucher"
                                     android:textSize="14sp" />
+
                                 <TextView
                                     android:id="@+id/txtYamsVoucher"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="4"
                                     android:gravity="end"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/textColor"
                                     android:text="@string/price_coupons" />
                             </LinearLayout>
 
@@ -539,7 +547,7 @@
                                     android:gravity="end"
                                     android:text="@string/price_30000"
                                     android:textColor="@color/primary"
-                                    android:textSize="18sp"
+                                    android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </LinearLayout>
@@ -552,8 +560,8 @@
         </LinearLayout>
         <!--cái cố định nè-->
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -562,7 +570,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <!--        coupons-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -595,18 +605,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="14sp"
                 android:text="@string/choose_coupons"
-                android:drawableEnd="@drawable/ic_see_more_inactive"/>
+                app:drawableEndCompat="@drawable/ic_see_more_inactive" />
 
         </LinearLayout>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddToPayment"
-            android:layout_width="130dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/button_bg_gradient"
-            android:paddingHorizontal="5dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="10dp"
             android:text="@string/Order"
             android:textAllCaps="false"
             android:textColor="@color/white"

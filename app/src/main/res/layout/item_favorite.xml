@@ -112,8 +112,8 @@
             android:translationZ="2dp">
             <ImageView
                 android:id="@+id/imvAddedFavorite"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_favorite_active" />
         </androidx.cardview.widget.CardView>

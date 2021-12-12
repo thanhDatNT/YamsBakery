@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment{
         for (int i= 10; i<=15; i++){
             suggestProducts.add(productList.get(i));
         }
-        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts));
+        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts, onClickInterface));
     }
 
     private void addEventPromotion() {
