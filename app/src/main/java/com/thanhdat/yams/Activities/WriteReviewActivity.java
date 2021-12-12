@@ -47,7 +47,7 @@ public class WriteReviewActivity extends AppCompatActivity {
     EditText edtReviewText;
     AppCompatButton btnUpReview, btnUploadImage, btnCamera, btnGallery;
     ImageView imvReviewImage, imvReviewThumb;
-    TextView txtReviewSize;
+    TextView txtReviewSize, txtReviewName;
     RatingBar rtbReviewRating;
 
     BottomSheetDialog sheetDialog;
@@ -109,6 +109,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         imvReviewThumb = findViewById(R.id.imvReviewThumb);
 
         txtReviewSize = findViewById(R.id.txtReviewSize);
+        txtReviewName = findViewById(R.id.txtReviewName);
 
         rtbReviewRating = findViewById(R.id.rtbReviewRating);
 
@@ -123,6 +124,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         }
 
         PreviousOrder previousOrder = (PreviousOrder) bundle.get("object_previous");
+        txtReviewName.setText(previousOrder.getPreviousName());
         txtReviewSize.setText(previousOrder.getPreviousContent());
         imvReviewThumb.setImageResource(previousOrder.getPreviousThumb());
     }

@@ -24,7 +24,7 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/img_logo_pink" />
 
         <TextView
@@ -39,26 +39,26 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtUser"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/imvLogo"
-            android:gravity="center"
-            android:text="@string/address"
-            android:textColor="@color/textColor"
-            android:textSize="16sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtAddress"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/txtUser"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_toEndOf="@+id/imvLogo"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/address"-->
+<!--            android:textColor="@color/textColor"-->
+<!--            android:textSize="16sp" />-->
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date"
-            android:layout_marginStart="10dp"
             android:layout_below="@+id/txtUser"
-            android:layout_toEndOf="@id/txtAddress"/>
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/imvLogo"
+            android:text="Date" />
 
         <ImageView
             android:id="@+id/imvMore"
@@ -85,7 +85,6 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,11 +94,11 @@
             android:id="@+id/chkLike"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:background="@drawable/ic_like"
-            android:stateListAnimator="@animator/anim_like"
             android:button="@null"
             android:checked="false"
+            android:stateListAnimator="@animator/anim_like"
 
             />
 
@@ -119,10 +118,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
-        android:text="123 lượt thích"
+        android:text="123"
         android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="lượt thích"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtLike"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <LinearLayout
