@@ -86,7 +86,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         products.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
         products.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
         products.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-        products.add(new Favorite(R.drawable.img_pink_cake, "Cup cake", 200000, 4.5, 10));
+        products.add(new Favorite(R.drawable.img_mango_cake, "Cup cake", 200000, 4.5, 10));
         products.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
 
         return products;

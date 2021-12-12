@@ -119,7 +119,7 @@ public class CartActivity extends AppCompatActivity {
         arrayList.add(new Cart(++currentId,R.drawable.img_cake,"Fruit Cake","M",230000,1,10));
         arrayList.add(new Cart(++currentId,R.drawable.img_cake,"Chocolate Cake","S",200000,1,10));
         arrayList.add(new Cart(++currentId,R.drawable.img_summer_pudding,"Tart Egg","S",20000,2,20));
-        arrayList.add(new Cart(++currentId,R.drawable.img_pink_cake,"Fruit Cake","M",230000,1,10));
+        arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
        arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
         arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
         return arrayList;

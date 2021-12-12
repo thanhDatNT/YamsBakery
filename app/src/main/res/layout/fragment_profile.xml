@@ -24,13 +24,14 @@
             android:fitsSystemWindows="true">
 
             <!-- cover profile-->
+
             <ImageView
                 android:id="@+id/imvCover"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_pink_cake"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                tools:src="@drawable/img_mango_cake" />
 
             <LinearLayout
                 android:id="@+id/lnProfileInfo"
@@ -115,7 +116,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/img_photo1"/>
+            android:src="@drawable/img_logo_pink"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
