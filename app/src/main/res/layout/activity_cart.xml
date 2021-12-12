@@ -32,7 +32,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/layoutItemCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -41,15 +41,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCart">
 
-        <ListView
-
-            android:id="@+id/lvCartProduct"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvCart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:scrollingCache="true"
-            android:smoothScrollbar="true" />
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 

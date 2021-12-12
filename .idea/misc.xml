@@ -282,12 +282,13 @@
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_language.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_otpcode.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_pending_order.xml" value="0.25416666666666665" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_pending_order2.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.19947916666666668" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_reset_password.xml" value="0.25416666666666665" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_setting_my_profile.xml" value="0.4" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.25416666666666665" />
-        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.264" />
+        <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.2" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_diet_product.xml" value="0.264" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_notification.xml" value="0.4" />
         <entry key="..\:/STUDY/HK5/ANDROID/CAKE/YamsBakery/app/src/main/res/layout/items_setting_myprofile.xml" value="0.264" />
@@ -309,9 +310,11 @@
       </map>
     </option>
   </component>
+
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
 
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
