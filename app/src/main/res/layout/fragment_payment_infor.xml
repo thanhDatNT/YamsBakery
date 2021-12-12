@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <!--header-->
@@ -120,7 +121,7 @@
 
 
         <ImageButton
-            android:id="@+id/edtSĐT"
+            android:id="@+id/edtPhone"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"

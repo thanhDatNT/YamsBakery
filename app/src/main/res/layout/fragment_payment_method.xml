@@ -131,6 +131,54 @@
 
             </LinearLayout>
 
+
+            <!--    Thanh toán khi nhận hàng-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:src="@drawable/ic_your_order"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6.8"
+                        android:gravity="center_vertical" android:text="@string/cod_payment_method"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/radCod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.7"
+                        android:textSize="18sp"
+                        android:text="Chọn"
+                        android:textColor="@color/primary"
+                         />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="50dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/cod_text" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -187,52 +235,6 @@
                     android:text="@string/bank_BIDV" />
 
             </LinearLayout>
-            <!--    Thanh toán khi nhận hàng-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:src="@drawable/ic_your_order"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="6.8"
-                        android:text="@string/cod_payment_method"
-                        android:textColor="@color/primary"
-                        android:textSize="18sp" />
-
-                    <RadioButton
-                        android:id="@+id/radCod"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.7"
-                        android:buttonTint="@color/primary"
-                        android:checked="false" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="50dp"
-                    android:paddingTop="10dp"
-                    android:text="@string/cod_text" />
-            </LinearLayout>
             <!--Button-->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnConfirm"
@@ -247,5 +249,6 @@
                 android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </LinearLayout>
+
     </FrameLayout>
 </LinearLayout>

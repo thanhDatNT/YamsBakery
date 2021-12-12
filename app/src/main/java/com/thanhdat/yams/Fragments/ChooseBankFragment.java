@@ -12,25 +12,27 @@ import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.R;
 
 public class ChooseBankFragment extends Fragment {
 
-    ImageButton btnBackToPaymentMethod;
+
     Button btnConfirm;
     private LinearLayout lnBIDV, lnOCB, lnVietcombank, lnVietinbank, lnSacombank;
-
+    Toolbar toolbarChooseBank;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose_bank,container, false);
 
         //link views
-//        btnBackToPaymentMethod = view.findViewById(R.id.btnBackToPaymentMethod);
+        toolbarChooseBank = view.findViewById(R.id.toolbarChooseBank);
         btnConfirm = view.findViewById(R.id.btnConfirm);
         lnBIDV= view.findViewById(R.id.lnBIDV);
         lnSacombank= view.findViewById(R.id.lnSacombank);
@@ -42,7 +44,7 @@ public class ChooseBankFragment extends Fragment {
         return view;
     }
     private void addEventFunction() {
-//        btnBackToPaymentMethod.setOnClickListener(myClick);
+        toolbarChooseBank.setOnClickListener(myClick);
         btnConfirm.setOnClickListener(myClick);
         lnBIDV.setOnClickListener(myClick);
         lnOCB.setOnClickListener(myClick);
@@ -51,18 +53,17 @@ public class ChooseBankFragment extends Fragment {
         lnVietcombank.setOnClickListener(myClick);
     }
 
-    View.OnClickListener myClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-//            if(view.getId() == R.id.btnBackToPaymentMethod) {
-//                FragmentTransaction fragmentTransaction = getActivity()
-//                        .getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.layoutContainerChooseBank, new ChoosePaymentMethodFragment());
-//                fragmentTransaction.commit();
 
-//            }
-            //start function activity
+        View.OnClickListener myClick = new View.OnClickListener() {
 
-        }
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.toolbarChooseBank) {
+                    startActivity(new Intent(getContext(), PaymentActivity.class));
+                }
+
+                //start function activity
+
+            }
     };
 }

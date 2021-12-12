@@ -21,6 +21,7 @@ import android.widget.TimePicker;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
+import com.thanhdat.yams.Fragments.PaymentInforFragment;
 import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Models.PaymentProduct;
 import com.thanhdat.yams.R;
@@ -31,7 +32,7 @@ import java.util.Calendar;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    ImageButton btnOpenChooseTime, btnOpenChooseAddress;
+    ImageButton btnOpenChooseTime, btnOpenChooseAddress, edtCustomer;
     AppCompatButton btnAddToPayment;
     TextView txtOpenChoosePaymentMethod, txtOpenVoucher;
     Toolbar toolbarPayment;
@@ -60,6 +61,7 @@ public class PaymentActivity extends AppCompatActivity {
         txtOpenVoucher = findViewById(R.id.txtOpenVoucher);
         btnAddToPayment = findViewById(R.id.btnAddToPayment);
         btnOpenChooseAddress = findViewById(R.id.btnOpenChooseAddress);
+        edtCustomer = findViewById(R.id.edtCustomer);
         toolbarPayment = findViewById(R.id.toolbarPayment);
 
         rcvPaymentProduct = findViewById(R.id.rcvPaymentProduct);
@@ -132,6 +134,15 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PaymentActivity.this,MapActivity.class);
                 startActivity(intent);
+            }
+        });
+        //Open edit infor customer
+        edtCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                PaymentInforFragment fragment= new PaymentInforFragment();
+                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
             }
         });
 
