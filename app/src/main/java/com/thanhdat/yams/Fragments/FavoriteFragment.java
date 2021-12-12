@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Models.Favorite;
@@ -38,7 +39,7 @@ public class FavoriteFragment extends Fragment {
         favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
         favorites.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
         favorites.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-        favorites.add(new Favorite(R.drawable.img_pink_cake, "Cup cake", 200000, 4.5, 10));
+        favorites.add(new Favorite(R.drawable.img_bdcake, "Cup cake", 200000, 4.5, 10));
         favorites.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
         favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
         favorites.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));

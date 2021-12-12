@@ -48,8 +48,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         initData();
         addEventTouch();
         configRecycleView();
-        AddToPayment();
-        backTab();
+
     }
 
 
@@ -73,7 +72,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         carts.add(new Cart(1,R.drawable.img_mango_cake,"Birthday Cake","M",70000,1,10));
         carts.add(new Cart(2,R.drawable.img_summer_pudding,"Summer Pudding","M",100000,1,10));
         carts.add(new Cart(3,R.drawable.img_matcha_maracon,"Mango Cake","M",30000,1,10));
-        carts.add(new Cart(4,R.drawable.img_pink_cake,"Pink Cake","M",60000,1,10));
+        carts.add(new Cart(4,R.drawable.img_matcha_maracon,"Pink Cake","M",60000,1,10));
         carts.add(new Cart(5,R.drawable.img_mango_cake,"Mango Cake","M",20000,1,10));
         carts.add(new Cart(6,R.drawable.img_cake,"Mango Cake","M",10000,1,10));
         carts.add(new Cart(7,R.drawable.img_mango_cake,"Mango Cake","M",90000,1,10));
@@ -85,6 +84,15 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         ItemTouchHelper.SimpleCallback simpleCallback = new RecycleviewCartTouchHelper(0,ItemTouchHelper.LEFT,this);
         new ItemTouchHelper(simpleCallback).attachToRecyclerView(rcvCart);
     }
+
+    private  ArrayList<Cart> getMoreData(){
+        ArrayList<Cart>arrayList= new ArrayList<>();
+
+        return arrayList;
+
+    }
+    public class ThreadGetMoreData extends  Thread{}
+
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder) {
         if(viewHolder instanceof CartAdapter.CartViewHolder){

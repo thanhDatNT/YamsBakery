@@ -25,7 +25,9 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.thanhdat.yams.Activities.CartActivity;
+
 import com.thanhdat.yams.Activities.CategoryActivity;
+
 import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
@@ -110,6 +112,9 @@ public class HomeFragment extends Fragment{
                 promoProducts.add(p);
             }
         }
+        if (promoProducts.size() > 10) {
+            promoProducts.subList(10, promoProducts.size()).clear();
+        }
         rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, promoProducts, onClickInterface));
     }
 
@@ -122,6 +127,9 @@ public class HomeFragment extends Fragment{
                 popularProducts.add(p);
             }
         }
+        if (popularProducts.size() > 10) {
+            popularProducts.subList(10, popularProducts.size()).clear();
+        }
         rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, popularProducts, onClickInterface));
     }
 
@@ -133,6 +141,9 @@ public class HomeFragment extends Fragment{
             if(p.getTag().equals("New")){
                 newProducts.add(p);
             }
+        }
+        if (newProducts.size() > 10) {
+            newProducts.subList(10, newProducts.size()).clear();
         }
         rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, newProducts, onClickInterface));
 
