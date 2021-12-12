@@ -160,14 +160,12 @@
                         android:gravity="center_vertical" android:text="@string/cod_payment_method"
                         android:textColor="@color/primary"
                         android:textSize="18sp" />
-
                     <TextView
-                        android:id="@+id/radCod"
+                        android:id="@+id/txtChoose"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.7"
                         android:textSize="18sp"
-                        android:text="Chọn"
                         android:textColor="@color/primary"
                          />
                 </LinearLayout>

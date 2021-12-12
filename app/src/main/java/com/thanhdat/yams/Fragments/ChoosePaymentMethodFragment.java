@@ -47,7 +47,7 @@ public class ChoosePaymentMethodFragment extends Fragment {
         btnConfirm = view.findViewById(R.id.btnConfirm);
         txtSeeMore = view.findViewById(R.id.txtSeeMore);
         toolbarPaymentMethod = view.findViewById(R.id.toolbarPaymentMethod);
-        radCod = view.findViewById(R.id.radCod);
+//        radCod = view.findViewById(R.id.radCod);
         radMomo = view.findViewById(R.id.radMomo);
         radZaloPay = view.findViewById(R.id.radZaloPay);
 
@@ -61,7 +61,7 @@ public class ChoosePaymentMethodFragment extends Fragment {
         toolbarPaymentMethod.setOnClickListener(myClick);
         txtSeeMore.setOnClickListener(myClick);
         btnConfirm.setOnClickListener(myClick);
-        radCod.setOnClickListener(myClick);
+//        radCod.setOnClickListener(myClick);
         radMomo.setOnClickListener(myClick);
         radZaloPay.setOnClickListener(myClick);
 
