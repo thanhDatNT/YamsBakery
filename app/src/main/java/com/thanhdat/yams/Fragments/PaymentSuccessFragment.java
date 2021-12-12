@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.thanhdat.yams.Activities.MainActivity;
@@ -31,6 +32,7 @@ public class PaymentSuccessFragment extends Fragment {
         //link views
         btnSeeOrder = view.findViewById(R.id.btnSeeOrder);
         imvHome= view.findViewById(R.id.imvGoHome);
+
         //add events
         addEvents();
 
@@ -47,5 +49,6 @@ public class PaymentSuccessFragment extends Fragment {
             }
         });
         imvHome.setOnClickListener(v -> startActivity(new Intent(getContext(), MainActivity.class)));
+
     }
 }

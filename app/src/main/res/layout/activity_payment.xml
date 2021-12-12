@@ -13,32 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <!--header-->
-        <androidx.cardview.widget.CardView
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarPayment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_back_pink" />
-
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:navigationIcon="@drawable/ic_back_pink"
+            app:contentInsetStartWithNavigation="0dp"
+            android:elevation="2dp"
+            android:background="@color/white">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:text="@string/payment"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/textHeader"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginEnd="45dp"/>
+        </androidx.appcompat.widget.Toolbar>
         <!--    end header-->
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -64,13 +59,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:background="@color/lightPink"
-                        android:orientation="vertical">
-
+                        >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -79,7 +73,6 @@
                             android:weightSum="10"
                             tools:layout_editor_absoluteX="-2dp"
                             tools:layout_editor_absoluteY="63dp">
-
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -92,7 +85,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="7"
                                 android:gravity="center_vertical"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                >
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -100,18 +94,20 @@
                                     android:text="@string/infor"
                                     android:textColor="@color/textColor"
                                     android:textSize="@dimen/title"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
                                     android:text="@string/uyennhi"
-                                    android:textColor="@color/inactive" />
+                                    android:textColor="@color/inactive"
+                                    android:layout_marginTop="5dp"/>
                             </LinearLayout>
 
 
                             <ImageButton
+                                android:id="@+id/edtCustomer"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.5"
@@ -128,7 +124,6 @@
                             android:weightSum="10"
                             tools:layout_editor_absoluteX="-2dp"
                             tools:layout_editor_absoluteY="63dp">
-
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -141,7 +136,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="7"
                                 android:gravity="center_vertical"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                >
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -149,14 +145,15 @@
                                     android:text="@string/delivery_address"
                                     android:textColor="@color/textColor"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
                                     android:text="@string/address_TĐ"
-                                    android:textColor="@color/inactive" />
+                                    android:textColor="@color/inactive"
+                                    android:layout_marginTop="5dp"/>
                             </LinearLayout>
 
 
@@ -178,7 +175,6 @@
                             android:padding="10dp"
                             android:paddingTop="5dp"
                             android:weightSum="10">
-
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -204,9 +200,9 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
                                     android:text="@string/time_delivery"
-                                    android:textColor="@color/inactive" />
+                                    android:textColor="@color/inactive"
+                                    android:layout_marginTop="5dp"/>
                             </LinearLayout>
 
                             <ImageButton
@@ -220,21 +216,19 @@
                         </LinearLayout>
                         <!--                ENDTIME-->
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:background="@color/lightPink"
                         android:orientation="vertical"
-                        android:padding="10dp">
-
+                        android:padding="10dp"
+                        android:background="@color/lightPink"
+                        android:layout_marginTop="30dp"
+                        >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:weightSum="10">
-
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -260,84 +254,80 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
                             android:weightSum="10">
-
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
                                 android:layout_weight="8.5"
-                                android:orientation="vertical">
-
+                                android:orientation="vertical"
+                                android:layout_gravity="center"
+                                >
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="20dp"
                                     android:orientation="horizontal"
+                                    android:weightSum="10"
+                                    android:layout_marginStart="20dp"
                                     android:padding="10dp"
-                                    android:weightSum="10">
-
+                                    >
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="7"
-                                        android:text="@string/standard_delivery" />
-
+                                        android:text="@string/standard_delivery"/>
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="3"
                                         android:gravity="end"
-                                        android:text="@string/price_35000" />
+                                        android:layout_weight="3"
+                                        android:text="@string/price_35000"/>
 
                                 </LinearLayout>
-
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="20dp"
                                     android:orientation="horizontal"
+                                    android:weightSum="10"
                                     android:padding="10dp"
-                                    android:weightSum="10">
-
+                                    android:layout_marginStart="20dp"
+                                    >
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="7"
-                                        android:text="@string/store" />
-
+                                        android:text="@string/store"/>
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="3"
                                         android:gravity="end"
-                                        android:text="@string/none" />
+                                        android:text="@string/none"/>
 
                                 </LinearLayout>
                             </LinearLayout>
-
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
                                 android:orientation="vertical"
-                                android:paddingStart="10dp">
-
+                                android:paddingStart="10dp"
+                                >
                                 <RadioGroup
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
+                                    android:orientation="vertical"
+                                    >
                                     <RadioButton
                                         android:id="@+id/radMomo"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:buttonTint="@color/primary" />
-
+                                        android:buttonTint="@color/primary"
+                                        />
                                     <RadioButton
                                         android:id="@+id/radZaloPay"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:buttonTint="@color/primary" />
+                                        android:buttonTint="@color/primary"
+                                        />
                                 </RadioGroup>
                             </LinearLayout>
 
@@ -346,10 +336,11 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvPaymentProduct"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="@dimen/pad"
-                        android:orientation="vertical" />
+                        />
                     <!--product mẫu-->
 
                     <!--                    end product mẫu-->
@@ -358,19 +349,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="10dp"
+                        android:gravity="center"
                         android:weightSum="10">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
                             android:text="@string/mess"
                             android:textColor="@color/textColor"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:layout_weight="3"/>
 
                         <EditText
                             android:layout_width="0dp"
@@ -386,19 +377,19 @@
                         android:id="@+id/linearLayoutPayment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="110dp"
                         android:background="@color/lightPink"
                         android:orientation="vertical"
                         android:padding="10dp"
                         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-                        app:layout_constraintStart_toStartOf="parent">
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="110dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:weightSum="10">
+                            android:weightSum="10"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="0dp"
@@ -417,31 +408,32 @@
                                 android:textSize="18sp" />
 
 
+
                             <TextView
                                 android:id="@+id/txtOpenChoosePaymentMethod"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2.8"
-                                android:drawableEnd="@drawable/ic_see_more_inactive"
                                 android:gravity="center"
-                                android:text="@string/view_all" />
+                                android:text="@string/view_all"
+                                android:drawableEnd="@drawable/ic_see_more_inactive"/>
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
 
                             <TextView
                                 android:id="@+id/txtPaymentMethod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
                                 android:paddingStart="10dp"
                                 android:text="@string/cod_payment"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:padding="10dp"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -456,7 +448,6 @@
                                     android:layout_weight="6"
                                     android:text="@string/sum"
                                     android:textSize="14sp" />
-
                                 <TextView
                                     android:id="@+id/txtPriceProduct"
                                     android:layout_width="0dp"
@@ -471,7 +462,6 @@
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
                                 android:weightSum="10">
-
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -494,14 +484,12 @@
                                 android:orientation="horizontal"
                                 android:padding="10dp"
                                 android:weightSum="10">
-
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
                                     android:text="@string/voucher_delivery"
                                     android:textSize="14sp" />
-
                                 <TextView
                                     android:id="@+id/txtVoucherDelivery"
                                     android:layout_width="0dp"
@@ -510,21 +498,18 @@
                                     android:gravity="end"
                                     android:text="@string/price_coupons" />
                             </LinearLayout>
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:padding="10dp"
                                 android:weightSum="10">
-
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
                                     android:text="@string/yams_voucher"
                                     android:textSize="14sp" />
-
                                 <TextView
                                     android:id="@+id/txtYamsVoucher"
                                     android:layout_width="0dp"
@@ -601,7 +586,8 @@
                 android:paddingStart="5dp"
                 android:text="@string/yams_coupons"
                 android:textColor="@color/primary"
-                android:textSize="18sp" />
+                android:textStyle="bold"
+                android:textSize="@dimen/title" />
 
             <TextView
                 android:id="@+id/txtOpenVoucher"

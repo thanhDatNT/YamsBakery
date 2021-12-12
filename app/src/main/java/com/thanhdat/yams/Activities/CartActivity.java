@@ -3,34 +3,42 @@ package com.thanhdat.yams.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 
+import android.widget.Button;
+
+import android.widget.LinearLayout;
+
+
+import com.google.android.material.snackbar.Snackbar;
+import com.thanhdat.yams.Interfaces.ItemtouchHelperListener;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.CartAdapter;
+import com.thanhdat.yams.TouchHelper.RecycleviewCartTouchHelper;
+import com.thanhdat.yams.TouchHelper.RecycleviewCartTouchHelper;
 
 import java.util.ArrayList;
 
-public class CartActivity extends AppCompatActivity {
-    ListView lvCartProduct;
-    ArrayList<Cart> carts;
+public class CartActivity extends AppCompatActivity implements ItemtouchHelperListener {
+    RecyclerView rcvCart;
+    //    ArrayList<Cart> carts;
     CartAdapter adapter;
+    ArrayList<Cart>carts = new ArrayList<>();
+    LinearLayout layoutItemCart;
     Toolbar toolbarCart;
     Button btnOrder;
-    Handler mHandler;
-    View  footerView;
-    int currentId=0;
-    boolean isLoading=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,111 +46,73 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
         LinkView();
         initData();
-        loadData();
-        addEvent();
-        AddToPayment();
-        backTab();
+        addEventTouch();
+        configRecycleView();
+
     }
 
-
-    private void addEvent() {
-        lvCartProduct.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-
-            }
-// i: firstItem, i1:visibleItemCount, i2:TotalItemCount
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                if(absListView.getLastVisiblePosition()==i2-1 && isLoading==false){
-                    isLoading=true;
-                    Thread thread = new ThreadGetMoreData();
-                    thread.start();
-                }
-            }
-        });
-    }
 
 
     private void LinkView() {
-        lvCartProduct=findViewById(R.id.lvCartProduct);
+        rcvCart = findViewById(R.id.rcvCart);
+        layoutItemCart = findViewById(R.id.layoutItemCart);
         toolbarCart=findViewById(R.id.toolbarCart);
         btnOrder = findViewById(R.id.btnOrder);
 
     }
+    private void configRecycleView() {
+        LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        rcvCart.setLayoutManager(manager);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+        rcvCart.addItemDecoration(itemDecoration);
+
+    }
     private void initData() {
-        carts = new ArrayList<Cart>();
-        carts.add(new Cart(1,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(2,R.drawable.img_cake,"Chocolate Cake","S",200000,1,10));
-        carts.add(new Cart(3,R.drawable.img_summer_pudding,"Tart Egg","S",20000,2,20));
-        carts.add(new Cart(4,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(5,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(6,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(7,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(8,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        carts.add(new Cart(9,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
 
+        carts.add(new Cart(1,R.drawable.img_mango_cake,"Birthday Cake","M",70000,1,10));
+        carts.add(new Cart(2,R.drawable.img_summer_pudding,"Summer Pudding","M",100000,1,10));
+        carts.add(new Cart(3,R.drawable.img_matcha_maracon,"Mango Cake","M",30000,1,10));
+        carts.add(new Cart(4,R.drawable.img_matcha_maracon,"Pink Cake","M",60000,1,10));
+        carts.add(new Cart(5,R.drawable.img_mango_cake,"Mango Cake","M",20000,1,10));
+        carts.add(new Cart(6,R.drawable.img_cake,"Mango Cake","M",10000,1,10));
+        carts.add(new Cart(7,R.drawable.img_mango_cake,"Mango Cake","M",90000,1,10));
+        carts.add(new Cart(8,R.drawable.img_mango_cake,"Mango Cake","M",150000,1,10));
+        adapter = new CartAdapter(getApplicationContext(),carts);
+        rcvCart.setAdapter(adapter);
     }
-    private void loadData() {
-
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        footerView = inflater.inflate(R.layout.footer_view_cart,null);
-        mHandler = new mHandler();
-
-        adapter=new CartAdapter(CartActivity.this,R.layout.items_cart,carts);
-        lvCartProduct.setAdapter(adapter);
-
+    private void addEventTouch() {
+        ItemTouchHelper.SimpleCallback simpleCallback = new RecycleviewCartTouchHelper(0,ItemTouchHelper.LEFT,this);
+        new ItemTouchHelper(simpleCallback).attachToRecyclerView(rcvCart);
     }
-    //tao class
-    public class mHandler extends Handler{
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-           switch (msg.what){
-               case 0:
-                   lvCartProduct.addFooterView(footerView);
-                   break;
-               case 1:
-                   //update data adapter and UI
-                   adapter.AddListItemAdapter((ArrayList<Cart>)msg.obj);
-                   //remove loading view after update listview
-                   lvCartProduct.removeFooterView(footerView);
-                   isLoading = false;
-                   break;
-               default:
-                   break;
 
-           }
-        }
-    }
     private  ArrayList<Cart> getMoreData(){
         ArrayList<Cart>arrayList= new ArrayList<>();
-        arrayList.add(new Cart(++currentId,R.drawable.img_cake,"Fruit Cake","M",230000,1,10));
-        arrayList.add(new Cart(++currentId,R.drawable.img_cake,"Chocolate Cake","S",200000,1,10));
-        arrayList.add(new Cart(++currentId,R.drawable.img_summer_pudding,"Tart Egg","S",20000,2,20));
-        arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-       arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
-        arrayList.add(new Cart(++currentId,R.drawable.img_mango_cake,"Fruit Cake","M",230000,1,10));
+
         return arrayList;
 
     }
-    public class ThreadGetMoreData extends  Thread{
+    public class ThreadGetMoreData extends  Thread{}
+
     @Override
-    public void run() {
-        //add footer view after get data
-        mHandler.sendEmptyMessage(0);
-        //search more data
-        ArrayList<Cart> lstResult =getMoreData();
-        //Delay time to show loading footer when debug, remove it when release
-        try {
-            Thread.sleep(3000);//sau 3s thực hiện gửi dữ liệu và tin nhan cho hanler
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public void onSwiped(RecyclerView.ViewHolder viewHolder) {
+        if(viewHolder instanceof CartAdapter.CartViewHolder){
+            String nameDelete=carts.get(viewHolder.getAdapterPosition()).getCartName();
+            Cart cartItemDelete=carts.get(viewHolder.getAdapterPosition());
+            int indexDelete = viewHolder.getAdapterPosition();
+
+            //remove item
+            adapter.removeItem(indexDelete);
+            Snackbar snackbar = Snackbar.make(layoutItemCart,nameDelete +" "+"removed", Snackbar.LENGTH_LONG);
+            snackbar.setAction("Undo", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    adapter.undoItem(cartItemDelete,indexDelete);
+                }
+            });
+            snackbar.setActionTextColor(Color.BLUE).show();
         }
-        //send the result to handle
-        Message msg = mHandler.obtainMessage(1,lstResult);
-        mHandler.sendMessage(msg);
     }
-}
+
     private void AddToPayment() {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,5 +133,6 @@ public class CartActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
