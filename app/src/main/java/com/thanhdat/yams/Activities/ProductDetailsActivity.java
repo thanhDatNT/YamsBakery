@@ -142,7 +142,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     total += topping1;
-                    topping+= chkTopping1.getText() + ",";
+                    topping+= chkTopping1.getText() + ", ";
                 }
                 else total -= topping1;
                 btnPayment.setText(Integer.toString(total));
@@ -153,7 +153,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     total += topping2;
-                    topping += chkTopping2.getText() + ",";
+                    topping += chkTopping2.getText() + ", ";
                 }
                 else total -= topping2;
                 btnPayment.setText(Integer.toString(total));
@@ -164,7 +164,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     total += topping3;
-                    topping += chkTopping3.getText() + ",";
+                    topping += chkTopping3.getText() + ", ";
                 }
                 else total -= topping3;
                 btnPayment.setText(Integer.toString(total));

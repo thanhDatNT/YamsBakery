@@ -1,9 +1,12 @@
 package com.thanhdat.yams.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Database.CartDatabase;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 
@@ -23,14 +29,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     final int VIEW_TYPE_ITEM=1;
     private  boolean isLoadingAdd;
     private Context context;
-    private ArrayList<Cart>carts;
+    private ArrayList<Cart> carts;
+    OnClickInterface onClickInterface;
 
-    public CartAdapter(Context context, ArrayList<Cart> carts) {
+    public CartAdapter(Context context, ArrayList<Cart> carts, OnClickInterface onClickInterface) {
         this.context = context;
         this.carts = carts;
+        this.onClickInterface = onClickInterface;
     }
-
-
 
     @NonNull
     @Override
@@ -39,16 +45,25 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return new CartViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         Picasso.get().load(carts.get(position).getThumb()).into(holder.imvThumb);
-        holder.txtName.setText(carts.get(position).getProductName() + "("+ carts.get(position).getProductSize()+")");
+        holder.txtName.setText(carts.get(position).getProductName() + " ("+ carts.get(position).getProductSize()+")");
         holder.txtTopping.setText(carts.get(position).getTopping());
         DecimalFormat decimalFormat = new DecimalFormat("######");
         holder.txtPrice.setText(decimalFormat.format(carts.get(position).getPrice())+"đ");
         holder.txtQuantity.setText(String.valueOf(carts.get(position).getQuantity()));
         holder.txtStock.setText(String.valueOf(carts.get(position).getAvailable()));
+        holder.chkCheckItemCart.setChecked(carts.get(position).isChecked());
+        onClickInterface.setClick(position);
+        holder.chkCheckItemCart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                holder.chkCheckItemCart.setChecked(isChecked);
+                carts.get(position).setChecked(isChecked);
+                onClickInterface.setClick(position);
+            }
+        });
     }
 
     @Override
@@ -58,10 +73,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     public class CartViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
+        CheckBox chkCheckItemCart;
         TextView txtName,txtTopping, txtPrice,txtQuantity,txtStock;
         LinearLayout layoutForeground;
+
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
+            chkCheckItemCart= itemView.findViewById(R.id.chkCheckItem);
             imvThumb=itemView.findViewById(R.id.imvThumb);
             txtName = itemView.findViewById(R.id.txtName);
             txtTopping = itemView.findViewById(R.id.txtTopping);
@@ -71,12 +89,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             layoutForeground=itemView.findViewById(R.id.layoutForeground);
         }
     }
-    public  void removeItem(int index){
-        carts.remove(index);
-        notifyItemRemoved(index);
-    }
+
     public  void undoItem( Cart cart, int index){
-        carts.add(index,cart);
+        carts.add(index, cart);
         notifyItemInserted(index);
     }
 

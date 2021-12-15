@@ -180,10 +180,10 @@ public class HomeFragment extends Fragment{
     }
 
     private void configAndNavigate() {
-        onClickInterface= abc -> {
+        onClickInterface= number -> {
 //            Intent includes Product Id for Product detail activity
             Intent intent= new Intent(getContext(), ProductDetailsActivity.class);
-            intent.putExtra(Constant.ID_PRODUCT, abc);
+            intent.putExtra(Constant.ID_PRODUCT, number);
             startActivity(intent);
         };
         toolbar.setTitle(null);

@@ -2,34 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <RelativeLayout
-        android:id="@+id/layoutbackground"
-        android:background="@android:color/holo_red_dark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:text="Delete"
-            android:layout_toStartOf="@+id/imvDelete"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"/>
-
-        <ImageView
-            android:id="@+id/imvDelete"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_delete"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"
-            app:tint="@color/textColor" />
-    </RelativeLayout>
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp">
 
     <LinearLayout
         android:id="@+id/layoutForeground"
@@ -42,7 +16,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:buttonTint="@color/primary"
-            />
+            android:id="@+id/chkCheckItem"/>
+
         <androidx.cardview.widget.CardView
             android:layout_width="110dp"
             android:layout_height="110dp"
@@ -83,14 +58,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Topping:"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     android:textColor="@color/textColor"/>
                 <TextView
                     android:id="@+id/txtTopping"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textColor="@color/textColor"/>
             </LinearLayout>
 
