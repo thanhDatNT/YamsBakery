@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,15 +22,16 @@ import com.thanhdat.yams.R;
 
 
 public class ProductDetailsActivity extends AppCompatActivity {
-    AppCompatButton btnPayment;
+    AppCompatButton btnPayment, btnAddToCart;
     TextView txtSeeReview, txtProductPrice, txtMPrice, txtLPrice, txtXLPrice, txtTopping1Price, txtTopping2Price, txtTopping3Price, txtProductQuantity;
     Toolbar toolbar;
     RadioGroup radGroupSize;
     RadioButton radSizeM, radSizeL, radSizeXL;
     CheckBox chkTopping1, chkTopping2, chkTopping3;
     ImageButton imbAdd, imbSubtract;
-
-    int total = 0, flag = 0, totalSize = 0, quantity = 1;
+    String topping = "";
+    String size = "M";
+    int total = 0, flag = 0, totalSize = 0, quantity = 1, productID;
 
 
     @Override
@@ -38,43 +40,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         linkViews();
-        addEvent();
         totalMoney();
-    }
-
-    private void linkViews() {
-        txtSeeReview = findViewById(R.id.txtSeeReview);
-        txtProductPrice = findViewById(R.id.txtProductDetailPrice);
-        txtMPrice = findViewById(R.id.txtMPrice);
-        txtLPrice = findViewById(R.id.txtLPrice);
-        txtXLPrice = findViewById(R.id.txtXLPrice);
-        txtTopping1Price = findViewById(R.id.txtTopping1Price);
-        txtTopping2Price = findViewById(R.id.txtTopping2Price);
-        txtTopping3Price = findViewById(R.id.txtTopping3Price);
-        txtProductQuantity = findViewById(R.id.txtProductQuantity);
-
-        btnPayment = findViewById(R.id.btnAddToPayment);
-
-        toolbar = findViewById(R.id.toolbarProduct);
-
-        radGroupSize = findViewById(R.id.radGroupSize);
-
-        radSizeM = findViewById(R.id.radSizeM);
-        radSizeL = findViewById(R.id.radSizeL);
-        radSizeXL = findViewById(R.id.radSizeXL);
-
-        chkTopping1 = findViewById(R.id.chkTopping1);
-        chkTopping2 = findViewById(R.id.chkTopping2);
-        chkTopping3 = findViewById(R.id.chkTopping3);
-
-        imbAdd = findViewById(R.id.imbAdd);
-        imbSubtract = findViewById(R.id.imbSubtract);
+        addEvent();
     }
 
     private void addEvent() {
 //        Test product id
         Intent intent= getIntent();
-        int productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
+        productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
         Toast.makeText(this, "Product id is "+ productID, Toast.LENGTH_LONG).show();
 
         txtSeeReview.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +61,21 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //add product to payment?
                 startActivity(new Intent(ProductDetailsActivity.this,PaymentActivity.class));
+            }
+        });
+//        Send product item to cart
+        btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1= new Intent(ProductDetailsActivity.this, CartActivity.class);
+                Bundle bundle= new Bundle();
+                bundle.putInt(Constant.ID_PRODUCT, productID);
+                bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
+                bundle.putString(Constant.TOPPING_PRODUCT, topping);
+                bundle.putString(Constant.SIZE_PRODUCT, size);
+                bundle.putDouble(Constant.PRICE_PRODUCT, total);
+                intent1.putExtra(Constant.STRING_INTENT, bundle);
+                startActivity(intent1);
             }
         });
 
@@ -113,12 +101,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if(flag == 0){
                     if(i == R.id.radSizeM){
+                        size = "M";
                         totalSize += Integer.parseInt(txtMPrice.getText().toString());
                     }
                     else if(i == R.id.radSizeL){
+                        size= "L";
                         totalSize += Integer.parseInt(txtLPrice.getText().toString());
                     }
                     else if(i == R.id.radSizeXL){
+                        size= "XL";
                         totalSize += Integer.parseInt(txtXLPrice.getText().toString());
                     }
                     flag = 1;
@@ -149,8 +140,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         chkTopping1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+                if(b){
                     total += topping1;
+                    topping+= chkTopping1.getText() + ", ";
+                }
                 else total -= topping1;
                 btnPayment.setText(Integer.toString(total));
             }
@@ -158,8 +151,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         chkTopping2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+                if(b){
                     total += topping2;
+                    topping += chkTopping2.getText() + ", ";
+                }
                 else total -= topping2;
                 btnPayment.setText(Integer.toString(total));
             }
@@ -167,8 +162,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         chkTopping3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+                if(b){
                     total += topping3;
+                    topping += chkTopping3.getText() + ", ";
+                }
                 else total -= topping3;
                 btnPayment.setText(Integer.toString(total));
             }
@@ -198,4 +195,35 @@ public class ProductDetailsActivity extends AppCompatActivity {
             //btnPayment.setText(Integer.toString(total));
         }
     };
+
+    private void linkViews() {
+        txtSeeReview = findViewById(R.id.txtSeeReview);
+        txtProductPrice = findViewById(R.id.txtProductDetailPrice);
+        txtMPrice = findViewById(R.id.txtMPrice);
+        txtLPrice = findViewById(R.id.txtLPrice);
+        txtXLPrice = findViewById(R.id.txtXLPrice);
+        txtTopping1Price = findViewById(R.id.txtTopping1Price);
+        txtTopping2Price = findViewById(R.id.txtTopping2Price);
+        txtTopping3Price = findViewById(R.id.txtTopping3Price);
+        txtProductQuantity = findViewById(R.id.txtProductQuantity);
+
+        btnPayment = findViewById(R.id.btnAddToPayment);
+        btnAddToCart = findViewById(R.id.btnAddToCart);
+
+        toolbar = findViewById(R.id.toolbarProduct);
+
+        radGroupSize = findViewById(R.id.radGroupSize);
+
+        radSizeM = findViewById(R.id.radSizeM);
+        radSizeL = findViewById(R.id.radSizeL);
+        radSizeXL = findViewById(R.id.radSizeXL);
+
+        chkTopping1 = findViewById(R.id.chkTopping1);
+        chkTopping2 = findViewById(R.id.chkTopping2);
+        chkTopping3 = findViewById(R.id.chkTopping3);
+
+        imbAdd = findViewById(R.id.imbAdd);
+        imbSubtract = findViewById(R.id.imbSubtract);
+    }
+
 }

@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment{
         for (int i= 10; i<=15; i++){
             suggestProducts.add(productList.get(i));
         }
-        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts));
+        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts, onClickInterface));
     }
 
     private void addEventPromotion() {
@@ -111,6 +111,9 @@ public class HomeFragment extends Fragment{
             if(p.getTag().equals("Promo")){
                 promoProducts.add(p);
             }
+        }
+        if (promoProducts.size() > 10) {
+            promoProducts.subList(10, promoProducts.size()).clear();
         }
         rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, promoProducts, onClickInterface));
     }
@@ -124,6 +127,9 @@ public class HomeFragment extends Fragment{
                 popularProducts.add(p);
             }
         }
+        if (popularProducts.size() > 10) {
+            popularProducts.subList(10, popularProducts.size()).clear();
+        }
         rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, popularProducts, onClickInterface));
     }
 
@@ -135,6 +141,9 @@ public class HomeFragment extends Fragment{
             if(p.getTag().equals("New")){
                 newProducts.add(p);
             }
+        }
+        if (newProducts.size() > 10) {
+            newProducts.subList(10, newProducts.size()).clear();
         }
         rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, newProducts, onClickInterface));
 
@@ -171,10 +180,10 @@ public class HomeFragment extends Fragment{
     }
 
     private void configAndNavigate() {
-        onClickInterface= abc -> {
+        onClickInterface= number -> {
 //            Intent includes Product Id for Product detail activity
             Intent intent= new Intent(getContext(), ProductDetailsActivity.class);
-            intent.putExtra(Constant.ID_PRODUCT, abc);
+            intent.putExtra(Constant.ID_PRODUCT, number);
             startActivity(intent);
         };
         toolbar.setTitle(null);

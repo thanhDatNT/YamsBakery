@@ -114,17 +114,14 @@
     <string name="cancel_order">Hủy đơn hàng</string>
 
     <!--- cart-->
-    <string name="Cart">Đơn hàng </string>
+    <string name="Cart">Giỏ hàng </string>
     <string name="fruitcake">Fruit Cake</string>
     <string name="catagory">Phân loại: Size</string>
-    <string name="remain">Còn</string>
+    <string name="remain">Kho:</string>
     <string name="all">Tất cả</string>
-    <string name="total">Tổng số tiền:(</string>
-    <string name="sanpham"> sản phẩm</string>
+    <string name="total">Tổng số tiền:</string>
+    <string name="sanpham">sản phẩm</string>
     <string name="purchase">Đặt hàng </string>
-    <string name="money">230 000đ </string>
-
-
     <!--Feed-->
     <string name="yams_store">Yams Store</string>
     <string name="address">Hồ Chí Minh</string>
@@ -172,7 +169,7 @@
     <string name="voucher_delivery">Giảm giá phí vận chuyển</string>
     <string name="yams_voucher">Yams Voucher</string>
     <string name="price_coupons">-20.000 đ</string>
-    <string name="total_payment">Tổng Thanh toán</string>
+    <string name="total_payment">Tổng cộng</string>
     <string name="price_50000">50.000 đ</string>
     <string name="yams_coupons">Yams coupons</string>
     <string name="price_30000">30000 đ</string>

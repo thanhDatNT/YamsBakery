@@ -114,13 +114,13 @@
                             android:orientation="vertical">
 
                             <RadioButton
-                                android:id="@+id/radMomo"
+                                android:id="@+id/radDelivery"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:buttonTint="@color/primary" />
 
                             <RadioButton
-                                android:id="@+id/radZaloPay"
+                                android:id="@+id/radPickUp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:buttonTint="@color/primary" />

@@ -26,7 +26,7 @@ import com.thanhdat.yams.R;
 public class OrderDetailActivity extends AppCompatActivity {
     TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode;
     ImageView imvOrderDetailThumb;
-    RadioGroup radGroupCancel;
+//    RadioGroup radGroupCancel;
 
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
 
@@ -52,6 +52,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         txtOrderDetailName.setText(pendingOrder.getOrderName());
         txtOrderDetailPrice.setText(String.format("%g", pendingOrder.getOrderPrice())+"đ");
         txtOrderDetailCode.setText(pendingOrder.getOrderCode());
+        imvOrderDetailThumb.setImageResource(pendingOrder.getOrderThumb());
     }
 
     private void linkViews() {
@@ -84,8 +85,9 @@ public class OrderDetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //open cancel success
-                    radGroupCancel = view.findViewById(R.id.radGroupCancel);
-//                    if(radGroupCancel == null){
+//                    RadioGroup radGroupCancel = view.findViewById(R.id.radGroupCancel);
+//                    int idGroup = radGroupCancel.getCheckedRadioButtonId();
+//                    if(idGroup == -1){
 //                        Toast.makeText(OrderDetailActivity.this, "Vui lòng chọn lý do hủy đơn", Toast.LENGTH_SHORT).show();
 //                    }else {
                         sheetDialogCancelSuccess.show();
@@ -104,6 +106,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //go to previous order
 
                 }
             });
