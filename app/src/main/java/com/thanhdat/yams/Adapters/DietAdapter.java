@@ -1,6 +1,9 @@
 package com.thanhdat.yams.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,20 +11,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Diet;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
     Context context;
-    ArrayList<Diet>diets;
+    ArrayList<Product>diets;
+    OnClickInterface onClickInterface;
 
-    public DietAdapter(Context context, ArrayList<Diet> diets) {
+    public DietAdapter(Context context, ArrayList<Product> diets, OnClickInterface onClickInterface) {
         this.context = context;
         this.diets = diets;
+        this.onClickInterface = onClickInterface;
     }
 
     @NonNull
@@ -29,17 +40,29 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_diet_product,parent,false);
         return new ViewHolder(view);
-
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imvThumb.setImageResource(diets.get(position).getDietThumb());
-        holder.txtName.setText(diets.get(position).getDietName());
-        holder.txtPrice.setText(diets.get(position).getDietPrice());
-        holder.txtContent.setText(diets.get(position).getDietContent());
-        holder.txtRate.setText(String.valueOf(diets.get(position).getDietRating()));
-        holder.txtQuantity.setText(String.valueOf(diets.get(position).getDietQuantity()));
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        Picasso.get().load(diets.get(position).getThumbnail()).into(holder.imvThumb);
+        holder.txtName.setText(diets.get(position).getName());
+        holder.txtPrice.setText(String.format("%.0f",diets.get(position).getCurrentPrice())+"đ");
+        holder.txtContent.setText(diets.get(position).getDescription());
+        holder.txtRate.setText(String.valueOf(diets.get(position).getRating()));
+        holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked()));
+        holder.layoutProductDiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                onClickInterface.setClick(diets.get(position).getId());
+                Product item= diets.get(position);
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("productItem",item);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -47,62 +70,11 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         return diets.size();
     }
 
-    //
-//
-//    public DietAdapter(Activity context, int items_listview, List<Diet> dietList) {
-//        this.context = context;
-//        this.items_listview = items_listview;
-//        this.dietList = dietList;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return dietList.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int i) {
-//        return dietList.get(i);
-//    }
-//
-//    @Override
-//    public long getItemId(int i) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public View getView(int i, View view, ViewGroup viewGroup) {
-//        ViewHolder holder;
-//        if(view==null){
-//            holder= new ViewHolder();
-//            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            view=inflater.inflate(items_listview,null);
-//            holder.imvThumb= view.findViewById(R.id.imvThumb);
-//
-//            holder.txtName=view.findViewById(R.id.txtName);
-//            holder.txtPrice=view.findViewById(R.id.txtPrice);
-//            holder.txtContent=view.findViewById(R.id.txtContent);
-//            holder.txtRating=view.findViewById(R.id.txtRate);
-//            holder.txtQuantity=view.findViewById(R.id.txtQuantity);
-//
-//            view.setTag(holder);
-//
-//        }
-//        else{
-//            holder= (ViewHolder) view.getTag();
-//        }
-//        Diet diet =dietList.get(i);
-//        holder.imvThumb.setImageResource(diet.getDietThumb());
-//        holder.txtName.setText(diet.getDietName());
-//        holder.txtPrice.setText(diet.getDietPrice());
-//        holder.txtContent.setText(diet.getDietContent());
-//        holder.txtRating.setText(String.valueOf(diet.getDietRating()));
-//        holder.txtQuantity.setText(String.valueOf(diet.getDietQuantity())+ "+");
-//        return view;
-//    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
         TextView txtName, txtPrice,txtContent,txtRate,txtQuantity;
+        CardView layoutProductDiet;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
@@ -111,6 +83,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             txtContent=itemView.findViewById(R.id.txtContent);
             txtRate = itemView.findViewById(R.id.txtRate);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
+            layoutProductDiet =itemView.findViewById(R.id.layoutProductDiet);
 
         }
     }
