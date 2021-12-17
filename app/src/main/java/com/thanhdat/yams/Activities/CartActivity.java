@@ -199,7 +199,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
                         loadCartData();
                 }
             });
-            snackbar.setActionTextColor(Color.BLUE).show();
+            snackbar.setActionTextColor(Color.YELLOW).show();
         }
     }
 

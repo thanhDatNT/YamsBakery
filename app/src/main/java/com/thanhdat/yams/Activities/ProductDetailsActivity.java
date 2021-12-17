@@ -12,23 +12,30 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Constants.Constant;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProductDetailsActivity extends AppCompatActivity {
     AppCompatButton btnPayment, btnAddToCart;
-    TextView txtSeeReview, txtProductPrice, txtMPrice, txtLPrice, txtXLPrice, txtTopping1Price, txtTopping2Price, txtTopping3Price, txtProductQuantity;
+    TextView txtSeeReview,txtProductDetailName, txtProductPrice, txtMPrice, txtLPrice, txtXLPrice, txtTopping1Price, txtTopping2Price, txtTopping3Price, txtProductQuantity,txtStartVote, txtVoteQuality,txtProductDetailDescrip;
     Toolbar toolbar;
     RadioGroup radGroupSize;
     RadioButton radSizeM, radSizeL, radSizeXL;
     CheckBox chkTopping1, chkTopping2, chkTopping3;
     ImageButton imbAdd, imbSubtract;
+    ImageView imvProductDetailThumb;
     String topping = "";
     String size = "M";
     int total = 0, flag = 0, totalSize = 0, quantity = 1, productID;
@@ -42,6 +49,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
         linkViews();
         totalMoney();
         addEvent();
+        loadData();
+    }
+
+    private void loadData() {
+        Bundle bundle= getIntent().getExtras();
+        Product product = (Product) bundle.get("productItem");
+        Picasso.get().load(product.getThumbnail()).into(imvProductDetailThumb);
+        txtProductDetailName.setText(product.getName());
+        txtProductPrice.setText(String.valueOf(product.getCurrentPrice()));
+        txtStartVote.setText(String.valueOf(product.getRating()));
+        txtVoteQuality.setText(String.valueOf(product.getChecked()));
+        txtProductDetailDescrip.setText(product.getDescription());
+        ArrayList<String> ListTopings = (ArrayList<String>) product.getTopping();
+        chkTopping1.setText(ListTopings.get(0));
+        chkTopping2.setText(ListTopings.get(1));
+        chkTopping3.setText(ListTopings.get(2));
     }
 
     private void addEvent() {
@@ -197,6 +220,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     };
 
     private void linkViews() {
+        txtProductDetailName=findViewById(R.id.txtProductDetailName);
         txtSeeReview = findViewById(R.id.txtSeeReview);
         txtProductPrice = findViewById(R.id.txtProductDetailPrice);
         txtMPrice = findViewById(R.id.txtMPrice);
@@ -206,6 +230,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtTopping2Price = findViewById(R.id.txtTopping2Price);
         txtTopping3Price = findViewById(R.id.txtTopping3Price);
         txtProductQuantity = findViewById(R.id.txtProductQuantity);
+        txtStartVote = findViewById(R.id.txtStarVote);
+        txtVoteQuality=findViewById(R.id.txtVoteQuantity);
+        txtProductDetailDescrip = findViewById(R.id.txtProductDetailDescrip);
+
 
         btnPayment = findViewById(R.id.btnAddToPayment);
         btnAddToCart = findViewById(R.id.btnAddToCart);
@@ -224,6 +252,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         imbAdd = findViewById(R.id.imbAdd);
         imbSubtract = findViewById(R.id.imbSubtract);
+
+        imvProductDetailThumb = findViewById(R.id.imvProductDetailThumb);
     }
 
 }

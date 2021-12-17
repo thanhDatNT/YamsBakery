@@ -1,5 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
+import static com.thanhdat.yams.Activities.MainActivity.productList;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +26,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Diet;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapter.DietAdapter;
 
@@ -39,12 +43,8 @@ public class DietFragment extends Fragment {
     RecyclerView rcvDietProduct;
     TextView txtSuggest;
     Toolbar toolbarDiet;
-
-
-    //    ListView lvDietProduct;
-//    ArrayList<Diet> diets;
+    OnClickInterface onClickInterface;
     DietAdapter adapter;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -117,35 +117,53 @@ public class DietFragment extends Fragment {
                 TextView txtResult =dialog.findViewById(R.id.txtResult);
 
                 txtBMI.setText(d.format(BMI) +" ");
-                if(BMI<16)
-                    txtResult.setText("Quá gầy");
-                else if (16<=BMI && BMI<18)
+                if(BMI<18)
                     txtResult.setText("Gầy");
                 else if(18<=BMI && BMI<23)
                     txtResult.setText("Cân đối");
-                else if(23<=BMI && BMI<25)
-                    txtResult.setText("Béo phì 1");
-                else if(25<=BMI && BMI <30)
-                    txtResult.setText("Béo phì 2");
+                else if(23<=BMI && BMI<30)
+                    txtResult.setText("Thừa cân");
                 else if(30<=BMI)
-                    txtResult.setText("Béo phì 3");
+                    txtResult.setText("Béo phì");
 
                 Button btnConfirm= dialog.findViewById(R.id.btnConfirm);
-                ArrayList<Diet> diets= new ArrayList<>();
+                ArrayList<Product> diets= new ArrayList<>();
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                         rcvDietProduct.setLayoutManager(layoutManager);
+                        for (Product p : productList)
+                            if(BMI<18){
+                                {
+                                    if(p.getDiet().equals("1")){
+                                        diets.add(p);
+                                    }
+                                }
+                            }
+                            else if(18<=BMI && BMI<23){
+                                {
+                                    if(p.getDiet().equals("2")){
+                                        diets.add(p);
+                                    }
+                                }
+                            }
+                            else if(23<=BMI && BMI<30){
+                                {
+                                    if(p.getDiet().equals("3")){
+                                        diets.add(p);
+                                    }
+                                }
+                            }
+                            else if(30<=BMI){
+                                {
+                                    if(p.getDiet().equals("4")){
+                                        diets.add(p);
+                                    }
+                                }
+                            }
 
-                        diets.add(new Diet(R.drawable.img_summer_pudding,"Pear Muffins","30 000đ","Những chiếc bánh nướng xốp béo ngậy này rất ngon khi ấm nóng khi kẹo bơ cứng vẫn còn chảy",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_summer_pudding,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        diets.add(new Diet(R.drawable.img_mango_cake,"Coffee Cake","60 000đ","Một phiên bản ngon nhưng nhẹ hơn của món yêu thích vị cà phê và bánh óc chó",4.8,25.0));
-                        adapter=new DietAdapter( getContext(),diets);
+                        adapter=new DietAdapter( getContext(),diets,onClickInterface);
                         rcvDietProduct.setAdapter(adapter);
                         txtSuggest.setVisibility(View.VISIBLE);
                         dialog.dismiss();
