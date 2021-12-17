@@ -35,6 +35,7 @@ import com.thanhdat.yams.Activities.LoginActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
 import com.thanhdat.yams.Activities.SettingAccount;
 
+import com.thanhdat.yams.Activities.VoucherActivity;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.SliderBannerAdapter;
@@ -111,6 +112,17 @@ public class ProfileFragment extends Fragment {
                 activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             }
         }
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(scrollY > 10){
+                    imgProfile.setVisibility(View.GONE);
+                }
+                else {
+                    imgProfile.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     @Override
@@ -144,7 +156,7 @@ public class ProfileFragment extends Fragment {
                     startActivity(new Intent(getContext(), OrderStatusActivity.class));
                     break;
                 case R.id.lnVoucherProfile:
-                    //startActivity(new Intent(getContext(), .class));
+                    startActivity(new Intent(getContext(), VoucherActivity.class));
                     break;
                 case R.id.lnMessageProfile:
                     startActivity(new Intent(getContext(), ChatActivity.class));

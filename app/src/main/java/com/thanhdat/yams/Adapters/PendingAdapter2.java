@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.OrderDetailActivity;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
@@ -41,9 +42,9 @@ public class PendingAdapter2 extends RecyclerView.Adapter<PendingAdapter2.Pendin
     @Override
     public void onBindViewHolder(@NonNull PendingViewHolder holder, int position) {
         PendingOrder pendingOrder = pendingOrderList.get(position);
-        holder.imvPendingThumb.setImageResource(pendingOrder.getOrderThumb());
+        Picasso.get().load(pendingOrder.getOrderThumb()).into(holder.imvPendingThumb);
         holder.txtPendingName.setText(pendingOrder.getOrderName());
-        holder.txtPendingCode.setText(pendingOrder.getOrderCode());
+        holder.txtPendingCode.setText("#" + pendingOrder.getOrderCode());
         holder.txtPendingPrice.setText(String.format("%g",pendingOrder.getOrderPrice())+"đ");
 
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {

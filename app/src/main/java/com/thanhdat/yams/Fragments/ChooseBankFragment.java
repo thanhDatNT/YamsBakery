@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 
 import com.thanhdat.yams.Activities.OrderActivity;
@@ -38,6 +39,7 @@ public class ChooseBankFragment extends Fragment {
         addEventFunction();
         return view;
     }
+
     private void addEventFunction() {
         toolbarChooseBank.setOnClickListener(myClick);
         btnConfirm.setOnClickListener(myClick);
@@ -48,13 +50,12 @@ public class ChooseBankFragment extends Fragment {
         lnVietcombank.setOnClickListener(myClick);
     }
 
-
         View.OnClickListener myClick = new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.toolbarChooseBank) {
-                    startActivity(new Intent(getContext(), OrderActivity.class));
+
                 }
 
                 //start function activity

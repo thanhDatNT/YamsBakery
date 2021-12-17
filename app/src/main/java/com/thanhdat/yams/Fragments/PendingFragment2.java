@@ -1,5 +1,6 @@
 package com.thanhdat.yams.Fragments;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.thanhdat.yams.Databases.OrderDatabase;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.PendingAdapter2;
@@ -22,7 +24,7 @@ public class PendingFragment2 extends Fragment {
     TextView tvStatus;
     RecyclerView rcvPending;
     PendingAdapter2 pendingAdapter2;
-
+    OrderDatabase orderDatabase;
 
     public PendingFragment2() {
         // Required empty public constructor
@@ -35,27 +37,41 @@ public class PendingFragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pending_order2, container, false);
         rcvPending = view.findViewById(R.id.rcvPending);
         tvStatus = view.findViewById(R.id.tvEmptyPendingOrder);
+
+        orderDatabase= new OrderDatabase(getContext());
+
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvPending.setLayoutManager(manager);
         rcvPending.setHasFixedSize(true);
         rcvPending.setItemAnimator(new DefaultItemAnimator());
 
-        pendingAdapter2 = new PendingAdapter2(getContext(),initData());
-        rcvPending.setAdapter(pendingAdapter2);
-
+        loadData();
         return view;
+    }
+
+    private void loadData() {
+        Cursor cursor= orderDatabase.getData("SELECT * FROM "+ orderDatabase.TABLE_NAME);
+        int count = 0;
+        if(cursor.getCount() > 0){
+            while (cursor.moveToNext()){
+                count = cursor.getCount();
+            }
+        }
+        cursor.close();
+        if(count > 0){
+            tvStatus.setVisibility(View.GONE);
+            pendingAdapter2 = new PendingAdapter2(getContext(), initData());
+            rcvPending.setAdapter(pendingAdapter2);
+        }
     }
 
     private List<PendingOrder> initData() {
         List<PendingOrder> pendingOrders = new ArrayList<>();
-
-        pendingOrders.add(new PendingOrder("Mango Cream Cake",R.drawable.img_mango_cake,"#000122",150000));
-        pendingOrders.add(new PendingOrder("Chocolate Cream Cake",R.drawable.img_cake,"#000121",150000));
-        pendingOrders.add(new PendingOrder("Cheese Tart",R.drawable.img_mango_cake,"#000124",150000));
-        pendingOrders.add(new PendingOrder("Vanila CupCake",R.drawable.img_cake,"#000125",150000));
-        pendingOrders.add(new PendingOrder("Fruit Cake",R.drawable.img_mango_cake,"#000126",100000));
-        pendingOrders.add(new PendingOrder("StrawBerry Cake",R.drawable.img_cake,"#000127",150000));
-
+        Cursor cursor= orderDatabase.getData("SELECT * FROM "+ orderDatabase.TABLE_NAME);
+        while (cursor.moveToNext()){
+            pendingOrders.add(new PendingOrder(cursor.getInt(0) , cursor.getString(2), cursor.getString(4),
+                    cursor.getString(1), cursor.getDouble(7)));
+        }
         return pendingOrders;
     }
 

@@ -27,7 +27,7 @@ public class ChoosePaymentMethodFragment extends Fragment {
         super(contentLayoutId);
         this.radMomo = radMomo;
         this.radZaloPay = radZaloPay;
-        this.radCod = radCod;
+//        this.radCod = radCod;
         this.btnConfirm = btnConfirm;
         this.toolbarPaymentMethod = toolbarPaymentMethod;
         this.txtSeeMore = txtSeeMore;
@@ -62,7 +62,6 @@ public class ChoosePaymentMethodFragment extends Fragment {
 //        radCod.setOnClickListener(myClick);
         radMomo.setOnClickListener(myClick);
         radZaloPay.setOnClickListener(myClick);
-
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {
@@ -77,7 +76,6 @@ public class ChoosePaymentMethodFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.layoutContainerPaymentMethod, new ChooseBankFragment());
                 fragmentTransaction.commit();
-
 
             }
         }
