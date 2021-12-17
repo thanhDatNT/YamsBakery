@@ -174,7 +174,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time1"
                 android:textStyle="bold"
                 android:textColor="@color/textColor" />
             <ImageView
@@ -210,7 +209,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time2"
                 android:textStyle="bold"
                 android:textColor="@color/textColor"/>
 
@@ -246,7 +244,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time3"
                 android:textStyle="bold"
                 android:textColor="@color/textColor"/>
 

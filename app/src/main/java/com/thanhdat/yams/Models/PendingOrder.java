@@ -3,16 +3,26 @@ package com.thanhdat.yams.Models;
 import java.io.Serializable;
 
 public class PendingOrder implements Serializable {
+    private int id;
     private String orderName;
-    private  int orderThumb;
+    private  String orderThumb;
     private String orderCode;
     private double orderPrice;
 
-    public PendingOrder(String orderName, int orderThumb, String orderCode, double orderPrice) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public PendingOrder(int id, String orderName, String orderThumb, String orderCode, double orderPrice) {
         this.orderName = orderName;
         this.orderThumb = orderThumb;
         this.orderCode = orderCode;
         this.orderPrice = orderPrice;
+        this.id = id;
     }
 
     public String getOrderName() {
@@ -23,11 +33,11 @@ public class PendingOrder implements Serializable {
         this.orderName = orderName;
     }
 
-    public int getOrderThumb() {
+    public String getOrderThumb() {
         return orderThumb;
     }
 
-    public void setOrderThumb(int orderThumb) {
+    public void setOrderThumb(String orderThumb) {
         this.orderThumb = orderThumb;
     }
 

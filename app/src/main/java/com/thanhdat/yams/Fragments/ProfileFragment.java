@@ -106,6 +106,17 @@ public class ProfileFragment extends Fragment {
                 activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             }
         }
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(scrollY > 10){
+                    imgProfile.setVisibility(View.GONE);
+                }
+                else {
+                    imgProfile.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     @Override

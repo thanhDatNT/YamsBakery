@@ -191,8 +191,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
-            android:text="@string/time1"
             android:textColor="@color/textColor"
+            android:text="9:10"
             android:textStyle="bold" />
 
         <ImageView
@@ -236,7 +236,6 @@
             android:layout_below="@id/imvLine1"
             android:layout_alignParentStart="true"
             android:layout_marginStart="10dp"
-            android:text="@string/time2"
             android:textColor="@color/textColor"
             android:textStyle="bold" />
 
@@ -279,7 +278,6 @@
             android:layout_below="@id/imvLine2"
             android:layout_alignParentStart="true"
             android:layout_marginStart="10dp"
-            android:text="@string/time3"
             android:textColor="@color/textColor"
             android:textStyle="bold" />
 
