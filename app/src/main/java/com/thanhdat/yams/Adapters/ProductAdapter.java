@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

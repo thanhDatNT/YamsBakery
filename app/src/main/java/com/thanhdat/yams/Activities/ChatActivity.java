@@ -32,7 +32,7 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Models.ChatView;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.MessageListAdapter;
+import com.thanhdat.yams.Adapters.MessageListAdapter;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;

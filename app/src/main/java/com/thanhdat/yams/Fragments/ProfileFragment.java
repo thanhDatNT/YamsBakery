@@ -35,7 +35,7 @@ import com.thanhdat.yams.Activities.SettingAccount;
 
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.SliderBannerAdapter;
+import com.thanhdat.yams.Adapters.SliderBannerAdapter;
 
 import java.util.ArrayList;
 

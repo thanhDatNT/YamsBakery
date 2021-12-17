@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_minus"
-                    />
+                    android:id="@+id/btnMinusItem"/>
 
                 <TextView
                     android:id="@+id/txtNumber"
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_plus_circle"
-                    />
+                    android:id="@+id/btnPlusItem"/>
 
                 <LinearLayout
                     android:gravity="end"

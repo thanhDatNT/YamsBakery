@@ -6,18 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 
-import com.thanhdat.yams.Activities.PaymentActivity;
+import com.thanhdat.yams.Activities.OrderActivity;
 import com.thanhdat.yams.R;
 
 public class ChooseBankFragment extends Fragment {
@@ -59,7 +54,7 @@ public class ChooseBankFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.toolbarChooseBank) {
-                    startActivity(new Intent(getContext(), PaymentActivity.class));
+                    startActivity(new Intent(getContext(), OrderActivity.class));
                 }
 
                 //start function activity

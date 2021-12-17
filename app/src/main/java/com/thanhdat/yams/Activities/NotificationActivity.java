@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
 
 import java.util.ArrayList;
 

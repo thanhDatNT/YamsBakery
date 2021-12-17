@@ -226,7 +226,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="42dp"
             android:rotation="90"
-            android:src="@drawable/line"
+            android:src="@drawable/ic_vertical_line"
             app:tint="@color/inactive" />
 
         <TextView
@@ -270,7 +270,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="42dp"
             android:rotation="90"
-            android:src="@drawable/line"
+            android:src="@drawable/ic_vertical_line"
             app:tint="@color/inactive" />
         <TextView
             android:id="@+id/txtTime3"

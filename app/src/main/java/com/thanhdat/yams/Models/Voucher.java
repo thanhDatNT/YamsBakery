@@ -1,38 +1,59 @@
 package com.thanhdat.yams.Models;
 
-public class Voucher {
+import java.io.Serializable;
 
-    private int voucherThumb;
-    private String voucherName;
-    private String voucherHSD;
+public class Voucher implements Serializable {
+    private boolean type;
+    private int thumb;
+    private String name, expireTime;
+    private double value;
 
-    public Voucher(int voucherThumb, String voucherName, String voucherHSD) {
-        this.voucherThumb = voucherThumb;
-        this.voucherName = voucherName;
-        this.voucherHSD = voucherHSD;
+//  Type: true: Delivery Fee, false: Order items
+    public Voucher(boolean type, int thumb, String name, String expireTime, double value) {
+        this.type = type;
+        this.thumb = thumb;
+        this.name = name;
+        this.expireTime = expireTime;
+        this.value = value;
     }
 
-    public int getVoucherThumb() {
-        return voucherThumb;
+    public boolean isType() {
+        return type;
     }
 
-    public void setVoucherThumb(int voucherThumb) {
-        this.voucherThumb = voucherThumb;
+    public void setType(boolean type) {
+        this.type = type;
     }
 
-    public String getVoucherName() {
-        return voucherName;
+    public int getThumb() {
+        return thumb;
     }
 
-    public void setVoucherName(String voucherName) {
-        this.voucherName = voucherName;
+    public void setThumb(int thumb) {
+        this.thumb = thumb;
     }
 
-    public String getVoucherHSD() {
-        return voucherHSD;
+    public String getName() {
+        return name;
     }
 
-    public void setVoucherHSD(String voucherHSD) {
-        this.voucherHSD = voucherHSD;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }

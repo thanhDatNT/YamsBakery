@@ -144,7 +144,7 @@
     <!--See review-->
     <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
-    <!--    payment-->
+    <!--    ORDER-->
     <string name="payment">Thanh toán</string>
     <string name="delivery_address">Địa chỉ giao hàng</string>
     <string name="address_TĐ">Phường Linh Xuân, TP.Thủ Đức, HCM</string>
@@ -154,7 +154,7 @@
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
     <string name="price_80">80.000 đ</string>
     <string name="đ">đ</string>
-    <string name="store">Đến lấy tại cửa hàng</string>
+    <string name="pick_up">Đến lấy tại cửa hàng</string>
     <string name="none">0 đ</string>
     <string name="mess">Tin nhắn:</string>
     <string name="Note">Lưu ý cho người bán</string>
@@ -164,15 +164,12 @@
     <string name="cod_payment">Thanh toán khi nhận hàng</string>
 
     <string name="sum">Tổng tiền hàng</string>
-    <string name="price_35000">35.000 đ</string>
     <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
     <string name="voucher_delivery">Giảm giá phí vận chuyển</string>
     <string name="yams_voucher">Yams Voucher</string>
-    <string name="price_coupons">-20.000 đ</string>
     <string name="total_payment">Tổng cộng</string>
     <string name="price_50000">50.000 đ</string>
     <string name="yams_coupons">Yams coupons</string>
-    <string name="price_30000">30000 đ</string>
     <string name="choose_coupons">Chọn hoặc nhập mã</string>
     <string name="Order">Đặt hàng</string>
     <string name="logan">Bánh ngon chuẩn gu</string>
@@ -192,12 +189,11 @@
 <!--    payment success-->
 
     <string name="order_success">Đơn hàng thành công</string>
-    <string name="madonhang">Mã đơn hàng của bạn là: #260101 .Yams sẽ sớm giao hàng đến bạn</string>
     <string name="see_order_status">Xem trạng thái đơn hàng</string>
     <string name="enter_coupons">Nhập mã giảm giá</string>
     <string name="apply">Áp dụng</string>
     <string name="coupon_20k">Giảm 10k cho đơn hàng từ 200k</string>
-    <string name="hsd">HSD: 01/01/2022</string>
+    <string name="hsd">HSD:</string>
     <string name="choose">Chọn</string>
 
     <string name="desription">Lớp bánh mềm cùng bột phủ matcha tạo hương vị độc đáo</string>

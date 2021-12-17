@@ -120,12 +120,12 @@
             android:background="@color/white"
             app:srcCompat="@drawable/img_facebook" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imbGoogleLogin"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:background="@color/white"
-            app:srcCompat="@drawable/img_google" />
+            app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal" />
+
     </LinearLayout>
 </LinearLayout>

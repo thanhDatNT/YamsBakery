@@ -3,13 +3,15 @@ package com.thanhdat.yams.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.thanhdat.yams.Adapter.VoucherAdapter;
+import com.thanhdat.yams.Adapters.VoucherAdapter;
+import com.thanhdat.yams.Constants.Constant;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Voucher;
 import com.thanhdat.yams.R;
 
@@ -21,23 +23,15 @@ public class VoucherActivity extends AppCompatActivity {
     ArrayList<Voucher> vouchers;
     VoucherAdapter adapter;
     Toolbar toolbarVoucher;
-
+    OnClickInterface onClickInterface;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voucher);
+
         linkViews();
         addEventListView();
         addEventBack();
-
-
-
-    }
-
-    private void linkViews() {
-        toolbarVoucher = findViewById(R.id.toolbarVoucher);
-        lvVoucher = findViewById(R.id.lvVoucher);
-
     }
 
     private void addEventListView() {
@@ -47,15 +41,13 @@ public class VoucherActivity extends AppCompatActivity {
 
     private ArrayList<Voucher> initData() {
         vouchers = new ArrayList<Voucher>();
-        vouchers.add(new Voucher(R.drawable.ic_voucher, "Giảm 10k cho đơn hàng từ 200k", "1/12/2021"));
-        vouchers.add(new Voucher(R.drawable.ic_voucher, "Giảm 20k cho đơn hàng từ 500k", "1/12/2021"));
-        vouchers.add(new Voucher(R.drawable.ic_voucher, "Giảm 50k cho đơn hàng từ 500k", "1/12/2021"));
-        vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 200k", "01/01/2022"));
-        vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 200k", "01/01/2022"));
-        vouchers.add(new Voucher(R.drawable.ic_shipping_active, "Miễn phí vận chuyển cho đơn hàng từ 500k", "01/01/2022"));
-
+        vouchers.add(new Voucher(true, R.drawable.ic_shipping, "Giảm 20K phí vận chuyển cho đơn hàng từ 50K ", "31/01/2022", 20000));
+        vouchers.add(new Voucher(true, R.drawable.ic_shipping, "Giảm 15K phí vận chuyển, tất cả hình thức thanh toán", "31/01/2022", 15000));
+        vouchers.add(new Voucher(false, R.drawable.ic_voucher, "Giảm 10K cho đơn hàng từ 0đ", "10/01/2022", 10000));
+        vouchers.add(new Voucher(false, R.drawable.ic_voucher, "Giảm 40K cho đơn hàng từ 100k", "10/01/2022", 40000));
         return vouchers;
     }
+
     private void addEventBack() {
         setSupportActionBar(toolbarVoucher);
         if(getSupportActionBar() != null)
@@ -66,5 +58,21 @@ public class VoucherActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        lvVoucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Voucher voucher = vouchers.get(position);
+                Intent intent = new Intent(VoucherActivity.this, OrderActivity.class);
+                intent.putExtra(Constant.VOUCHER_INTENT, voucher);
+                setResult(Constant.RESULT_INTENT, intent);
+                VoucherActivity.super.onBackPressed();
+            }
+        });
+    }
+
+    private void linkViews() {
+        toolbarVoucher = findViewById(R.id.toolbarVoucher);
+        lvVoucher = findViewById(R.id.lvVoucher);
+
     }
 }

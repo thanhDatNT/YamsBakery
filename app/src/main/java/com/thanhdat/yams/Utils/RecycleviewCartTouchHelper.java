@@ -1,4 +1,4 @@
-package com.thanhdat.yams.TouchHelper;
+package com.thanhdat.yams.Utils;
 
 import android.graphics.Canvas;
 import android.view.View;
@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.thanhdat.yams.Adapter.CartAdapter;
+import com.thanhdat.yams.Adapters.CartAdapter;
 import com.thanhdat.yams.Interfaces.ItemtouchHelperListener;
 
 public class RecycleviewCartTouchHelper extends ItemTouchHelper.SimpleCallback {

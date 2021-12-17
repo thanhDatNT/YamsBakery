@@ -32,16 +32,16 @@ import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Activities.SearchActivity;
-import com.thanhdat.yams.Adapter.CategoryAdapter;
+import com.thanhdat.yams.Adapters.CategoryAdapter;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.Category;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.ProductAdapter;
-import com.thanhdat.yams.Adapter.SliderBannerAdapter;
-import com.thanhdat.yams.Adapter.SuggestionAdapter;
+import com.thanhdat.yams.Adapters.ProductAdapter;
+import com.thanhdat.yams.Adapters.SliderBannerAdapter;
+import com.thanhdat.yams.Adapters.SuggestionAdapter;
 
 import java.util.ArrayList;
 

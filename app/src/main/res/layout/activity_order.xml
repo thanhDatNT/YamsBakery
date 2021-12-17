@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="45dp"
                 android:gravity="center"
-                android:text="@string/payment"
+                android:text="@string/purchase"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/textHeader"
                 android:textStyle="bold" />
@@ -212,7 +212,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="5dp"
-                                    android:text="@string/time_delivery"
                                     android:textColor="@color/textColor"
                                     android:textSize="14sp" />
                             </LinearLayout>
@@ -286,7 +285,7 @@
                                     android:layout_alignParentEnd="true"
                                     android:textSize="16sp"
                                     android:textColor="@color/textColor"
-                                    android:text="@string/price_35000" />
+                                    android:text="25.000 đ" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -294,7 +293,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:textSize="16sp"
                                     android:textColor="@color/textColor"
-                                    android:text="@string/store" />
+                                    android:text="@string/pick_up" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -307,6 +306,7 @@
                             </RelativeLayout>
 
                             <RadioGroup
+                                android:id="@+id/rdgDeli"
                                 android:layout_width="0dp"
                                 android:layout_height="88dp"
                                 android:layout_weight="1.5"
@@ -316,6 +316,7 @@
                                     android:id="@+id/radDelivery"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:checked="true"
                                     android:buttonTint="@color/primary" />
 
                                 <RadioButton
@@ -404,6 +405,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="3"
                                 android:gravity="end|center"
+                                android:textColor="@color/textColor"
                                 android:text="@string/view_all"
                                 app:drawableEndCompat="@drawable/ic_see_more_inactive" />
 
@@ -440,14 +442,22 @@
                                     android:textSize="14sp" />
 
                                 <TextView
-                                    android:id="@+id/txtPriceProduct"
+                                    android:id="@+id/txtSubTotal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="0.4"
+                                    android:layout_weight="0.3"
                                     android:gravity="end"
                                     android:textSize="16sp"
                                     android:textColor="@color/textColor"
-                                    android:text="@string/price_35000" />
+                                    />
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.1"
+                                    android:gravity="center_horizontal"
+                                    android:textSize="16sp"
+                                    android:text="@string/đ"
+                                    android:textColor="@color/textColor" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -468,11 +478,19 @@
                                     android:id="@+id/txtPriceDelivery"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="end"
+                                    android:text=""
                                     android:textSize="16sp"
-                                    android:textColor="@color/textColor"
-                                    android:text="@string/price_35000" />
+                                    android:textColor="@color/textColor" />
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:textSize="16sp"
+                                    android:text="@string/đ"
+                                    android:textColor="@color/textColor" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -494,11 +512,20 @@
                                     android:id="@+id/txtVoucherDelivery"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="end"
+                                    android:text=""
                                     android:textSize="16sp"
-                                    android:textColor="@color/textColor"
-                                    android:text="@string/price_coupons" />
+                                    android:textColor="@color/textColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:textSize="16sp"
+                                    android:text="@string/đ"
+                                    android:textColor="@color/textColor" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -520,35 +547,56 @@
                                     android:id="@+id/txtYamsVoucher"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="end"
                                     android:textSize="16sp"
-                                    android:textColor="@color/textColor"
-                                    android:text="@string/price_coupons" />
+                                    android:textColor="@color/textColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:textSize="16sp"
+                                    android:text="@string/đ"
+                                    android:textColor="@color/textColor" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
+                                android:weightSum="10"
                                 android:padding="10dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:text="@string/total_payment"
                                     android:textColor="@color/primary"
+                                    android:layout_weight="6"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/txtTotalBill"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="end"
-                                    android:text="@string/price_30000"
+                                    android:layout_weight="3"
                                     android:textColor="@color/primary"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:text="@string/đ"
+                                    android:textColor="@color/primary"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -591,7 +639,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4.5"
+                android:layout_weight="4"
                 android:gravity="center_vertical"
                 android:paddingStart="5dp"
                 android:text="@string/yams_coupons"
@@ -601,11 +649,14 @@
 
             <TextView
                 android:id="@+id/txtOpenVoucher"
-                android:layout_weight="4.5"
+                android:layout_weight="5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="14sp"
+                android:textColor="@color/textColor"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:text="@string/choose_coupons"
                 app:drawableEndCompat="@drawable/ic_see_more_inactive" />
 

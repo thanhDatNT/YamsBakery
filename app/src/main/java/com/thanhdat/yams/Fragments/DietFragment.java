@@ -30,7 +30,7 @@ import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.DietAdapter;
+import com.thanhdat.yams.Adapters.DietAdapter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
