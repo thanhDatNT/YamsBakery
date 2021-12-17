@@ -63,6 +63,11 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_favorite.xml" value="0.2" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_payment.xml" value="0.15648148148148147" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_previous_order.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_see_review.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_spinner.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_spinner_dropdown.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/item_voucher.xml" value="0.19739583333333333" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.16944444444444445" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/items_diet_product.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/items_setting_myprofile.xml" value="0.2" />
@@ -70,7 +75,14 @@
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/pending_order_item.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.25416666666666665" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/showresult.xml" value="0.25416666666666665" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_category.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_mychat.xml" value="0.19739583333333333" />
         <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_new_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_notification.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_product.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_search.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_slider_banner.xml" value="0.19739583333333333" />
+        <entry key="..\:/DO AN/YamsBakery/app/src/main/res/layout/viewholder_yamschat.xml" value="0.19739583333333333" />
         <entry key="..\:/DOCUMENTS/HK5_2021-2022/Mobile Commerce Development (M-COMMERCE)/DoAn/Android/YamsBakery/app/src/main/res/layout/activity_feed_activity.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/HK5_2021-2022/Mobile Commerce Development (M-COMMERCE)/DoAn/Android/YamsBakery/app/src/main/res/layout/activity_login.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/HK5_2021-2022/Mobile Commerce Development (M-COMMERCE)/DoAn/Android/YamsBakery/app/src/main/res/layout/activity_main.xml" value="0.16944444444444445" />
@@ -328,7 +340,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
