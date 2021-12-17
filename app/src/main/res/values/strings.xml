@@ -97,11 +97,8 @@
     <string name="details">Chi tiết</string>
     <string name="date">31/10/2021</string>
     <string name="shipment1">Giao hàng cho shipper</string>
-    <string name="time1">9:00AM</string>
     <string name="shipment2">Đang giao</string>
-    <string name="time2">9:10AM</string>
     <string name="shipment3">Đơn hàng đang được vận chuyển</string>
-    <string name="time3">9:30AM</string>
     <string name="order_code">Mã đơn hàng:</string>
     <string name="x2">x2</string>
     <string name="estimated_time">Thời gian dự kiến</string>
@@ -154,6 +151,9 @@
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
     <string name="price_80">80.000 đ</string>
     <string name="đ">đ</string>
+    <string name="time1">9:00 am</string>
+    <string name="time2">9:38 am</string>
+    <string name="time3">10:00 am</string>
     <string name="pick_up">Đến lấy tại cửa hàng</string>
     <string name="none">0 đ</string>
     <string name="mess">Tin nhắn:</string>
