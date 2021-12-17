@@ -1,6 +1,9 @@
 package com.thanhdat.yams.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
@@ -14,10 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
@@ -41,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
@@ -64,7 +69,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickInterface.setClick(products.get(position).getId());
+//                onClickInterface.setClick(products.get(position).getId());
+                Product item = products.get(position);
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("productItem",item);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
             }
         });
     }
