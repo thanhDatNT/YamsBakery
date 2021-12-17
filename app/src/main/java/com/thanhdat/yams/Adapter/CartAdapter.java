@@ -1,62 +1,69 @@
 package com.thanhdat.yams.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Database.CartDatabase;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder>  {
     final int VIEW_TYPE_LOADING =0;
     final int VIEW_TYPE_ITEM=1;
     private  boolean isLoadingAdd;
     private Context context;
-    private ArrayList<Cart>carts;
+    private ArrayList<Cart> carts;
+    OnClickInterface onClickInterface;
 
-    public CartAdapter(Context context, ArrayList<Cart> carts) {
+    public CartAdapter(Context context, ArrayList<Cart> carts, OnClickInterface onClickInterface) {
         this.context = context;
         this.carts = carts;
+        this.onClickInterface = onClickInterface;
     }
-
-
 
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_cart, parent,false);
         return new CartViewHolder(view);
-
-
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        holder.imvThumb.setImageResource(carts.get(position).getCartThumb());
-        holder.txtName.setText(carts.get(position).getCartName());
-        holder.txtSize.setText(carts.get(position).getCartSize());
+        Picasso.get().load(carts.get(position).getThumb()).into(holder.imvThumb);
+        holder.txtName.setText(carts.get(position).getProductName() + " ("+ carts.get(position).getProductSize()+")");
+        holder.txtTopping.setText(carts.get(position).getTopping());
         DecimalFormat decimalFormat = new DecimalFormat("######");
-        holder.txtPrice.setText(decimalFormat.format(carts.get(position).getCartPrice())+"đ");
-//        holder.txtPrice.setText(String.valueOf(carts.get(position).getCartPrice()));
-        holder.txtNumber.setText(String.valueOf(carts.get(position).getCartNumber()));
-        holder.txtRemain.setText(String.valueOf(carts.get(position).getCartRemain()));
-
+        holder.txtPrice.setText(decimalFormat.format(carts.get(position).getPrice())+"đ");
+        holder.txtQuantity.setText(String.valueOf(carts.get(position).getQuantity()));
+        holder.txtStock.setText(String.valueOf(carts.get(position).getAvailable()));
+        holder.chkCheckItemCart.setChecked(carts.get(position).isChecked());
+        onClickInterface.setClick(position);
+        holder.chkCheckItemCart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                holder.chkCheckItemCart.setChecked(isChecked);
+                carts.get(position).setChecked(isChecked);
+                onClickInterface.setClick(position);
+            }
+        });
     }
 
     @Override
@@ -66,26 +73,25 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     public class CartViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
-        TextView txtName,txtSize, txtPrice,txtNumber,txtRemain;
+        CheckBox chkCheckItemCart;
+        TextView txtName,txtTopping, txtPrice,txtQuantity,txtStock;
         LinearLayout layoutForeground;
+
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
+            chkCheckItemCart= itemView.findViewById(R.id.chkCheckItem);
             imvThumb=itemView.findViewById(R.id.imvThumb);
             txtName = itemView.findViewById(R.id.txtName);
-            txtSize = itemView.findViewById(R.id.txtSize);
+            txtTopping = itemView.findViewById(R.id.txtTopping);
             txtPrice = itemView.findViewById(R.id.txtPrice);
-            txtNumber = itemView.findViewById(R.id.txtNumber);
-            txtRemain = itemView.findViewById(R.id.txtRemain);
+            txtQuantity = itemView.findViewById(R.id.txtNumber);
+            txtStock = itemView.findViewById(R.id.txtRemain);
             layoutForeground=itemView.findViewById(R.id.layoutForeground);
-
         }
     }
-    public  void removeItem(int index){
-        carts.remove(index);
-        notifyItemRemoved(index);
-    }
+
     public  void undoItem( Cart cart, int index){
-        carts.add(index,cart);
+        carts.add(index, cart);
         notifyItemInserted(index);
     }
 
@@ -136,7 +142,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 //            view = inflater.inflate(items_listview,null);
 //            holder.imvThumb=view.findViewById(R.id.imvThumb);
 //            holder.txtName=view.findViewById(R.id.txtName);
-//            holder.txtSize=view.findViewById(R.id.txtSize);
+//            holder.txtTopping=view.findViewById(R.id.txtTopping);
 //            holder.txtPrice= view.findViewById(R.id.txtPrice);
 //            holder.txtNumber=view.findViewById(R.id.txtNumber);
 //            holder.txtRemain=view.findViewById(R.id.txtRemain);
@@ -148,7 +154,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 //        Cart cart = cartList.get(i);
 //        holder.imvThumb.setImageResource(cart.getCartThumb());
 //        holder.txtName.setText(cart.getCartName());
-//        holder.txtSize.setText(cart.getCartSize());
+//        holder.txtTopping.setText(cart.getCartSize());
 //        DecimalFormat decimalFormat = new DecimalFormat("######");
 //        holder.txtPrice.setText(decimalFormat.format(cart.getCartPrice())+"đ");
 //        holder.txtNumber.setText(String.valueOf(cart.getCartNumber()));
@@ -158,7 +164,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 //    }
 //    public static  class ViewHolder{
 //        ImageView imvThumb;
-//        TextView txtName,txtSize, txtPrice,txtNumber,txtRemain;
+//        TextView txtName,txtTopping, txtPrice,txtNumber,txtRemain;
 //
 //    }
 }

@@ -1,77 +1,95 @@
 package com.thanhdat.yams.Models;
 
+import java.util.List;
+
 public class Cart {
-    public int CartID;
-    private int CartThumb;
-    private String CartName;
-    private String CartSize;
-    private double CartPrice;
-    private int CartNumber;
-    private int CartRemain;
-
-    public Cart(int cartID, int cartThumb, String cartName, String cartSize, double cartPrice, int cartNumber, int cartRemain) {
-        CartID = cartID;
-        CartThumb = cartThumb;
-        CartName = cartName;
-        CartSize = cartSize;
-        CartPrice = cartPrice;
-        CartNumber = cartNumber;
-        CartRemain = cartRemain;
+    private int id, quantity, available;
+    private String thumb, productName, productSize, topping;
+    private double price;
+    boolean isChecked;
+    public Cart() {
     }
 
-    public int getCartID() {
-        return CartID;
+    public Cart(int id, String productName, int quantity, int available, String thumb, String productSize, String topping, double price) {
+        this.id = id;
+        this.quantity = quantity;
+        this.available = available;
+        this.thumb = thumb;
+        this.productName = productName;
+        this.productSize = productSize;
+        this.topping = topping;
+        this.price= price;
     }
 
-    public void setCartID(int cartID) {
-        CartID = cartID;
+    public boolean isChecked() {
+        return isChecked;
     }
 
-    public int getCartThumb() {
-        return CartThumb;
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
-    public void setCartThumb(int cartThumb) {
-        CartThumb = cartThumb;
+    public double getPrice() {
+        return price;
     }
 
-    public String getCartName() {
-        return CartName;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public void setCartName(String cartName) {
-        CartName = cartName;
+    public int getId() {
+        return id;
     }
 
-    public String getCartSize() {
-        return CartSize;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setCartSize(String cartSize) {
-        CartSize = cartSize;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public double getCartPrice() {
-        return CartPrice;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public void setCartPrice(double cartPrice) {
-        CartPrice = cartPrice;
+    public int getAvailable() {
+        return available;
     }
 
-    public int getCartNumber() {
-        return CartNumber;
+    public void setAvailable(int available) {
+        this.available = available;
     }
 
-    public void setCartNumber(int cartNumber) {
-        CartNumber = cartNumber;
+    public String getThumb() {
+        return thumb;
     }
 
-    public int getCartRemain() {
-        return CartRemain;
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
 
-    public void setCartRemain(int cartRemain) {
-        CartRemain = cartRemain;
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductSize() {
+        return productSize;
+    }
+
+    public void setProductSize(String productSize) {
+        this.productSize = productSize;
+    }
+
+    public String getTopping() {
+        return topping;
+    }
+
+    public void setTopping(String topping) {
+        this.topping = topping;
     }
 }

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -48,8 +46,8 @@ public class ChoosePaymentMethodFragment extends Fragment {
         txtSeeMore = view.findViewById(R.id.txtSeeMore);
         toolbarPaymentMethod = view.findViewById(R.id.toolbarPaymentMethod);
 //        radCod = view.findViewById(R.id.radCod);
-        radMomo = view.findViewById(R.id.radMomo);
-        radZaloPay = view.findViewById(R.id.radZaloPay);
+        radMomo = view.findViewById(R.id.radDelivery);
+        radZaloPay = view.findViewById(R.id.radPickUp);
 
         //add events function
         addEvents();

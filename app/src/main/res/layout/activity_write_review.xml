@@ -144,11 +144,12 @@
                 android:layout_height="100dp"
                 app:cardCornerRadius="@dimen/cornerRadius"
                 android:layout_marginHorizontal="@dimen/pad">
+
                 <ImageView
                     android:id="@+id/imvReviewImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
 
             <!--        <androidx.appcompat.widget.AppCompatButton-->
