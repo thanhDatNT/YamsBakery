@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

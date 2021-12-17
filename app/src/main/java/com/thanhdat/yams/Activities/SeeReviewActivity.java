@@ -13,10 +13,10 @@ import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Database.ReviewDatabase;
+import com.thanhdat.yams.Databases.ReviewDatabase;
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.SeeReviewAdapter;
+import com.thanhdat.yams.Adapters.SeeReviewAdapter;
 
 import java.util.ArrayList;
 

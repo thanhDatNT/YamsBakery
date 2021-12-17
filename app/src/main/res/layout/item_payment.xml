@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/prices"
-                    android:paddingStart="5dp"
+                    android:paddingStart="8dp"
                     android:textSize="@dimen/textContent"
                     android:drawableStart="@drawable/ic_tag"
                     android:textColor="@color/primary"
@@ -60,11 +60,12 @@
 
 
             <TextView
-                android:id="@+id/txtDescription"
+                android:id="@+id/txtTopping"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Description"
-                android:textColor="@color/inactive"
+                android:text="Topping:"
+                android:textSize="16sp"
+                android:textColor="@color/textColor"
                 android:paddingEnd="50dp"
                 android:paddingTop="10dp"
                />

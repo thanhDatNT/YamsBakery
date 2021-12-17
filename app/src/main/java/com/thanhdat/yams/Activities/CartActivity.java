@@ -1,7 +1,7 @@
 package com.thanhdat.yams.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,48 +13,43 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-
-import android.widget.Button;
 
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.material.snackbar.Snackbar;
 import com.thanhdat.yams.Constants.Constant;
-import com.thanhdat.yams.Database.CartDatabase;
+import com.thanhdat.yams.Databases.CartDatabase;
 import com.thanhdat.yams.Interfaces.ItemtouchHelperListener;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.CartAdapter;
-import com.thanhdat.yams.TouchHelper.RecycleviewCartTouchHelper;
-import com.thanhdat.yams.TouchHelper.RecycleviewCartTouchHelper;
+import com.thanhdat.yams.Adapters.CartAdapter;
+import com.thanhdat.yams.Utils.RecycleviewCartTouchHelper;
 
 import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity implements ItemtouchHelperListener {
-    RecyclerView rcvCart;
-    CartAdapter adapter;
-    ArrayList<Cart> carts;
     ConstraintLayout layoutItemCart;
     Toolbar toolbarCart;
-    Button btnOrder;
+    AppCompatButton btnOrder;
     CheckBox chkChooseAll;
     TextView tvTotalCart;
+
     ArrayList<Product> products;
-    ArrayList<Cart> purchasingItems;
+    public static ArrayList<Cart> purchasingItems, carts;
+    RecyclerView rcvCart;
+    CartAdapter adapter;
     OnClickInterface onClickInterface;
-    double totalCart;
+
+    double totalCart, itemPrice;
+    int quantity;
     public static CartDatabase cartDatabase;
 
     @Override
@@ -90,17 +85,17 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         Bundle bundle= intent.getBundleExtra(Constant.STRING_INTENT);
         if(bundle != null){
             int productID= bundle.getInt(Constant.ID_PRODUCT, 1);
-            int quantity= bundle.getInt(Constant.QUANTITY_PRODUCT, 1);
+            quantity= bundle.getInt(Constant.QUANTITY_PRODUCT, 1);
             String topping= bundle.getString(Constant.TOPPING_PRODUCT, "");
             String size= bundle.getString(Constant.SIZE_PRODUCT, "M");
-            double price= bundle.getDouble(Constant.PRICE_PRODUCT, 10);
+            itemPrice= bundle.getDouble(Constant.PRICE_PRODUCT, 10);
             Product product= products.get(productID);
             String thumb= product.getThumbnail();
             String name= product.getName();
             int stock= product.getAvailable();
 
 //          Save product from intent to Cart Database
-            boolean isSaved = cartDatabase.insertData(name, thumb, size, topping, quantity, stock, price);
+            boolean isSaved = cartDatabase.insertData(name, thumb, size, topping, quantity, stock, itemPrice);
             if(isSaved)
                 Log.i("SAVE DB", "This product has been added");
         }
@@ -203,6 +198,31 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         }
     }
 
+    public void updateQuantity(Cart cart, String flag){
+        Cursor cursor= cartDatabase.getData("SELECT "+ cartDatabase.COL_PRICE +", "+ cartDatabase.COL_QUANTITY +" FROM "+ cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_ID +"= " +cart.getId());
+        while (cursor.moveToNext()){
+            itemPrice = cursor.getDouble(0);
+            quantity = cursor.getInt(1);
+        }
+        double productPrice = products.get(cart.getId()).getCurrentPrice();
+        if (flag.equals("plus")){
+            itemPrice = itemPrice + productPrice;
+            quantity ++;
+        }
+        if (flag.equals("minus")){
+            if (quantity > 1 ){
+                itemPrice = itemPrice - productPrice;
+                quantity --;
+            }
+            else {
+                Toast.makeText(CartActivity.this, "Trượt ngang để xóa!", Toast.LENGTH_LONG).show();
+            }
+        }
+//        Update Cart Database
+        cartDatabase.execSQL("UPDATE " + cartDatabase.TABLE_NAME+ " SET "+ cartDatabase.COL_PRICE+" = " + itemPrice +", "+ cartDatabase.COL_QUANTITY + " = "+ quantity +" WHERE "+ cartDatabase.COL_ID + "= "+ cart.getId());
+        loadCartData();
+    }
+
 
     private void navigate() {
         setSupportActionBar(toolbarCart);
@@ -217,7 +237,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this,PaymentActivity.class);
+                Intent intent = new Intent(CartActivity.this, OrderActivity.class);
                 startActivity(intent);
             }
         });

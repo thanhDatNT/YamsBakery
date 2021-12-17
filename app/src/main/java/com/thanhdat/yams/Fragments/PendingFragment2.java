@@ -9,16 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.PendingAdapter2;
+import com.thanhdat.yams.Adapters.PendingAdapter2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PendingFragment2 extends Fragment {
-
+    TextView tvStatus;
     RecyclerView rcvPending;
     PendingAdapter2 pendingAdapter2;
 
@@ -33,6 +34,7 @@ public class PendingFragment2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pending_order2, container, false);
         rcvPending = view.findViewById(R.id.rcvPending);
+        tvStatus = view.findViewById(R.id.tvEmptyPendingOrder);
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvPending.setLayoutManager(manager);
         rcvPending.setHasFixedSize(true);

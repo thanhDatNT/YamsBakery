@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Models.Category;
-import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 
 import java.util.ArrayList;

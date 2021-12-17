@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,13 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.thanhdat.yams.Activities.VoucherActivity;
 import com.thanhdat.yams.Models.Favorite;
-import com.thanhdat.yams.Models.Voucher;
 import com.thanhdat.yams.R;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteAdapter extends BaseAdapter {

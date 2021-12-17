@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.DietAdapter;
+import com.thanhdat.yams.Adapters.DietAdapter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

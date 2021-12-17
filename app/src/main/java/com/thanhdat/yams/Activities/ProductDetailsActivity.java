@@ -5,7 +5,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,7 +59,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //add product to payment?
-                startActivity(new Intent(ProductDetailsActivity.this,PaymentActivity.class));
+                Intent intent2= new Intent(ProductDetailsActivity.this, OrderActivity.class);
+                Bundle bundle= new Bundle();
+                bundle.putInt(Constant.ID_PRODUCT, productID);
+                bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
+                bundle.putString(Constant.TOPPING_PRODUCT, topping);
+                bundle.putString(Constant.SIZE_PRODUCT, size);
+                bundle.putDouble(Constant.PRICE_PRODUCT, total);
+                intent2.putExtra(Constant.STRING_INTENT, bundle);
+                startActivity(intent2);
             }
         });
 //        Send product item to cart
@@ -95,7 +102,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void totalMoney() {
         //Size total money
-        btnPayment.setText(txtMPrice.getText().toString());
+        btnPayment.setText("Mua hàng " + txtMPrice.getText().toString());
         radGroupSize.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -128,7 +135,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     }
                 }
                 total += totalSize;
-                btnPayment.setText(Integer.toString(total));
+                btnPayment.setText("Mua hàng " + total);
             }
         });
 
@@ -145,7 +152,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     topping+= chkTopping1.getText() + ", ";
                 }
                 else total -= topping1;
-                btnPayment.setText(Integer.toString(total));
+                btnPayment.setText("Mua hàng " + total);
             }
         });
         chkTopping2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -156,7 +163,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     topping += chkTopping2.getText() + ", ";
                 }
                 else total -= topping2;
-                btnPayment.setText(Integer.toString(total));
+                btnPayment.setText("Mua hàng " + total);
             }
         });
         chkTopping3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -167,7 +174,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     topping += chkTopping3.getText() + ", ";
                 }
                 else total -= topping3;
-                btnPayment.setText(Integer.toString(total));
+                btnPayment.setText("Mua hàng " + total);
             }
         });
 
@@ -192,7 +199,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 }
             }
             txtProductQuantity.setText(Integer.toString(quantity));
-            //btnPayment.setText(Integer.toString(total));
+            //btnPayment.setText("Mua hàng " + total);
         }
     };
 

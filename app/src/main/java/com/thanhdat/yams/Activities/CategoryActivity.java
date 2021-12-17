@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.FavoriteAdapter;
+import com.thanhdat.yams.Adapters.FavoriteAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

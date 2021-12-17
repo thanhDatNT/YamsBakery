@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,16 +20,13 @@ import android.view.ViewGroup;
 
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
 
 import com.thanhdat.yams.Activities.ChatActivity;
-import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Models.Post;
-import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.PostAdapter;
+import com.thanhdat.yams.Adapters.PostAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
