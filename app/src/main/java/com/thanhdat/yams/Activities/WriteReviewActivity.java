@@ -30,6 +30,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Databases.ReviewDatabase;
+import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
@@ -180,15 +181,22 @@ public class WriteReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //insert data
-                String text, size;
-                double rating;
 
-                text = edtReviewText.getText().toString();
+                double rating;
+                BitmapDrawable profile, image;
+                String name, content, size;
+
                 rating = rtbReviewRating.getRating();
+
+                image = (BitmapDrawable) imvReviewImage.getDrawable();
+                profile = (BitmapDrawable) ProfileFragment.imvAvaProfile.getDrawable();
+
+                name = ProfileFragment.txtNameProfile.getText().toString();
+                content = edtReviewText.getText().toString();
                 size = txtReviewSize.getText().toString();
 
-                if(!text.equals("")){
-                    boolean flag = db.insertData(text, convertPhoto(), rating, size);
+                if(!content.equals("") && !name.equals("")){
+                    boolean flag = db.insertData(rating, convertPhoto(profile), name, content, convertPhoto(image), size);
                     if(flag){
                         //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
@@ -201,8 +209,7 @@ public class WriteReviewActivity extends AppCompatActivity {
             }
         });
     }
-    private byte[] convertPhoto() {
-        BitmapDrawable drawable = (BitmapDrawable) imvReviewImage.getDrawable();
+    public byte[] convertPhoto(BitmapDrawable drawable) {
         Bitmap bitmap = drawable.getBitmap();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);

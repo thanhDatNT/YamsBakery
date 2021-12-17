@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,7 +50,8 @@ public class ProfileFragment extends Fragment {
     private NestedScrollView scrollView;
     private CardView imgProfile;
     private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout;
-
+    public static TextView txtNameProfile;
+    public static ImageView imvAvaProfile;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,9 @@ public class ProfileFragment extends Fragment {
         lnMessage = view.findViewById(R.id.lnMessageProfile);
         lnLanguage = view.findViewById(R.id.lnLanguageProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
+
+        txtNameProfile = view.findViewById(R.id.txtName);
+        imvAvaProfile = view.findViewById(R.id.imvAvaProfile);
 
         addEventSliderBanner();
         addEventCollapsing();

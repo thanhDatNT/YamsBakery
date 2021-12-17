@@ -4,57 +4,81 @@ import android.widget.ImageView;
 
 public class SeeReviewItem {
 
-    private int reviewId;
-    private String reviewText;
-    private byte[] reviewImage;
-    private double reviewRating;
-    private String reviewSize;
+    private int id;
+    private double rating;
+    private byte[] profile;
+    private String name;
+    private String content;
+    private byte[] image;
+    private String size;
 
-    public SeeReviewItem(int reviewId, String reviewText, byte[] reviewImage, double reviewRating, String reviewSize) {
-        this.reviewId = reviewId;
-        this.reviewText = reviewText;
-        this.reviewImage = reviewImage;
-        this.reviewRating = reviewRating;
-        this.reviewSize = reviewSize;
+    public SeeReviewItem(int id, double rating, byte[] profile, String name, String content, byte[] image, String size) {
+        this.id = id;
+        this.rating = rating;
+        this.profile = profile;
+        this.name = name;
+        this.content = content;
+        this.image = image;
+        this.size = size;
     }
 
-    public int getReviewId() {
-        return reviewId;
+    public SeeReviewItem() {
+
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public int getId() {
+        return id;
     }
 
-    public String getReviewText() {
-        return reviewText;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
+    public double getRating() {
+        return rating;
     }
 
-    public byte[] getReviewImage() {
-        return reviewImage;
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
-    public void setReviewImage(byte[] reviewImage) {
-        this.reviewImage = reviewImage;
+    public byte[] getProfile() {
+        return profile;
     }
 
-    public double getReviewRating() {
-        return reviewRating;
+    public void setProfile(byte[] profile) {
+        this.profile = profile;
     }
 
-    public void setReviewRating(double reviewRating) {
-        this.reviewRating = reviewRating;
+    public String getName() {
+        return name;
     }
 
-    public String getReviewSize() {
-        return reviewSize;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setReviewSize(String reviewSize) {
-        this.reviewSize = reviewSize;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 }

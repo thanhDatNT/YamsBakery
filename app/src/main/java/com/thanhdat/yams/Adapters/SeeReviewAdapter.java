@@ -4,16 +4,21 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.SpannableString;
+import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.Models.SeeReviewItem;
 import com.thanhdat.yams.R;
 
@@ -22,56 +27,60 @@ import java.util.ArrayList;
 public class SeeReviewAdapter extends RecyclerView.Adapter<SeeReviewAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<SeeReviewItem> seeReviewItems;
+    ArrayList<SeeReviewItem> reviews;
 
-    public SeeReviewAdapter(Context context, ArrayList<SeeReviewItem> seeReviewItems) {
+    public SeeReviewAdapter(Context context, ArrayList<SeeReviewItem> reviews) {
         this.context = context;
-        this.seeReviewItems = seeReviewItems;
+        this.reviews = reviews;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View customView = inflater.inflate(R.layout.item_see_review,parent,false);
-
-        return new ViewHolder(customView);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_see_review, parent, false);
+        return new ViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SeeReviewItem review = seeReviewItems.get(position);
-        holder.txtReviewText.setText(review.getReviewText());
-        holder.txtSizeReview.setText(review.getReviewSize());
-        holder.rtbSeeReviewItem.setRating((float) review.getReviewRating());
-
-        byte[] reviewImage = review.getReviewImage();
+        byte[] reviewImage = reviews.get(position).getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(reviewImage, 0, reviewImage.length);
-        holder.imvReviewImage.setImageBitmap(bitmap);
+        holder.imvImage.setImageBitmap(bitmap);
 
+        byte[] reviewProfile = reviews.get(position).getProfile();
+        Bitmap bitmap1 = BitmapFactory.decodeByteArray(reviewProfile, 0, reviewProfile.length);
+        holder.imvProfile.setImageBitmap(bitmap1);
+
+//        Picasso.get().load(reviews.get(position).getProfile()).into(holder.imvProfile);
+//        Picasso.get().load(reviews.get(position).getImage()).into(holder.imvImage);
+
+        holder.txtName.setText(reviews.get(position).getName());
+        holder.txtContent.setText(reviews.get(position).getContent());
+        holder.txtSize.setText(reviews.get(position).getSize());
+
+        holder.rtbRating.setRating((float) reviews.get(position).getRating());
     }
 
     @Override
     public int getItemCount() {
-        return seeReviewItems.size();
+        return reviews.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView imvProfile, imvImage;
+        TextView txtName, txtContent, txtSize;
+        RatingBar rtbRating;
 
-        ImageView imvReviewImage;
-        TextView txtReviewText, txtSizeReview;
-        RatingBar rtbSeeReviewItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //link views
-            imvReviewImage = itemView.findViewById(R.id.imvReviewImage);
+            imvProfile= itemView.findViewById(R.id.imvReviewAva);
+            imvImage= itemView.findViewById(R.id.imvReviewImage);
 
-            txtReviewText = itemView.findViewById(R.id.txtReviewText);
-            txtSizeReview = itemView.findViewById(R.id.txtSizeReview);
+            txtName= itemView.findViewById(R.id.txtNameReview);
+            txtContent= itemView.findViewById(R.id.txtReviewText);
+            txtSize= itemView.findViewById(R.id.txtSizeReview);
 
-            rtbSeeReviewItem = itemView.findViewById(R.id.rtbSeeReviewItem);
+            rtbRating= itemView.findViewById(R.id.rtbSeeReviewItem);
         }
     }
 }
