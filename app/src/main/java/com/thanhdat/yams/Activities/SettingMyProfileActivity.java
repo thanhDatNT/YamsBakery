@@ -1,61 +1,56 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.EditText;
 
-import com.thanhdat.yams.Models.SettingMyProfile;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.SettingMyProfileAdapter;
-
-import java.util.ArrayList;
 
 public class SettingMyProfileActivity extends AppCompatActivity {
-    ListView lvMyProfile;
-    ArrayList<SettingMyProfile> profileArrayList;
-    SettingMyProfileAdapter adapter;
+    EditText edtName, edtPhone, edtBirthday;
+    AppCompatButton btnConfirm;
     Toolbar toolbarMyProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_my_profile);
+
         linkView();
         addEvent();
-        EventTabBack();
-
     }
 
-
-
-
-    private void linkView() {
-        lvMyProfile=findViewById(R.id.lvMyProfile);
-        toolbarMyProfile=findViewById(R.id.toolbarMyProfile);
-//        imvBack = findViewById(R.id.imvBack);
-    }
-    private void addEvent() {
-        profileArrayList=new ArrayList<SettingMyProfile>();
-        profileArrayList.add(new SettingMyProfile(1,"Tên","Như Quỳnh"));
-        profileArrayList.add(new SettingMyProfile(2,"Số điện thoại","0397287661"));
-        profileArrayList.add(new SettingMyProfile(3,"Ngày sinh","30/12/2001"));
-        adapter = new SettingMyProfileAdapter(SettingMyProfileActivity.this,R.layout.items_setting_myprofile,profileArrayList);
-        lvMyProfile.setAdapter(adapter);
-    }
-    private void  EventTabBack() {
+    private void  addEvent() {
         setSupportActionBar(toolbarMyProfile);
         getSupportActionBar().setTitle(null);
-        toolbarMyProfile.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbarMyProfile.setNavigationOnClickListener(view -> onBackPressed());
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                onBackPressed();
+            public void onClick(View v) {
+                String name= edtName.getText().toString();
+                String phone= edtPhone.getText().toString();
+                String information = name + " | " + phone;
+                if(!(name.equals("") && phone.equals(""))){
+                    Intent intent= new Intent(SettingMyProfileActivity.this, OrderActivity.class);
+                    intent.putExtra(Constant.INFORMATION_INTENT, information);
+                    setResult(Constant.RESULT_INFORMATION, intent);
+                    SettingMyProfileActivity.super.onBackPressed();
+                }
             }
         });
-
     }
 
-
+    private void linkView() {
+        toolbarMyProfile = findViewById(R.id.toolbarMyProfile);
+        btnConfirm= findViewById(R.id.buttonConFirmEditAcc);
+        edtName = findViewById(R.id.edtAccountName);
+        edtPhone= findViewById(R.id.edtAccountPhone);
+        edtBirthday= findViewById(R.id.editBirthday);
+    }
 }

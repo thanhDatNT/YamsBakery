@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Database;
+package com.thanhdat.yams.Databases;
 
 import android.content.Context;
 import android.database.Cursor;

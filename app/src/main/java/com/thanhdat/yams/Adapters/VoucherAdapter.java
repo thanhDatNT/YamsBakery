@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -44,26 +44,30 @@ public class VoucherAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if(view == null){
             holder = new ViewHolder();
             view = inflater.inflate(item_voucher, null);
             holder.imvThumb = view.findViewById(R.id.imvThumb);
             holder.txtName = view.findViewById(R.id.txtName);
-            holder.txtHSD = view.findViewById(R.id.txtHSD);
+            holder.txtExpired = view.findViewById(R.id.txtHSD);
+            holder.txtGetVoucher= view.findViewById(R.id.tvGetVoucher);
             view.setTag(holder);
-        }else {
+        }
+        else {
             holder = (ViewHolder) view.getTag();
         }
         //binding data
-        Voucher v = vouchers.get(i);
-        holder.imvThumb.setImageResource(v.getVoucherThumb());
-        holder.txtName.setText(v.getVoucherName());
+        Voucher voucher = vouchers.get(i);
+        holder.imvThumb.setImageResource(voucher.getThumb());
+        holder.txtName.setText(voucher.getName());
+        holder.txtExpired.setText(voucher.getExpireTime());
 
-        holder.txtHSD.setText(v.getVoucherHSD());
         return view;
     }
+
     private static class ViewHolder{
         ImageView imvThumb;
-        TextView txtName, txtHSD;
+        TextView txtName, txtExpired, txtGetVoucher;
     }
 }

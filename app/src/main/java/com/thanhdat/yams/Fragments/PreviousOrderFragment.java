@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.PreviousAdapter;
+import com.thanhdat.yams.Adapters.PreviousAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

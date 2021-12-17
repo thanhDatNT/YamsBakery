@@ -1,12 +1,12 @@
-package com.thanhdat.yams.Adapter;
+package com.thanhdat.yams.Adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.CartActivity;
-import com.thanhdat.yams.Database.CartDatabase;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.R;
@@ -28,12 +27,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     final int VIEW_TYPE_LOADING =0;
     final int VIEW_TYPE_ITEM=1;
     private  boolean isLoadingAdd;
-    private Context context;
+    private CartActivity context;
     private ArrayList<Cart> carts;
     OnClickInterface onClickInterface;
 
     public CartAdapter(Context context, ArrayList<Cart> carts, OnClickInterface onClickInterface) {
-        this.context = context;
+        this.context = (CartActivity) context;
         this.carts = carts;
         this.onClickInterface = onClickInterface;
     }
@@ -64,6 +63,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 onClickInterface.setClick(position);
             }
         });
+        holder.imbPlus.setOnClickListener(v -> context.updateQuantity(carts.get(position), "plus"));
+        holder.imbMinus.setOnClickListener(v -> context.updateQuantity(carts.get(position), "minus"));
     }
 
     @Override
@@ -76,6 +77,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         CheckBox chkCheckItemCart;
         TextView txtName,txtTopping, txtPrice,txtQuantity,txtStock;
         LinearLayout layoutForeground;
+        ImageButton imbMinus, imbPlus;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,6 +89,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             txtQuantity = itemView.findViewById(R.id.txtNumber);
             txtStock = itemView.findViewById(R.id.txtRemain);
             layoutForeground=itemView.findViewById(R.id.layoutForeground);
+            imbMinus= itemView.findViewById(R.id.btnMinusItem);
+            imbPlus= itemView.findViewById(R.id.btnPlusItem);
         }
     }
 

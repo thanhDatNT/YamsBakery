@@ -200,7 +200,7 @@
             android:layout_marginStart="31dp"
             android:rotation="90"
             app:tint="@color/inactive"
-            android:src="@drawable/line"/>
+            android:src="@drawable/ic_vertical_line"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -235,7 +235,7 @@
             android:layout_marginStart="31dp"
             android:rotation="90"
             app:tint="@color/inactive"
-            android:src="@drawable/line"/>
+            android:src="@drawable/ic_vertical_line"/>
 
         <LinearLayout
 

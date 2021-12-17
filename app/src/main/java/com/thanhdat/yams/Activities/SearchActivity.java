@@ -12,7 +12,7 @@ import android.widget.SearchView;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapter.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
 
 import java.util.ArrayList;
 

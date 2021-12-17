@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.thanhdat.yams.Activities.PaymentActivity;
+import com.thanhdat.yams.Activities.OrderActivity;
 import com.thanhdat.yams.R;
 
 public class ChoosePaymentMethodFragment extends Fragment {
@@ -69,7 +69,7 @@ public class ChoosePaymentMethodFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if (view.getId() == R.id.toolbarPaymentMethod||view.getId() == R.id.btnConfirm ) {
-                startActivity(new Intent(getContext(), PaymentActivity.class));
+                startActivity(new Intent(getContext(), OrderActivity.class));
             }
 
             //fragment to fragment
