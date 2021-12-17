@@ -106,18 +106,19 @@
                         android:orientation="vertical">
 
                         <RadioGroup
+                            android:id="@+id/radEWallet"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
                             <RadioButton
-                                android:id="@+id/radDelivery"
+                                android:id="@+id/radMomo"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:buttonTint="@color/primary" />
 
                             <RadioButton
-                                android:id="@+id/radPickUp"
+                                android:id="@+id/radZalo"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:buttonTint="@color/primary" />
@@ -127,8 +128,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-
             <!--    Thanh toán khi nhận hàng-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,44 +138,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:src="@drawable/ic_your_order"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8.5"
-                        android:gravity="center_vertical" android:text="@string/cod_payment_method"
-                        android:textColor="@color/primary"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="50dp"
-                    android:paddingTop="10dp"
-                    android:text="@string/cod_text" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
@@ -222,6 +183,42 @@
                     android:paddingTop="10dp"
                     android:text="@string/bank_BIDV" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:src="@drawable/ic_your_order"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8.5"
+                        android:gravity="center_vertical" android:text="@string/cod_payment_method"
+                        android:textColor="@color/primary"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="50dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/cod_text" />
             </LinearLayout>
             <!--Button-->
             <androidx.appcompat.widget.AppCompatButton
