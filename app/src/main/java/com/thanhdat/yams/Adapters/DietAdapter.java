@@ -54,11 +54,15 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
 //                onClickInterface.setClick(diets.get(position).getId());
-                Product item= diets.get(position);
+//                Product item= diets.get(position);
+//                Intent intent = new Intent(context, ProductDetailsActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("productItem",item);
+//                intent.putExtras(bundle);
+//                context.startActivity(intent);
+                int ID = diets.get(position).getId();
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("productItem",item);
-                intent.putExtras(bundle);
+                intent.putExtra("idProduct",ID);
                 context.startActivity(intent);
             }
         });

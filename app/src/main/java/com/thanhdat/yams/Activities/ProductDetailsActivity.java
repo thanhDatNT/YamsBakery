@@ -40,6 +40,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     int total = 0, flag = 0, totalSize = 0, quantity = 1, productID;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,25 +53,51 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        Bundle bundle= getIntent().getExtras();
-        Product product = (Product) bundle.get("productItem");
-        Picasso.get().load(product.getThumbnail()).into(imvProductDetailThumb);
-        txtProductDetailName.setText(product.getName());
-        txtProductPrice.setText(String.valueOf(product.getCurrentPrice()));
-        txtStartVote.setText(String.valueOf(product.getRating()));
-        txtVoteQuality.setText(String.valueOf(product.getChecked()));
-        txtProductDetailDescrip.setText(product.getDescription());
-        ArrayList<String> ListTopings = (ArrayList<String>) product.getTopping();
-        chkTopping1.setText(ListTopings.get(0));
-        chkTopping2.setText(ListTopings.get(1));
-        chkTopping3.setText(ListTopings.get(2));
+//        Bundle bundle= getIntent().getExtras();
+//        Product product = (Product) bundle.get("productItem");
+//        Picasso.get().load(product.getThumbnail()).into(imvProductDetailThumb);
+//        txtProductDetailName.setText(product.getName());
+//        txtProductPrice.setText(String.valueOf(product.getCurrentPrice()));
+//        txtStartVote.setText(String.valueOf(product.getRating()));
+//        txtVoteQuality.setText(String.valueOf(product.getChecked()));
+//        txtProductDetailDescrip.setText(product.getDescription());
+//        ArrayList<String> ListTopings = (ArrayList<String>) product.getTopping();
+//        chkTopping1.setText(ListTopings.get(0));
+//        chkTopping2.setText(ListTopings.get(1));
+//        chkTopping3.setText(ListTopings.get(2));
+
+            Intent intent = getIntent();
+            int productID = intent.getIntExtra("idProduct",1);
+            Product itemProduct = new Product();
+        for(int i = 0; i< MainActivity.productList.size(); i++)
+        {
+            if(productID == MainActivity.productList.get(i).getId())
+            {
+                itemProduct = MainActivity.productList.get(i);
+                Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
+                txtProductDetailName.setText(MainActivity.productList.get(i).getName());
+                txtProductPrice.setText(String.valueOf(MainActivity.productList.get(i).getCurrentPrice()));
+                txtStartVote.setText(String.valueOf(MainActivity.productList.get(i).getRating()));
+                txtVoteQuality.setText(String.valueOf(MainActivity.productList.get(i).getChecked()));
+                txtProductDetailDescrip.setText(MainActivity.productList.get(i).getDescription());
+             
+                ArrayList<String> ListTopings = (ArrayList<String>) MainActivity.productList.get(i).getTopping();
+                 chkTopping1.setText(ListTopings.get(0));
+                 chkTopping2.setText(ListTopings.get(1));
+                 chkTopping3.setText(ListTopings.get(2));
+            }
+
+
+        }
+
+
     }
 
     private void addEvent() {
 //        Test product id
-        Intent intent= getIntent();
-        productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
-        Toast.makeText(this, "Product id is "+ productID, Toast.LENGTH_LONG).show();
+//        Intent intent= getIntent();
+//        productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
+//        Toast.makeText(this, "Product id is "+ productID, Toast.LENGTH_LONG).show();
 
         txtSeeReview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,6 +288,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         imbSubtract = findViewById(R.id.imbSubtract);
 
         imvProductDetailThumb = findViewById(R.id.imvProductDetailThumb);
+
     }
 
 }

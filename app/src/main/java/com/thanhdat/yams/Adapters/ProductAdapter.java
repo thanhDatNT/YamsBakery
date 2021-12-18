@@ -70,11 +70,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             @Override
             public void onClick(View v) {
 //                onClickInterface.setClick(products.get(position).getId());
-                Product item = products.get(position);
+//                Product item = products.get(position);
+//                Intent intent = new Intent(context, ProductDetailsActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("productItem",item);
+//                intent.putExtras(bundle);
+//                context.startActivity(intent);
+                int ID = products.get(position).getId();
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("productItem",item);
-                intent.putExtras(bundle);
+                intent.putExtra("idProduct",ID);
                 context.startActivity(intent);
             }
         });
@@ -90,6 +94,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         TextView tvName, tvPrice, tvRating, tvTag, tvOldPrice;
         LinearLayout layoutProduct;
 
+        ImageView imgCategory;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb= itemView.findViewById(R.id.imvThumbHome);
@@ -101,6 +107,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             tvTag= itemView.findViewById(R.id.tvTagProductHome);
             tvOldPrice= itemView.findViewById(R.id.tvOldPrice);
             layoutProduct= itemView.findViewById(R.id.layoutProduct);
+
+
         }
     }
 }
