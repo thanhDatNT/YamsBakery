@@ -100,9 +100,6 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
                 if (p.getCategory().equals(number)) {
                     products.add(p);
                 }
-                if (products.size() > 10) {
-                    products.subList(10, products.size()).clear();
-                }
             }
 
             //set Title

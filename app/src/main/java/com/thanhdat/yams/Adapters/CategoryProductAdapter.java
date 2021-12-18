@@ -49,7 +49,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvQuantity.setText(String.valueOf(products.get(position).getAvailable()));
+        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
         if (products.get(position).isFavorite()){
             holder.imvLiked.setVisibility(View.VISIBLE);
             holder.imvNotLiked.setVisibility(View.GONE);

@@ -67,24 +67,31 @@ public class ProductDetailsActivity extends AppCompatActivity {
 //        chkTopping3.setText(ListTopings.get(2));
 
             Intent intent = getIntent();
-            int productID = intent.getIntExtra("idProduct",1);
+            int productID = intent.getExtras().getInt("idProduct");
             Product itemProduct = new Product();
-        for(int i = 0; i< MainActivity.productList.size(); i++)
+            Double price = null;
+        for(int i = 0; i < MainActivity.productList.size(); i++)
         {
             if(productID == MainActivity.productList.get(i).getId())
             {
                 itemProduct = MainActivity.productList.get(i);
                 Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
-                txtProductDetailName.setText(MainActivity.productList.get(i).getName());
-                txtProductPrice.setText(String.valueOf(MainActivity.productList.get(i).getCurrentPrice()));
-                txtStartVote.setText(String.valueOf(MainActivity.productList.get(i).getRating()));
-                txtVoteQuality.setText(String.valueOf(MainActivity.productList.get(i).getChecked()));
-                txtProductDetailDescrip.setText(MainActivity.productList.get(i).getDescription());
+                txtProductDetailName.setText(itemProduct.getName());
+
+                price = itemProduct.getCurrentPrice();
+                txtProductPrice.setText(String.valueOf(price));
+                txtMPrice.setText(String.valueOf(price));
+                txtLPrice.setText(String.valueOf(price*1.2));
+                txtXLPrice.setText(String.valueOf(price*1.5));
+
+                txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+                txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()));
+                txtProductDetailDescrip.setText(itemProduct.getDescription());
              
-                ArrayList<String> ListTopings = (ArrayList<String>) MainActivity.productList.get(i).getTopping();
-                 chkTopping1.setText(ListTopings.get(0));
-                 chkTopping2.setText(ListTopings.get(1));
-                 chkTopping3.setText(ListTopings.get(2));
+                List<String> listToppings = itemProduct.getTopping();
+                 chkTopping1.setText(listToppings.get(0));
+                 chkTopping2.setText(listToppings.get(1));
+                 chkTopping3.setText(listToppings.get(2));
             }
 
 
