@@ -114,6 +114,7 @@
         app:layout_anchorGravity="center|bottom">
 
         <ImageView
+            android:id="@+id/imvAvaProfile"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/img_logo_pink"/>

@@ -19,15 +19,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Databases.OrderDatabase;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
 
-public class OrderDetailActivity extends AppCompatActivity {
-    TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode;
-    ImageView imvOrderDetailThumb;
-//    RadioGroup radGroupCancel;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
+public class OrderDetailActivity extends AppCompatActivity {
+    TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode,txtTime1, txtTime2, txtDeliTime;
+    ImageView imvOrderDetailThumb;
+
+    int orderId;
+    OrderDatabase database;
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
@@ -37,26 +44,35 @@ public class OrderDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
 
+        database = new OrderDatabase(this);
+
         linkViews();
         addEventToolbar();
         createCancelOrderDialog();
         createCanCelSuccessDialog();
         addEvents();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Bundle bundle = getIntent().getExtras();
-        if(bundle == null){
-            return;
+        if(bundle != null){
+            PendingOrder pendingOrder = (PendingOrder) bundle.get("object_pending");
+            orderId = pendingOrder.getId();
+            txtOrderDetailName.setText(pendingOrder.getOrderName());
+            txtOrderDetailPrice.setText(String.format("%g", pendingOrder.getOrderPrice())+"đ");
+            txtOrderDetailCode.setText("#" + pendingOrder.getOrderCode());
+            Picasso.get().load(pendingOrder.getOrderThumb()).into(imvOrderDetailThumb);
         }
 
-        PendingOrder pendingOrder = (PendingOrder) bundle.get("object_pending");
-        txtOrderDetailName.setText(pendingOrder.getOrderName());
-        txtOrderDetailPrice.setText(String.format("%g", pendingOrder.getOrderPrice())+"đ");
-        txtOrderDetailCode.setText(pendingOrder.getOrderCode());
-        imvOrderDetailThumb.setImageResource(pendingOrder.getOrderThumb());
     }
 
     private void linkViews() {
-
+        txtTime1 = findViewById(R.id.txtTime1);
+        txtTime2 = findViewById(R.id.txtTime2);
+        txtDeliTime = findViewById(R.id.txtTime3);
         txtOrderDetailName = findViewById(R.id.txtOrderDetailName);
         txtOrderDetailPrice = findViewById(R.id.txtOrderDetailPrice);
         txtOrderDetailCode = findViewById(R.id.txtOrderDetailCode);
@@ -68,6 +84,13 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm a");
+        Date d = new Date();
+
+        txtTime2.setText(formatter.format(d));
+        txtTime1.setText(formatter.format(d));
+        txtDeliTime.setText(formatter.format(d));
+
         btnCancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,14 +107,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnCancelConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //open cancel success
-//                    RadioGroup radGroupCancel = view.findViewById(R.id.radGroupCancel);
-//                    int idGroup = radGroupCancel.getCheckedRadioButtonId();
-//                    if(idGroup == -1){
-//                        Toast.makeText(OrderDetailActivity.this, "Vui lòng chọn lý do hủy đơn", Toast.LENGTH_SHORT).show();
-//                    }else {
-                        sheetDialogCancelSuccess.show();
-//                    }
+//                    Delete Item in Database
+                    database.execSQL("DELETE FROM " + database.TABLE_NAME + " WHERE "+ database.COL_ID + " = "+ orderId);
+                    sheetDialogCancelOrder.dismiss();
+                    sheetDialogCancelSuccess.show();
                 }
             });
             sheetDialogCancelOrder = new BottomSheetDialog(this);
@@ -106,7 +125,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //go to previous order
+                    startActivity(new Intent(OrderDetailActivity.this, MainActivity.class));
 
                 }
             });
@@ -136,4 +155,5 @@ public class OrderDetailActivity extends AppCompatActivity {
         }
 
     }
+
 }

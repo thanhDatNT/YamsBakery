@@ -12,19 +12,22 @@
         android:id="@+id/imvGoHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_home_inactive"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/pad"
+        android:layout_marginStart="@dimen/pad"
+        android:layout_marginTop="@dimen/pad"
+        android:layout_marginEnd="@dimen/pad"
+        android:layout_marginBottom="@dimen/pad"
+        app:srcCompat="@drawable/ic_home_inactive"
         app:tint="@color/primary" />
 
     <ImageView
         android:id="@+id/imvDelivering"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_delivery"
         android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
         android:scaleType="centerCrop"
-        android:layout_marginTop="30dp"/>
+        android:src="@drawable/img_delivery" />
 
     <TextView
         android:layout_width="match_parent"

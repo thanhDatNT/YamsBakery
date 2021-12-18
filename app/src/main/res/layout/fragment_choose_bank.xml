@@ -71,9 +71,17 @@
         android:queryBackground="@null"
         android:queryHint="@string/search"
         android:iconifiedByDefault="false"
-        app:searchHintIcon="@drawable/ic_search"
         app:searchIcon="@drawable/ic_search"
         android:background="@drawable/bg_lightpink"/>
+<!--        <SearchView-->
+<!--            android:id="@+id/svSearchHome"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_margin="12dp"-->
+<!--            android:iconifiedByDefault="false"-->
+<!--            android:queryHint="@string/search"-->
+<!--            android:searchIcon="@drawable/ic_search"-->
+<!--            android:background="@drawable/bg_lightpink"/>-->
 
     <LinearLayout
         android:id="@+id/lnBIDV"
