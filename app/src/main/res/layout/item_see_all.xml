@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layoutSeeAll"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginVertical="@dimen/pad"
+        android:layout_marginEnd="4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_product"
+
+            android:gravity="center_vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5"
+                android:layout_gravity="center_vertical"
+                android:elevation="2dp">
+                <ImageView
+                    android:id="@+id/imvSeeAllThumb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_cake" />
+                <TextView
+                    android:id="@+id/tvTagProductHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New"
+                    android:background="@drawable/bg_tag_gradient"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6.5"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/txtSeeAllName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/macaroon"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/title"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtSeeAllDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:text="@string/Description"
+                    android:textColor="@color/inactive"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp">
+
+                    <ImageView
+                        android:id="@+id/imvTag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="3dp"
+                        app:srcCompat="@drawable/ic_tag" />
+
+                    <TextView
+                        android:id="@+id/txtSeeAllPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_toEndOf="@+id/imvTag"
+                        android:text="55000đ"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/textContent"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtSeeAllOldPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@+id/txtSeeAllPrice"
+                        android:text="60000"
+                        android:textColor="@color/inactive"
+                        android:textSize="14sp"
+                        android:visibility="invisible" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="20dp"
+                        android:elevation="2dp"
+                        android:translationZ="2dp"
+                        app:cardCornerRadius="12dp">
+
+                        <ImageView
+                            android:id="@+id/imvSeeAllAddFav"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_favorite_border" />
+
+                        <ImageView
+                            android:id="@+id/imvSeeAllAddedFav"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_favorite_active" />
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/txtSeeAllRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="4.5"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        android:drawableEnd="@drawable/ic_star"
+                        android:drawablePadding="4dp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

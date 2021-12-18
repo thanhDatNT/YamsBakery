@@ -34,7 +34,6 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
     String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
     ArrayList<Product> productList;
     RecyclerView rcvProductCategory;
-    ProductAdapter adapter;
     OnClickInterface onClickInterface;
 
     @Override
@@ -87,7 +86,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
 
     private void addEventProductList() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);
-        ;
+
         rcvProductCategory.setLayoutManager(layoutManager);
 
         productList = MainActivity.productList;

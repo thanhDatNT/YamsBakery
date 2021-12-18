@@ -245,10 +245,13 @@
         <entry key="..\:/HK5/MOBILE/Yams/Github/YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.28789986091794156" />
         <entry key="..\:/HK5/MOBILE/Yams/Github/YamsBakery/app/src/main/res/layout/see_review_item.xml" value="0.184375" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_category.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_feed_comment.xml" value="0.46886446886446886" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_language.xml" value="0.4466666666666667" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_notification.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_order_detail.xml" value="0.22" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_order_status.xml" value="0.4466666666666667" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_see_all.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_see_review.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/activity_write_review.xml" value="0.3333333333333333" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/bottom_sheet_cancel_order.xml" value="0.3333333333333333" />
@@ -256,11 +259,15 @@
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/bottom_sheet_choose_time.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/bottom_sheet_upload_image.xml" value="0.1" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_feed.xml" value="0.184375" />
-        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_home.xml" value="0.14666666666666667" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_new_product.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_previous_order.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.3791469194312796" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/item_favorite.xml" value="0.22" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/item_new_product.xml" value="0.4466666666666667" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/item_post.xml" value="0.4728789986091794" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/item_previous_order.xml" value="0.4466666666666667" />
+        <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/layout/item_see_all.xml" value="0.4466666666666667" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/menu/bottom_navigation.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/menu/bottom_sheet_cancel_heading.xml" value="0.184375" />
         <entry key="..\:/HK5/MOBILE/Yams/Github_YamsBakery/app/src/main/res/menu/feed_heading.xml" value="0.184375" />
