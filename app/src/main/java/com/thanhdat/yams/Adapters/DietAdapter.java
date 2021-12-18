@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,13 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         Picasso.get().load(diets.get(position).getThumbnail()).into(holder.imvThumb);
         holder.txtName.setText(diets.get(position).getName());
         holder.txtPrice.setText(String.format("%.0f",diets.get(position).getCurrentPrice())+"đ");
+        holder.txtOldPrice.setText(String.format("%.0f",diets.get(position).getPrice())+"đ");
+        if(diets.get(position).isPromo()){
+            SpannableString spannableString= new SpannableString(String.format("%.0f",diets.get(position).getPrice()));
+            spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
+            holder.txtOldPrice.setText(spannableString);
+            holder.txtOldPrice.setVisibility(View.VISIBLE);
+        }
         holder.txtContent.setText(diets.get(position).getDescription());
         holder.txtRate.setText(String.valueOf(diets.get(position).getRating()));
         holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked()));
@@ -77,17 +86,19 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        TextView txtName, txtPrice,txtContent,txtRate,txtQuantity;
+        TextView txtName, txtPrice, txtOldPrice,txtContent,txtRate,txtQuantity;
         CardView layoutProductDiet;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
             txtName = itemView.findViewById(R.id.txtName);
             txtPrice=itemView.findViewById(R.id.txtPrice);
+            txtOldPrice = itemView.findViewById(R.id.txtOldPrice);
             txtContent=itemView.findViewById(R.id.txtContent);
             txtRate = itemView.findViewById(R.id.txtRate);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
             layoutProductDiet =itemView.findViewById(R.id.layoutProductDiet);
+
 
         }
     }
