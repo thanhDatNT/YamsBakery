@@ -69,7 +69,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             Intent intent = getIntent();
             int productID = intent.getExtras().getInt("idProduct");
             Product itemProduct = new Product();
-            Double price = null;
+            int price = 0;
         for(int i = 0; i < MainActivity.productList.size(); i++)
         {
             if(productID == MainActivity.productList.get(i).getId())
@@ -78,11 +78,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
                 txtProductDetailName.setText(itemProduct.getName());
 
-                price = itemProduct.getCurrentPrice();
+                price = (int) itemProduct.getCurrentPrice();
                 txtProductPrice.setText(String.valueOf(price));
                 txtMPrice.setText(String.valueOf(price));
-                txtLPrice.setText(String.valueOf(price*1.2));
-                txtXLPrice.setText(String.valueOf(price*1.5));
+                txtLPrice.setText(String.valueOf(price + 5000));
+                txtXLPrice.setText(String.valueOf(price + 10000));
 
                 txtStartVote.setText(String.valueOf(itemProduct.getRating()));
                 txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()));

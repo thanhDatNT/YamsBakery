@@ -48,6 +48,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
+        holder.tvTag.setText(products.get(position).getTag());
         if (products.get(position).isFavorite()){
             holder.imvLiked.setVisibility(View.VISIBLE);
             holder.imvNotLiked.setVisibility(View.GONE);
@@ -87,7 +88,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb, imvLiked, imvNotLiked;
-        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
+        TextView tvName, tvPrice, tvOldPrice, tvRating, tvTag;
         LinearLayout layoutProduct;
 
         public ViewHolder(@NonNull View itemView) {
@@ -99,6 +100,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
             tvPrice= itemView.findViewById(R.id.txtSeeAllPrice);
             tvOldPrice= itemView.findViewById(R.id.txtSeeAllOldPrice);
             tvRating= itemView.findViewById(R.id.txtSeeAllRating);
+            tvTag = itemView.findViewById(R.id.txtTagProduct);
             layoutProduct= itemView.findViewById(R.id.layoutSeeAll);
         }
     }

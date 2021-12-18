@@ -41,7 +41,7 @@ public class SeeAllActivity extends AppCompatActivity {
     private void linkViews() {
         toolbarSeeAll = findViewById(R.id.toolbarSeeAll);
         txtSeeAllTitle = findViewById(R.id.txtTitle);
-        rcvSeeAllProducts =findViewById(R.id.rcvSeeAllProducts);
+        rcvSeeAllProducts = findViewById(R.id.rcvSeeAllProducts);
     }
 
     private void addEventBack() {
@@ -67,7 +67,7 @@ public class SeeAllActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             String text = intent.getExtras().getString("idAll");
-            if(text == "new"){
+            if(text.equals("new")){
                 for (Product p : productList){
                     if(p.getTag().equals("New")){
                         products.add(p);
@@ -75,10 +75,23 @@ public class SeeAllActivity extends AppCompatActivity {
                 }
                 //set Title
                 txtSeeAllTitle.setText("Sản phẩm mới");
+            } else if(text.equals("promo")){
+                for (Product p : productList){
+                    if(p.getTag().equals("Promo")){
+                        products.add(p);
+                    }
+                }
+                //set Title
+                txtSeeAllTitle.setText("Sản phẩm khuyến mãi");
+            } else {
+                for (Product p : productList){
+                    if(p.getTag().equals("Popular")){
+                        products.add(p);
+                    }
+                }
+                //set Title
+                txtSeeAllTitle.setText("Sản phẩm phổ biến");
             }
-
-
-
 
 //            String number = String.valueOf(intent.getExtras().getInt("id"));
 //            for (Product p : productList) {
@@ -89,7 +102,6 @@ public class SeeAllActivity extends AppCompatActivity {
 //                    products.subList(10, products.size()).clear();
 //                }
 //            }
-
 
         }
 
