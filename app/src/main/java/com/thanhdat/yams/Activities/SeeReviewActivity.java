@@ -68,17 +68,15 @@ public class SeeReviewActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         db = new ReviewDatabase(this);
-        //db.createSomeDefaultReviews();
-
         items = new ArrayList<SeeReviewItem>();
 
         linkViews();
         addEventBack();
-        addEventRating();
         //requestReviewsDataAPI();
         configRecyclerView();
         insertDB();
         loadData();
+        addEventRating();
     }
 
     private void linkViews() {
@@ -99,14 +97,6 @@ public class SeeReviewActivity extends AppCompatActivity {
                 startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
             }
         });
-    }
-
-    private void addEventRating() {
-        float rating = 0;
-        //to do?
-        
-        rtbRating.setRating(Float.parseFloat(txtAvgRating.getText().toString()));
-
     }
 
 //    private void requestReviewsDataAPI() {
@@ -191,6 +181,18 @@ public class SeeReviewActivity extends AppCompatActivity {
 
         adapter = new SeeReviewAdapter(this,items);
         rcvReviewItem.setAdapter(adapter);
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void addEventRating() {
+        double avgRating = 0;
+        Cursor cursor = db.getData("SELECT AVG(" + ReviewDatabase.COL_R_RATING + ") as Average FROM " + ReviewDatabase.TBL_NAME);
+        if (cursor.moveToFirst()){
+            avgRating = cursor.getDouble(cursor.getColumnIndex("Average"));
+        }
+        cursor.close();
+        txtAvgRating.setText((Math.ceil(avgRating * 10) / 10) + "");
+        rtbRating.setRating((float) (Math.ceil(avgRating * 10) / 10));
     }
 
 }
