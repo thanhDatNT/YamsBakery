@@ -130,7 +130,11 @@
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_profile.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_shipping_order.xml" value="0.16909722222222223" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/fragment_write_review.xml" value="0.264" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/item_favorite.xml" value="0.16944444444444445" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/item_new_product.xml" value="0.16944444444444445" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/item_payment.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/item_see_review.xml" value="0.1676975945017182" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/items_cart.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/items_diet_product.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/post_item.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/see_review_item.xml" value="0.176" />
@@ -138,6 +142,7 @@
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_category.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_new_product.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_notification.xml" value="0.16944444444444445" />
+        <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_product.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_search.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/layout/viewholder_slider_banner.xml" value="0.16944444444444445" />
         <entry key="..\:/DOCUMENTS/ProjectAndroid/YamsBakery/app/src/main/res/menu/bottom_sheet_cancel_heading.xml" value="0.16944444444444445" />

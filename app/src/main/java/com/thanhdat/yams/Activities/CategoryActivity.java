@@ -2,15 +2,24 @@ package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.thanhdat.yams.Adapters.CategoryProductAdapter;
+import com.thanhdat.yams.Adapters.ProductAdapter;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Favorite;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.FavoriteAdapter;
 
@@ -20,12 +29,13 @@ import java.util.List;
 public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Toolbar toolbarCategory;
+    TextView txtCategory;
     Spinner spinner;
     String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
-
-    ListView lvProductCategory;
-    ArrayList<Favorite> products;
-    FavoriteAdapter adapter;
+    ArrayList<Product> productList;
+    RecyclerView rcvProductCategory;
+    ProductAdapter adapter;
+    OnClickInterface onClickInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +44,14 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         linkViews();
         addEventBack();
         addEventSpinner();
-        addEventListView();
+        addEventProductList();
     }
 
     private void linkViews() {
         toolbarCategory = findViewById(R.id.toolbarCategory);
+        txtCategory = findViewById(R.id.txtCategory);
         spinner = findViewById(R.id.spinnerCategory);
-        lvProductCategory = findViewById(R.id.lvProductCategory);
+        rcvProductCategory = findViewById(R.id.rcvProductCategory);
     }
 
     private void addEventBack() {
@@ -50,7 +61,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         toolbarCategory.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                startActivity(new Intent(CategoryActivity.this, MainActivity.class));
             }
         });
     }
@@ -74,22 +85,45 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
-    private void addEventListView() {
+    private void addEventProductList() {
+        LinearLayoutManager layoutManager= new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);;
+        rcvProductCategory.setLayoutManager(layoutManager);
 
-        adapter = new FavoriteAdapter(CategoryActivity.this,R.layout.item_favorite,initData());
-        lvProductCategory.setAdapter(adapter);
+        productList= MainActivity.productList;
+        ArrayList<Product> products = new ArrayList<>();
+
+        Intent intent = getIntent();
+        if(intent!=null){
+            String number = String.valueOf(intent.getExtras().getInt("id"));
+            for (Product p : productList){
+                if(p.getCategory().equals(number)){
+                    products.add(p);
+                }
+                if (products.size() > 10) {
+                    products.subList(10, products.size()).clear();
+                }
+            }
+
+            //set Title
+            txtCategory.setText(intent.getExtras().getString("category"));
+        }
+
+        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, products, onClickInterface));
+
+//        adapter = new ProductAdapter(CategoryActivity.this, R.layout.item_favorite, initData(), onClickInterface);
+//        lvProductCategory.setAdapter(adapter);
 
     }
 
-    private List<Favorite> initData() {
-        products = new ArrayList<Favorite>();
-        products.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
-        products.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
-        products.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-        products.add(new Favorite(R.drawable.img_mango_cake, "Cup cake", 200000, 4.5, 10));
-        products.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
-
-        return products;
-    }
+//    private ArrayList<Product> initData() {
+////        products = new ArrayList<Favorite>();
+////        products.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
+////        products.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
+////        products.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
+////        products.add(new Favorite(R.drawable.img_mango_cake, "Cup cake", 200000, 4.5, 10));
+////        products.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
+//
+//        return products;
+//    }
 
 }

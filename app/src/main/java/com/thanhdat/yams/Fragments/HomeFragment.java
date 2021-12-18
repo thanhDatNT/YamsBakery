@@ -155,7 +155,10 @@ public class HomeFragment extends Fragment{
         gvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getContext(), CategoryActivity.class));
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                intent.putExtra("id", categories.get(position).getId());
+                intent.putExtra("category",categories.get(position).getName());
+                startActivity(intent);
             }
         });
     }
