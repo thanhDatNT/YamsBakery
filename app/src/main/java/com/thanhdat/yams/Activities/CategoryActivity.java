@@ -86,17 +86,18 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void addEventProductList() {
-        LinearLayoutManager layoutManager= new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);;
+        LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);
+        ;
         rcvProductCategory.setLayoutManager(layoutManager);
 
-        productList= MainActivity.productList;
+        productList = MainActivity.productList;
         ArrayList<Product> products = new ArrayList<>();
 
         Intent intent = getIntent();
-        if(intent!=null){
+        if (intent != null) {
             String number = String.valueOf(intent.getExtras().getInt("id"));
-            for (Product p : productList){
-                if(p.getCategory().equals(number)){
+            for (Product p : productList) {
+                if (p.getCategory().equals(number)) {
                     products.add(p);
                 }
                 if (products.size() > 10) {
@@ -109,21 +110,5 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         }
 
         rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, products, onClickInterface));
-
-//        adapter = new ProductAdapter(CategoryActivity.this, R.layout.item_favorite, initData(), onClickInterface);
-//        lvProductCategory.setAdapter(adapter);
-
     }
-
-//    private ArrayList<Product> initData() {
-////        products = new ArrayList<Favorite>();
-////        products.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
-////        products.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
-////        products.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-////        products.add(new Favorite(R.drawable.img_mango_cake, "Cup cake", 200000, 4.5, 10));
-////        products.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
-//
-//        return products;
-//    }
-
 }
