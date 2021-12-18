@@ -37,7 +37,9 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="10dp"
-                android:padding="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:orientation="horizontal"
@@ -74,19 +76,36 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/txtPrice"
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.4"
-                        android:text="@string/price"
-                        android:layout_margin="5dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/primary"/>
+                        android:layout_weight="0.5"
+                        >
+                        <TextView
+                            android:id="@+id/txtPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="@string/price"
+                            android:layout_margin="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/primary"/>
+                        <TextView
+                            android:id="@+id/txtOldPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="60000"
+                            android:textSize="14sp"
+                            android:visibility="invisible"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/inactive"/>
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.6"
+                        android:layout_weight="0.5"
                         android:orientation="horizontal"
                         android:layout_gravity="center_vertical">
                         <TextView
