@@ -9,6 +9,7 @@ import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,11 +31,12 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
     ArrayList<Product> products;
     OnClickInterface onClickInterface;
 
-    public CategoryProductAdapter(Context context, ArrayList<Product> products, OnClickInterface onClickInterface) {
+    public CategoryProductAdapter(Context context, int item_favorite, ArrayList<Product> products, OnClickInterface onClickInterface) {
         this.context = context;
         this.products = products;
         this.onClickInterface = onClickInterface;
     }
+
 
     @NonNull
     @Override
@@ -49,7 +51,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvQuantity.setText(String.valueOf(products.get(position).getAvailable()));
+        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
         if (products.get(position).isFavorite()){
             holder.imvLiked.setVisibility(View.VISIBLE);
             holder.imvNotLiked.setVisibility(View.GONE);
@@ -68,11 +70,15 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             @Override
             public void onClick(View v) {
 //                onClickInterface.setClick(products.get(position).getId());
-                Product item = products.get(position);
+//                Product item = products.get(position);
+//                Intent intent = new Intent(context, ProductDetailsActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("productItem",item);
+//                intent.putExtras(bundle);
+//                context.startActivity(intent);
+                int ID = products.get(position).getId();
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("productItem",item);
-                intent.putExtras(bundle);
+                intent.putExtra("idProduct",ID);
                 context.startActivity(intent);
             }
         });
@@ -87,6 +93,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         ImageView imvThumb, imvLiked, imvNotLiked;
         TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
         LinearLayout layoutProduct;
+        CheckBox chkLike;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +106,8 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             tvRating= itemView.findViewById(R.id.txtRating);
             tvQuantity= itemView.findViewById(R.id.txtQuantity);
             layoutProduct= itemView.findViewById(R.id.layoutFavourite);
+            chkLike = itemView.findViewById(R.id.chkLike);
+
         }
     }
 }

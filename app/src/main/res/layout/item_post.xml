@@ -99,7 +99,6 @@
             android:button="@null"
             android:checked="false"
             android:stateListAnimator="@animator/anim_like"
-
             />
 
         <ImageButton

@@ -86,8 +86,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
                  chkTopping2.setText(ListTopings.get(1));
                  chkTopping3.setText(ListTopings.get(2));
             }
-
-
         }
 
 

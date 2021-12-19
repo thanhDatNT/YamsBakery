@@ -10,21 +10,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
 import com.thanhdat.yams.Adapters.ProductAdapter;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
-import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapters.FavoriteAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -109,6 +104,6 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
             txtCategory.setText(intent.getExtras().getString("category"));
         }
 
-        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, products, onClickInterface));
+        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, products, onClickInterface));
     }
 }

@@ -1,48 +1,97 @@
 package com.thanhdat.yams.Fragments;
 
-import android.app.Activity;
+import static com.thanhdat.yams.Activities.MainActivity.productList;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.thanhdat.yams.Activities.MainActivity;
+import com.thanhdat.yams.Activities.WriteReviewActivity;
+import com.thanhdat.yams.Adapters.CategoryProductAdapter;
 
-import com.thanhdat.yams.Models.Favorite;
-import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.FavoriteAdapter;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
+import com.thanhdat.yams.Models.Product;
+import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
 
 public class FavoriteFragment extends Fragment {
 
-    ListView lvFavorite;
-    ArrayList<Favorite> favorites;
-    FavoriteAdapter adapter;
-
+    RecyclerView rcvFavorite;
+    CategoryProductAdapter adapter;
+    OnClickInterface onClickInterface;
+    CheckBox chkLike;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_favorite, container, false);
-
-        lvFavorite = view.findViewById(R.id.lvFavorite);
-        adapter = new FavoriteAdapter((Activity) getContext(),R.layout.item_favorite,initData());
-        lvFavorite.setAdapter(adapter);
+        rcvFavorite = view.findViewById(R.id.rcvFavorite);
+        chkLike = view.findViewById(R.id.chkLike);
+        addEvent();
+        addEventRemove();
         return view;
     }
 
+    private void addEvent() {
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);;
+        rcvFavorite.setLayoutManager(layoutManager);
 
-    private ArrayList<Favorite> initData(){
-        favorites = new ArrayList<Favorite>();
-        favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
-        favorites.add(new Favorite(R.drawable.img_cake, "Tarks trứng", 150000, 4.5, 25));
-        favorites.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-        favorites.add(new Favorite(R.drawable.img_bdcake, "Cup cake", 200000, 4.5, 10));
-        favorites.add(new Favorite(R.drawable.img_summer_pudding, "strawberry cake", 350000, 5,5));
-        favorites.add(new Favorite(R.drawable.img_bdcake, "Dumplings", 35000, 5, 15));
-        favorites.add(new Favorite(R.drawable.img_mango_cake, "Gato", 100000, 5, 15));
-        return favorites;
-
+        productList = MainActivity.productList;
+        ArrayList<Product> favoriteProducts = new ArrayList<>();
+        for (Product p : productList){
+            if(p.isFavorite()){
+                favoriteProducts.add(p);
+            }
+        }
+        rcvFavorite.setAdapter(new FavoriteAdapter(getContext(),R.layout.item_favorite, favoriteProducts, onClickInterface));
     }
+
+    private void addEventRemove() {
+//        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//                builder.setIcon(R.drawable.ic_warning);
+//                builder.setTitle("Xác nhận");
+//                builder.setMessage("Bạn chắc chắn muốn xóa khỏi danh sách yêu thích?");
+//
+//                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        //delete item
+//
+//                    }
+//                });
+//                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        //cancel delete
+//                        dialogInterface.dismiss();
+//                    }
+//                });
+//                AlertDialog dialog = builder.create();
+//                dialog.show();
+//            }
+//        });
+    }
+
+
+
 }
