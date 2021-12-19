@@ -117,7 +117,7 @@
             android:id="@+id/imvAvaProfile"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/img_logo_pink"/>
+            android:src="@drawable/img_logo_launcher"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
