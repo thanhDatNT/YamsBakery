@@ -57,6 +57,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private void loadData() {
 //        Bundle bundle= getIntent().getExtras();
 //        Product product = (Product) bundle.get("productItem");
@@ -110,6 +111,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                  chkTopping1.setText(listToppings.get(0));
                  chkTopping2.setText(listToppings.get(1));
                  chkTopping3.setText(listToppings.get(2));
+                btnPayment.setText("Mua hàng " + price);
 
             }
 
@@ -186,7 +188,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void totalMoney() {
         //Size total money
-        btnPayment.setText("Mua hàng " + txtMPrice.getText().toString());
+
         radGroupSize.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -272,12 +274,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
         public void onClick(View view) {
             if(view.getId() == R.id.imbAdd){
                 quantity += 1;
-                //total*=2;
+                if(quantity>1){
+                    btnPayment.setText("Mua hàng " +"\n" +quantity*total);
+                }
             }
             if(view.getId() == R.id.imbSubtract){
                 if(quantity > 1){
                     quantity -= 1;
-                    //total/=2;
+                    btnPayment.setText("Mua hàng " +"\n" +quantity*total);
                 }else {
                     Toast.makeText(ProductDetailsActivity.this, "Số lượng sản phẩm phải lớn hơn 0!", Toast.LENGTH_SHORT).show();
                 }
