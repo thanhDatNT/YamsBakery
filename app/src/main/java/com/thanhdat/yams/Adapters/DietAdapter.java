@@ -3,7 +3,6 @@ package com.thanhdat.yams.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
@@ -19,11 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
-import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
@@ -58,7 +55,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         }
         holder.txtContent.setText(diets.get(position).getDescription());
         holder.txtRate.setText(String.valueOf(diets.get(position).getRating()));
-        holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked()));
+        holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked())+"+");
         holder.layoutProductDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

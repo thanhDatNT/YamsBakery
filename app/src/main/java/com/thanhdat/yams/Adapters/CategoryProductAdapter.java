@@ -9,6 +9,7 @@ import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,11 +31,12 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
     ArrayList<Product> products;
     OnClickInterface onClickInterface;
 
-    public CategoryProductAdapter(Context context, ArrayList<Product> products, OnClickInterface onClickInterface) {
+    public CategoryProductAdapter(Context context, int item_favorite, ArrayList<Product> products, OnClickInterface onClickInterface) {
         this.context = context;
         this.products = products;
         this.onClickInterface = onClickInterface;
     }
+
 
     @NonNull
     @Override
@@ -91,6 +93,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         ImageView imvThumb, imvLiked, imvNotLiked;
         TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
         LinearLayout layoutProduct;
+        CheckBox chkLike;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,6 +106,8 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             tvRating= itemView.findViewById(R.id.txtRating);
             tvQuantity= itemView.findViewById(R.id.txtQuantity);
             layoutProduct= itemView.findViewById(R.id.layoutFavourite);
+            chkLike = itemView.findViewById(R.id.chkLike);
+
         }
     }
 }

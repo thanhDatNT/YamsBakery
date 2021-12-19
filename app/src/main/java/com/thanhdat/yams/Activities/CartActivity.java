@@ -89,7 +89,13 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
             String topping= bundle.getString(Constant.TOPPING_PRODUCT, "");
             String size= bundle.getString(Constant.SIZE_PRODUCT, "M");
             itemPrice= bundle.getDouble(Constant.PRICE_PRODUCT, 10);
-            Product product= products.get(productID);
+            Product product = new Product();
+            for(Product p: products){
+                if(p.getId() == productID) {
+                    product = p;
+                    break;
+                }
+            }
             String thumb= product.getThumbnail();
             String name= product.getName();
             int stock= product.getAvailable();

@@ -27,7 +27,6 @@ import android.widget.TextView;
 
 import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
-import com.thanhdat.yams.Models.Diet;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.DietAdapter;
