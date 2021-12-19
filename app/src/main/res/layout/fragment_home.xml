@@ -52,7 +52,6 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:layout_collapseMode="pin"
-            android:paddingTop="20dp"
             android:background="@color/white"
             app:menu="@menu/homepage_heading"
             style="@style/ThemeOverlay.AppCompat.Light"
