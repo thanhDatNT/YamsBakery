@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Constants.Constant;
+import com.thanhdat.yams.Databases.CartDatabase;
 import com.thanhdat.yams.Databases.OrderDatabase;
 import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
 import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
@@ -71,12 +72,13 @@ public class OrderActivity extends AppCompatActivity {
     DatePickerDialog dpd;
     TimePickerDialog tpd;
 
-    boolean isDelivery = true;
+    boolean isDelivery = true, isFromCart = false;
     double subTotal = 0, deliFee = 25000, discount = 0, total = 0, deliDiscount = 0, orderDiscount = 0;
     String paymentMethod = "Thanh toán khi nhận hàng";
     String date = "", time = "";
     public static String orderCode = "";
-    public static OrderDatabase orderDatabase;
+    OrderDatabase orderDatabase;
+    CartDatabase cartDatabase;
     ActivityResultLauncher<Intent> resultLauncher;
     String CHANNEL_ID = "123";
 
@@ -86,6 +88,7 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         orderDatabase = new OrderDatabase(this);
+        cartDatabase = new CartDatabase(this);
 
         linkViews();
         getDataFromIntent();
@@ -119,6 +122,7 @@ public class OrderActivity extends AppCompatActivity {
         }
         else {
             orderProducts = CartActivity.purchasingItems;
+            isFromCart = true;
         }
         for (int i= 0; i< orderProducts.size(); i++){
             subTotal += orderProducts.get(i).getPrice();
@@ -367,6 +371,13 @@ public class OrderActivity extends AppCompatActivity {
         boolean isSaved = orderDatabase.insertData(orderCode, firstItem.getProductName(), firstItem.getQuantity(), firstItem.getThumb(),
                 firstItem.getProductSize(), isDeli, total);
         if (isSaved){
+//            Delete Cart database
+            if(isFromCart){
+                for (int i = 0; i< orderProducts.size(); i++){
+                    cartDatabase.execSQL("DELETE FROM " + cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_ID + " = '"+
+                            orderProducts.get(i).getId() + "'");
+                }
+            }
 //            Notify user the status of order
             notifyStatus();
             // Go to Successful order page

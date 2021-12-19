@@ -3,7 +3,7 @@ package com.thanhdat.yams.Models;
 import java.io.Serializable;
 import java.util.List;
 
-public class Product implements Serializable {
+public class Product {
     private int id;
     private String name, description, tag, thumbnail, buy, category, diet;
     private int checked, available;

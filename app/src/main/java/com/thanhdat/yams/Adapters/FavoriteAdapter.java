@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
@@ -47,7 +48,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
@@ -63,16 +64,15 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         }
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
-            spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
+            spannableString.setSpan(new StrikethroughSpan(),0, 6, 0);
             holder.tvOldPrice.setText(spannableString);
             holder.tvOldPrice.setVisibility(View.VISIBLE);
         }
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int ID = products.get(position).getId();
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
-                intent.putExtra("idProduct",ID);
+                intent.putExtra(Constant.ID_PRODUCT, products.get(position).getId());
                 context.startActivity(intent);
             }
         });

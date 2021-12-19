@@ -50,9 +50,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         linkViews();
+        loadData();
         totalMoney();
         addEvent();
-        loadData();
         addEventFavourite();
     }
 
@@ -73,47 +73,35 @@ public class ProductDetailsActivity extends AppCompatActivity {
 //        chkTopping3.setText(ListTopings.get(2));
 
         Intent intent = getIntent();
-        productID = intent.getIntExtra("idProduct", 1);
-        int price = 0;
-        ArrayList<Product> productArrayList = MainActivity.productList;
-        int productID = intent.getExtras().getInt("idProduct");
-        Product itemProduct = new Product();
-        for (int i = 0; i < MainActivity.productList.size(); i++) {
-            if (productID == productArrayList.get(i).getId()) {
-                itemProduct = MainActivity.productList.get(i);
-                Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
-                txtProductDetailName.setText(MainActivity.productList.get(i).getName());
-                txtProductPrice.setText(String.valueOf(MainActivity.productList.get(i).getCurrentPrice()));
-                txtStartVote.setText(String.valueOf(MainActivity.productList.get(i).getRating()));
-                txtVoteQuality.setText(String.valueOf(MainActivity.productList.get(i).getChecked()));
-                txtProductDetailDescrip.setText(MainActivity.productList.get(i).getDescription());
-
-                ArrayList<String> ListTopings = (ArrayList<String>) MainActivity.productList.get(i).getTopping();
-                chkTopping1.setText(ListTopings.get(0));
-                chkTopping2.setText(ListTopings.get(1));
-                chkTopping3.setText(ListTopings.get(2));
-                break;
-            }
-        }
+        productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
+        productList = MainActivity.productList;
+        // int productID = intent.getExtras().getInt("idProduct");
+        Product itemProduct = productList.get(productID - 1);
+        Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
         txtProductDetailName.setText(itemProduct.getName());
+        txtProductPrice.setText(String.valueOf(itemProduct.getCurrentPrice()));
+        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()));
+        txtProductDetailDescrip.setText(itemProduct.getDescription());
+
+        ArrayList<String> ListTopings = (ArrayList<String>) itemProduct.getTopping();
+        chkTopping1.setText(ListTopings.get(0));
+        chkTopping2.setText(ListTopings.get(1));
+        chkTopping3.setText(ListTopings.get(2));
 //                txtOldPrice.setText(String.valueOf(itemProduct.getPrice()));
         if (itemProduct.getTag().equals("Promo")) {
 
             SpannableString spannableString = new SpannableString(String.format("%.0f", itemProduct.getPrice()) + "đ");
-            spannableString.setSpan(new StrikethroughSpan(), 0, 5, 0);
+            spannableString.setSpan(new StrikethroughSpan(), 0, 6, 0);
             txtOldPrice.setText(spannableString);
             txtOldPrice.setVisibility(View.VISIBLE);
         }
 
-        price = (int) itemProduct.getCurrentPrice();
-        txtProductPrice.setText(String.valueOf(price));
+        int price = (int) itemProduct.getCurrentPrice();
         txtMPrice.setText(String.valueOf(price));
-
         txtLPrice.setText(String.valueOf(price + 5000));
         txtXLPrice.setText(String.valueOf(price + 10000));
 
-        txtLPrice.setText(String.valueOf(price + 5000));
-        txtXLPrice.setText(String.valueOf(price + 10000));
 
 
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
@@ -133,7 +121,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
 
+
+        btnPayment.setText("Mua hàng " + price);
+
     }
+
     private void addEventFavourite() {
         chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
