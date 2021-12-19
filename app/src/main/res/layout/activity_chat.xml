@@ -5,28 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.ChatActivity">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarChat"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:elevation="3dp"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetStartWithNavigation="0dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
         android:translationZ="2dp"
         app:navigationIcon="@drawable/ic_arrow_back"
         android:background="@drawable/bg_heading_gradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chat with Yams"
+            android:textColor="@color/white"
             android:textSize="@dimen/textHeader"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -37,7 +39,8 @@
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/rcvChat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+        app:layout_constraintStart_toStartOf="parent">
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvChat"
@@ -45,7 +48,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/pad"/>
 
     <LinearLayout
         android:id="@+id/linearLayout12"
@@ -73,11 +77,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:layout_marginHorizontal="6dp"
-            android:padding="8dp"
+            android:padding="10dp"
             android:ems="10"
             android:background="@drawable/bg_lightpink"
             android:inputType="text"
-            android:hint="Nhập tin nhắn" />
+            android:hint="Nhập tin nhắn"
+            android:textSize="@dimen/textContent"
+            android:textColorHint="@color/inactive"
+            android:textColor="@color/textColor"/>
 
         <ImageView
             android:id="@+id/imvSend"

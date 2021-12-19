@@ -170,7 +170,7 @@ public class ChatActivity extends AppCompatActivity {
                 layoutContainer.addView(view);
                 //                Delay 3 seconds, then, the system send a message to user
                 messageList.remove(0);
-                messageList.add(new ChatView(null, "Bạn chờ Yams một chút nha \nChúng tôi sẽ liên hệ lại sớm nhất"));
+                messageList.add(new ChatView(null, "Chào bạn, bạn vui lòng chờ Yams một chút nhé! \nYams sẽ liên hệ lại sớm nhất có thể!"));
                 adapter.notifyDataSetChanged();
                 adapter.setSender(1);
             }

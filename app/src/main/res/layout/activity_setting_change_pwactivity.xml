@@ -39,18 +39,17 @@
             app:hintEnabled="true"
             app:boxBackgroundMode="none"
             app:startIconDrawable="@drawable/ic_lock"
-            app:startIconTint="@color/primary"
-            >
+            app:startIconTint="@color/primary">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtOldPW"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:hint="@string/oldPW"
                 android:background="@drawable/botron"
                 android:textColor="@color/primary"
                 android:inputType="textPassword"
                 android:textSize="18sp"
-                />
+                android:paddingVertical="0dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameWrapper"
@@ -66,13 +65,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtNewPW"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:hint="@string/newPW"
                 android:background="@drawable/botron"
                 android:textColor="@color/primary"
                 android:textSize="18sp"
                 android:inputType="textPassword"
-                />
+                android:paddingVertical="0dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -87,13 +86,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtRetypePW"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:hint="@string/retypePW"
                 android:background="@drawable/botron"
                 android:textColor="@color/primary"
                 android:textSize="18sp"
                 android:inputType="textPassword"
-                />
+                android:paddingVertical="0dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -177,6 +177,7 @@ public class ProfileFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
                             startActivity(new Intent(getContext(), LoginActivity.class));
+                            dialog.dismiss();
                         }
                     });
 
@@ -187,6 +188,8 @@ public class ProfileFragment extends Fragment {
                             dialog.dismiss();
                         }
                     });
+
+                    dialog.setCanceledOnTouchOutside(false);
                     dialog.show();
                     break;
             }
