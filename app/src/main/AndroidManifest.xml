@@ -27,7 +27,7 @@
         <activity android:name=".Activities.ChatActivity" />
         <activity
             android:name=".Activities.WriteReviewActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.OrderDetailActivity"
             android:exported="true" />
@@ -80,7 +80,8 @@
             android:exported="true" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.IntroActivity" /> <!-- <activity android:name=".Activities.VoucherActivity" /> -->
+        <activity android:name=".Activities.IntroActivity" />
+        <activity android:name=".Activities.VoucherActivity" />
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true"

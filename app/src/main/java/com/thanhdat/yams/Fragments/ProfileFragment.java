@@ -94,8 +94,8 @@ public class ProfileFragment extends Fragment {
 
     private void addEventSliderBanner() {
         ArrayList<Banner> banners= new ArrayList<>();
-        banners.add(new Banner(R.drawable.img_banner_profile_1));
-        banners.add(new Banner(R.drawable.img_banner_1));
+        banners.add(new Banner(R.drawable.img_banner_4));
+        banners.add(new Banner(R.drawable.img_banner_2));
         banners.add(new Banner(R.drawable.img_banner_3));
         sliderBannerProfile.setSliderAdapter(new SliderBannerAdapter(banners, getContext()));
 //      Config Slider Banner profile
@@ -177,6 +177,7 @@ public class ProfileFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
                             startActivity(new Intent(getContext(), LoginActivity.class));
+                            dialog.dismiss();
                         }
                     });
 
@@ -187,6 +188,8 @@ public class ProfileFragment extends Fragment {
                             dialog.dismiss();
                         }
                     });
+
+                    dialog.setCanceledOnTouchOutside(false);
                     dialog.show();
                     break;
             }

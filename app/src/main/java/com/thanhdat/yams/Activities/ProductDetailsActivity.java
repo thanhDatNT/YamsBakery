@@ -72,40 +72,54 @@ public class ProductDetailsActivity extends AppCompatActivity {
 //        chkTopping2.setText(ListTopings.get(1));
 //        chkTopping3.setText(ListTopings.get(2));
 
-            Intent intent = getIntent();
-            int productID = intent.getExtras().getInt("idProduct");
-            Product itemProduct = new Product();
-            int price = 0;
-        for(int i = 0; i < MainActivity.productList.size(); i++)
-        {
-            if(productID == MainActivity.productList.get(i).getId())
-            {
+        Intent intent = getIntent();
+        productID = intent.getIntExtra("idProduct", 1);
+        int price = 0;
+        ArrayList<Product> productArrayList = MainActivity.productList;
+        int productID = intent.getExtras().getInt("idProduct");
+        Product itemProduct = new Product();
+        for (int i = 0; i < MainActivity.productList.size(); i++) {
+            if (productID == productArrayList.get(i).getId()) {
                 itemProduct = MainActivity.productList.get(i);
                 Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
-                txtProductDetailName.setText(itemProduct.getName());
+                txtProductDetailName.setText(MainActivity.productList.get(i).getName());
+                txtProductPrice.setText(String.valueOf(MainActivity.productList.get(i).getCurrentPrice()));
+                txtStartVote.setText(String.valueOf(MainActivity.productList.get(i).getRating()));
+                txtVoteQuality.setText(String.valueOf(MainActivity.productList.get(i).getChecked()));
+                txtProductDetailDescrip.setText(MainActivity.productList.get(i).getDescription());
+
+                ArrayList<String> ListTopings = (ArrayList<String>) MainActivity.productList.get(i).getTopping();
+                chkTopping1.setText(ListTopings.get(0));
+                chkTopping2.setText(ListTopings.get(1));
+                chkTopping3.setText(ListTopings.get(2));
+                break;
+            }
+        }
+        txtProductDetailName.setText(itemProduct.getName());
 //                txtOldPrice.setText(String.valueOf(itemProduct.getPrice()));
-                    if(itemProduct.getTag().equals("Promo")){
+        if (itemProduct.getTag().equals("Promo")) {
 
-                        SpannableString spannableString= new SpannableString(String.format("%.0f",itemProduct.getPrice()) +"đ");
-                        spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
-                        txtOldPrice.setText(spannableString);
-                        txtOldPrice.setVisibility(View.VISIBLE);
-                    }
+            SpannableString spannableString = new SpannableString(String.format("%.0f", itemProduct.getPrice()) + "đ");
+            spannableString.setSpan(new StrikethroughSpan(), 0, 5, 0);
+            txtOldPrice.setText(spannableString);
+            txtOldPrice.setVisibility(View.VISIBLE);
+        }
 
-                price = (int) itemProduct.getCurrentPrice();
-                txtProductPrice.setText(String.valueOf(price));
-                txtMPrice.setText(String.valueOf(price));
+        price = (int) itemProduct.getCurrentPrice();
+        txtProductPrice.setText(String.valueOf(price));
+        txtMPrice.setText(String.valueOf(price));
 
-                txtLPrice.setText(String.valueOf(price+5000));
-                txtXLPrice.setText(String.valueOf(price+10000));
+        txtLPrice.setText(String.valueOf(price + 5000));
+        txtXLPrice.setText(String.valueOf(price + 10000));
 
-                txtLPrice.setText(String.valueOf(price + 5000));
-                txtXLPrice.setText(String.valueOf(price + 10000));
+        txtLPrice.setText(String.valueOf(price + 5000));
+        txtXLPrice.setText(String.valueOf(price + 10000));
 
 
-                txtStartVote.setText(String.valueOf(itemProduct.getRating()));
-                txtVoteQuality.setText(String.valueOf(itemProduct.getChecked())+"+");
-                txtProductDetailDescrip.setText(itemProduct.getDescription());
+        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
+        txtProductDetailDescrip.setText(itemProduct.getDescription());
+
 
                 List<String> listToppings = itemProduct.getTopping();
                  chkTopping1.setText(listToppings.get(0));
@@ -113,10 +127,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
                  chkTopping3.setText(listToppings.get(2));
                 btnPayment.setText("Mua hàng " + price);
 
-            }
+        List<String> listToppings = itemProduct.getTopping();
+        chkTopping1.setText(listToppings.get(0));
+        chkTopping2.setText(listToppings.get(1));
+        chkTopping3.setText(listToppings.get(2));
 
 
-        }
+
+
 
 
     }

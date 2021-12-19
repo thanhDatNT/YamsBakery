@@ -117,7 +117,7 @@
             android:id="@+id/imvAvaProfile"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/img_logo_pink"/>
+            android:src="@drawable/img_logo_launcher"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
@@ -185,9 +185,9 @@
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="4dp"
-                        android:elevation="2dp">
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/white"
+                        android:elevation="1dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -221,8 +221,9 @@
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:paddingVertical="4dp"
-                        android:elevation="2dp">
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/white"
+                        android:elevation="1dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -256,8 +257,9 @@
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:paddingVertical="4dp"
-                        android:elevation="2dp">
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/white"
+                        android:elevation="1dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -291,8 +293,9 @@
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:paddingVertical="4dp"
-                        android:elevation="2dp">
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/white"
+                        android:elevation="1dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -326,8 +329,9 @@
                         android:orientation="horizontal"
                         android:gravity="center"
                         android:paddingLeft="10dp"
-                        android:paddingVertical="4dp"
-                        android:elevation="2dp">
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/white"
+                        android:elevation="1dp">
 
                         <ImageView
                             android:layout_width="wrap_content"

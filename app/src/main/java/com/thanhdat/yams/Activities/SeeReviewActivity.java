@@ -55,7 +55,7 @@ public class SeeReviewActivity extends AppCompatActivity {
     Toolbar toolbarSeeReview;
     RatingBar rtbRating;
     TextView txtAvgRating;
-    public static final String TAG= MainActivity.class.getSimpleName();
+//    public static final String TAG= MainActivity.class.getSimpleName();
     ArrayList<SeeReviewItem> items;
     SeeReviewAdapter adapter;
     public static ReviewDatabase db;
@@ -65,7 +65,7 @@ public class SeeReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_review);
 
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+//        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         db = new ReviewDatabase(this);
         items = new ArrayList<SeeReviewItem>();
@@ -157,7 +157,7 @@ public class SeeReviewActivity extends AppCompatActivity {
     private void insertDB() {
         if(db.getCount() == 0){
             db.insertData(4.5, convertByteArray(R.drawable.img_logo_launcher), "Minh Xuân", "Bánh ngon lắm, mọi người nên mua ăn thử nha!", convertByteArray(R.drawable.img_mango_cake), "Size M");
-            db.insertData(5, convertByteArray(R.drawable.img_sacombank), "Mai Trang", "Bánh khá là ngon, thơm nữa, 5 sao nha", convertByteArray(R.drawable.img_mango_cake), "Size L");
+            db.insertData(5, convertByteArray(R.drawable.img_ocb), "Mai Trang", "Bánh khá là ngon, thơm nữa, 5 sao nha", convertByteArray(R.drawable.img_matcha_maracon), "Size L");
             db.insertData(5, convertByteArray(R.drawable.img_vietcombank), "Uyển Nhi", "Ngon bổ rẻ nha cả nhà iu của kem!", convertByteArray(R.drawable.img_bdcake), "Size XL");
             db.insertData(4, convertByteArray(R.drawable.img_viettinbank), "Thành Đạt", "Tuyệt vời!", convertByteArray(R.drawable.img_cake), "Size L");
         }
