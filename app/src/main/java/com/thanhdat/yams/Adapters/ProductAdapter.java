@@ -46,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
@@ -69,17 +69,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onClickInterface.setClick(products.get(position).getId());
-//                Product item = products.get(position);
-//                Intent intent = new Intent(context, ProductDetailsActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("productItem",item);
-//                intent.putExtras(bundle);
-//                context.startActivity(intent);
-                int ID = products.get(position).getId();
-                Intent intent = new Intent(context, ProductDetailsActivity.class);
-                intent.putExtra("idProduct",ID);
-                context.startActivity(intent);
+                onClickInterface.setClick(products.get(position).getId());
             }
         });
     }
@@ -93,8 +83,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         ImageView imvThumb, imvLiked, imvNotLiked;
         TextView tvName, tvPrice, tvRating, tvTag, tvOldPrice;
         LinearLayout layoutProduct;
-
-        ImageView imgCategory;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
