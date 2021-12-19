@@ -94,8 +94,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 price = (int) itemProduct.getCurrentPrice();
                 txtProductPrice.setText(String.valueOf(price));
                 txtMPrice.setText(String.valueOf(price));
+
                 txtLPrice.setText(String.valueOf(price+5000));
                 txtXLPrice.setText(String.valueOf(price+10000));
+
+                txtLPrice.setText(String.valueOf(price + 5000));
+                txtXLPrice.setText(String.valueOf(price + 10000));
+
 
                 txtStartVote.setText(String.valueOf(itemProduct.getRating()));
                 txtVoteQuality.setText(String.valueOf(itemProduct.getChecked())+"+");

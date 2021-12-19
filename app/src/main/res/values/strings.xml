@@ -138,7 +138,6 @@
     <string name="post">ĐĂNG</string>
 
 
-
     <!--See review-->
     <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
@@ -180,14 +179,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--    Payment method-->
+    <!--    Payment method-->
     <string name="momo">MoMo</string>
     <string name="zalopay">ZaloPay</string>
     <string name="internet_banking"><u>Internet Banking</u></string>
     <string name="vi_dien_tu"><u>Ví điện tử</u></string>
     <string name="choose_bank">Chọn ngân hàng</string>
     <string name="bank_BIDV">BIDV - Ngân hàng đầu tư và phát triển</string>
-<!--    payment success-->
+    <!--    payment success-->
 
     <string name="order_success">Đơn hàng thành công</string>
     <string name="see_order_status">Xem trạng thái đơn hàng</string>

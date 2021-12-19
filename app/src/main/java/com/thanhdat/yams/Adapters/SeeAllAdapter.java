@@ -3,7 +3,6 @@ package com.thanhdat.yams.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
@@ -24,13 +23,13 @@ import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
 
-public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProductAdapter.ViewHolder>{
+public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder>{
 
     Context context;
     ArrayList<Product> products;
     OnClickInterface onClickInterface;
 
-    public CategoryProductAdapter(Context context, ArrayList<Product> products, OnClickInterface onClickInterface) {
+    public SeeAllAdapter(Context context, ArrayList<Product> products, OnClickInterface onClickInterface) {
         this.context = context;
         this.products = products;
         this.onClickInterface = onClickInterface;
@@ -39,7 +38,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_favorite, parent, false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_see_all, parent, false);
         return new ViewHolder(view);
     }
 
@@ -49,7 +48,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
+        holder.tvTag.setText(products.get(position).getTag());
         if (products.get(position).isFavorite()){
             holder.imvLiked.setVisibility(View.VISIBLE);
             holder.imvNotLiked.setVisibility(View.GONE);
@@ -89,20 +88,20 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb, imvLiked, imvNotLiked;
-        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
+        TextView tvName, tvPrice, tvOldPrice, tvRating, tvTag;
         LinearLayout layoutProduct;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imvThumb= itemView.findViewById(R.id.imvThumb);
-            imvLiked= itemView.findViewById(R.id.imvAddedFavorite);
-            imvNotLiked= itemView.findViewById(R.id.imvAddFavorite);
-            tvName= itemView.findViewById(R.id.txtName);
-            tvPrice= itemView.findViewById(R.id.txtPrice);
-            tvOldPrice= itemView.findViewById(R.id.txtOldPrice);
-            tvRating= itemView.findViewById(R.id.txtRating);
-            tvQuantity= itemView.findViewById(R.id.txtQuantity);
-            layoutProduct= itemView.findViewById(R.id.layoutFavourite);
+            imvThumb= itemView.findViewById(R.id.imvSeeAllThumb);
+            imvLiked= itemView.findViewById(R.id.imvSeeAllAddedFav);
+            imvNotLiked= itemView.findViewById(R.id.imvSeeAllAddFav);
+            tvName= itemView.findViewById(R.id.txtSeeAllName);
+            tvPrice= itemView.findViewById(R.id.txtSeeAllPrice);
+            tvOldPrice= itemView.findViewById(R.id.txtSeeAllOldPrice);
+            tvRating= itemView.findViewById(R.id.txtSeeAllRating);
+            tvTag = itemView.findViewById(R.id.txtTagProduct);
+            layoutProduct= itemView.findViewById(R.id.layoutSeeAll);
         }
     }
 }
