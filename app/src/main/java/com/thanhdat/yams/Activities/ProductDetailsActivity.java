@@ -67,11 +67,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
 //        chkTopping3.setText(ListTopings.get(2));
 
             Intent intent = getIntent();
-            int productID = intent.getIntExtra("idProduct",1);
-            Product itemProduct = new Product();
-        for(int i = 0; i< MainActivity.productList.size(); i++)
+            productID = intent.getIntExtra("idProduct",1);
+            Product itemProduct;
+            ArrayList<Product> productArrayList = MainActivity.productList;
+        for(int i = 0; i< productArrayList.size(); i++)
         {
-            if(productID == MainActivity.productList.get(i).getId())
+            if(productID == productArrayList.get(i).getId())
             {
                 itemProduct = MainActivity.productList.get(i);
                 Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
@@ -85,6 +86,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                  chkTopping1.setText(ListTopings.get(0));
                  chkTopping2.setText(ListTopings.get(1));
                  chkTopping3.setText(ListTopings.get(2));
+                 break;
             }
 
 
