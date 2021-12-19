@@ -127,10 +127,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
                  chkTopping3.setText(listToppings.get(2));
                 btnPayment.setText("Mua hàng " + price);
 
-        List<String> listToppings = itemProduct.getTopping();
-        chkTopping1.setText(listToppings.get(0));
-        chkTopping2.setText(listToppings.get(1));
-        chkTopping3.setText(listToppings.get(2));
 
 
 
