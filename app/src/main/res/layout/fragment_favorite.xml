@@ -37,11 +37,12 @@
         android:iconifiedByDefault="false"
         app:searchIcon="@drawable/ic_search"
         android:background="@drawable/bg_lightpink"/>
-    <ListView
-        android:id="@+id/lvFavorite"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFavorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
+        android:paddingHorizontal="@dimen/pad"
        />
 
 </LinearLayout>

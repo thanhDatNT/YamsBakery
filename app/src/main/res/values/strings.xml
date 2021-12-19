@@ -65,9 +65,9 @@
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
     <string name="description_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
-    <string name="size_m">M - Đường kính 17cm</string>
-    <string name="size_l">L - Đường kính 20cm</string>
-    <string name="size_xl">XL - Đường kính 23cm</string>
+    <string name="size_m">M </string>
+    <string name="size_l">L </string>
+    <string name="size_xl">XL </string>
     <string name="topping1">Cream</string>
     <string name="topping2">Chocolate</string>
     <string name="topping3">Fruits</string>
@@ -75,6 +75,7 @@
     <string name="size">Kích cỡ: </string>
     <string name="toppings">Toppings: </string>
     <string name="note">Notes: </string>
+    <string name="title_detail"> Chi tiết sản phẩm </string>
 
 
     <!--Favorite-->
@@ -137,7 +138,6 @@
     <string name="post">ĐĂNG</string>
 
 
-
     <!--See review-->
     <string name="user_review">Bánh rất ngon, Yams tư vấn rất nhiệt tình, mình rất thích</string>
 
@@ -179,14 +179,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--    Payment method-->
+    <!--    Payment method-->
     <string name="momo">MoMo</string>
     <string name="zalopay">ZaloPay</string>
     <string name="internet_banking"><u>Internet Banking</u></string>
     <string name="vi_dien_tu"><u>Ví điện tử</u></string>
     <string name="choose_bank">Chọn ngân hàng</string>
     <string name="bank_BIDV">BIDV - Ngân hàng đầu tư và phát triển</string>
-<!--    payment success-->
+    <!--    payment success-->
 
     <string name="order_success">Đơn hàng thành công</string>
     <string name="see_order_status">Xem trạng thái đơn hàng</string>

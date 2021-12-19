@@ -32,6 +32,7 @@ import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.NotificationActivity;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
 import com.thanhdat.yams.Activities.SearchActivity;
+import com.thanhdat.yams.Activities.SeeAllActivity;
 import com.thanhdat.yams.Adapters.CategoryAdapter;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
@@ -116,6 +117,15 @@ public class HomeFragment extends Fragment{
             promoProducts.subList(10, promoProducts.size()).clear();
         }
         rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, promoProducts, onClickInterface));
+        txtGoPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SeeAllActivity.class);
+                intent.putExtra("idAll","promo");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void addEventPopular() {
@@ -131,6 +141,14 @@ public class HomeFragment extends Fragment{
             popularProducts.subList(10, popularProducts.size()).clear();
         }
         rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, popularProducts, onClickInterface));
+        txtGoPopular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SeeAllActivity.class);
+                intent.putExtra("idAll","popular");
+                startActivity(intent);
+            }
+        });
     }
 
     private void addEventNewProduct() {
@@ -147,6 +165,14 @@ public class HomeFragment extends Fragment{
         }
         rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, newProducts, onClickInterface));
 
+        txtGoNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SeeAllActivity.class);
+                intent.putExtra("idAll","new");
+                startActivity(intent);
+            }
+        });
     }
 
     private void addEventCategory() {

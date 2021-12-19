@@ -10,21 +10,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
 import com.thanhdat.yams.Adapters.ProductAdapter;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
-import com.thanhdat.yams.Models.Favorite;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapters.FavoriteAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -34,7 +29,6 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
     String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
     ArrayList<Product> productList;
     RecyclerView rcvProductCategory;
-    ProductAdapter adapter;
     OnClickInterface onClickInterface;
 
     @Override
@@ -87,7 +81,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
 
     private void addEventProductList() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);
-        ;
+
         rcvProductCategory.setLayoutManager(layoutManager);
 
         productList = MainActivity.productList;
@@ -100,15 +94,12 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
                 if (p.getCategory().equals(number)) {
                     products.add(p);
                 }
-                if (products.size() > 10) {
-                    products.subList(10, products.size()).clear();
-                }
             }
 
             //set Title
             txtCategory.setText(intent.getExtras().getString("category"));
         }
 
-        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, products, onClickInterface));
+        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, products, onClickInterface));
     }
 }
