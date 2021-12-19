@@ -65,9 +65,9 @@
     <string name="see_review"><u>Xem đánh giá</u></string>
     <string name="currency"><u>đ</u></string>
     <string name="description_product">Bánh nướng từ: bơ, phomai, socola đen. Bánh ít ngọt, mềm, đắng nhẹ của socola. </string>
-    <string name="size_m">M - Đường kính 17cm</string>
-    <string name="size_l">L - Đường kính 20cm</string>
-    <string name="size_xl">XL - Đường kính 23cm</string>
+    <string name="size_m">M </string>
+    <string name="size_l">L </string>
+    <string name="size_xl">XL </string>
     <string name="topping1">Cream</string>
     <string name="topping2">Chocolate</string>
     <string name="topping3">Fruits</string>
@@ -75,6 +75,7 @@
     <string name="size">Kích cỡ: </string>
     <string name="toppings">Toppings: </string>
     <string name="note">Notes: </string>
+    <string name="title_detail"> Chi tiết sản phẩm </string>
 
 
     <!--Favorite-->
