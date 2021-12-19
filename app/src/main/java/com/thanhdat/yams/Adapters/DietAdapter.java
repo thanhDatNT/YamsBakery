@@ -55,7 +55,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         }
         holder.txtContent.setText(diets.get(position).getDescription());
         holder.txtRate.setText(String.valueOf(diets.get(position).getRating()));
-        holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked()));
+        holder.txtQuantity.setText(String.valueOf(diets.get(position).getChecked())+"+");
         holder.layoutProductDiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
