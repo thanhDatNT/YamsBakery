@@ -146,7 +146,6 @@ public class FeedFragment extends Fragment {
             try {
                 JSONObject object= new JSONObject(s);
                 JSONArray array= object.getJSONArray("feeds");
-                ArrayList<String> hashtags= new ArrayList<>();
                 for(int i=0; i<array.length(); i++){
                     JSONObject feed= array.getJSONObject(i);
                     Post post= new Post();
@@ -156,10 +155,11 @@ public class FeedFragment extends Fragment {
                     post.setLiked(feed.getInt("liked"));
                     post.setPhoto(feed.getString("image"));
                     JSONArray tags= feed.getJSONArray("hashtags");
+                    String hashTags= "";
                     for(int j=0; j<tags.length(); j++){
-                        hashtags.add(tags.getString(j));
+                        hashTags += "#" + tags.getString(j);
                     }
-                    post.setTags(hashtags);
+                    post.setTags(hashTags);
                     posts.add(post);
                 }
                 isLoaded= true;

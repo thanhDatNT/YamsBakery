@@ -13,6 +13,7 @@ public class CartDatabase extends SQLiteOpenHelper {
     public static final String DB_NAME= "cart.sqlite";
     public static final String TABLE_NAME= "cart";
     public static final String COL_ID= "p_id";
+    public static final String COL_PRO_ID= "p_proID";
     public static final String COL_NAME= "p_name";
     public static final String COL_QUANTITY= "p_quantity";
     public static final String COL_AVAILABLE= "p_available";
@@ -27,7 +28,7 @@ public class CartDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql= "CREATE TABLE IF NOT EXISTS "+ TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_NAME +" VARCHAR(200), " +COL_QUANTITY +" INTEGER, " + COL_AVAILABLE +" INTEGER, "+ COL_THUMB +" VARCHAR(500), "+ COL_SIZE +" VARCHAR(100), "+ COL_TOPPING +" VARCHAR(200), "+ COL_PRICE +" REAL)";
+        String sql= "CREATE TABLE IF NOT EXISTS "+ TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_PRO_ID +" INTEGER, "+ COL_NAME +" VARCHAR(200), " +COL_QUANTITY +" INTEGER, " + COL_AVAILABLE +" INTEGER, "+ COL_THUMB +" VARCHAR(500), "+ COL_SIZE +" VARCHAR(100), "+ COL_TOPPING +" VARCHAR(200), "+ COL_PRICE +" REAL)";
         db.execSQL(sql);
     }
 
@@ -47,18 +48,19 @@ public class CartDatabase extends SQLiteOpenHelper {
         return database.rawQuery(sql, null);
     }
 
-    public boolean insertData(String name, String thumb, String size, String topping, int quantity, int stock, double price){
+    public boolean insertData(int proID, String name, String thumb, String size, String topping, int quantity, int stock, double price){
         try {
             SQLiteDatabase database = getWritableDatabase();
-            String sql = "INSERT INTO " + TABLE_NAME + " Values(null, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO " + TABLE_NAME + " Values(null, ?, ?, ?, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = database.compileStatement(sql);
-            statement.bindString(1, name);
-            statement.bindLong(2, quantity);
-            statement.bindLong(3, stock);
-            statement.bindString(4, thumb);
-            statement.bindString(5, size);
-            statement.bindString(6, topping);
-            statement.bindDouble(7, price);
+            statement.bindLong(1, proID);
+            statement.bindString(2, name);
+            statement.bindLong(3, quantity);
+            statement.bindLong(4, stock);
+            statement.bindString(5, thumb);
+            statement.bindString(6, size);
+            statement.bindString(7, topping);
+            statement.bindDouble(8, price);
             statement.executeInsert();
             statement.clearBindings();
             return true;

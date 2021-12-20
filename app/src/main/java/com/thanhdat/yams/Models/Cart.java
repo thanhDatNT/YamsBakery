@@ -3,14 +3,22 @@ package com.thanhdat.yams.Models;
 import java.util.List;
 
 public class Cart {
-    private int id, quantity, available;
+    private int id, quantity, available, productID;
     private String thumb, productName, productSize, topping;
     private double price;
     boolean isChecked;
     public Cart() {
     }
 
-    public Cart(int id, String productName, int quantity, int available, String thumb, String productSize, String topping, double price) {
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
+    public Cart(int id, int productID, String productName, int quantity, int available, String thumb, String productSize, String topping, double price) {
         this.id = id;
         this.quantity = quantity;
         this.available = available;
@@ -19,6 +27,7 @@ public class Cart {
         this.productSize = productSize;
         this.topping = topping;
         this.price= price;
+        this.productID = productID;
     }
 
     public boolean isChecked() {

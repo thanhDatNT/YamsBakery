@@ -57,9 +57,9 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initData() {
         dataList= new ArrayList<>();
-        dataList.add(new TextThumbView(R.drawable.img_bdcake, "New York Cheesecake"));
-        dataList.add(new TextThumbView(R.drawable.img_bdcake, "Salted Egg Sponge Cake"));
-        dataList.add(new TextThumbView(R.drawable.img_mango_cake, "Green tea Mochi"));
+        dataList.add(new TextThumbView(R.drawable.img_bdcake, "Cream Birthday cake"));
+        dataList.add(new TextThumbView(R.drawable.img_mango_cake, "Salted Egg Sponge Cake"));
+        dataList.add(new TextThumbView(R.drawable.img_matcha_maracon, "Green tea Macaron"));
         dataList.add(new TextThumbView(R.drawable.img_cake, "Lemon Blueberry Cheesecake"));
     }
 

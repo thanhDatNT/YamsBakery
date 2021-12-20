@@ -6,7 +6,7 @@ import java.util.List;
 public class Post implements Serializable {
     private int id, liked;
     private String content, photo, date;
-    private List<String> tags;
+    private String tags;
 
     public Post() {
     }
@@ -51,11 +51,12 @@ public class Post implements Serializable {
         this.date = date;
     }
 
-    public List<String> getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
+
 }
