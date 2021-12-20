@@ -2,33 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarFavorite"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:contentInsetStartWithNavigation="0dp"
-        android:layout_marginBottom="10dp"
         android:elevation="2dp"
         android:background="@color/white">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/favorite"
-            android:textSize="@dimen/textMainHeader"
-            android:textColor="@color/primary"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favorite"
+        android:layout_gravity="center"
+        android:textSize="@dimen/textMainHeader"
+        android:textColor="@color/primary"
+        android:textStyle="bold"/>
     </androidx.appcompat.widget.Toolbar>
     <!--    end header-->
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearchHome"
+        android:id="@+id/svSearchFavorite"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="12dp"
@@ -41,9 +38,6 @@
         android:id="@+id/rcvFavorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:paddingHorizontal="@dimen/pad"
        />
-
 </LinearLayout>
 

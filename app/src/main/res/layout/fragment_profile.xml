@@ -31,7 +31,7 @@
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="pin"
-                tools:src="@drawable/img_bg_profile" />
+                android:src="@drawable/img_bg_profile" />
 
             <LinearLayout
                 android:id="@+id/lnProfileInfo"

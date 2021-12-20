@@ -18,7 +18,7 @@
         app:layout_collapseMode="pin"
         android:background="@color/white"
         app:menu="@menu/feed_heading"
-        android:paddingTop="20dp"
+
         android:elevation="4dp"
         style="@style/ThemeOverlay.AppCompat.Light"
         android:theme="?attr/actionBarTheme">
