@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/imgCategory"
-        android:layout_width="70dp"
-        android:layout_height="80dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
-        android:padding="2dp"
+        android:padding="4dp"
         app:srcCompat="@drawable/ic_cart" />
 
     <TextView
@@ -23,6 +23,6 @@
         android:gravity="center"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textContent"
-        android:layout_marginBottom="18dp"/>
+        android:layout_marginBottom="22dp"/>
 
 </LinearLayout>
