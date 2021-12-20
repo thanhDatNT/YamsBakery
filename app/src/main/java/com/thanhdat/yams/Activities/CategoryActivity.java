@@ -55,7 +55,7 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         toolbarCategory.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CategoryActivity.this, MainActivity.class));
+                finish();
             }
         });
     }

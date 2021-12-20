@@ -54,14 +54,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
-        if (products.get(position).isFavorite()){
-            holder.imvLiked.setVisibility(View.GONE);
-            holder.imvNotLiked.setVisibility(View.GONE);
-        }
-        else{
-            holder.imvNotLiked.setVisibility(View.GONE);
-            holder.imvLiked.setVisibility(View.GONE);
-        }
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
@@ -76,18 +68,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 context.startActivity(intent);
             }
         });
-        holder.chkLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                products.remove(position);
-//                notifyItemRemoved(position);
-//                //this line below gives you the animation and also updates
-//                //list items after the deleted item
-//                notifyItemRangeChanged(position, getItemCount());
-
-
-            }
-        });
 
     }
 
@@ -97,7 +77,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imvThumb, imvLiked, imvNotLiked;
+        ImageView imvThumb;
         TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
         LinearLayout layoutProduct;
         CheckBox chkLike;
@@ -105,8 +85,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb= itemView.findViewById(R.id.imvThumb);
-            imvLiked= itemView.findViewById(R.id.imvAddedFavorite);
-            imvNotLiked= itemView.findViewById(R.id.imvAddFavorite);
             tvName= itemView.findViewById(R.id.txtName);
             tvPrice= itemView.findViewById(R.id.txtPrice);
             tvOldPrice= itemView.findViewById(R.id.txtOldPrice);
@@ -118,6 +96,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    adapter.products.get(getAdapterPosition()).setFavorite(false);
                     adapter.products.remove(getAdapterPosition());
                     adapter.notifyItemRemoved(getAdapterPosition());
                 }

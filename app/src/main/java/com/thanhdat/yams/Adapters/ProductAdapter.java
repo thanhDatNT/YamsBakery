@@ -9,6 +9,8 @@ import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,12 +55,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvTag.setText(products.get(position).getTag());
         if (products.get(position).isFavorite()){
-            holder.imvLiked.setVisibility(View.VISIBLE);
-            holder.imvNotLiked.setVisibility(View.GONE);
+            holder.chkLike.setChecked(true);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(false);
+                }
+            });
         }
         else{
-            holder.imvNotLiked.setVisibility(View.VISIBLE);
-            holder.imvLiked.setVisibility(View.GONE);
+            holder.chkLike.setChecked(false);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(true);
+                }
+            });
         }
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
@@ -83,19 +95,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         ImageView imvThumb, imvLiked, imvNotLiked;
         TextView tvName, tvPrice, tvRating, tvTag, tvOldPrice;
         LinearLayout layoutProduct;
+        CheckBox chkLike;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb= itemView.findViewById(R.id.imvThumbHome);
-            imvLiked= itemView.findViewById(R.id.imvAddedFavoriteHome);
-            imvNotLiked= itemView.findViewById(R.id.imvAddFavoriteHome);
             tvName= itemView.findViewById(R.id.tvProductNameHome);
             tvPrice= itemView.findViewById(R.id.tvPriceHome);
             tvRating= itemView.findViewById(R.id.tvRatingHome);
             tvTag= itemView.findViewById(R.id.tvTagProductHome);
             tvOldPrice= itemView.findViewById(R.id.tvOldPrice);
             layoutProduct= itemView.findViewById(R.id.layoutProduct);
-
+            chkLike = itemView.findViewById(R.id.chkLike);
 
         }
     }

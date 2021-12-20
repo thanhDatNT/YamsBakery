@@ -94,7 +94,8 @@ public class SeeReviewActivity extends AppCompatActivity {
         toolbarSeeReview.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
+//                startActivity(new Intent(SeeReviewActivity.this,ProductDetailsActivity.class));
+                finish();
             }
         });
     }

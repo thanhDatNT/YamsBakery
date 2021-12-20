@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,6 +52,7 @@ public class SuggestionAdapter extends BaseAdapter {
         ImageView imvThumb, imvLiked, imvNotLike;
         TextView tvName, tvPrice, tvRating, tvTag, tvOldPrice;
         LinearLayout layoutProduct;
+        CheckBox chkLike;
     }
 
     @Override
@@ -65,9 +68,8 @@ public class SuggestionAdapter extends BaseAdapter {
             holder.tvRating= convertView.findViewById(R.id.tvRatingHome);
             holder.tvTag= convertView.findViewById(R.id.tvTagProductHome);
             holder.tvOldPrice= convertView.findViewById(R.id.tvOldPrice);
-            holder.imvLiked= convertView.findViewById(R.id.imvAddedFavoriteHome);
-            holder.imvNotLike= convertView.findViewById(R.id.imvAddFavoriteHome);
             holder.layoutProduct= convertView.findViewById(R.id.layoutProduct);
+            holder.chkLike= convertView.findViewById(R.id.chkLike);
             convertView.setTag(holder);
         }
         else{
@@ -80,12 +82,22 @@ public class SuggestionAdapter extends BaseAdapter {
         holder.tvRating.setText(String.valueOf(product.getRating()));
         holder.tvTag.setText(product.getTag());
         if (products.get(position).isFavorite()){
-            holder.imvLiked.setVisibility(View.VISIBLE);
-            holder.imvNotLike.setVisibility(View.GONE);
+            holder.chkLike.setChecked(true);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(false);
+                }
+            });
         }
         else{
-            holder.imvNotLike.setVisibility(View.VISIBLE);
-            holder.imvLiked.setVisibility(View.GONE);
+            holder.chkLike.setChecked(false);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(true);
+                }
+            });
         }
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));

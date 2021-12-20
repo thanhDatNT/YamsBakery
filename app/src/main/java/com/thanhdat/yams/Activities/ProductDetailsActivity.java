@@ -39,7 +39,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ImageView imvProductDetailThumb;
     String topping = "";
     String size = "M";
-    int total = 0, flag = 0, totalSize = 0, quantity = 1, productID;
+    double total = 0;
+    int flag = 0;
+    int totalSize = 0;
+    int quantity = 1;
+    int productID;
     ArrayList<Product> productList;
 
 
@@ -53,7 +57,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         loadData();
         totalMoney();
         addEvent();
-        addEventFavourite();
+//        addEventFavourite();
     }
 
 
@@ -77,13 +81,33 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productList = MainActivity.productList;
         // int productID = intent.getExtras().getInt("idProduct");
         Product itemProduct = productList.get(productID - 1);
+
         //total = (int) itemProduct.getCurrentPrice();
+
+        total= itemProduct.getPrice();
+
         Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
         txtProductDetailName.setText(itemProduct.getName());
         txtProductPrice.setText(String.valueOf(itemProduct.getCurrentPrice()));
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
         txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()));
         txtProductDetailDescrip.setText(itemProduct.getDescription());
+        chkLike.setChecked(itemProduct.isFavorite());
+        if(itemProduct.isFavorite()){
+            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    itemProduct.setFavorite(false);
+                }
+            });
+        }else {
+            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    itemProduct.setFavorite(true);
+                }
+            });
+        }
 
         ArrayList<String> ListTopings = (ArrayList<String>) itemProduct.getTopping();
         chkTopping1.setText(ListTopings.get(0));
@@ -125,16 +149,23 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         btnPayment.setText("Mua hàng " + price);
 
+
     }
 
-    private void addEventFavourite() {
-        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-            }
-        });
+        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
+        txtProductDetailDescrip.setText(itemProduct.getDescription());
     }
+
+//    private void addEventFavourite() {
+//        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(loadData().g)
+//            }
+//        });
+//    }
 
     private void addEvent() {
 //        Test product id
@@ -186,9 +217,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     startActivity(new Intent(ProductDetailsActivity.this,MainActivity.class));
 
+
+//                    startActivity(new Intent(ProductDetailsActivity.this,MainActivity.class));
+                    onBackPressed();
+
                 }
+
             });
         }
     }

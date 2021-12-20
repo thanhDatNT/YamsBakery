@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -54,13 +55,24 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
         if (products.get(position).isFavorite()){
-            holder.imvLiked.setVisibility(View.VISIBLE);
-            holder.imvNotLiked.setVisibility(View.GONE);
+            holder.chkLike.setChecked(true);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(false);
+                }
+            });
         }
         else{
-            holder.imvNotLiked.setVisibility(View.VISIBLE);
-            holder.imvLiked.setVisibility(View.GONE);
+            holder.chkLike.setChecked(false);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    products.get(position).setFavorite(true);
+                }
+            });
         }
+
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
@@ -70,13 +82,6 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onClickInterface.setClick(products.get(position).getId());
-//                Product item = products.get(position);
-//                Intent intent = new Intent(context, ProductDetailsActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("productItem",item);
-//                intent.putExtras(bundle);
-//                context.startActivity(intent);
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
                 intent.putExtra(Constant.ID_PRODUCT, products.get(position).getId());
                 context.startActivity(intent);
@@ -90,7 +95,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imvThumb, imvLiked, imvNotLiked;
+        ImageView imvThumb;
         TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
         LinearLayout layoutProduct;
         CheckBox chkLike;
@@ -98,8 +103,6 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb= itemView.findViewById(R.id.imvThumb);
-            imvLiked= itemView.findViewById(R.id.imvAddedFavorite);
-            imvNotLiked= itemView.findViewById(R.id.imvAddFavorite);
             tvName= itemView.findViewById(R.id.txtName);
             tvPrice= itemView.findViewById(R.id.txtPrice);
             tvOldPrice= itemView.findViewById(R.id.txtOldPrice);
