@@ -29,7 +29,7 @@ public class PostAdapter extends BaseAdapter {
     Context context;
     int post_item;
     ArrayList<Post> posts;
-
+    int likes = 0, count = 0;
 
     public PostAdapter(Context context, int post_item, ArrayList<Post> posts) {
         this.context = context;
@@ -82,7 +82,6 @@ public class PostAdapter extends BaseAdapter {
                 context.startActivity(intent);
                 }
             });
-
             holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -120,7 +119,7 @@ public class PostAdapter extends BaseAdapter {
         holder.txtDate.setText(p.getDate());
         String tags="";
         for(int j=0; j<p.getTags().size(); j++){
-            tags += "#"+p.getTags().get(j);
+            tags += "#" + p.getTags().get(j) + " ";
         }
         holder.txtHashtag.setText(tags);
 

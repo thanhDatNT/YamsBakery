@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
-        android:padding="10dp"
+        android:padding="2dp"
         app:srcCompat="@drawable/ic_cart" />
 
     <TextView
@@ -22,6 +22,7 @@
         android:text="Cookie"
         android:gravity="center"
         android:textColor="@color/textColor"
-        android:textSize="16sp"/>
+        android:textSize="@dimen/textContent"
+        android:layout_marginBottom="18dp"/>
 
 </LinearLayout>
