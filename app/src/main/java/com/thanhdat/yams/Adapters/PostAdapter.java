@@ -13,12 +13,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import com.thanhdat.yams.Activities.FeedCommentActivity;
-import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Models.Post;
 import com.thanhdat.yams.R;
 
@@ -66,20 +64,26 @@ public class PostAdapter extends BaseAdapter {
             holder.txtHashtag = view.findViewById(R.id.txtHashtag);
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
             holder.imbAddComment = view.findViewById(R.id.imbAddComment);
-            holder.txtDate = view.findViewById(R.id.tvDate);
-            holder.chkFeedLike = view.findViewById(R.id.chkFeedLike);
-
-
-
+            holder.txtDate= view.findViewById(R.id.tvDate);
+            holder.chkLike= view.findViewById(R.id.chkLike);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    count++;
+                    if(count % 2 != 0){
+                        likes = 1;
+                    }else likes = 0;
+                }
+            });
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Post item_post = posts.get(i);
-                Intent intent = new Intent(context, FeedCommentActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("object_post",item_post);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                    Intent intent = new Intent(context, FeedCommentActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("object_post",item_post);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
                 }
             });
             holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
@@ -103,18 +107,9 @@ public class PostAdapter extends BaseAdapter {
         //Binding data
         Post p = posts.get(i);
         Picasso.get().load(p.getPhoto()).into(holder.imvThumb);
-        holder.txtLike.setText(String.valueOf(p.getLiked()));
-        int likes = Integer.parseInt(String.valueOf(p.getLiked()));
-        holder.chkFeedLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    Toast.makeText(compoundButton.getContext(), "Liked", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(compoundButton.getContext(), "Unliked", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
+        holder.txtLike.setText(String.valueOf(likes + p.getLiked()));
+
         holder.txtDescription.setText(p.getContent());
         holder.txtDate.setText(p.getDate());
         String tags="";
@@ -122,15 +117,13 @@ public class PostAdapter extends BaseAdapter {
             tags += "#" + p.getTags().get(j) + " ";
         }
         holder.txtHashtag.setText(tags);
-
         return view;
     }
-
-
     private static class ViewHolder{
         ImageView imvThumb;
         TextView txtLike, txtDescription, txtHashtag, txtComment, txtDate;
         ImageButton imbAddComment;
-        CheckBox chkFeedLike;
+        CheckBox chkLike;
+
     }
 }
