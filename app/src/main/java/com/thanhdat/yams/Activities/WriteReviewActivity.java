@@ -195,7 +195,7 @@ public class WriteReviewActivity extends AppCompatActivity {
                 content = edtReviewText.getText().toString();
                 size = txtReviewSize.getText().toString();
 
-                if(!content.equals("") && !name.equals("")){
+                if(!content.equals("") && imvReviewImage.getDrawable() != null){
                     boolean flag = db.insertData(rating, convertPhoto(profile), name, content, convertPhoto(image), size);
                     if(flag){
                         //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
@@ -206,7 +206,7 @@ public class WriteReviewActivity extends AppCompatActivity {
                         Toast.makeText(WriteReviewActivity.this, "Fail!", Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(WriteReviewActivity.this, "Vui lòng nhập lời đánh giá của bạn!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WriteReviewActivity.this, "Vui lòng nhập lời đánh giá và đăng tải hình ảnh!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

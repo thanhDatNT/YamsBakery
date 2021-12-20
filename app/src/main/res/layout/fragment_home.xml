@@ -116,7 +116,7 @@
                 <GridView
                     android:id="@+id/gvCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="206dp"
+                    android:layout_height="230dp"
                     android:layout_marginTop="@dimen/mTop"
                     android:numColumns="4" />
 

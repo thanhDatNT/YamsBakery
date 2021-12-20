@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +26,7 @@ public class PostAdapter extends BaseAdapter {
     Context context;
     int post_item;
     ArrayList<Post> posts;
-
+    int likes = 0, count = 0;
 
     public PostAdapter(Context context, int post_item, ArrayList<Post> posts) {
         this.context = context;
@@ -62,7 +64,16 @@ public class PostAdapter extends BaseAdapter {
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
             holder.imbAddComment = view.findViewById(R.id.imbAddComment);
             holder.txtDate= view.findViewById(R.id.tvDate);
-
+            holder.chkLike= view.findViewById(R.id.chkLike);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    count++;
+                    if(count % 2 != 0){
+                        likes = 1;
+                    }else likes = 0;
+                }
+            });
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -70,7 +81,6 @@ public class PostAdapter extends BaseAdapter {
                     context.startActivity(intent);
                 }
             });
-
             holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -88,12 +98,14 @@ public class PostAdapter extends BaseAdapter {
         //Binding data
         Post p = posts.get(i);
         Picasso.get().load(p.getPhoto()).into(holder.imvThumb);
-        holder.txtLike.setText(String.valueOf(p.getLiked()));
+
+        holder.txtLike.setText(String.valueOf(likes + p.getLiked()));
+
         holder.txtDescription.setText(p.getContent());
         holder.txtDate.setText(p.getDate());
         String tags="";
         for(int j=0; j<p.getTags().size(); j++){
-            tags += "#"+p.getTags().get(j);
+            tags += "#" + p.getTags().get(j) + " ";
         }
         holder.txtHashtag.setText(tags);
         return view;
@@ -102,6 +114,7 @@ public class PostAdapter extends BaseAdapter {
         ImageView imvThumb;
         TextView txtLike, txtDescription, txtHashtag, txtComment, txtDate;
         ImageButton imbAddComment;
+        CheckBox chkLike;
 
     }
 }
