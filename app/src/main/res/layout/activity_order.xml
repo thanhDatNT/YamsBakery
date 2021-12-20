@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity"
+    android:id="@+id/layoutContainerOrder"
+    tools:context=".Activities.OrderActivity"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:id="@+id/layoutContainerPayment">
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

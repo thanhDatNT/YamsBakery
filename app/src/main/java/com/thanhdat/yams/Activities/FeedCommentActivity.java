@@ -39,6 +39,8 @@ public class FeedCommentActivity extends AppCompatActivity {
         edtAddComment = findViewById(R.id.edtAddComment);
         imvProfile = findViewById(R.id.imvProfileComment);
         btnPost = findViewById(R.id.btnPostComment);
+        txtHashtag = findViewById(R.id.txtHashtag);
+        txtDescription = findViewById(R.id.txtDescription);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle == null){
@@ -48,11 +50,7 @@ public class FeedCommentActivity extends AppCompatActivity {
         Post post = (Post) bundle.get("object_post");
 
         txtDescription.setText(post.getContent());
-        String tags="";
-        for(int j=0; j<post.getTags().size(); j++){
-            tags += "#"+post.getTags().get(j);
-        }
-        txtHashtag.setText(tags);
+        txtHashtag.setText(post.getTags());
 
         Intent intent = getIntent();
         postId = intent.getStringExtra("postId");

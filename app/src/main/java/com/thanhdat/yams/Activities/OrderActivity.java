@@ -27,7 +27,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -40,7 +39,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Databases.CartDatabase;
 import com.thanhdat.yams.Databases.OrderDatabase;
-import com.thanhdat.yams.Fragments.ChoosePaymentMethodFragment;
 import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Product;
@@ -118,7 +116,7 @@ public class OrderActivity extends AppCompatActivity {
             String name= product.getName();
             int stock= product.getAvailable();
             orderProducts = new ArrayList<>();
-            orderProducts.add(new Cart(productID, name, quantity, stock, thumb, size, topping, itemPrice));
+            orderProducts.add(new Cart(0, productID, name, quantity, stock, thumb, size, topping, itemPrice));
         }
         else {
             orderProducts = CartActivity.purchasingItems;
@@ -148,6 +146,7 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode() == Constant.RESULT_INTENT){
+//                    Voucher result
                     Intent intent = result.getData();
                     if (intent != null){
                         voucher = (Voucher) intent.getSerializableExtra(Constant.VOUCHER_INTENT);
@@ -165,10 +164,19 @@ public class OrderActivity extends AppCompatActivity {
                     }
                 }
                 else if(result.getResultCode() == Constant.RESULT_INFORMATION){
+//                    Customer information result
                     Intent intent = result.getData();
                     if (intent != null){
                         String customer = intent.getStringExtra(Constant.INFORMATION_INTENT);
                         txtCustomer.setText(customer);
+                    }
+                }
+                else if(result.getResultCode() == Constant.RESULT_PAYMENT){
+//                    Payment method result
+                    Intent intent = result.getData();
+                    if (intent != null){
+                        paymentMethod = intent.getStringExtra(Constant.PAYMENT_INTENT);
+                        updateBill();
                     }
                 }
             }
@@ -191,17 +199,12 @@ public class OrderActivity extends AppCompatActivity {
         });
         btnOpenChooseTime.setOnClickListener(view -> clickOpenBottomSheetDialog());
 
-        //Open ChoosePaymentMethodFragment
+        //Open Payment Method Activity
         txtOpenChoosePaymentMethod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                FragmentManager fm = getSupportFragmentManager();
-                ChoosePaymentMethodFragment fragment= new ChoosePaymentMethodFragment();
-                fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
-
-                txtOpenChoosePaymentMethod.setVisibility(View.GONE);
-
+                Intent intent = new Intent(OrderActivity.this, PaymentActivity.class);
+                resultLauncher.launch(intent);
             }
         });
 
@@ -256,7 +259,6 @@ public class OrderActivity extends AppCompatActivity {
         bottomSheetDialog.setContentView(viewDialog);
         bottomSheetDialog.show();
 
-        // Ngăn người dùng bấm ra ngoài dialog
         bottomSheetDialog.setCancelable(false);
 
         ImageButton imvCancel = viewDialog.findViewById(R.id.imvCancel);
@@ -383,7 +385,7 @@ public class OrderActivity extends AppCompatActivity {
             // Go to Successful order page
             FragmentManager fm = getSupportFragmentManager();
             PaymentSuccessFragment fragment= new PaymentSuccessFragment();
-            fm.beginTransaction().replace(R.id.layoutContainerPayment, fragment).commit();
+            fm.beginTransaction().replace(R.id.layoutContainerOrder, fragment).commit();
         }
         else{
             Toast.makeText(OrderActivity.this, "Đặt hàng thất bại. Vui lòng thử lại", Toast.LENGTH_LONG).show();

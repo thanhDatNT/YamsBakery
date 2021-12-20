@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvCategory"
+            android:id="@+id/tvTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.65"
@@ -26,7 +26,7 @@
             android:layout_gravity="center"/>
 
         <ImageView
-            android:id="@+id/imgCategory"
+            android:id="@+id/imgThumb"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"

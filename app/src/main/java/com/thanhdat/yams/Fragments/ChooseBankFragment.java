@@ -5,23 +5,31 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import com.thanhdat.yams.Activities.OrderActivity;
+import com.thanhdat.yams.Activities.PaymentActivity;
+import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
+import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 
+import java.util.ArrayList;
+
 public class ChooseBankFragment extends Fragment {
-
-
-    Button btnConfirm;
-    private LinearLayout lnBIDV, lnOCB, lnVietcombank, lnVietinbank, lnSacombank;
+    private ListView lvBank;
     Toolbar toolbarChooseBank;
+    ArrayList<TextThumbView> bankList;
+    String pBank;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -29,37 +37,35 @@ public class ChooseBankFragment extends Fragment {
 
         //link views
         toolbarChooseBank = view.findViewById(R.id.toolbarChooseBank);
-        btnConfirm = view.findViewById(R.id.btnConfirm);
-        lnBIDV= view.findViewById(R.id.lnBIDV);
-        lnSacombank= view.findViewById(R.id.lnSacombank);
-        lnOCB = view.findViewById(R.id.lnOCB);
-        lnVietcombank = view.findViewById(R.id.lnVietcombank);
-        lnVietinbank = view.findViewById(R.id.lnVietinbank);
-
+        lvBank= view.findViewById(R.id.lvBank);
         addEventFunction();
         return view;
     }
 
     private void addEventFunction() {
-        toolbarChooseBank.setOnClickListener(myClick);
-        btnConfirm.setOnClickListener(myClick);
-        lnBIDV.setOnClickListener(myClick);
-        lnOCB.setOnClickListener(myClick);
-        lnSacombank.setOnClickListener(myClick);
-        lnVietinbank.setOnClickListener(myClick);
-        lnVietcombank.setOnClickListener(myClick);
+        initData();
+        lvBank.setOnItemClickListener((parent, view, position, id) -> {
+            pBank = bankList.get(position).getCate();
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            PaymentMethodsFragment methodsFragment = new PaymentMethodsFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("bank", pBank);
+            methodsFragment.setArguments(bundle);
+            fragmentTransaction.replace(R.id.layoutContainerPayment, methodsFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        });
     }
 
-        View.OnClickListener myClick = new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                if (view.getId() == R.id.toolbarChooseBank) {
-
-                }
-
-                //start function activity
-
-            }
-    };
+    private void initData() {
+        bankList = new ArrayList<>();
+        bankList.add(new TextThumbView(R.drawable.img_bidv, "BIDV - Ngân hàng đầu tư và phát triển"));
+        bankList.add(new TextThumbView(R.drawable.img_ocb, "OCB - Ngân hàng Phương Đông"));
+        bankList.add(new TextThumbView(R.drawable.img_vietcombank, "Vietcombank - Ngân hàng Ngoại thương"));
+        bankList.add(new TextThumbView(R.drawable.img_viettinbank, "Viettinbank - Ngân hàng TMCP Công Thương"));
+        bankList.add(new TextThumbView(R.drawable.img_sacombank, "Sacombank - Ngân hàng TMCP Sài Gòn"));
+        SimpleViewGroupAdapter adapter = new SimpleViewGroupAdapter(getContext(), R.layout.item_bank, bankList);
+        lvBank.setAdapter(adapter);
+    }
 }

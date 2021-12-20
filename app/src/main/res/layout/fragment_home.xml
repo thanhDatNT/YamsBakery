@@ -35,7 +35,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="55dp"/>
-
             <SearchView
                 android:id="@+id/svSearchHome"
                 android:layout_width="match_parent"
@@ -85,32 +84,23 @@
             android:padding="12dp">
 
             <!--            Automatic Slider Banner-->
-
-            <androidx.cardview.widget.CardView
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSliderHome"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="188dp"
                 android:layout_marginTop="24dp"
-                app:cardCornerRadius="12dp">
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/imageSliderHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:sliderAnimationDuration="300"
-                    app:sliderAutoCycleDirection="right"
-                    app:sliderIndicatorAnimationDuration="300"
-                    app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="6dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="2dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="@color/primary"
-                    app:sliderIndicatorUnselectedColor="@color/inactive"
-                    app:sliderScrollTimeInSec="3"
-                    app:sliderStartAutoCycle="true" />
-            </androidx.cardview.widget.CardView>
-
-
+                app:sliderAnimationDuration="300"
+                app:sliderAutoCycleDirection="right"
+                app:sliderIndicatorAnimationDuration="300"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="6dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="2dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="@color/primary"
+                app:sliderIndicatorUnselectedColor="@color/inactive"
+                app:sliderScrollTimeInSec="3"
+                app:sliderStartAutoCycle="true" />
 
             <!--            Grid Categories-->
                 <GridView
