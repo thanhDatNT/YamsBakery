@@ -72,7 +72,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         Cursor cursor= cartDatabase.getData("SELECT * FROM "+ cartDatabase.TABLE_NAME);
         carts.clear();
         while (cursor.moveToNext()){
-            carts.add(new Cart(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getDouble(7)));
+            carts.add(new Cart(cursor.getInt(0), cursor.getInt(1),  cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getDouble(8)));
         }
         cursor.close();
         adapter = new CartAdapter(this, carts, onClickInterface);
@@ -101,7 +101,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
             int stock= product.getAvailable();
 
 //          Save product from intent to Cart Database
-            boolean isSaved = cartDatabase.insertData(name, thumb, size, topping, quantity, stock, itemPrice);
+            boolean isSaved = cartDatabase.insertData(productID, name, thumb, size, topping, quantity, stock, itemPrice);
             if(isSaved)
                 Log.i("SAVE DB", "This product has been added");
         }
@@ -186,7 +186,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
             int indexDelete = viewHolder.getAdapterPosition();
 
             // Remove item when swiping
-            cartDatabase.execSQL("DELETE FROM " + cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_NAME + " = '"+ carts.get(indexDelete).getProductName() + "'");
+            cartDatabase.execSQL("DELETE FROM " + cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_PRO_ID + " = "+ carts.get(indexDelete).getProductID());
             loadCartData();
             Snackbar snackbar = Snackbar.make(layoutItemCart,nameDelete +" was removed", Snackbar.LENGTH_LONG);
             snackbar.setAction("Undo", new View.OnClickListener() {
@@ -194,7 +194,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
                 public void onClick(View view) {
                      adapter.undoItem(cartItemDelete, indexDelete);
 
-                    boolean isAdded = cartDatabase.insertData(carts.get(indexDelete).getProductName(), carts.get(indexDelete).getThumb(), carts.get(indexDelete).getProductSize(), carts.get(indexDelete).getTopping(), carts.get(indexDelete).getQuantity(), carts.get(indexDelete).getAvailable(), carts.get(indexDelete).getPrice());
+                    boolean isAdded = cartDatabase.insertData(carts.get(indexDelete).getProductID(),carts.get(indexDelete).getProductName(), carts.get(indexDelete).getThumb(), carts.get(indexDelete).getProductSize(), carts.get(indexDelete).getTopping(), carts.get(indexDelete).getQuantity(), carts.get(indexDelete).getAvailable(), carts.get(indexDelete).getPrice());
 
                     if(isAdded)
                         loadCartData();
@@ -205,17 +205,18 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
     }
 
     public void updateQuantity(Cart cart, String flag){
-        Cursor cursor= cartDatabase.getData("SELECT "+ cartDatabase.COL_PRICE +", "+ cartDatabase.COL_QUANTITY +" FROM "+ cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_ID +"= " +cart.getId());
+        Cursor cursor= cartDatabase.getData("SELECT "+ cartDatabase.COL_PRICE +", "+ cartDatabase.COL_QUANTITY +" FROM "+ cartDatabase.TABLE_NAME + " WHERE "+ cartDatabase.COL_PRO_ID +"= " + cart.getProductID());
         while (cursor.moveToNext()){
             itemPrice = cursor.getDouble(0);
             quantity = cursor.getInt(1);
         }
-        double productPrice = products.get(cart.getId()).getCurrentPrice();
+        cursor.close();
+        double productPrice = products.get(cart.getProductID() - 1).getCurrentPrice();
         if (flag.equals("plus")){
             itemPrice = itemPrice + productPrice;
             quantity ++;
         }
-        if (flag.equals("minus")){
+        else if (flag.equals("minus")){
             if (quantity > 1 ){
                 itemPrice = itemPrice - productPrice;
                 quantity --;
@@ -243,8 +244,13 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this, OrderActivity.class);
-                startActivity(intent);
+                if (purchasingItems.size() > 0){
+                    Intent intent = new Intent(CartActivity.this, OrderActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(CartActivity.this, "Vui lòng chọn sản phẩm", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

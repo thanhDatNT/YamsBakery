@@ -58,7 +58,7 @@ public class PostAdapter extends BaseAdapter {
             holder.imvThumb = view.findViewById(R.id.imvPostThumb);
             holder.txtLike = view.findViewById(R.id.txtLike);
             holder.txtDescription = view.findViewById(R.id.txtDescription);
-            holder.txtHashtag = view.findViewById(R.id.txtHashtag);
+            holder.txtHashTag = view.findViewById(R.id.txtHashtag);
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
             holder.imbAddComment = view.findViewById(R.id.imbAddComment);
             holder.txtDate= view.findViewById(R.id.tvDate);
@@ -91,16 +91,12 @@ public class PostAdapter extends BaseAdapter {
         holder.txtLike.setText(String.valueOf(p.getLiked()));
         holder.txtDescription.setText(p.getContent());
         holder.txtDate.setText(p.getDate());
-        String tags="";
-        for(int j=0; j<p.getTags().size(); j++){
-            tags += "#"+p.getTags().get(j);
-        }
-        holder.txtHashtag.setText(tags);
+        holder.txtHashTag.setText(p.getTags());
         return view;
     }
     private static class ViewHolder{
         ImageView imvThumb;
-        TextView txtLike, txtDescription, txtHashtag, txtComment, txtDate;
+        TextView txtLike, txtDescription, txtHashTag, txtComment, txtDate;
         ImageButton imbAddComment;
 
     }

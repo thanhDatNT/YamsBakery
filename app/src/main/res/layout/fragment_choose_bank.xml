@@ -4,41 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    >
-<FrameLayout
-    android:id="@+id/layoutContainerChooseBank"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <!--header-->
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnBackToPaymentMethod"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_back_pink"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:backgroundTint="@color/white"-->
-<!--            />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="@string/choose_bank"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textSize="@dimen/textHeader"-->
-<!--            android:textStyle="bold" />-->
-
-<!--    </androidx.cardview.widget.CardView>-->
+    android:background="@color/white">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarChooseBank"
@@ -61,7 +27,6 @@
                 android:gravity="center"
                 android:layout_marginEnd="46dp"/>
         </androidx.appcompat.widget.Toolbar>
-    <!--    end header-->
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/svSearchHome"
@@ -73,118 +38,11 @@
         android:iconifiedByDefault="false"
         app:searchIcon="@drawable/ic_search"
         android:background="@drawable/bg_lightpink"/>
-<!--        <SearchView-->
-<!--            android:id="@+id/svSearchHome"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:layout_margin="12dp"-->
-<!--            android:iconifiedByDefault="false"-->
-<!--            android:queryHint="@string/search"-->
-<!--            android:searchIcon="@drawable/ic_search"-->
-<!--            android:background="@drawable/bg_lightpink"/>-->
 
-    <LinearLayout
-        android:id="@+id/lnBIDV"
+    <ListView
+        android:id="@+id/lvBank"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/img_bidv"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="BIDV - Ngân hàng đầu tư và phát triển"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lnOCB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/img_ocb"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="OCB - Ngân hàng Phương Đông"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lnVietcombank"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/img_vietcombank"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Vietcombank - Ngân hàng Ngoại thương"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lnVietinbank"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/img_viettinbank"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Viettinbak - Ngân hàng Công thương"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:paddingStart="18dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lnSacombank"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/img_sacombank"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Sacombank - Ngân hàng TMCP Sài Gòn"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"/>
-    </LinearLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnConfirm"
-        android:layout_width="130dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/button_bg_gradient"
-        android:text="@string/Confirm"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/buttonTextSize"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"/>
-    </LinearLayout>
-</FrameLayout>
+        android:layout_height="match_parent"
+        android:listSelector="@color/lightPink"/>
+
 </LinearLayout>

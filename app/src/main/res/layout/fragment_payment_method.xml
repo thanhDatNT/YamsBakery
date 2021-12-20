@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,13 +71,13 @@
                 <!--        radio-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="120dp"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_marginStart="50dp"
                         android:layout_weight="8"
@@ -84,7 +85,7 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/momo"
                             android:textColor="@color/textColor"
@@ -92,38 +93,32 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/zalopay"
                             android:textColor="@color/textColor"
                             android:textSize="18sp" />
                     </LinearLayout>
 
-                    <LinearLayout
+                    <RadioGroup
+                        android:id="@+id/radEWallet"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:orientation="vertical">
 
-                        <RadioGroup
-                            android:id="@+id/radEWallet"
+                        <RadioButton
+                            android:id="@+id/radMomo"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:buttonTint="@color/primary" />
 
-                            <RadioButton
-                                android:id="@+id/radMomo"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:buttonTint="@color/primary" />
-
-                            <RadioButton
-                                android:id="@+id/radZalo"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:buttonTint="@color/primary" />
-                        </RadioGroup>
-                    </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/radZaloPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:buttonTint="@color/primary" />
+                    </RadioGroup>
 
                 </LinearLayout>
 
@@ -152,36 +147,22 @@
 
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="5.5"
+                        android:layout_weight="4"
                         android:text="@string/internet_banking"
                         android:textColor="@color/primary"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/txtSeeMore"
+                        android:id="@+id/txtChooseBank"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="3"
+                        android:layout_weight="4.5"
+                        android:maxLines="1"
                         android:drawableEnd="@drawable/ic_see_more_inactive"
-                        android:gravity="center"
+                        android:gravity="end|center_vertical"
                         android:text="@string/view_all" />
 
-                    <!--        <ImageButton-->
-                    <!--            android:id="@+id/btnOpenChooseBank"-->
-                    <!--            android:layout_width="0dp"-->
-                    <!--            android:layout_height="match_parent"-->
-                    <!--            android:layout_weight="0.5"-->
-                    <!--            android:backgroundTint="@color/white"-->
-                    <!--            android:src="@drawable/ic_see_more"-->
-                    <!--            app:tint="@color/inactive" />-->
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="50dp"
-                    android:paddingTop="10dp"
-                    android:text="@string/bank_BIDV" />
 
             </LinearLayout>
             <LinearLayout
@@ -207,10 +188,18 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="8.5"
+                        android:layout_weight="8"
                         android:gravity="center_vertical" android:text="@string/cod_payment_method"
                         android:textColor="@color/primary"
                         android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/radCod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:buttonTint="@color/primary"/>
+
                 </LinearLayout>
 
                 <TextView
@@ -222,10 +211,11 @@
             </LinearLayout>
             <!--Button-->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnConfirm"
-                android:layout_width="130dp"
-                android:layout_height="38dp"
+                android:id="@+id/btnConfirmPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_bg_gradient"
                 android:text="@string/confirm"
