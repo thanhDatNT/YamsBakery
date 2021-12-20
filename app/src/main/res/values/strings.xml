@@ -98,8 +98,8 @@
     <string name="details">Chi tiết</string>
     <string name="date">31/10/2021</string>
     <string name="shipment1">Giao hàng cho shipper</string>
-    <string name="shipment2">Đang giao</string>
-    <string name="shipment3">Đơn hàng đang được vận chuyển</string>
+    <string name="shipment2">Đơn hàng đang được vận chuyển</string>
+    <string name="shipment3">Chờ xác nhận giao hàng thành công</string>
     <string name="order_code">Mã đơn hàng:</string>
     <string name="x2">x2</string>
     <string name="estimated_time">Thời gian dự kiến</string>

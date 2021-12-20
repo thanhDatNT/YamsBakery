@@ -44,6 +44,7 @@ public class OrderDetailActivity extends AppCompatActivity {
     int orderId;
     OrderDatabase database;
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
+    Toolbar toolbarOrderDetail;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
 
@@ -86,6 +87,8 @@ public class OrderDetailActivity extends AppCompatActivity {
         txtOrderDetailCode = findViewById(R.id.txtOrderDetailCode);
 
         imvOrderDetailThumb = findViewById(R.id.imvOrderDetailThumb);
+
+        toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
 
         btnCancelOrder = findViewById(R.id.btnCancelOrder);
         btnBackToHome = findViewById(R.id.btnBackToHome);
@@ -172,11 +175,10 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
-      Toolbar toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
         setSupportActionBar(toolbarOrderDetail);
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(null);
-            toolbarOrderDetail.setOnClickListener(new View.OnClickListener() {
+            toolbarOrderDetail.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     onBackPressed();

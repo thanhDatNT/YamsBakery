@@ -85,6 +85,7 @@ public class PostAdapter extends BaseAdapter {
                     intent.putExtras(bundle);
                     context.startActivity(intent);
                 }
+
             });
             holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
                 @Override
