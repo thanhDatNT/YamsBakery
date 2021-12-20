@@ -103,6 +103,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtXLPrice.setText(String.valueOf(price + 10000));
 
         btnPayment.setText("Mua hàng " + price);
+
+        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
+        txtProductDetailDescrip.setText(itemProduct.getDescription());
+
+
+                List<String> listToppings = itemProduct.getTopping();
+                 chkTopping1.setText(listToppings.get(0));
+                 chkTopping2.setText(listToppings.get(1));
+                 chkTopping3.setText(listToppings.get(2));
+                btnPayment.setText("Mua hàng " + price);
     }
 
     private void addEventFavourite() {
