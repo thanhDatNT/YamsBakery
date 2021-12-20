@@ -57,7 +57,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         loadData();
         totalMoney();
         addEvent();
-        addEventFavourite();
+//        addEventFavourite();
     }
 
 
@@ -88,6 +88,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
         txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()));
         txtProductDetailDescrip.setText(itemProduct.getDescription());
+        chkLike.setChecked(itemProduct.isFavorite());
+        if(itemProduct.isFavorite()){
+            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    itemProduct.setFavorite(false);
+                }
+            });
+        }else {
+            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    itemProduct.setFavorite(true);
+                }
+            });
+        }
 
         ArrayList<String> ListTopings = (ArrayList<String>) itemProduct.getTopping();
         chkTopping1.setText(ListTopings.get(0));
@@ -112,23 +128,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
         txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
         txtProductDetailDescrip.setText(itemProduct.getDescription());
-
-
-                List<String> listToppings = itemProduct.getTopping();
-                 chkTopping1.setText(listToppings.get(0));
-                 chkTopping2.setText(listToppings.get(1));
-                 chkTopping3.setText(listToppings.get(2));
-                btnPayment.setText("Mua hàng " + price);
     }
 
-    private void addEventFavourite() {
-        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-            }
-        });
-    }
+//    private void addEventFavourite() {
+//        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(loadData().g)
+//            }
+//        });
+//    }
 
     private void addEvent() {
 //        Test product id

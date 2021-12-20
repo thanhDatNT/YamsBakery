@@ -124,20 +124,15 @@
                         android:translationZ="1dp"
                         app:cardCornerRadius="12dp">
 
-                        <ImageView
-                            android:id="@+id/imvSeeAllAddFav"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <CheckBox
+                            android:id="@+id/chkLike"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_like"
+                            android:button="@null"
+                            android:checked="true"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/ic_favorite_border" />
-
-                        <ImageView
-                            android:id="@+id/imvSeeAllAddedFav"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_favorite_active" />
+                            android:stateListAnimator="@animator/anim_like" />
                     </androidx.cardview.widget.CardView>
                 </RelativeLayout>
 

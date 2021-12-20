@@ -91,7 +91,6 @@
             android:drawableEnd="@drawable/ic_star"
             android:drawablePadding="4dp"/>
     </LinearLayout>
-
     <androidx.cardview.widget.CardView
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -102,20 +101,15 @@
         android:elevation="2dp"
         android:translationZ="2dp">
 
-        <ImageView
-            android:id="@+id/imvAddFavoriteHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <CheckBox
+            android:id="@+id/chkLike"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/ic_like"
+            android:button="@null"
+            android:checked="true"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_favorite_border" />
-
-        <ImageView
-            android:id="@+id/imvAddedFavoriteHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            app:srcCompat="@drawable/ic_favorite_active" />
+            android:stateListAnimator="@animator/anim_like" />
     </androidx.cardview.widget.CardView>
 
 </androidx.cardview.widget.CardView>
