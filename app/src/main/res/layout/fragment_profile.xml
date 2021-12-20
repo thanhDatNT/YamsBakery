@@ -25,6 +25,7 @@
 
             <!-- cover profile-->
 
+
             <ImageView
                 android:id="@+id/imvCover"
                 android:layout_width="match_parent"
@@ -84,7 +85,6 @@
                 style="@style/ThemeOverlay.AppCompat.Light"
                 app:menu="@menu/profile_heading"
                 android:theme="?attr/actionBarTheme"
-                android:paddingTop="20dp"
                 app:layout_collapseMode="pin"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
