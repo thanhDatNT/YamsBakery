@@ -40,6 +40,7 @@ import java.util.Date;
 public class OrderDetailActivity extends AppCompatActivity {
     TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode,txtTime1, txtTime2, txtDeliTime;
     ImageView imvOrderDetailThumb;
+    Toolbar toolbarOrderDetail;
 
     int orderId;
     OrderDatabase database;
@@ -70,7 +71,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             PendingOrder pendingOrder = (PendingOrder) bundle.get("object_pending");
             orderId = pendingOrder.getId();
             txtOrderDetailName.setText(pendingOrder.getOrderName());
-            txtOrderDetailPrice.setText(String.format("%g", pendingOrder.getOrderPrice())+"đ");
+            txtOrderDetailPrice.setText(String.format("%.0f", pendingOrder.getOrderPrice())+" đ");
             txtOrderDetailCode.setText("#" + pendingOrder.getOrderCode());
             Picasso.get().load(pendingOrder.getOrderThumb()).into(imvOrderDetailThumb);
         }
@@ -84,6 +85,8 @@ public class OrderDetailActivity extends AppCompatActivity {
         txtOrderDetailName = findViewById(R.id.txtOrderDetailName);
         txtOrderDetailPrice = findViewById(R.id.txtOrderDetailPrice);
         txtOrderDetailCode = findViewById(R.id.txtOrderDetailCode);
+
+        toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
 
         imvOrderDetailThumb = findViewById(R.id.imvOrderDetailThumb);
 
@@ -172,17 +175,15 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
-      Toolbar toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
         setSupportActionBar(toolbarOrderDetail);
-        if(getSupportActionBar() != null){
+        if(getSupportActionBar() != null)
             getSupportActionBar().setTitle(null);
-            toolbarOrderDetail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onBackPressed();
-                }
-            });
-        }
+        toolbarOrderDetail.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 
