@@ -21,13 +21,13 @@ import com.thanhdat.yams.R;
 
 import java.util.ArrayList;
 
-public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CategoryActivity extends AppCompatActivity{
 
     Toolbar toolbarCategory;
     TextView txtCategory;
     Spinner spinner;
     String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
-    ArrayList<Product> productList;
+    ArrayList<Product> productList, products;
     RecyclerView rcvProductCategory;
     OnClickInterface onClickInterface;
 
@@ -37,8 +37,8 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.activity_category);
         linkViews();
         addEventBack();
-        addEventSpinner();
         addEventProductList();
+        addEventSpinner();
     }
 
     private void linkViews() {
@@ -60,33 +60,17 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         });
     }
 
-    private void addEventSpinner() {
-        spinner.setOnItemSelectedListener(this);
-        //creating array adapter
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.item_spinner, price);
-        adapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
-        spinner.setAdapter(adapter);
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        //Toast.makeText(CategoryActivity.this, price[i], Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
     private void addEventProductList() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this, LinearLayoutManager.VERTICAL, false);
-
         rcvProductCategory.setLayoutManager(layoutManager);
 
-        productList = MainActivity.productList;
-        ArrayList<Product> products = new ArrayList<>();
+        getData();
 
+        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, products, onClickInterface));
+    }
+    private void getData(){
+        productList = MainActivity.productList;
+        products = new ArrayList<>();
         Intent intent = getIntent();
         if (intent != null) {
             String number = String.valueOf(intent.getExtras().getInt("id"));
@@ -95,11 +79,63 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
                     products.add(p);
                 }
             }
-
             //set Title
             txtCategory.setText(intent.getExtras().getString("category"));
         }
+    }
 
-        rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, products, onClickInterface));
+    private void addEventSpinner() {
+        //creating array adapter
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.item_spinner, price);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        //Filter product
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                getData();
+                ArrayList<Product> productsFilter = new ArrayList<>();
+                switch (i){
+                    case 0:
+                        productsFilter = products;
+                        break;
+                    case 1:
+                        for (Product p2 : products){
+                            if(p2.getPrice() < 50000){
+                                productsFilter.add(p2);
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (Product p3 : products){
+                            if(p3.getPrice() >= 50000 && p3.getPrice() <100000){
+                                productsFilter.add(p3);
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (Product p4 : products){
+                            if(p4.getPrice() >= 100000 && p4.getPrice() <150000){
+                                productsFilter.add(p4);
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (Product p5 : products){
+                            if(p5.getPrice() >= 150000){
+                                productsFilter.add(p5);
+                            }
+                        }
+                        break;
+                }
+                rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, productsFilter, onClickInterface));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }

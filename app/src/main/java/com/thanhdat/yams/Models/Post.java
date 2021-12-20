@@ -1,8 +1,9 @@
 package com.thanhdat.yams.Models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Post {
+public class Post implements Serializable {
     private int id, liked;
     private String content, photo, date;
     private String tags;
