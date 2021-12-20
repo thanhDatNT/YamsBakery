@@ -18,8 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
 
@@ -167,6 +171,7 @@ public class FeedFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
     }
 
 }

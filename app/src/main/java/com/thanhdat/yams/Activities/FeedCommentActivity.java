@@ -39,6 +39,8 @@ public class FeedCommentActivity extends AppCompatActivity {
         edtAddComment = findViewById(R.id.edtAddComment);
         imvProfile = findViewById(R.id.imvProfileComment);
         btnPost = findViewById(R.id.btnPostComment);
+        txtDescription = findViewById(R.id.txtDescription);
+        txtHashtag = findViewById(R.id.txtHashtag);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle == null){

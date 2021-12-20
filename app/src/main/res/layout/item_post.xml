@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imvPostThumb">
 
         <CheckBox
-            android:id="@+id/chkLike"
+            android:id="@+id/chkFeedLike"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="15dp"
@@ -104,7 +104,7 @@
             android:id="@+id/imbAddComment"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_toEndOf="@+id/chkLike"
+            android:layout_toEndOf="@+id/chkFeedLike"
             android:background="@drawable/img_comment"
             android:layout_marginStart="10dp"/>
 
