@@ -45,7 +45,6 @@ public class OrderDetailActivity extends AppCompatActivity {
     int orderId;
     OrderDatabase database;
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
-    Toolbar toolbarOrderDetail;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
 
