@@ -77,6 +77,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productList = MainActivity.productList;
         // int productID = intent.getExtras().getInt("idProduct");
         Product itemProduct = productList.get(productID - 1);
+        //total = (int) itemProduct.getCurrentPrice();
         Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
         txtProductDetailName.setText(itemProduct.getName());
         txtProductPrice.setText(String.valueOf(itemProduct.getCurrentPrice()));
@@ -186,6 +187,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(ProductDetailsActivity.this,MainActivity.class));
+
                 }
             });
         }

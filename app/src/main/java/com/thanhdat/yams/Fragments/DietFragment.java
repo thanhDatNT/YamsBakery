@@ -37,8 +37,8 @@ import java.util.ArrayList;
 
 public class DietFragment extends Fragment {
     RadioButton radNam,radNu;
-    Button btnTinhBMI;
-    EditText edtNhapWeight,edtNhapHeight;
+    Button btnCalculateBMI;
+    EditText edtInputWeight,edtInputHeight;
     RecyclerView rcvDietProduct;
     TextView txtSuggest;
     Toolbar toolbarDiet;
@@ -57,10 +57,10 @@ public class DietFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_diet, container, false);
         radNam=view.findViewById(R.id.radNam);
         radNu=view.findViewById(R.id.radNu);
-        btnTinhBMI=view.findViewById(R.id.btnConfirmPwChange);
+        btnCalculateBMI=view.findViewById(R.id.btnCalculateBMI);
 
-        edtNhapHeight=view.findViewById(R.id.edtNhapHeigt);
-        edtNhapWeight=view.findViewById(R.id.edtNhapWeight);
+        edtInputHeight=view.findViewById(R.id.edtInputHeight);
+        edtInputWeight=view.findViewById(R.id.edtInputWeight);
 
         rcvDietProduct=view.findViewById(R.id.rcvDietProduct);
 
@@ -101,16 +101,16 @@ public class DietFragment extends Fragment {
 
     }
     private void addEvent() {
-        btnTinhBMI.setOnClickListener(new View.OnClickListener() {
+        btnCalculateBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Dialog dialog= new Dialog(getContext());
                 dialog.setContentView(R.layout.dialog_show_bmi);
-                double chieucao = Double.parseDouble(edtNhapHeight.getText().toString());
-                double cannang=Double.parseDouble(edtNhapWeight.getText().toString());
+                double height = Double.parseDouble(edtInputHeight.getText().toString());
+                double weight=Double.parseDouble(edtInputWeight.getText().toString());
                 DecimalFormat d = new DecimalFormat("0.00");
-                double BMI = cannang/Math.pow(chieucao,2)*10000;
+                double BMI = weight/Math.pow(height,2)*10000;
 
                 TextView txtBMI = dialog.findViewById(R.id.txtBMI);
                 TextView txtResult =dialog.findViewById(R.id.txtResult);
@@ -173,8 +173,8 @@ public class DietFragment extends Fragment {
                 btnReType.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        edtNhapHeight.setText("");
-                        edtNhapWeight.setText("");
+                        edtInputHeight.setText("");
+                        edtInputWeight.setText("");
                         rcvDietProduct.setAdapter(null);
 
                         dialog.dismiss();

@@ -118,14 +118,14 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtNhapHeigt"
+                        android:id="@+id/edtInputHeight"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="4.5"
                         android:layout_marginStart="20dp"
                         android:background="@drawable/botron"
                         android:gravity="center"
-                        android:hint="@string/nhapheigt"
+                        android:hint="@string/InputHeight"
                         android:inputType="number"
                         android:textColor="@color/primary"
                         android:textSize="16sp" />
@@ -160,7 +160,7 @@
 
                     <EditText
 
-                        android:id="@+id/edtNhapWeight"
+                        android:id="@+id/edtInputWeight"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="4.5"
@@ -168,7 +168,7 @@
                         android:layout_marginStart="20dp"
                         android:background="@drawable/botron"
                         android:gravity="center"
-                        android:hint="@string/nhapweight"
+                        android:hint="@string/InputWeight"
                         android:inputType="numberSigned"
                         android:textColor="@color/primary"
                         android:textSize="16sp" />
@@ -184,7 +184,7 @@
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnConfirmPwChange"
+                    android:id="@+id/btnCalculateBMI"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"

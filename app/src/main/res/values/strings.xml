@@ -47,8 +47,8 @@
     <string name="girl">Nữ</string>
     <string name="cm">Đơn vị: cm</string>
     <string name="kg">Đơn vị: kg</string>
-    <string name="nhapweight">Nhập cân nặng</string>
-    <string name="nhapheigt">Nhập chiều cao</string>
+    <string name="InputWeight">Nhập cân nặng</string>
+    <string name="InputHeight">Nhập chiều cao</string>
     <string name="bmi">BMI</string>
     <string name="retype">Nhập lại</string>
     <string name="Confirm">Xác nhận</string>
