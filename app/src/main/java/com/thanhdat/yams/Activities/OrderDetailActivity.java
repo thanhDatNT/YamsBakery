@@ -3,9 +3,17 @@ package com.thanhdat.yams.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.RingtoneManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -124,9 +132,8 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnConfirmSuccess = view1.findViewById(R.id.btnConfirmSuccess);
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View view) {notifyDeletion();
                     startActivity(new Intent(OrderDetailActivity.this, MainActivity.class));
-
                 }
             });
             btnBackHome = view1.findViewById(R.id.btnBackHome);
@@ -138,6 +145,29 @@ public class OrderDetailActivity extends AppCompatActivity {
             });
             sheetDialogCancelSuccess = new BottomSheetDialog(OrderDetailActivity.this);
             sheetDialogCancelSuccess.setContentView(view1);
+        }
+    }
+
+    private void notifyDeletion() {
+        String CHANNEL_ID = "123";
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel= new NotificationChannel(CHANNEL_ID,"My channel", NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("This is my channel");
+            NotificationManager manager= getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        Notification notification= new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Hủy đơn thành công")
+                .setContentText("Đơn hàng " + orderId + " đã được hủy")
+                .setColor(Color.MAGENTA)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        NotificationManager notificationManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if(notificationManager!=null){
+            notificationManager.notify(1, notification);
         }
     }
 

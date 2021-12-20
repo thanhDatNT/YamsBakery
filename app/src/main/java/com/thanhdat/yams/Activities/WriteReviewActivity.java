@@ -200,7 +200,9 @@ public class WriteReviewActivity extends AppCompatActivity {
                     if(flag){
                         //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
+
                     }else {
+
                         Toast.makeText(WriteReviewActivity.this, "Fail!", Toast.LENGTH_SHORT).show();
                     }
                 }else {
