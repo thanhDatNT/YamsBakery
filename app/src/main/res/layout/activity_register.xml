@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/bg_heading_gradient"
+        android:background="@drawable/bg_header_gradient"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:title="Đăng ký thành viên Yams"
         app:titleTextColor="@color/white"
@@ -113,7 +113,7 @@
             android:textSize="@dimen/buttonTextSize"
             android:paddingHorizontal="@dimen/padHorizon"
             android:textAllCaps="false"
-            android:background="@drawable/button_bg_gradient"/>
+            android:background="@drawable/bg_button_gradient"/>
 
     </LinearLayout>
 </LinearLayout>

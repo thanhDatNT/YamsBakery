@@ -46,7 +46,7 @@
             android:textAllCaps="false"
             android:textSize="@dimen/buttonTextSize"
             android:textColor="@color/primary"
-            android:background="@drawable/button_white_bg"
+            android:background="@drawable/bg_button_white"
             android:layout_marginHorizontal="4dp"
             android:textStyle="bold"/>
 
@@ -59,7 +59,7 @@
             android:textSize="@dimen/buttonTextSize"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:background="@drawable/button_white_border"
+            android:background="@drawable/bg_button_white_border"
             android:layout_marginHorizontal="4dp"
             android:textStyle="bold"/>
     </LinearLayout>

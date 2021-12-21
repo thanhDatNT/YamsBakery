@@ -50,12 +50,12 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
         if (viewType == MESSAGE_SEND) {
             view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.viewholder_mychat, parent, false);
+                    .inflate(R.layout.item_mychat, parent, false);
             return new SentMessageHolder(view);
         }
         else if (viewType == MESSAGE_RECEIVE) {
             view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.viewholder_yamschat, parent, false);
+                    .inflate(R.layout.item_yamschat, parent, false);
             return new ReceivedMessageHolder(view);
         }
         return null;

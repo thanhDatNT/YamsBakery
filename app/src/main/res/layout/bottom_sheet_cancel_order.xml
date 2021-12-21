@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/button_bg_gradient"
+        android:background="@drawable/bg_button_gradient"
         android:text="@string/cancel_confirm"
         android:textColor="@color/white"
         android:textSize="@dimen/textContent"
