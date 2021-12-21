@@ -40,7 +40,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_diet_product,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_diet_product,parent,false);
         return new ViewHolder(view);
     }
 

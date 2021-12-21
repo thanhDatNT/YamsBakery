@@ -91,11 +91,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="5dp"
-                    android:src="@drawable/bullet" />
+                    android:src="@drawable/bg_circle_pink" />
 
                 <TextView
                     android:id="@+id/txtPendingStatus"
@@ -115,7 +115,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/botron"
+                android:background="@drawable/bg_edittext_lightpink"
                 android:text="@string/details"
                 android:textAllCaps="false"
                 android:textColor="@color/textColor" />

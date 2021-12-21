@@ -12,7 +12,7 @@
         android:id="@+id/toolbarSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_heading_gradient"
+        android:background="@drawable/bg_header_gradient"
         android:minHeight="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow_back">
 
