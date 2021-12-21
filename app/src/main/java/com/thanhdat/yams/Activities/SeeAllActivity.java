@@ -51,7 +51,7 @@ public class SeeAllActivity extends AppCompatActivity {
         toolbarSeeAll.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SeeAllActivity.this, MainActivity.class));
+                finish();
             }
         });
     }
@@ -92,16 +92,6 @@ public class SeeAllActivity extends AppCompatActivity {
                 //set Title
                 txtSeeAllTitle.setText("Sản phẩm phổ biến");
             }
-
-//            String number = String.valueOf(intent.getExtras().getInt("id"));
-//            for (Product p : productList) {
-//                if (p.getCategory().equals(number)) {
-//                    products.add(p);
-//                }
-//                if (products.size() > 10) {
-//                    products.subList(10, products.size()).clear();
-//                }
-//            }
 
         }
 

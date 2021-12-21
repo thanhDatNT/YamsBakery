@@ -98,8 +98,7 @@
             android:background="@drawable/ic_like"
             android:button="@null"
             android:checked="false"
-            android:stateListAnimator="@animator/anim_like"
-            />
+            android:stateListAnimator="@animator/anim_like" />
 
         <ImageButton
             android:id="@+id/imbAddComment"

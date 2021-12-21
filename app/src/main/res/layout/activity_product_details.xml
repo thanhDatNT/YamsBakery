@@ -38,7 +38,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="135dp"
-        android:scrollbars="vertical"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,18 +82,25 @@
                     android:textStyle="bold"
                     android:gravity="center_vertical"/>
 
-                <CheckBox
-                    android:id="@+id/chkLike"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_like"
-                    android:button="@null"
-                    android:checked="false"
-                    android:layout_gravity="center"
-                    android:stateListAnimator="@animator/anim_like"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    app:cardCornerRadius="12dp"
+                    android:elevation="2dp"
+                    android:translationZ="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp">
 
-                    />
+                    <CheckBox
+                        android:id="@+id/chkLike"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_like"
+                        android:button="@null"
+                        android:checked="true"
+                        android:layout_gravity="center"
+                        android:stateListAnimator="@animator/anim_like" />
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <!--Star vote and see review-->
@@ -411,6 +418,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
+        android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -421,7 +429,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="16dp"
+            android:layout_marginVertical="@dimen/pad"
             android:orientation="horizontal">
 
             <ImageButton
@@ -451,19 +459,21 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/pad"
             android:layout_gravity="center_horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddToPayment"
-                android:layout_width="130dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_bg_gradient"
                 android:paddingHorizontal="5dp"
-                android:text=""
+                android:layout_weight="0.5"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/buttonTextSize"
@@ -471,12 +481,13 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddToCart"
-                android:layout_width="130dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/bg_lightpink"
                 android:paddingHorizontal="5dp"
                 android:text="Add to cart"
+                android:layout_weight="0.5"
                 android:textAllCaps="false"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/buttonTextSize"

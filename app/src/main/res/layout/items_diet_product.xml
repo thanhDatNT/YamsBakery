@@ -58,24 +58,21 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_gravity="end|top"
-                        android:layout_marginEnd="8dp"
-                        android:padding="12dp"
                         app:cardCornerRadius="12dp"
                         android:elevation="2dp"
-                        android:translationZ="2dp">
+                        android:translationZ="1.5dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="3dp">
+
                         <CheckBox
                             android:id="@+id/chkLike"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-
                             android:background="@drawable/ic_like"
                             android:button="@null"
-                            android:checked="false"
+                            android:checked="true"
                             android:layout_gravity="center"
-                            android:stateListAnimator="@animator/anim_like"
-
-                            />
+                            android:stateListAnimator="@animator/anim_like" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
                 <LinearLayout

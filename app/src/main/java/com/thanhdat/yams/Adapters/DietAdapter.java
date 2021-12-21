@@ -8,6 +8,8 @@ import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +50,24 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         holder.txtName.setText(diets.get(position).getName());
         holder.txtPrice.setText(String.format("%.0f",diets.get(position).getCurrentPrice())+"đ");
         holder.txtOldPrice.setText(String.format("%.0f",diets.get(position).getPrice())+"đ");
+        if (diets.get(position).isFavorite()){
+            holder.chkLike.setChecked(true);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    diets.get(position).setFavorite(false);
+                }
+            });
+        }
+        else{
+            holder.chkLike.setChecked(false);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    diets.get(position).setFavorite(true);
+                }
+            });
+        }
         if(diets.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",diets.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
@@ -85,6 +105,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         ImageView imvThumb;
         TextView txtName, txtPrice, txtOldPrice,txtContent,txtRate,txtQuantity;
         CardView layoutProductDiet;
+        CheckBox chkLike;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
@@ -95,7 +116,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             txtRate = itemView.findViewById(R.id.txtRate);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
             layoutProductDiet =itemView.findViewById(R.id.layoutProductDiet);
-
+            chkLike = itemView.findViewById(R.id.chkLike);
 
         }
     }
