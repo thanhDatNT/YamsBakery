@@ -40,11 +40,13 @@ import java.util.Date;
 public class OrderDetailActivity extends AppCompatActivity {
     TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode,txtTime1, txtTime2, txtDeliTime;
     ImageView imvOrderDetailThumb;
-    Toolbar toolbarOrderDetail;
+    Toolbar toolbarOrderDetail, toolbarCancelOrder;
 
     int orderId;
     OrderDatabase database;
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
+
+    RadioGroup radGroupCancel;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
 
@@ -117,16 +119,34 @@ public class OrderDetailActivity extends AppCompatActivity {
         if(sheetDialogCancelOrder == null){
             View view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_cancel_order,null);
             btnCancelConfirm = view.findViewById(R.id.btnCancelConfirm);
+            toolbarCancelOrder = view.findViewById(R.id.toolbarCancelOrder);
+            radGroupCancel = view.findViewById(R.id.radGroupCancel);
+            toolbarCancelOrder.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    if(item.getItemId() == R.id.mnuCancel){
+                        sheetDialogCancelOrder.dismiss();
+                    }
+                    return false;
+                }
+            });
+
             btnCancelConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 //                    Delete Item in Database
                     database.execSQL("DELETE FROM " + database.TABLE_NAME + " WHERE "+ database.COL_ID + " = "+ orderId);
+                    int radId = radGroupCancel.getCheckedRadioButtonId();
+                    if(radId==-1){
+                        Toast.makeText(getApplicationContext(), "Vui lòng chọn lý do hủy đơn", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     sheetDialogCancelOrder.dismiss();
                     sheetDialogCancelSuccess.show();
                 }
             });
             sheetDialogCancelOrder = new BottomSheetDialog(this);
+            sheetDialogCancelOrder.setCancelable(false);
             sheetDialogCancelOrder.setContentView(view);
         }
     }
@@ -149,6 +169,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 }
             });
             sheetDialogCancelSuccess = new BottomSheetDialog(OrderDetailActivity.this);
+            sheetDialogCancelOrder.setCancelable(false);
             sheetDialogCancelSuccess.setContentView(view1);
         }
     }
