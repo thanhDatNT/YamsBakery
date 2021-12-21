@@ -61,8 +61,8 @@
                 android:id="@+id/tvGreetHome"
                 android:layout_width="wrap_content"
                 android:maxWidth="288dp"
+                android:text="Hello"
                 android:layout_height="wrap_content"
-                android:text="Hello, Nguyen Thanh Dat"
                 android:textColor="@color/primary"
                 android:textSize="16sp"/>
 
@@ -84,7 +84,7 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!--            Automatic Slider Banner-->
+            <!--            Automatic Slider-->
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSliderHome"
                 android:layout_width="match_parent"

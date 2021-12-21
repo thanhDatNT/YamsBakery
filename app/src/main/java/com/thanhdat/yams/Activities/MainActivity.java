@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,8 +23,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 //import com.google.android.gms.common.api.Response;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.thanhdat.yams.Databases.UserDatabase;
+import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Category;
 import com.thanhdat.yams.Models.Product;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.ViewPagerMainAdapter;
 
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG= MainActivity.class.getSimpleName();
     public static ArrayList<Product> productList;
     public static ArrayList<Category> categoryList;
+    public static ArrayList<User> user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +55,19 @@ public class MainActivity extends AppCompatActivity {
         linkViews();
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        getUserData();
         requestCategoryDataAPI();
         requestProductDataAPI();
+    }
+
+    private void getUserData() {
+        user = new ArrayList<>();
+        UserDatabase userDatabase= new UserDatabase(this);
+        Cursor cursor= userDatabase.getData("SELECT * FROM "+ userDatabase.TABLE_NAME);
+        while (cursor.moveToNext()){
+            user.add(new User(cursor.getString(1), cursor.getString(2), cursor.getString(4), cursor.getString(3)));
+        }
+        cursor.close();
     }
 
     private void requestCategoryDataAPI() {

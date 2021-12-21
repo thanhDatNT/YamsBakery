@@ -39,9 +39,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Databases.CartDatabase;
 import com.thanhdat.yams.Databases.OrderDatabase;
+import com.thanhdat.yams.Fragments.OtpFragment;
 import com.thanhdat.yams.Fragments.PaymentSuccessFragment;
 import com.thanhdat.yams.Models.Cart;
 import com.thanhdat.yams.Models.Product;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.Models.Voucher;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.OrderAdapter;
@@ -139,6 +141,8 @@ public class OrderActivity extends AppCompatActivity {
     private void initData() {
         adapter = new OrderAdapter(getApplicationContext(), R.layout.item_payment, orderProducts);
         rcvPaymentProduct.setAdapter(adapter);
+        ArrayList<User> user = MainActivity.user;
+        txtCustomer.setText(user.get(0).getName()+ " | " + user.get(0).getPhone());
     }
 
     private void addEvents() {

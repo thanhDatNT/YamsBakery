@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -21,7 +22,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
-        <activity android:name=".Activities.PaymentActivity"></activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activities.PaymentActivity" />
         <activity
             android:name=".Activities.SeeAllActivity"
             android:exported="true" />
@@ -79,20 +96,19 @@
         <activity
             android:name=".Activities.ProductDetailsActivity"
             android:exported="true" />
-        <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.IntroActivity" />
-        <activity android:name=".Activities.VoucherActivity" />
-        <activity
-            android:name=".Activities.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+        <activity android:name=".Activities.IntroActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.VoucherActivity" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

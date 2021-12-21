@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.thanhdat.yams.R;
 
 public class IntroActivity extends AppCompatActivity {
@@ -24,27 +26,29 @@ public class IntroActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_intro);
 
-//        View decorView = getWindow().getDecorView();
-//      Hide the status bar.
-//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-//        decorView.setSystemUiVisibility(uiOptions);
-
         linkViews();
         addEvents();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            startActivity(new Intent(IntroActivity.this, MainActivity.class));
+        }
+    }
+
     private void addEvents() {
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, RegisterActivity.class));
-            }
+        Intent intent = new Intent(this, LoginActivity.class);
+        btnSignIn.setOnClickListener(v -> {
+            intent.putExtra("login", 0);
+            startActivity(intent);
         });
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, LoginActivity.class));
-            }
+        btnSignUp.setOnClickListener(v -> {
+            intent.putExtra("register", 1);
+            startActivity(intent);
         });
 //        Change font family for slogan
         Typeface typeface= Typeface.createFromAsset(getAssets(), "fonts/Pacifico-Regular.ttf");

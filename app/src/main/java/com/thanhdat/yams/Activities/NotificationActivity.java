@@ -64,7 +64,7 @@ public class NotificationActivity extends AppCompatActivity {
         AlertDialog.Builder builder= new AlertDialog.Builder(NotificationActivity.this);
         builder.setTitle("Xác nhận xóa!");
         builder.setMessage("Xóa tất cả thông báo?");
-        builder.setIcon(R.mipmap.ic_logo_launcher);
+        builder.setIcon(R.mipmap.ic_launcher);
         builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

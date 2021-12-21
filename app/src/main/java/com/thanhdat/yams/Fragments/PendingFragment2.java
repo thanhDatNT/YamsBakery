@@ -72,6 +72,7 @@ public class PendingFragment2 extends Fragment {
             pendingOrders.add(new PendingOrder(cursor.getInt(0) , cursor.getString(2), cursor.getString(4),
                     cursor.getString(1), cursor.getDouble(7)));
         }
+        cursor.close();
         return pendingOrders;
     }
 

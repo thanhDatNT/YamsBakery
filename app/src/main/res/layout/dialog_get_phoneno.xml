@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <ImageButton
+        android:id="@+id/buttonCancelPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/white"
+        app:srcCompat="@drawable/ic_cancel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your phone"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/primary"
+        android:layout_margin="12dp"/>
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:drawableStart="@drawable/img_vietnam"
+        android:drawablePadding="6dp"
+        android:inputType="number"
+        android:hint="944001990" />
+
+    <Button
+        android:id="@+id/buttonConfirmPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/confirm" />
+
+</LinearLayout>
