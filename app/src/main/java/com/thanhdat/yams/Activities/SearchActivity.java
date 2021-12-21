@@ -50,7 +50,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void addAdapter() {
-        adapter= new SimpleViewGroupAdapter(this, R.layout.viewholder_search, dataList);
+        adapter= new SimpleViewGroupAdapter(this, R.layout.item_search, dataList);
         gvNearly.setAdapter(adapter);
         gvSuggest.setAdapter(adapter);
     }

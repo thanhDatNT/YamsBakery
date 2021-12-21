@@ -66,9 +66,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
         productList = MainActivity.productList;
+
+
+        Product itemProduct = productList.get(productID - 1);
+
+        //total = (int) itemProduct.getCurrentPrice();
+
+        total= itemProduct.getPrice();
+
         itemProduct = productList.get(productID - 1);
 
         total= (int) itemProduct.getCurrentPrice();
+
 
         Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
         txtProductDetailName.setText(itemProduct.getName());
@@ -105,12 +114,36 @@ public class ProductDetailsActivity extends AppCompatActivity {
             txtOldPrice.setVisibility(View.VISIBLE);
         }
 
+
+        int price = (int) itemProduct.getCurrentPrice();
+        txtMPrice.setText(String.valueOf(price));
+        txtLPrice.setText(String.valueOf(price + 5000));
+        txtXLPrice.setText(String.valueOf(price + 10000));
+
+        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
+        txtProductDetailDescrip.setText(itemProduct.getDescription());
+
+
+                List<String> listToppings = itemProduct.getTopping();
+                 chkTopping1.setText(listToppings.get(0));
+                 chkTopping2.setText(listToppings.get(1));
+                 chkTopping3.setText(listToppings.get(2));
+                btnPayment.setText("Mua hàng " + price);
+
+
+        btnPayment.setText("Mua hàng " + price +" đ");
+
+
         txtMPrice.setText(String.valueOf(total));
         txtLPrice.setText(String.valueOf(total + 5000));
         txtXLPrice.setText(String.valueOf(total + 10000));
 
         btnPayment.setText("Mua ngay " + total);
+
     }
+
+
 
 //    private void addEventFavourite() {
 //        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -163,7 +196,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
+                    startActivity(new Intent(ProductDetailsActivity.this,MainActivity.class));
+
+
+//                    startActivity(new Intent(ProductDetailsActivity.this,MainActivity.class));
+
                     onBackPressed();
+
                 }
 
             });

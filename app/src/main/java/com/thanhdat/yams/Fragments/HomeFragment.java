@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment{
         for (int i= 10; i<=15; i++){
             suggestProducts.add(productList.get(i));
         }
-        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.viewholder_product,suggestProducts, onClickInterface));
+        gvSuggestion.setAdapter(new SuggestionAdapter(getContext(), R.layout.item_product,suggestProducts, onClickInterface));
     }
 
     private void addEventPromotion() {
@@ -117,7 +117,7 @@ public class HomeFragment extends Fragment{
         if (promoProducts.size() > 10) {
             promoProducts.subList(10, promoProducts.size()).clear();
         }
-        rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, promoProducts, onClickInterface));
+        rcvPromotion.setAdapter(new ProductAdapter(getContext(),R.layout.item_product, promoProducts, onClickInterface));
         txtGoPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment{
         if (popularProducts.size() > 10) {
             popularProducts.subList(10, popularProducts.size()).clear();
         }
-        rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, popularProducts, onClickInterface));
+        rcvPopular.setAdapter(new ProductAdapter(getContext(),R.layout.item_product, popularProducts, onClickInterface));
         txtGoPopular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,7 +164,7 @@ public class HomeFragment extends Fragment{
         if (newProducts.size() > 10) {
             newProducts.subList(10, newProducts.size()).clear();
         }
-        rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.viewholder_product, newProducts, onClickInterface));
+        rcvNewProduct.setAdapter(new ProductAdapter(getContext(),R.layout.item_product, newProducts, onClickInterface));
 
         txtGoNew.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,7 +178,7 @@ public class HomeFragment extends Fragment{
 
     private void addEventCategory() {
         ArrayList<Category> categories= MainActivity.categoryList;
-        gvCategory.setAdapter(new CategoryAdapter(getContext(), R.layout.viewholder_category, categories));
+        gvCategory.setAdapter(new CategoryAdapter(getContext(), R.layout.item_category, categories));
         gvCategory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

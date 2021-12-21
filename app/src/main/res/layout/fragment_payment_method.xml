@@ -217,7 +217,7 @@
                 android:layout_gravity="center_horizontal"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_bg_gradient"
+                android:background="@drawable/bg_button_gradient"
                 android:text="@string/confirm"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

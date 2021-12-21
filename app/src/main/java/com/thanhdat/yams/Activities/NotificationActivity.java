@@ -120,7 +120,7 @@ public class NotificationActivity extends AppCompatActivity {
         dataNotifications.add(new TextThumbView(R.drawable.ic_confirm, "Đơn hàng #10001 đã được giao thành công. Nhấn để xem thông tin chi tiết."));
         dataNotifications.add(new TextThumbView(R.drawable.ic_confirm, "Đơn hàng #10002 đã được giao thành công. Nhấn để xem thông tin chi tiết."));
         dataNotifications.add(new TextThumbView(R.drawable.ic_new_releases_notify, "Bạn nhận được #1 voucher freeship khi mua đơn trên 100.000. Dùng ngay thôi!"));
-        adapter= new SimpleViewGroupAdapter(this, R.layout.viewholder_notification, dataNotifications);
+        adapter= new SimpleViewGroupAdapter(this, R.layout.item_notification, dataNotifications);
         lvNotify.setAdapter(adapter);
 
     }

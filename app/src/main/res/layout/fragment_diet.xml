@@ -18,9 +18,14 @@
         app:layout_collapseMode="pin"
         android:background="@color/white"
         app:menu="@menu/diet_heading"
+<<<<<<< HEAD
         android:elevation="4dp"
         style="@style/ThemeOverlay.AppCompat.Light"
         android:theme="?attr/actionBarTheme">
+=======
+        android:theme="?attr/actionBarTheme"
+        style="@style/ThemeOverlay.AppCompat.Light">
+>>>>>>> 5d5df2d79969cb46d30526716f38da4f6a462af1
 
         <TextView
             android:id="@+id/txtDietHeader"
@@ -33,8 +38,35 @@
             android:textSize="24sp"/>
 
     </androidx.appcompat.widget.Toolbar>
+<<<<<<< HEAD
     <!--    end heading-->
 
+=======
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbarFeed"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        app:layout_collapseMode="pin"-->
+<!--        android:background="@color/white"-->
+<!--        app:menu="@menu/feed_heading"-->
+<!--        android:elevation="4dp"-->
+<!--        style="@style/ThemeOverlay.AppCompat.Light"-->
+<!--        android:theme="?attr/actionBarTheme">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtFeedHeader"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Yams Feed"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="24sp"/>-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    end heading-->
+>>>>>>> 5d5df2d79969cb46d30526716f38da4f6a462af1
     <androidx.core.widget.NestedScrollView
         android:padding="12dp"
         android:layout_width="match_parent"
@@ -121,14 +153,14 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edtNhapHeigt"
+                        android:id="@+id/edtInputHeight"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="4.5"
                         android:layout_marginStart="20dp"
-                        android:background="@drawable/botron"
+                        android:background="@drawable/bg_edittext_lightpink"
                         android:gravity="center"
-                        android:hint="@string/nhapheigt"
+                        android:hint="@string/InputHeight"
                         android:inputType="number"
                         android:textColor="@color/primary"
                         android:textSize="16sp" />
@@ -163,15 +195,15 @@
 
                     <EditText
 
-                        android:id="@+id/edtNhapWeight"
+                        android:id="@+id/edtInputWeight"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="4.5"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
-                        android:background="@drawable/botron"
+                        android:background="@drawable/bg_edittext_lightpink"
                         android:gravity="center"
-                        android:hint="@string/nhapweight"
+                        android:hint="@string/InputWeight"
                         android:inputType="numberSigned"
                         android:textColor="@color/primary"
                         android:textSize="16sp" />
@@ -187,12 +219,12 @@
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnConfirmPwChange"
+                    android:id="@+id/btnCalculateBMI"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/button_bg_gradient"
+                    android:background="@drawable/bg_button_gradient"
                     android:text="@string/CalculateBMI"
                     android:textAllCaps="false"
                     android:textColor="@color/white"

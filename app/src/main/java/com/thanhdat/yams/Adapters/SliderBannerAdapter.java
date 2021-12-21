@@ -23,7 +23,7 @@ public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.S
 
     @Override
     public SliderVH onCreateViewHolder(ViewGroup parent) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_slider_banner, null);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_slider_banner, null);
         return new SliderVH(inflate);
     }
 

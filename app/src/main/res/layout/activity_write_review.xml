@@ -118,7 +118,7 @@
             android:inputType="textMultiLine"
             android:maxLines="6"
             android:lines="6"
-            android:background="@drawable/edittext_bg_thin_stroke"
+            android:background="@drawable/bg_edittext_greystroke"
             android:padding="10dp"
             android:gravity="top"
             android:layout_marginTop="-28dp"/>
@@ -210,7 +210,7 @@
             android:id="@+id/btnUpReview"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_bg_gradient"
+            android:background="@drawable/bg_button_gradient"
             android:text="Đăng đánh giá"
             android:textAllCaps="false"
             android:textColor="@color/white"

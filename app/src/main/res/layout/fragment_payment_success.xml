@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_bg_gradient"
+        android:background="@drawable/bg_button_gradient"
         android:text="@string/see_order_status"
         android:textAllCaps="false"
         android:textColor="@color/white"

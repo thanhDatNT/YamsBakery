@@ -9,7 +9,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:layout_margin="20dp"
+        android:layout_marginHorizontal="@dimen/pad"
+        android:layout_marginTop="20dp"
         android:elevation="2dp"
         app:cardCornerRadius="20dp"
         android:backgroundTint="@color/lightPink"
@@ -107,7 +108,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:background="@drawable/button_bg_gradient"
+                    android:background="@drawable/bg_button_gradient"
                     android:text="@string/reorder"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
@@ -116,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginStart="70dp"
-                    android:background="@drawable/bg_heading_gradient"
+                    android:background="@drawable/bg_header_gradient"
                     android:backgroundTint="#35BF7D"
                     android:text="@string/on_shipping"
                     android:textAllCaps="false"

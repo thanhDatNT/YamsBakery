@@ -130,7 +130,7 @@ public class ChatActivity extends AppCompatActivity {
         rcvMessage.setLayoutManager(layoutManager);
         if(messageList.size() > 0){
 //            Add view message to LinearLayout
-            view= View.inflate(ChatActivity.this, R.layout.viewholder_yamschat, null);
+            view= View.inflate(ChatActivity.this, R.layout.item_yamschat, null);
             TextView myText= view.findViewById(R.id.text_chat_message_yams);
             TextView myTime= view.findViewById(R.id.text_chat_date_yams);
             myTime.setText(time);
@@ -153,7 +153,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void run() {
 //              Set view for layout container: My Message
-                view= View.inflate(ChatActivity.this, R.layout.viewholder_mychat, null);
+                view= View.inflate(ChatActivity.this, R.layout.item_mychat, null);
                 TextView myText= view.findViewById(R.id.text_chat_message_me);
                 TextView myTime= view.findViewById(R.id.text_chat_date_me);
                 ImageView myPhoto= view.findViewById(R.id.imvPhotoMessage);
