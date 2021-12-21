@@ -40,10 +40,13 @@ import java.util.Date;
 public class OrderDetailActivity extends AppCompatActivity {
     TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode,txtTime1, txtTime2, txtDeliTime;
     ImageView imvOrderDetailThumb;
+    Toolbar toolbarOrderDetail, toolbarCancelOrder;
 
     int orderId;
     OrderDatabase database;
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
+
+    RadioGroup radGroupCancel;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
 
@@ -70,7 +73,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             PendingOrder pendingOrder = (PendingOrder) bundle.get("object_pending");
             orderId = pendingOrder.getId();
             txtOrderDetailName.setText(pendingOrder.getOrderName());
-            txtOrderDetailPrice.setText(String.format("%g", pendingOrder.getOrderPrice())+"đ");
+            txtOrderDetailPrice.setText(String.format("%.0f", pendingOrder.getOrderPrice())+" đ");
             txtOrderDetailCode.setText("#" + pendingOrder.getOrderCode());
             Picasso.get().load(pendingOrder.getOrderThumb()).into(imvOrderDetailThumb);
         }
@@ -85,7 +88,11 @@ public class OrderDetailActivity extends AppCompatActivity {
         txtOrderDetailPrice = findViewById(R.id.txtOrderDetailPrice);
         txtOrderDetailCode = findViewById(R.id.txtOrderDetailCode);
 
+        toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
+
         imvOrderDetailThumb = findViewById(R.id.imvOrderDetailThumb);
+
+        toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
 
         btnCancelOrder = findViewById(R.id.btnCancelOrder);
         btnBackToHome = findViewById(R.id.btnBackToHome);
@@ -112,16 +119,34 @@ public class OrderDetailActivity extends AppCompatActivity {
         if(sheetDialogCancelOrder == null){
             View view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_cancel_order,null);
             btnCancelConfirm = view.findViewById(R.id.btnCancelConfirm);
+            toolbarCancelOrder = view.findViewById(R.id.toolbarCancelOrder);
+            radGroupCancel = view.findViewById(R.id.radGroupCancel);
+            toolbarCancelOrder.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    if(item.getItemId() == R.id.mnuCancel){
+                        sheetDialogCancelOrder.dismiss();
+                    }
+                    return false;
+                }
+            });
+
             btnCancelConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 //                    Delete Item in Database
                     database.execSQL("DELETE FROM " + database.TABLE_NAME + " WHERE "+ database.COL_ID + " = "+ orderId);
+                    int radId = radGroupCancel.getCheckedRadioButtonId();
+                    if(radId==-1){
+                        Toast.makeText(getApplicationContext(), "Vui lòng chọn lý do hủy đơn", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     sheetDialogCancelOrder.dismiss();
                     sheetDialogCancelSuccess.show();
                 }
             });
             sheetDialogCancelOrder = new BottomSheetDialog(this);
+            sheetDialogCancelOrder.setCancelable(false);
             sheetDialogCancelOrder.setContentView(view);
         }
     }
@@ -133,7 +158,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {notifyDeletion();
-                    startActivity(new Intent(OrderDetailActivity.this, MainActivity.class));
+                    Intent intent = new Intent(OrderDetailActivity.this, OrderStatusActivity.class);
+                    intent.setFlags(0);
+                    startActivity(intent);
+
                 }
             });
             btnBackHome = view1.findViewById(R.id.btnBackHome);
@@ -144,6 +172,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 }
             });
             sheetDialogCancelSuccess = new BottomSheetDialog(OrderDetailActivity.this);
+            sheetDialogCancelOrder.setCancelable(false);
             sheetDialogCancelSuccess.setContentView(view1);
         }
     }
@@ -172,17 +201,15 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
-      Toolbar toolbarOrderDetail = findViewById(R.id.toolbarOrderDetail);
         setSupportActionBar(toolbarOrderDetail);
-        if(getSupportActionBar() != null){
+        if(getSupportActionBar() != null)
             getSupportActionBar().setTitle(null);
-            toolbarOrderDetail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onBackPressed();
-                }
-            });
-        }
+        toolbarOrderDetail.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 

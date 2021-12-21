@@ -16,7 +16,7 @@
         android:elevation="2dp"
         android:translationZ="2dp"
         app:navigationIcon="@drawable/ic_arrow_back"
-        android:background="@drawable/bg_heading_gradient"
+        android:background="@drawable/bg_header_gradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

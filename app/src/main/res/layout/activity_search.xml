@@ -12,7 +12,7 @@
         android:id="@+id/toolbarSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_heading_gradient"
+        android:background="@drawable/bg_header_gradient"
         android:minHeight="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow_back">
 
@@ -36,14 +36,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/pad"
+            android:paddingHorizontal="@dimen/pad"
             android:orientation="vertical" >
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/mTop"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
                 android:text="Tìm kiếm gần đây"
                 android:textStyle="bold"
                 android:textColor="@color/textColor"
@@ -52,9 +53,9 @@
             <GridView
                 android:id="@+id/gvNearlySearch"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="180dp"
                 android:horizontalSpacing="10dp"
-                android:verticalSpacing="8dp"
+                android:verticalSpacing="10dp"
                 android:numColumns="2"/>
 
             <TextView
@@ -65,14 +66,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/mTop"
-                android:layout_marginBottom="@dimen/mTop"/>
+                android:layout_marginBottom="20dp"/>
 
             <GridView
                 android:id="@+id/gvSuggestSearch"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="180dp"
                 android:horizontalSpacing="10dp"
-                android:verticalSpacing="8dp"
+                android:verticalSpacing="10dp"
                 android:numColumns="2"
                 />
 

@@ -50,8 +50,8 @@
     <string name="girl">Nữ</string>
     <string name="cm">Đơn vị: cm</string>
     <string name="kg">Đơn vị: kg</string>
-    <string name="nhapweight">Nhập cân nặng</string>
-    <string name="nhapheigt">Nhập chiều cao</string>
+    <string name="InputWeight">Nhập cân nặng</string>
+    <string name="InputHeight">Nhập chiều cao</string>
     <string name="bmi">BMI</string>
     <string name="retype">Nhập lại</string>
     <string name="Confirm">Xác nhận</string>
@@ -101,8 +101,8 @@
     <string name="details">Chi tiết</string>
     <string name="date">31/10/2021</string>
     <string name="shipment1">Giao hàng cho shipper</string>
-    <string name="shipment2">Đang giao</string>
-    <string name="shipment3">Đơn hàng đang được vận chuyển</string>
+    <string name="shipment2">Đơn hàng đang được vận chuyển</string>
+    <string name="shipment3">Chờ xác nhận giao hàng thành công</string>
     <string name="order_code">Mã đơn hàng:</string>
     <string name="x2">x2</string>
     <string name="estimated_time">Thời gian dự kiến</string>
@@ -249,6 +249,7 @@
     <string name="cancel_success_title">Hủy đơn thành công</string>
     <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
     <string name="cancel_back_home">Về trang chủ</string>
+    <string name="topping">Topping:</string>
 
 
 </resources>

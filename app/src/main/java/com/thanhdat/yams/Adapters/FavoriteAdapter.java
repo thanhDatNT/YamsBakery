@@ -48,7 +48,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));

@@ -30,7 +30,7 @@
                     android:layout_width="135dp"
                     android:layout_height="115dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_summer_pudding" />
+                    android:src="@drawable/img_cake" />
             </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_weight="6.5"

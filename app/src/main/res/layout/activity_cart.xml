@@ -99,7 +99,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/button_bg_gradient"
+                android:background="@drawable/bg_button_gradient"
                 android:text="@string/purchase"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

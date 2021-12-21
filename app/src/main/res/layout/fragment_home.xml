@@ -34,8 +34,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="64dp"/>
-
+                android:layout_height="55dp"/>
             <SearchView
                 android:id="@+id/svSearchHome"
                 android:layout_width="match_parent"
@@ -107,9 +106,10 @@
                 <GridView
                     android:id="@+id/gvCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="230dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="@dimen/mTop"
-                    android:numColumns="4" />
+                    android:numColumns="4"
+                    android:listSelector="@android:color/transparent"/>
 
             <!--            New Products Recycler View-->
 

@@ -3,48 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".Fragments.FavoriteFragment"
     android:background="@color/white">
-
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarFavorite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetStartWithNavigation="0dp"
         android:minHeight="?attr/actionBarSize"
         android:elevation="2dp"
         android:theme="@style/Widget.AppCompat.ActionBar"
         android:background="@color/white">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/favorite"
-            android:textSize="@dimen/textMainHeader"
-            android:textColor="@color/primary"
-            android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favorite"
+        android:layout_gravity="center"
+        android:textSize="@dimen/textMainHeader"
+        android:textColor="@color/primary"
+        android:textStyle="bold"/>
+
     </androidx.appcompat.widget.Toolbar>
     <!--    end header-->
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearchHome"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="12dp"
-        android:queryBackground="@null"
-        android:queryHint="@string/search"
-        android:iconifiedByDefault="false"
-        app:searchIcon="@drawable/ic_search"
-        android:background="@drawable/bg_lightpink"/>
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingHorizontal="@dimen/pad"
+        android:layout_marginTop="@dimen/pad">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:layout_marginEnd="10dp"
+            android:text="Lọc theo giá:"
+            android:textSize="@dimen/textContent"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:gravity="center" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:background="@drawable/bg_lightpink_dashstroke">
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvFavorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:paddingHorizontal="@dimen/pad"
        />
-
 </LinearLayout>
 

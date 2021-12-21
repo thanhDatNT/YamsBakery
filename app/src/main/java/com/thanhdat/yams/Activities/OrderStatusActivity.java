@@ -39,7 +39,6 @@ public class OrderStatusActivity extends AppCompatActivity {
     }
 
     private void addEventToolbar() {
-        Toolbar toolbarOrderStatus = findViewById(R.id.toolbarOrderStatus);
         setSupportActionBar(toolbarOrderStatus);
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(null);

@@ -157,7 +157,7 @@
             android:layout_gravity="center"
             android:textSize="14sp"
             android:textAllCaps="false"
-            android:background="@drawable/button_bg_gradient"/>
+            android:background="@drawable/bg_button_gradient"/>
 
     </LinearLayout>
 

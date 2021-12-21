@@ -80,7 +80,7 @@
             android:id="@+id/cardViewShipping1"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/bg_circle_pinkstroke"
             android:src="@drawable/ic_receipt"
             app:tint="@color/primary" />
 
@@ -101,7 +101,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="5dp"
             android:text="@string/time1"
             android:textColor="@color/inactive" />
 
@@ -124,7 +124,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/ivmLine1"
-            android:background="@drawable/circle"
+            android:background="@drawable/bg_circle_pinkstroke"
             android:src="@drawable/ic_shipping"
             app:tint="@color/primary" />
 
@@ -144,8 +144,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ivmLine1"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
             android:text="@string/time2"
             android:textColor="@color/inactive" />
 
@@ -163,7 +163,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/ivmLine2"
-            android:background="@drawable/circle_full"
+            android:background="@drawable/bg_circle_pink"
             android:src="@drawable/ic_payment"
             app:tint="@color/white" />
 
@@ -182,10 +182,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_below="@id/ivmLine2"
-            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
             android:text="@string/time3"
             android:textColor="@color/primary" />
 

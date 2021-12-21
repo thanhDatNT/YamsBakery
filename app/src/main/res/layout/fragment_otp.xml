@@ -171,7 +171,7 @@
                 android:textSize="@dimen/buttonTextSize"
                 android:paddingHorizontal="@dimen/padHorizon"
                 android:textAllCaps="false"
-                android:background="@drawable/button_bg_gradient"/>
+                android:background="@drawable/bg_button_gradient"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

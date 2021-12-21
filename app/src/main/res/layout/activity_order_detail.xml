@@ -197,15 +197,15 @@
 
         <ImageView
             android:id="@+id/imvBullet1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
             android:layout_alignParentTop="true"
             android:layout_alignBottom="@+id/txtTime1"
             android:layout_toEndOf="@+id/txtTime1"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:src="@drawable/bullet"
+            android:src="@drawable/bg_circle_pink"
             app:tint="@color/inactive" />
 
         <TextView
@@ -223,8 +223,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_below="@+id/imvBullet1"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="42dp"
+            android:layout_alignStart="@+id/imvBullet1"
+            android:layout_marginStart="-27dp"
             android:rotation="90"
             android:src="@drawable/ic_vertical_line"
             app:tint="@color/inactive" />
@@ -241,15 +241,15 @@
 
         <ImageView
             android:id="@+id/imvBullet2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
             android:layout_below="@id/imvLine1"
             android:layout_alignBottom="@+id/txtTime2"
-            android:layout_toEndOf="@+id/txtTime2"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:src="@drawable/bullet" />
+            android:layout_toEndOf="@+id/txtTime2"
+            android:src="@drawable/bg_circle_pink" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -266,8 +266,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_below="@id/imvBullet2"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="42dp"
+            android:layout_alignStart="@+id/imvBullet2"
+            android:layout_marginStart="-27dp"
             android:rotation="90"
             android:src="@drawable/ic_vertical_line"
             app:tint="@color/inactive" />
@@ -283,15 +283,15 @@
 
         <ImageView
             android:id="@+id/imvBullet3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
             android:layout_below="@id/imvLine2"
             android:layout_alignBottom="@+id/txtTime3"
             android:layout_toEndOf="@+id/txtTime3"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:src="@drawable/bullet"
+            android:src="@drawable/bg_circle_pink"
             app:tint="@color/inactive" />
         <TextView
             android:layout_width="wrap_content"
@@ -314,7 +314,7 @@
             android:id="@+id/btnCancelOrder"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_bg_gradient"
+            android:background="@drawable/bg_button_gradient"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:text="@string/cancel_order"/>
@@ -323,7 +323,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:background="@drawable/button_white_border"
+            android:background="@drawable/bg_button_white_border"
             android:backgroundTint="@color/lightPink"
             android:textAllCaps="false"
             android:textColor="@color/primary"
