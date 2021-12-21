@@ -2,35 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true"
-    tools:context=".Fragments.DietFragment">
-<!--     heading diet-->
+    tools:context=".Fragments.DietFragment"
+    android:background="@color/white">
+    <!--     heading diet-->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarDiet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:elevation="4dp"
         app:layout_collapseMode="pin"
         android:background="@color/white"
         app:menu="@menu/diet_heading"
-        style="@style/ThemeOverlay.AppCompat.Light">
+        android:elevation="4dp"
+        style="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="?attr/actionBarTheme">
 
         <TextView
-            android:id="@+id/txtDietHeading"
+            android:id="@+id/txtDietHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/name"
             android:textColor="@color/primary"
             android:textStyle="bold"
-            android:textSize="@dimen/textMainHeader"/>
+            android:textSize="24sp"/>
 
     </androidx.appcompat.widget.Toolbar>
-<!--    end heading-->
+    <!--    end heading-->
+
     <androidx.core.widget.NestedScrollView
         android:padding="12dp"
         android:layout_width="match_parent"
