@@ -79,7 +79,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
         productList = MainActivity.productList;
-        // int productID = intent.getExtras().getInt("idProduct");
+
         Product itemProduct = productList.get(productID - 1);
 
         //total = (int) itemProduct.getCurrentPrice();
@@ -127,8 +127,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtLPrice.setText(String.valueOf(price + 5000));
         txtXLPrice.setText(String.valueOf(price + 10000));
 
-
-
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
         txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
         txtProductDetailDescrip.setText(itemProduct.getDescription());
@@ -141,22 +139,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 btnPayment.setText("Mua hàng " + price);
 
 
-
-
-
-
-
-
-        btnPayment.setText("Mua hàng " + price);
-
+        btnPayment.setText("Mua hàng " + price +" đ");
 
     }
 
 
-        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
-        txtVoteQuality.setText(String.valueOf(itemProduct.getChecked()) + "+");
-        txtProductDetailDescrip.setText(itemProduct.getDescription());
-    }
 
 //    private void addEventFavourite() {
 //        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

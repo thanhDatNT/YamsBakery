@@ -61,7 +61,8 @@ public class SettingAccount extends AppCompatActivity {
                 startActivity(intent);
             }
             if(view.getId()==R.id.lnChangeAddress){
-                // acivity map
+                Intent intent = new Intent(SettingAccount.this,MapActivity.class);
+                startActivity(intent);
             }
         }
     };

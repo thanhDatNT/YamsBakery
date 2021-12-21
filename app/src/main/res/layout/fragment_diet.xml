@@ -17,6 +17,7 @@
         app:layout_collapseMode="pin"
         android:background="@color/white"
         app:menu="@menu/diet_heading"
+        android:theme="?attr/actionBarTheme"
         style="@style/ThemeOverlay.AppCompat.Light">
 
         <TextView
@@ -30,6 +31,29 @@
             android:textSize="@dimen/textMainHeader"/>
 
     </androidx.appcompat.widget.Toolbar>
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbarFeed"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        app:layout_collapseMode="pin"-->
+<!--        android:background="@color/white"-->
+<!--        app:menu="@menu/feed_heading"-->
+<!--        android:elevation="4dp"-->
+<!--        style="@style/ThemeOverlay.AppCompat.Light"-->
+<!--        android:theme="?attr/actionBarTheme">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtFeedHeader"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Yams Feed"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="24sp"/>-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
 <!--    end heading-->
     <androidx.core.widget.NestedScrollView
         android:padding="12dp"
