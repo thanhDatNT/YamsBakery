@@ -15,18 +15,18 @@ import android.widget.TextView;
 import com.thanhdat.yams.Databases.OrderDatabase;
 import com.thanhdat.yams.Models.PendingOrder;
 import com.thanhdat.yams.R;
-import com.thanhdat.yams.Adapters.PendingAdapter2;
+import com.thanhdat.yams.Adapters.PendingAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PendingFragment2 extends Fragment {
+public class PendingFragment extends Fragment {
     TextView tvStatus;
     RecyclerView rcvPending;
-    PendingAdapter2 pendingAdapter2;
+    PendingAdapter pendingAdapter;
     OrderDatabase orderDatabase;
 
-    public PendingFragment2() {
+    public PendingFragment() {
         // Required empty public constructor
     }
 
@@ -60,8 +60,8 @@ public class PendingFragment2 extends Fragment {
         cursor.close();
         if(count > 0){
             tvStatus.setVisibility(View.GONE);
-            pendingAdapter2 = new PendingAdapter2(getContext(), initData());
-            rcvPending.setAdapter(pendingAdapter2);
+            pendingAdapter = new PendingAdapter(getContext(), initData());
+            rcvPending.setAdapter(pendingAdapter);
         }
     }
 
@@ -78,8 +78,8 @@ public class PendingFragment2 extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(pendingAdapter2 != null){
-            pendingAdapter2.release();
+        if(pendingAdapter != null){
+            pendingAdapter.release();
         }
     }
 }

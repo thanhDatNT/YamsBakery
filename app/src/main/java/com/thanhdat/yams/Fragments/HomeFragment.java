@@ -1,5 +1,6 @@
 package com.thanhdat.yams.Fragments;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -213,7 +214,8 @@ public class HomeFragment extends Fragment{
 //            Intent includes Product Id for Product detail activity
             Intent intent= new Intent(getContext(), ProductDetailsActivity.class);
             intent.putExtra(Constant.ID_PRODUCT, number);
-            startActivity(intent);
+            ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(), R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+            startActivity(intent, options.toBundle());
         };
         toolbar.setTitle(null);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {

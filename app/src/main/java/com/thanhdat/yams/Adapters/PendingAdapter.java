@@ -21,12 +21,12 @@ import com.thanhdat.yams.R;
 
 import java.util.List;
 
-public class PendingAdapter2 extends RecyclerView.Adapter<PendingAdapter2.PendingViewHolder>{
+public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.PendingViewHolder>{
 
     List<PendingOrder> pendingOrderList;
     Context context;
 
-    public PendingAdapter2(Context context, List<PendingOrder> pendingOrderList) {
+    public PendingAdapter(Context context, List<PendingOrder> pendingOrderList) {
         this.context = context;
         this.pendingOrderList = pendingOrderList;
     }
@@ -45,7 +45,7 @@ public class PendingAdapter2 extends RecyclerView.Adapter<PendingAdapter2.Pendin
         Picasso.get().load(pendingOrder.getOrderThumb()).into(holder.imvPendingThumb);
         holder.txtPendingName.setText(pendingOrder.getOrderName());
         holder.txtPendingCode.setText("#" + pendingOrder.getOrderCode());
-        holder.txtPendingPrice.setText(String.format("%g",pendingOrder.getOrderPrice())+"đ");
+        holder.txtPendingPrice.setText(String.format("%.0f",pendingOrder.getOrderPrice())+" đ");
 
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override

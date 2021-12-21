@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.thanhdat.yams.Fragments.PendingFragment2;
+import com.thanhdat.yams.Fragments.PendingFragment;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.Fragments.ShippingOrderFragment;
 
@@ -20,14 +20,14 @@ public class ViewPagerOrderStatusAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new PendingFragment2();
+                return new PendingFragment();
             case 1:
                 return new ShippingOrderFragment();
             case 2:
                 return new PreviousOrderFragment();
 
             default:
-                return new PendingFragment2();
+                return new PendingFragment();
         }
     }
 

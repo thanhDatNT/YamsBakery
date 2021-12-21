@@ -52,8 +52,8 @@ public class CategoryAdapter extends BaseAdapter {
             LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView= inflater.inflate(layout,null);
             holder= new ViewHolder();
-            holder.imvImage= convertView.findViewById(R.id.imgCategory);
-            holder.tvName= convertView.findViewById(R.id.tvCategory);
+            holder.imvImage= convertView.findViewById(R.id.imgThumb);
+            holder.tvName= convertView.findViewById(R.id.tvTextView);
             convertView.setTag(holder);
         }
         else{

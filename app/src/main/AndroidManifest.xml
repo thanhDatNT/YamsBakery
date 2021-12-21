@@ -21,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
+        <activity android:name=".Activities.PaymentActivity"></activity>
         <activity
             android:name=".Activities.SeeAllActivity"
             android:exported="true" />
@@ -41,12 +42,12 @@
 
         <activity
             android:name=".Activities.MapActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".Activities.SearchActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity
             android:name=".Activities.LanguageActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.CategoryActivity"
             android:exported="false" />
@@ -61,11 +62,11 @@
             android:exported="true" />
         <activity
             android:name=".Activities.SettingAccount"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.OrderActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.SeeReviewActivity"
             android:exported="true" />

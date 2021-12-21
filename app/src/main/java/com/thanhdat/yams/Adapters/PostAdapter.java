@@ -2,11 +2,14 @@ package com.thanhdat.yams.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +27,7 @@ public class PostAdapter extends BaseAdapter {
     Context context;
     int post_item;
     ArrayList<Post> posts;
-
+    int likes = 0, count = 0;
 
     public PostAdapter(Context context, int post_item, ArrayList<Post> posts) {
         this.context = context;
@@ -58,23 +61,40 @@ public class PostAdapter extends BaseAdapter {
             holder.imvThumb = view.findViewById(R.id.imvPostThumb);
             holder.txtLike = view.findViewById(R.id.txtLike);
             holder.txtDescription = view.findViewById(R.id.txtDescription);
-            holder.txtHashtag = view.findViewById(R.id.txtHashtag);
+            holder.txtHashTag = view.findViewById(R.id.txtHashtag);
             holder.txtComment = view.findViewById(R.id.txtSeeComment);
             holder.imbAddComment = view.findViewById(R.id.imbAddComment);
             holder.txtDate= view.findViewById(R.id.tvDate);
-
+            holder.chkLike= view.findViewById(R.id.chkLike);
+            holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    count++;
+                    if(count % 2 != 0){
+                        likes = 1;
+                    }else likes = 0;
+                }
+            });
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Post item_post = posts.get(i);
                     Intent intent = new Intent(context, FeedCommentActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("object_post",item_post);
+                    intent.putExtras(bundle);
                     context.startActivity(intent);
                 }
-            });
 
+            });
             holder.imbAddComment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Post item_post = posts.get(i);
                     Intent intent = new Intent(context, FeedCommentActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("object_post",item_post);
+                    intent.putExtras(bundle);
                     context.startActivity(intent);
                 }
             });
@@ -88,20 +108,19 @@ public class PostAdapter extends BaseAdapter {
         //Binding data
         Post p = posts.get(i);
         Picasso.get().load(p.getPhoto()).into(holder.imvThumb);
-        holder.txtLike.setText(String.valueOf(p.getLiked()));
+
+        holder.txtLike.setText(String.valueOf(likes + p.getLiked()));
+
         holder.txtDescription.setText(p.getContent());
         holder.txtDate.setText(p.getDate());
-        String tags="";
-        for(int j=0; j<p.getTags().size(); j++){
-            tags += "#"+p.getTags().get(j);
-        }
-        holder.txtHashtag.setText(tags);
+        holder.txtHashTag.setText(p.getTags());
         return view;
     }
     private static class ViewHolder{
         ImageView imvThumb;
-        TextView txtLike, txtDescription, txtHashtag, txtComment, txtDate;
+        TextView txtLike, txtDescription, txtHashTag, txtComment, txtDate;
         ImageButton imbAddComment;
+        CheckBox chkLike;
 
     }
 }
