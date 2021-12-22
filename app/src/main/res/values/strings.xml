@@ -246,6 +246,7 @@
     <string name="cancel_success_title">Hủy đơn thành công</string>
     <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
     <string name="cancel_back_home">Về trang chủ</string>
+    <string name="topping">Topping:</string>
 
 
 </resources>
