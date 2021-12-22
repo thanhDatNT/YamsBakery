@@ -405,7 +405,8 @@
                                 android:gravity="end|center"
                                 android:textColor="@color/textColor"
                                 android:text="@string/view_all"
-                                app:drawableEndCompat="@drawable/ic_see_more_inactive" />
+                                app:drawableEndCompat="@drawable/ic_see_more_inactive"
+                                 />
 
                         </LinearLayout>
 
@@ -656,8 +657,8 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="@string/choose_coupons"
-                app:drawableEndCompat="@drawable/ic_see_more_inactive" />
-
+                app:drawableEndCompat="@drawable/ic_see_more_inactive"
+                />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton

@@ -162,6 +162,7 @@
     <string name="view_all">Xem tất cả</string>
     <string name="cod_payment_method"><u>Thanh toán khi nhận hàng</u></string>
     <string name="cod_payment">Thanh toán khi nhận hàng</string>
+    <string name="topping">Topping:</string>
 
     <string name="sum">Tổng tiền hàng</string>
     <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
@@ -183,7 +184,7 @@
     <string name="momo">MoMo</string>
     <string name="zalopay">ZaloPay</string>
     <string name="internet_banking"><u>Internet Banking</u></string>
-    <string name="vi_dien_tu"><u>Ví điện tử</u></string>
+    <string name="e_Wallet"><u>Ví điện tử</u></string>
     <string name="choose_bank">Chọn ngân hàng</string>
     <string name="bank_BIDV">BIDV - Ngân hàng đầu tư và phát triển</string>
     <!--    payment success-->
@@ -246,7 +247,7 @@
     <string name="cancel_success_title">Hủy đơn thành công</string>
     <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
     <string name="cancel_back_home">Về trang chủ</string>
-    <string name="topping">Topping:</string>
+
 
 
 </resources>
