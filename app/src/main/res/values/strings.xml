@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Yams</string>
+    <string name="facebook_app_id">461294152269670</string>
+    <string name="fb_login_protocol_scheme">fb461294152269670</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAzGpLzVvcecCKcUEyMbEc5mDNE2lI-n1Q</string>
+<!--    Customize common strings-->
     <string name="slogan">Bánh ngon chuẩn gu</string>
     <string name="signIn">Đăng nhập</string>
     <string name="signUp">Đăng ký</string>
@@ -25,7 +28,7 @@
     <string name="forgotPW">Quên mật khẩu?</string>
     <string name="mediaLogin">Hoặc tiếp tục với</string>
     <string name="account">Tài khoản</string>
-    <string name="name_profile">Như Quỳnh</string>
+    <string name="name_profile">User</string>
     <string name="rank_profile">Hạng bạc</string>
     <string name="order_profile">Đơn hàng của bạn</string>
     <string name="voucher_profile">Kho voucher</string>

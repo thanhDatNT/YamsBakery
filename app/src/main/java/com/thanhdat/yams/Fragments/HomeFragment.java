@@ -22,6 +22,8 @@ import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -37,9 +39,9 @@ import com.thanhdat.yams.Activities.SeeAllActivity;
 import com.thanhdat.yams.Adapters.CategoryAdapter;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
-import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.Models.Category;
 import com.thanhdat.yams.Models.Product;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.ProductAdapter;
 import com.thanhdat.yams.Adapters.SliderBannerAdapter;
@@ -53,16 +55,14 @@ public class HomeFragment extends Fragment{
     private GridView gvCategory, gvSuggestion;
     private androidx.appcompat.widget.Toolbar toolbar;
     private SearchView searchView;
-    private TextView txtGoPromo, txtGoPopular, txtGoNew;
+    private TextView txtGoPromo, txtGoPopular, txtGoNew, tvUser;
     private OnClickInterface onClickInterface;
     private NestedScrollView scrollView;
     ArrayList<Product> productList;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -81,6 +81,7 @@ public class HomeFragment extends Fragment{
         txtGoNew= view.findViewById(R.id.tvViewNewProducts);
         txtGoPopular= view.findViewById(R.id.tvViewPopularProducts);
         txtGoPromo= view.findViewById(R.id.tvViewPromoProducts);
+        tvUser = view.findViewById(R.id.tvGreetHome);
 
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -191,13 +192,12 @@ public class HomeFragment extends Fragment{
     }
 
     private void addEventSliderBanner() {
-        ArrayList<Banner> banners= new ArrayList<>();
-        banners.add(new Banner(R.drawable.img_banner_1));
-        banners.add(new Banner(R.drawable.img_banner_2));
-        banners.add(new Banner(R.drawable.img_banner_3));
-        banners.add(new Banner(R.drawable.img_banner_4));
+        int[] banners= {R.drawable.img_banner_1,
+                R.drawable.img_banner_2,
+                R.drawable.img_banner_3,
+                R.drawable.img_banner_4};
         sliderBanner.setSliderAdapter(new SliderBannerAdapter(banners, getContext()));
-//        Config Slider Banner
+//        Config Slider image
         sliderBanner.setIndicatorAnimation(IndicatorAnimationType.SLIDE);
         sliderBanner.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderBanner.startAutoCycle();
@@ -210,6 +210,8 @@ public class HomeFragment extends Fragment{
     }
 
     private void configAndNavigate() {
+        ArrayList<User> users = MainActivity.user;
+        tvUser.setText("Hello, " + users.get(0).getName());
         onClickInterface= number -> {
 //            Intent includes Product Id for Product detail activity
             Intent intent= new Intent(getContext(), ProductDetailsActivity.class);

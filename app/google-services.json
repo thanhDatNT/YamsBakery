@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363609920040",
+    "project_id": "yams-bakery",
+    "storage_bucket": "yams-bakery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363609920040:android:7e7c0fb40536a2a30a5b1d",
+        "android_client_info": {
+          "package_name": "com.thanhdat.yams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363609920040-0p9ofce2k84qdd3o7muc6mlfnp1lm1qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRUEQ42fpvk0TUHYJfWEKSqf_c2Ke3MpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363609920040-0p9ofce2k84qdd3o7muc6mlfnp1lm1qk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

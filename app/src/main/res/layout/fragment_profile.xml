@@ -45,7 +45,7 @@
 
                 <!-- user name-->
                 <TextView
-                    android:id="@+id/txtName"
+                    android:id="@+id/txtNameProfile"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"

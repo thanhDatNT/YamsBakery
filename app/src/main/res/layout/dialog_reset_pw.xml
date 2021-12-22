@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="290dp"
+    android:padding="12dp"
+    android:paddingVertical="@dimen/pad"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/imbCancelResetPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/white"
+        app:srcCompat="@drawable/ic_cancel" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:text="Nhập email của bạn" />
+
+    <EditText
+        android:id="@+id/edtMailDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_circle_pink"
+        android:layout_gravity="end"
+        android:padding="12dp"
+        android:layout_margin="12dp"
+        app:srcCompat="@drawable/ic_send"
+        app:tint="@color/white" />
+
+
+</LinearLayout>

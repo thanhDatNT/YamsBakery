@@ -2,13 +2,20 @@ package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.thanhdat.yams.Fragments.PendingFragment;
+import com.thanhdat.yams.Fragments.PreviousOrderFragment;
+import com.thanhdat.yams.Fragments.ShippingOrderFragment;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.ViewPagerOrderStatusAdapter;
 
@@ -25,6 +32,7 @@ public class OrderStatusActivity extends AppCompatActivity {
 
         linkViews();
         addEventToolbar();
+        receiveFromOrderDetail();
     }
 
     private void linkViews() {
@@ -36,6 +44,16 @@ public class OrderStatusActivity extends AppCompatActivity {
         yamsViewPager.setAdapter(viewPagerOrderStatusAdapter);
         yamsTabLayout.setupWithViewPager(yamsViewPager);
 
+
+    }
+
+    private void receiveFromOrderDetail() {
+        Intent intent = getIntent();
+        if (intent.getFlags() == -1) {
+            yamsViewPager.setCurrentItem(2);
+        }else {
+            yamsViewPager.setCurrentItem(0);
+        }
     }
 
     private void addEventToolbar() {

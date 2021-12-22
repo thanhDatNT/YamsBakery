@@ -42,7 +42,7 @@ public class PreviousAdapter extends RecyclerView.Adapter<PreviousAdapter.Previo
         holder.txtPreviousName.setText(previousOrder.getPreviousName());
         holder.txtPreviousContent.setText(previousOrder.getPreviousContent());
         holder.txtPreviousQuantity.setText(String.format("X%s",previousOrder.getPreviousQuantity()));
-        holder.txtPreviousPrice.setText(String.format("%g",previousOrder.getPreviousPrice())+"đ");
+        holder.txtPreviousPrice.setText(String.format("%.0f",previousOrder.getPreviousPrice())+"đ");
 
         holder.txtReview.setOnClickListener(new View.OnClickListener() {
             @Override

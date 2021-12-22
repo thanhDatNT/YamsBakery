@@ -175,7 +175,6 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
             tvTotalCart.setText(String.format("%.0f", totalCart));
         };
     }
-
     public class ThreadGetMoreData extends  Thread{}
 
     @Override

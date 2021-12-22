@@ -7,16 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.smarteist.autoimageslider.SliderViewAdapter;
-import com.thanhdat.yams.Models.Banner;
 import com.thanhdat.yams.R;
 
-import java.util.ArrayList;
 
 public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.SliderVH> {
-    ArrayList<Banner> banners;
+    int[] banners;
     Context context;
 
-    public SliderBannerAdapter(ArrayList<Banner> banners, Context context) {
+    public SliderBannerAdapter(int[] banners, Context context) {
         this.banners = banners;
         this.context = context;
     }
@@ -29,13 +27,13 @@ public class SliderBannerAdapter extends SliderViewAdapter<SliderBannerAdapter.S
 
     @Override
     public void onBindViewHolder(SliderVH viewHolder, int position) {
-        Banner banner= banners.get(position);
-        viewHolder.imvBanner.setImageResource(banner.getBanner());
+        int banner= banners[position];
+        viewHolder.imvBanner.setImageResource(banner);
     }
 
     @Override
     public int getCount() {
-        return banners.size();
+        return banners.length;
     }
 
     class SliderVH extends SliderViewAdapter.ViewHolder{

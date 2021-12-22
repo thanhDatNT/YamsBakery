@@ -8,14 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Constants.Constant;
+import com.thanhdat.yams.Fragments.OtpFragment;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.R;
 
+import java.util.ArrayList;
+
 public class SettingMyProfileActivity extends AppCompatActivity {
-    EditText edtName, edtPhone, edtBirthday;
+    EditText edtName, edtPhone, edtEmail;
     AppCompatButton btnConfirm;
     Toolbar toolbarMyProfile;
+    ImageView imvAva;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,16 @@ public class SettingMyProfileActivity extends AppCompatActivity {
     }
 
     private void  addEvent() {
+        ArrayList<User> user = MainActivity.user;
+        if(!user.get(0).getPhoto().equals("")){
+            Picasso.get().load(user.get(0).getPhoto()).into(imvAva);
+        }
+        if(!user.get(0).getName().equals(""))
+            edtName.setText(user.get(0).getName());
+        edtPhone.setText(user.get(0).getPhone());
+        if(!user.get(0).getEmail().equals("")){
+            edtEmail.setText(user.get(0).getEmail());
+        }
         setSupportActionBar(toolbarMyProfile);
         getSupportActionBar().setTitle(null);
         toolbarMyProfile.setNavigationOnClickListener(view -> onBackPressed());
@@ -51,6 +70,7 @@ public class SettingMyProfileActivity extends AppCompatActivity {
         btnConfirm= findViewById(R.id.buttonConFirmEditAcc);
         edtName = findViewById(R.id.edtAccountName);
         edtPhone= findViewById(R.id.edtAccountPhone);
-        edtBirthday= findViewById(R.id.editBirthday);
+        edtEmail= findViewById(R.id.editEmailAccount);
+        imvAva = findViewById(R.id.imvAvatarMyAcc);
     }
 }

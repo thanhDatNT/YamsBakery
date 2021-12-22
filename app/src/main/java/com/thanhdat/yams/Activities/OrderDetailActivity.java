@@ -28,14 +28,17 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.squareup.picasso.Picasso;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Databases.OrderDatabase;
 import com.thanhdat.yams.Fragments.PreviousOrderFragment;
 import com.thanhdat.yams.Models.PendingOrder;
+import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class OrderDetailActivity extends AppCompatActivity {
     TextView txtOrderDetailName,txtOrderDetailPrice, txtOrderDetailCode,txtTime1, txtTime2, txtDeliTime;
@@ -47,6 +50,8 @@ public class OrderDetailActivity extends AppCompatActivity {
     Button btnCancelOrder, btnBackToHome, btnCancelConfirm, btnBackHome, btnConfirmSuccess;
 
     RadioGroup radGroupCancel;
+
+    List<PendingOrder> pendingOrderList;
 
     BottomSheetDialog sheetDialogCancelOrder, sheetDialogCancelSuccess;
 
@@ -77,6 +82,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             txtOrderDetailCode.setText("#" + pendingOrder.getOrderCode());
             Picasso.get().load(pendingOrder.getOrderThumb()).into(imvOrderDetailThumb);
         }
+
 
     }
 
@@ -159,9 +165,9 @@ public class OrderDetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {notifyDeletion();
                     Intent intent = new Intent(OrderDetailActivity.this, OrderStatusActivity.class);
-                    intent.setFlags(0);
+                    int flag = -1;
+                    intent.setFlags(flag);
                     startActivity(intent);
-
                 }
             });
             btnBackHome = view1.findViewById(R.id.btnBackHome);
@@ -171,8 +177,9 @@ public class OrderDetailActivity extends AppCompatActivity {
                     startActivity(new Intent(OrderDetailActivity.this,MainActivity.class));
                 }
             });
-            sheetDialogCancelSuccess = new BottomSheetDialog(OrderDetailActivity.this);
+            sheetDialogCancelSuccess = new BottomSheetDialog(this);
             sheetDialogCancelOrder.setCancelable(false);
+            sheetDialogCancelSuccess.setCanceledOnTouchOutside(false);
             sheetDialogCancelSuccess.setContentView(view1);
         }
     }

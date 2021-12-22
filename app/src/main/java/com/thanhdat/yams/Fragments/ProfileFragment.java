@@ -26,21 +26,27 @@ import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.ChatActivity;
 import com.thanhdat.yams.Activities.LanguageActivity;
 import com.thanhdat.yams.Activities.LoginActivity;
+import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.OrderStatusActivity;
 import com.thanhdat.yams.Activities.SettingAccount;
 
 import com.thanhdat.yams.Activities.VoucherActivity;
-import com.thanhdat.yams.Models.Banner;
+import com.thanhdat.yams.Databases.UserDatabase;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.SliderBannerAdapter;
 
 import java.util.ArrayList;
+
 
 public class ProfileFragment extends Fragment {
 
@@ -51,14 +57,16 @@ public class ProfileFragment extends Fragment {
     private NestedScrollView scrollView;
     private CardView imgProfile;
     private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout;
-    public static TextView txtNameProfile;
-    public static ImageView imvAvaProfile;
+    TextView txtNameProfile;
+    ImageView imvAvaProfile;
+    ArrayList<User> users;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        users = MainActivity.user;
     }
 
     @Nullable
@@ -81,7 +89,7 @@ public class ProfileFragment extends Fragment {
         lnLanguage = view.findViewById(R.id.lnLanguageProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
 
-        txtNameProfile = view.findViewById(R.id.txtName);
+        txtNameProfile = view.findViewById(R.id.txtNameProfile);
         imvAvaProfile = view.findViewById(R.id.imvAvaProfile);
 
         addEventSliderBanner();
@@ -93,13 +101,12 @@ public class ProfileFragment extends Fragment {
     }
 
     private void addEventSliderBanner() {
-        ArrayList<Banner> banners= new ArrayList<>();
-        banners.add(new Banner(R.drawable.img_banner_1));
-        banners.add(new Banner(R.drawable.img_banner_2));
-        banners.add(new Banner(R.drawable.img_banner_3));
-        banners.add(new Banner(R.drawable.img_banner_4));
+        int[] banners= {R.drawable.img_banner_4,
+                R.drawable.img_banner_2,
+                R.drawable.img_banner_1,
+                R.drawable.img_banner_3};
         sliderBannerProfile.setSliderAdapter(new SliderBannerAdapter(banners, getContext()));
-//        Config Slider Banner
+//        Config Slider
         sliderBannerProfile.setIndicatorAnimation(IndicatorAnimationType.WORM);
         sliderBannerProfile.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderBannerProfile.startAutoCycle();
@@ -177,6 +184,9 @@ public class ProfileFragment extends Fragment {
                     btnConfirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            FirebaseAuth.getInstance().signOut();
+                            UserDatabase userDatabase = new UserDatabase(getActivity());
+                            userDatabase.execSQL("DELETE FROM " + userDatabase.TABLE_NAME + " WHERE " + userDatabase.COL_PHONE + "= '" + users.get(0).getPhone() + "'");
                             startActivity(new Intent(getContext(), LoginActivity.class));
                             dialog.dismiss();
                         }
@@ -197,6 +207,11 @@ public class ProfileFragment extends Fragment {
         }
     };
     private void addEventEditProfile() {
+        if(!users.get(0).getName().equals(""))
+            txtNameProfile.setText(users.get(0).getName());
+        if (!users.get(0).getPhoto().equals("")){
+            Picasso.get().load(users.get(0).getPhoto()).into(imvAvaProfile);
+        }
         toolbarProfile.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

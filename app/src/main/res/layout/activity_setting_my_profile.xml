@@ -42,7 +42,7 @@
             app:cardCornerRadius="40dp">
 
             <ImageView
-                android:id="@+id/imvAvatar"
+                android:id="@+id/imvAvatarMyAcc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
@@ -128,16 +128,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                app:srcCompat="@drawable/ic_calendar" />
+                app:srcCompat="@drawable/ic_email" />
 
 
             <EditText
-                android:id="@+id/editBirthday"
+                android:id="@+id/editEmailAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
                 android:ems="10"
-                android:inputType="date" />
+                android:inputType="textEmailAddress" />
 
             <ImageView
                 android:layout_width="wrap_content"

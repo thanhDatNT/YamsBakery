@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/primary"
-    android:padding="12dp"
+    android:fitsSystemWindows="true"
+    android:padding="@dimen/pad"
     tools:context=".Activities.IntroActivity">
 
     <ImageView
