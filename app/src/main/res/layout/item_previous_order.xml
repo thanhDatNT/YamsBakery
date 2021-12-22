@@ -92,22 +92,23 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/linearLayoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtPreviousPrice"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_toEndOf="@+id/cardViewPrevious"
-                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
                     android:background="@drawable/bg_button_gradient"
                     android:text="@string/reorder"
                     android:textAllCaps="false"
@@ -116,13 +117,14 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="70dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
                     android:background="@drawable/bg_header_gradient"
                     android:backgroundTint="#35BF7D"
                     android:text="@string/on_shipping"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
-            </LinearLayout>
+            </RelativeLayout>
 
 
             <TextView

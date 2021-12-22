@@ -158,7 +158,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {notifyDeletion();
-                    startActivity(new Intent(OrderDetailActivity.this, MainActivity.class));
+                    Intent intent = new Intent(OrderDetailActivity.this, OrderStatusActivity.class);
+                    intent.setFlags(0);
+                    startActivity(intent);
+
                 }
             });
             btnBackHome = view1.findViewById(R.id.btnBackHome);
