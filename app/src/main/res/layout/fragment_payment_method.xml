@@ -63,7 +63,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="8.5"
                         android:gravity="start"
-                        android:text="@string/vi_dien_tu"
+                        android:text="@string/e_Wallet"
                         android:textColor="@color/primary"
                         android:textSize="18sp" />
                 </LinearLayout>

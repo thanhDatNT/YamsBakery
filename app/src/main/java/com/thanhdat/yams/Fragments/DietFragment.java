@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
@@ -104,83 +105,90 @@ public class DietFragment extends Fragment {
         btnCalculateBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String inputHeight = edtInputHeight.getText().toString();
+                String inputWeight = edtInputWeight.getText().toString();
+                if(inputHeight.equals("")|| inputWeight.equals("")){
+                    Toast.makeText(getContext(), "Bạn vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Dialog dialog= new Dialog(getContext());
+                    dialog.setContentView(R.layout.dialog_show_bmi);
+                    double height = Double.parseDouble(edtInputHeight.getText().toString());
+                    double weight=Double.parseDouble(edtInputWeight.getText().toString());
+                    DecimalFormat d = new DecimalFormat("0.00");
+                    double BMI = weight/Math.pow(height,2)*10000;
 
-                Dialog dialog= new Dialog(getContext());
-                dialog.setContentView(R.layout.dialog_show_bmi);
-                double height = Double.parseDouble(edtInputHeight.getText().toString());
-                double weight=Double.parseDouble(edtInputWeight.getText().toString());
-                DecimalFormat d = new DecimalFormat("0.00");
-                double BMI = weight/Math.pow(height,2)*10000;
+                    TextView txtBMI = dialog.findViewById(R.id.txtBMI);
+                    TextView txtResult =dialog.findViewById(R.id.txtResult);
 
-                TextView txtBMI = dialog.findViewById(R.id.txtBMI);
-                TextView txtResult =dialog.findViewById(R.id.txtResult);
+                    txtBMI.setText(d.format(BMI) +" ");
+                    if(BMI<18)
+                        txtResult.setText("Gầy");
+                    else if(18<=BMI && BMI<23)
+                        txtResult.setText("Cân đối");
+                    else if(23<=BMI && BMI<30)
+                        txtResult.setText("Thừa cân");
+                    else if(30<=BMI)
+                        txtResult.setText("Béo phì");
 
-                txtBMI.setText(d.format(BMI) +" ");
-                if(BMI<18)
-                    txtResult.setText("Gầy");
-                else if(18<=BMI && BMI<23)
-                    txtResult.setText("Cân đối");
-                else if(23<=BMI && BMI<30)
-                    txtResult.setText("Thừa cân");
-                else if(30<=BMI)
-                    txtResult.setText("Béo phì");
-
-                Button btnConfirm= dialog.findViewById(R.id.btnConfirm);
-                ArrayList<Product> diets= new ArrayList<>();
-                btnConfirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                        rcvDietProduct.setLayoutManager(layoutManager);
-                        for (Product p : productList)
-                            if(BMI<18){
-                                {
-                                    if(p.getDiet().equals("1")){
-                                        diets.add(p);
+                    Button btnConfirm= dialog.findViewById(R.id.btnConfirm);
+                    ArrayList<Product> diets= new ArrayList<>();
+                    btnConfirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                            rcvDietProduct.setLayoutManager(layoutManager);
+                            for (Product p : productList)
+                                if(BMI<18){
+                                    {
+                                        if(p.getDiet().equals("1")){
+                                            diets.add(p);
+                                        }
                                     }
                                 }
-                            }
-                            else if(18<=BMI && BMI<23){
-                                {
-                                    if(p.getDiet().equals("2")){
-                                        diets.add(p);
+                                else if(18<=BMI && BMI<23){
+                                    {
+                                        if(p.getDiet().equals("2")){
+                                            diets.add(p);
+                                        }
                                     }
                                 }
-                            }
-                            else if(23<=BMI && BMI<30){
-                                {
-                                    if(p.getDiet().equals("3")){
-                                        diets.add(p);
+                                else if(23<=BMI && BMI<30){
+                                    {
+                                        if(p.getDiet().equals("3")){
+                                            diets.add(p);
+                                        }
                                     }
                                 }
-                            }
-                            else if(30<=BMI){
-                                {
-                                    if(p.getDiet().equals("4")){
-                                        diets.add(p);
+                                else if(30<=BMI){
+                                    {
+                                        if(p.getDiet().equals("4")){
+                                            diets.add(p);
+                                        }
                                     }
                                 }
-                            }
 
-                        adapter=new DietAdapter( getContext(),diets,onClickInterface);
-                        rcvDietProduct.setAdapter(adapter);
-                        txtSuggest.setVisibility(View.VISIBLE);
-                        dialog.dismiss();
-                    }
+                            adapter=new DietAdapter( getContext(),diets,onClickInterface);
+                            rcvDietProduct.setAdapter(adapter);
+                            txtSuggest.setVisibility(View.VISIBLE);
+                            dialog.dismiss();
+                        }
 
-                });
-                Button btnReType = dialog.findViewById(R.id.btnReType);
-                btnReType.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        edtInputHeight.setText("");
-                        edtInputWeight.setText("");
-                        rcvDietProduct.setAdapter(null);
+                    });
+                    Button btnReType = dialog.findViewById(R.id.btnReType);
+                    btnReType.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            edtInputHeight.setText("");
+                            edtInputWeight.setText("");
+                            rcvDietProduct.setAdapter(null);
 
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                }
+
             }
         });
     }

@@ -84,7 +84,7 @@
     <!--Favorite-->
     <string name="Description">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
-    <string name="prices">18.000đ</string>
+    <string name="prices">18.000</string>
     <string name="Old_prices">22.000đ</string>
     <string name="quantity">25</string>
     <string name="Rating">4.5</string>
@@ -153,7 +153,7 @@
     <string name="Method_delivery"><u>Phương thức nhận hàng</u></string>
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
     <string name="price_80">80.000 đ</string>
-    <string name="đ">đ</string>
+    <string name="đ"><u>đ</u></string>
     <string name="time1">9:00 am</string>
     <string name="time2">9:38 am</string>
     <string name="time3">10:00 am</string>
@@ -165,6 +165,7 @@
     <string name="view_all">Xem tất cả</string>
     <string name="cod_payment_method"><u>Thanh toán khi nhận hàng</u></string>
     <string name="cod_payment">Thanh toán khi nhận hàng</string>
+    <string name="topping">Topping:</string>
 
     <string name="sum">Tổng tiền hàng</string>
     <string name="sum_delivery">Tổng tiền phí vận chuyển</string>
@@ -186,7 +187,7 @@
     <string name="momo">MoMo</string>
     <string name="zalopay">ZaloPay</string>
     <string name="internet_banking"><u>Internet Banking</u></string>
-    <string name="vi_dien_tu"><u>Ví điện tử</u></string>
+    <string name="e_Wallet"><u>Ví điện tử</u></string>
     <string name="choose_bank">Chọn ngân hàng</string>
     <string name="bank_BIDV">BIDV - Ngân hàng đầu tư và phát triển</string>
     <!--    payment success-->
@@ -249,7 +250,7 @@
     <string name="cancel_success_title">Hủy đơn thành công</string>
     <string name="cancel_success_noti">Đơn hàng của bạn đã được hủy thành công. Nếu bạn đã thanh toán online, vui lòng đợi nhận tiền hoàn bằng phương thức bạn đã chọn trước đó.</string>
     <string name="cancel_back_home">Về trang chủ</string>
-    <string name="topping">Topping:</string>
+
 
 
 </resources>
