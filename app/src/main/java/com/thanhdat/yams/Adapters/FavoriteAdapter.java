@@ -32,6 +32,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     ArrayList<Product> products;
     OnClickInterface onClickInterface;
 
+
     public FavoriteAdapter(Context context, int item_favorite, ArrayList<Product> products, OnClickInterface onClickInterface) {
         this.context = context;
         this.products = products;

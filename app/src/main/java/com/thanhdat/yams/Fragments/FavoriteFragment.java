@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Activities.CategoryActivity;
 import com.thanhdat.yams.Activities.MainActivity;
 
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
@@ -38,6 +42,9 @@ public class FavoriteFragment extends Fragment {
     CategoryProductAdapter adapter;
     OnClickInterface onClickInterface;
     CheckBox chkLike;
+    ArrayList<Product> productList, products;
+    Spinner spinner;
+    String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +57,11 @@ public class FavoriteFragment extends Fragment {
         rcvFavorite = view.findViewById(R.id.rcvFavorite);
         chkLike = view.findViewById(R.id.chkLike);
         toolbarFavorite = view.findViewById(R.id.toolbarFavorite);
+        spinner = view.findViewById(R.id.spinnerCategory);
 
         addEvent();
         addEventToCart();
+        addEventSpinner();
         return view;
     }
 
@@ -60,14 +69,20 @@ public class FavoriteFragment extends Fragment {
         LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);;
         rcvFavorite.setLayoutManager(layoutManager);
 
+        getData();
+
+        rcvFavorite.setAdapter(new FavoriteAdapter(getContext(),R.layout.item_favorite, products, onClickInterface));
+    }
+
+    private void getData() {
+
         productList = MainActivity.productList;
-        ArrayList<Product> favoriteProducts = new ArrayList<>();
+        products = new ArrayList<>();
         for (Product p : productList){
             if(p.isFavorite()){
-                favoriteProducts.add(p);
+                products.add(p);
             }
         }
-        rcvFavorite.setAdapter(new FavoriteAdapter(getContext(),R.layout.item_favorite, favoriteProducts, onClickInterface));
     }
 
     private void addEventToCart() {
@@ -85,6 +100,61 @@ public class FavoriteFragment extends Fragment {
                 Intent intent = new Intent(getContext(), CartActivity.class);
                 startActivity(intent);
                 return false;
+            }
+        });
+    }
+
+    private void addEventSpinner() {
+        //creating array adapter
+        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.item_spinner, price);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        //Filter product
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                getData();
+                ArrayList<Product> productsFilter = new ArrayList<>();
+                switch (i){
+                    case 0:
+                        productsFilter = products;
+                        break;
+                    case 1:
+                        for (Product p2 : products){
+                            if(p2.getPrice() < 50000){
+                                productsFilter.add(p2);
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (Product p3 : products){
+                            if(p3.getPrice() >= 50000 && p3.getPrice() <100000){
+                                productsFilter.add(p3);
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (Product p4 : products){
+                            if(p4.getPrice() >= 100000 && p4.getPrice() <150000){
+                                productsFilter.add(p4);
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (Product p5 : products){
+                            if(p5.getPrice() >= 150000){
+                                productsFilter.add(p5);
+                            }
+                        }
+                        break;
+                }
+                rcvFavorite.setAdapter(new FavoriteAdapter(getContext(), R.layout.item_favorite, productsFilter, onClickInterface));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
