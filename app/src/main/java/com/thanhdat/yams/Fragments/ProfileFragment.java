@@ -57,8 +57,8 @@ public class ProfileFragment extends Fragment {
     private NestedScrollView scrollView;
     private CardView imgProfile;
     private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout;
-    TextView txtNameProfile;
-    ImageView imvAvaProfile;
+    public static TextView txtNameProfile;
+    public static ImageView imvAvaProfile;
     ArrayList<User> users;
 
     @Override

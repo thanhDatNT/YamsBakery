@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -37,7 +38,9 @@ import com.thanhdat.yams.Models.PreviousOrder;
 import com.thanhdat.yams.R;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class WriteReviewActivity extends AppCompatActivity {
@@ -53,7 +56,6 @@ public class WriteReviewActivity extends AppCompatActivity {
     public static ReviewDatabase db;
 
     Toolbar toolbarWriteReview;
-    FirebaseUser user;
     boolean isCamera, isSelected = false;
 
     @Override
@@ -69,7 +71,6 @@ public class WriteReviewActivity extends AppCompatActivity {
         backToPrevious();
 
         db = new ReviewDatabase(this);
-        user = FirebaseAuth.getInstance().getCurrentUser();
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -190,26 +191,26 @@ public class WriteReviewActivity extends AppCompatActivity {
 
                 rating = rtbReviewRating.getRating();
 
+                profile = (BitmapDrawable) ProfileFragment.imvAvaProfile.getDrawable();
                 image = (BitmapDrawable) imvReviewImage.getDrawable();
-                // profile = (BitmapDrawable) ProfileFragment.imvAvaProfile.getDrawable();
 
-                name = user.getDisplayName();
+                name = ProfileFragment.txtNameProfile.getText().toString();
                 content = edtReviewText.getText().toString();
                 size = txtReviewSize.getText().toString();
 
-//                if(!content.equals("") && imvReviewImage.getDrawable() != null){
-//                    boolean flag = db.insertData(rating, convertPhoto(profile), name, content, convertPhoto(image), size);
-//                    if(flag){
-//                        //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
-//                        startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
-//
-//                    }else {
-//
-//                        Toast.makeText(WriteReviewActivity.this, "Fail!", Toast.LENGTH_SHORT).show();
-//                    }
-//                }else {
-//                    Toast.makeText(WriteReviewActivity.this, "Vui lòng nhập lời đánh giá và đăng tải hình ảnh!", Toast.LENGTH_SHORT).show();
-//                }
+                if(!content.equals("") && imvReviewImage.getDrawable() != null){
+                    boolean flag = db.insertData(rating, convertPhoto(profile), name, content, convertPhoto(image), size);
+                    if(flag){
+                        //Toast.makeText(WriteReviewActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(WriteReviewActivity.this, SeeReviewActivity.class));
+
+                    }else {
+
+                        Toast.makeText(WriteReviewActivity.this, "Fail!", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(WriteReviewActivity.this, "Vui lòng nhập lời đánh giá và đăng tải hình ảnh!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
