@@ -17,7 +17,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.safetynet.SafetyNet;
+import com.google.android.gms.safetynet.SafetyNetApi;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
@@ -44,7 +48,6 @@ public class OtpFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseUser user;
     AuthCredential credential;
-    public static ArrayList<User> users = new ArrayList<>();
 
     public static final String TAG = OtpFragment.class.getSimpleName();
 
@@ -236,8 +239,9 @@ public class OtpFragment extends Fragment {
                                 progressBar.setVisibility(View.GONE);
                             }
                             else{
+                                Toast.makeText(getContext(), "Lỗi xác thực số điện thoại", Toast.LENGTH_LONG).show();
                                 Log.e(TAG, task.getException().toString());
-                                Toast.makeText(getContext(), "Mã OTP đã hết hiệu lực:", Toast.LENGTH_SHORT).show();
+                                changeAccount();
                                 progressBar.setVisibility(View.GONE);
                             }
                         }

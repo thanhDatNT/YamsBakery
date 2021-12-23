@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\HK1_2021\\TMDD\\upload_keystore.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '111111'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -21,6 +29,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -35,7 +44,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
-    implementation 'com.google.android.libraries.places:places:2.5.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.google.android.gms:play-services-location:18.0.0'

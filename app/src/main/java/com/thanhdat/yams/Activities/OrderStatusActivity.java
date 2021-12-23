@@ -49,10 +49,12 @@ public class OrderStatusActivity extends AppCompatActivity {
 
     private void receiveFromOrderDetail() {
         Intent intent = getIntent();
-        if (intent.getFlags() == -1) {
-            yamsViewPager.setCurrentItem(2);
-        }else {
-            yamsViewPager.setCurrentItem(0);
+        if(intent != null){
+            if (intent.getFlags() == -1) {
+                yamsViewPager.setCurrentItem(2);
+            }else {
+                yamsViewPager.setCurrentItem(0);
+            }
         }
     }
 
@@ -63,7 +65,7 @@ public class OrderStatusActivity extends AppCompatActivity {
             toolbarOrderStatus.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onBackPressed();
+                    startActivity(new Intent(OrderStatusActivity.this, MainActivity.class));
                 }
             });
         }
