@@ -70,7 +70,7 @@ public class LoginFragment extends Fragment {
 //    CallbackManager callbackManager;
     public static AuthCredential credential;
     public static final String TAG = LoginFragment.class.getSimpleName();
-    String phoneNumber ="", name ="", photo ="https://i.ibb.co/J76JjQH/Logo-White-Bg-01-01.png";
+    String phoneNumber ="", name ="user", photo ="https://i.ibb.co/jHJSpLW/Logo-Pink-Bg-01-01-01.png";
 
     public LoginFragment() {}
 

@@ -113,7 +113,7 @@ public class OtpFragment extends Fragment {
                             @Override
                             public void onVerificationFailed(FirebaseException e) {
                                 progressBar.setVisibility(View.GONE);
-                                Toast.makeText(getContext(), e.getMessage(),Toast.LENGTH_SHORT).show();
+                                changeAccount();
                                 Log.e(TAG, "onVerificationFailed: " + e.getMessage());
                             }
                         })
