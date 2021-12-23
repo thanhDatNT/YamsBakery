@@ -90,7 +90,7 @@
                         android:id="@+id/txtPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="55000đ"
+                        android:text="55000"
                         android:textSize="@dimen/textContent"
                         android:layout_marginStart="2dp"
                         android:textColor="@color/primary"

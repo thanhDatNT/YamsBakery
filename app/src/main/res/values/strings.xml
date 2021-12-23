@@ -84,7 +84,7 @@
     <!--Favorite-->
     <string name="Description">Cốt bánh mềm xốp, kết hợp thêm hương vị chocolate thơm lừng</string>
     <string name="macaroon">Macaroon</string>
-    <string name="prices">18.000đ</string>
+    <string name="prices">18.000</string>
     <string name="Old_prices">22.000đ</string>
     <string name="quantity">25</string>
     <string name="Rating">4.5</string>
@@ -153,7 +153,7 @@
     <string name="Method_delivery"><u>Phương thức nhận hàng</u></string>
     <string name="standard_delivery">Giao hàng tiêu chuẩn</string>
     <string name="price_80">80.000 đ</string>
-    <string name="đ">đ</string>
+    <string name="đ"><u>đ</u></string>
     <string name="time1">9:00 am</string>
     <string name="time2">9:38 am</string>
     <string name="time3">10:00 am</string>

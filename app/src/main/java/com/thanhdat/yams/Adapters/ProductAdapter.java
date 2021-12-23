@@ -75,7 +75,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
-            holder.tvOldPrice.setText(spannableString);
+            holder.tvOldPrice.setText(spannableString );
             holder.tvOldPrice.setVisibility(View.VISIBLE);
         }
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
