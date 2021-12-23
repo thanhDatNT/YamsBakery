@@ -74,7 +74,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         txtProductDetailName.setText(itemProduct.getName());
         txtProductPrice.setText(String.valueOf(total));
         txtStartVote.setText(String.valueOf(itemProduct.getRating()));
-        txtVoteCount.setText(String.valueOf(itemProduct.getChecked()));
+        txtVoteCount.setText(String.valueOf(itemProduct.getChecked() + "+"));
         txtPDDescription.setText(itemProduct.getDescription());
         chkLike.setChecked(itemProduct.isFavorite());
         if(itemProduct.isFavorite()){

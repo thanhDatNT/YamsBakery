@@ -54,7 +54,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) +"đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
+        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked() + "+"));
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
