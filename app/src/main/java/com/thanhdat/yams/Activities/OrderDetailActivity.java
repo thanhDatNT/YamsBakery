@@ -168,6 +168,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                     int flag = -1;
                     intent.setFlags(flag);
                     startActivity(intent);
+                    finish();
                 }
             });
             btnBackHome = view1.findViewById(R.id.btnBackHome);

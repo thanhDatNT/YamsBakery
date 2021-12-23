@@ -86,15 +86,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="@dimen/mTop"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@color/inactive"
-            android:layout_weight="0.3" />
+            android:layout_weight="0.3"
+            android:background="@color/inactive" />
 
         <TextView
             android:layout_width="0dp"
@@ -106,31 +107,33 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@color/inactive"
-            android:layout_weight="0.3" />
+            android:layout_weight="0.3"
+            android:background="@color/inactive" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/pad"
         android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/fb_login_button"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_height="40dp"
-            android:elevation="4dp"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="2dp"
+            android:translationZ="2dp" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/google_button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
     </LinearLayout>
 

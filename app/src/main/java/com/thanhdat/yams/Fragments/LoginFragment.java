@@ -65,12 +65,12 @@ public class LoginFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private GoogleSignInClient mGoogleSignInClient;
-    private final static int RC_SIGN_IN= 111;
-    CallbackManager callbackManager;
+//    private GoogleSignInClient mGoogleSignInClient;
+//    private final static int RC_SIGN_IN= 111;
+//    CallbackManager callbackManager;
     public static AuthCredential credential;
     public static final String TAG = LoginFragment.class.getSimpleName();
-    String phoneNumber ="", name ="", photo ="https://i.ibb.co/J76JjQH/Logo-White-Bg-01-01.png";
+    String phoneNumber ="", name ="user", photo ="https://i.ibb.co/jHJSpLW/Logo-Pink-Bg-01-01-01.png";
 
     public LoginFragment() {}
 
@@ -98,11 +98,10 @@ public class LoginFragment extends Fragment {
         tvForgotPw = view.findViewById(R.id.tvForgotPass);
         tvSignUp = view.findViewById(R.id.tvSignUpLogin);
         btnLogin = view.findViewById(R.id.btnLogin);
-        btnFBLogin = view.findViewById(R.id.fb_login_button);
-        btnGGLogin= view.findViewById(R.id.google_button);
+//        btnFBLogin = view.findViewById(R.id.fb_login_button);
+//        btnGGLogin= view.findViewById(R.id.google_button);
         progressBar = view.findViewById(R.id.progressBarLogin);
         addEvents();
-        createRequest();
         return view;
     }
 
@@ -121,112 +120,9 @@ public class LoginFragment extends Fragment {
         });
         btnLogin.setOnClickListener(v -> userLogin());
         tvForgotPw.setOnClickListener(v -> resetPassword());
-        btnGGLogin.setOnClickListener(v -> signIn());
-//      Facebook login
-//        AccessTokenTracker accessTokenTracker= new AccessTokenTracker() {
-//            @Override
-//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-//                if(currentAccessToken == null){
-//                    mAuth.signOut();
-//                }
-//            }
-//        };
-        callbackManager= CallbackManager.Factory.create();
-        btnFBLogin.setFragment(this);
-        btnFBLogin.setReadPermissions("email", "public_profile");
-        btnFBLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG,"Login with facebook successfully");
-                progressBar.setVisibility(View.VISIBLE);
-                handleFacebookAccessToken(loginResult.getAccessToken());
-            }
 
-            @Override
-            public void onCancel() {
-                Log.e("FacebookOnCancel","Login with facebook was canceled");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(getContext(), "Login hasn't completed" + error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                progressBar.setVisibility(View.GONE);
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account.getIdToken());
-            } catch (ApiException e) {
-                Toast.makeText(getContext(), "Đăng nhập với Google thất bại \n" +e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }
-//      Result returned from launching the Intent from FacebookSignInApi
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void handleFacebookAccessToken(AccessToken accessToken) {
-        Log.d("FacebookToken", "handleFacebookAccessToken:" + accessToken);
-        AuthCredential FBCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
-        mAuth.signInWithCredential(FBCredential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            credential = FBCredential;
-                            user = mAuth.getCurrentUser();
-                            verifyPhoneNumber(user);
-                        } else {
-                            Toast.makeText(getContext(), "Đăng nhập với Facebook thất bại",
-                                    Toast.LENGTH_SHORT).show();
-                            Log.e(TAG, task.getException().toString());
-                        }
-                    }
-                });
-    }
-
-    //    SIGN IN WITH CREDENTIAL FROM GOOGLE
-
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential GGCredential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(GGCredential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            credential = GGCredential;
-                            user = mAuth.getCurrentUser();
-                            verifyPhoneNumber(user);
-                        } else {
-                            Toast.makeText(getContext(), "Đăng nhập với Google thất bại", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
-
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    private void createRequest() {
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
-    }
 
     //    SIGN IN WITH EMAIL AND PASSWORD
 
@@ -262,6 +158,7 @@ public class LoginFragment extends Fragment {
                 else{
                     Toast.makeText(getContext(), "Đăng nhập thất bại, xin thử lại!", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    Log.e(TAG, task.getException().toString());
                 }
             }
         });
