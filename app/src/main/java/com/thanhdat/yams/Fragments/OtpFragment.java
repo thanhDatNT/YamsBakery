@@ -245,6 +245,12 @@ public class OtpFragment extends Fragment {
                                 progressBar.setVisibility(View.GONE);
                             }
                         }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e(TAG, e.getMessage());
+                            changeAccount();
+                        }
                     });
                 }
             }
