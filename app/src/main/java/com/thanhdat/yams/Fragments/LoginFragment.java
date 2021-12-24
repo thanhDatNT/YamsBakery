@@ -1,7 +1,9 @@
 package com.thanhdat.yams.Fragments;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,6 +51,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.thanhdat.yams.Activities.LoginActivity;
 import com.thanhdat.yams.Activities.MainActivity;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.R;
 
@@ -70,7 +73,7 @@ public class LoginFragment extends Fragment {
 //    CallbackManager callbackManager;
     public static AuthCredential credential;
     public static final String TAG = LoginFragment.class.getSimpleName();
-    String phoneNumber ="", name ="user", photo ="https://i.ibb.co/jHJSpLW/Logo-Pink-Bg-01-01-01.png";
+    String phoneNumber ="", name ="User", photo ="https://i.ibb.co/LxJj5dx/ic-launcher.png";
 
     public LoginFragment() {}
 
@@ -165,7 +168,6 @@ public class LoginFragment extends Fragment {
     }
 
     private void verifyPhoneNumber(FirebaseUser user) {
-        String p = phoneNumber;
         if(user.getPhoneNumber() != null){
             phoneNumber = user.getPhoneNumber();
             goToOTP();
@@ -180,7 +182,7 @@ public class LoginFragment extends Fragment {
             btnOK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(edtPhone.getText().toString().trim() != ""){
+                    if(!edtPhone.getText().toString().trim().equals("") && edtPhone.getText().toString().charAt(0) != 0){
                         phoneNumber = edtPhone.getText().toString();
                         goToOTP();
                         dialog.dismiss();
@@ -205,6 +207,9 @@ public class LoginFragment extends Fragment {
     }
 
     private void goToOTP(){
+//        Save credential for re authentication if needed
+        saveCredential();
+
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         OtpFragment otpFragment = new OtpFragment();
         Bundle bundle = new Bundle();
@@ -254,5 +259,12 @@ public class LoginFragment extends Fragment {
         });
         btnCancel.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
+    }
+
+    private void saveCredential(){
+        SharedPreferences sharedPreferences= getActivity().getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString("credential", String.valueOf(credential));
+        editor.apply();
     }
 }

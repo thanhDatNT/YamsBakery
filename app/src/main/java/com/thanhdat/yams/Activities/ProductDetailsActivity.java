@@ -137,6 +137,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 bundle.putDouble(Constant.PRICE_PRODUCT, total);
                 intent2.putExtra(Constant.STRING_INTENT, bundle);
                 startActivity(intent2);
+                overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
             }
         });
 
@@ -153,6 +154,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 bundle.putDouble(Constant.PRICE_PRODUCT, total);
                 intent1.putExtra(Constant.STRING_INTENT, bundle);
                 startActivity(intent1);
+                overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
             }
         });
 

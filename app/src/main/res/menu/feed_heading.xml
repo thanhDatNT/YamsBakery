@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/mnuCartFeed"
     android:icon="@drawable/ic_cart"
     android:title="@string/order"
     app:showAsAction="always"/>
+
     <item android:icon="@drawable/ic_chat"
         android:id="@+id/mnuChatFeed"
         app:showAsAction="always"
-        android:title="@string/noti_profile"/>
+        android:title="@string/noti_profile" />
 </menu>

@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.thanhdat.yams.Activities.MainActivity;
 import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.R;
@@ -22,6 +23,7 @@ public class PaymentMethodsFragment extends Fragment {
     RadioButton radMomo, radZaloPay, radCod;
     AppCompatButton btnConfirm;
     TextView txtChooseBank;
+    Toolbar toolbar;
     OnClickInterface clickInterface;
     public static String pMethod;
 
@@ -40,6 +42,7 @@ public class PaymentMethodsFragment extends Fragment {
         radMomo = view.findViewById(R.id.radMomo);
         radZaloPay = view.findViewById(R.id.radZaloPay);
         radCod = view.findViewById(R.id.radCod);
+        toolbar = view.findViewById(R.id.toolbarPaymentMethod);
 
         addEvents();
 
