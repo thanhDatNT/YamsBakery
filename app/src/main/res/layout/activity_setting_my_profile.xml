@@ -37,9 +37,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvAva"
             android:layout_gravity="center_horizontal"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:cardCornerRadius="40dp">
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/pad"
+            app:cardCornerRadius="50dp">
 
             <ImageView
                 android:id="@+id/imvAvatarMyAcc"
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_marginVertical="@dimen/pad"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -75,16 +77,10 @@
                 android:id="@+id/edtAccountName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.8"
                 android:ems="10"
                 android:inputType="textPersonName"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/ic_edit"
-                app:tint="@color/primary" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,47 +100,11 @@
                 android:id="@+id/edtAccountPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.8"
                 android:ems="10"
                 android:inputType="phone"
                 android:hint="Phone number"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/ic_edit"
-                app:tint="@color/primary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                app:srcCompat="@drawable/ic_email" />
-
-
-            <EditText
-                android:id="@+id/editEmailAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/ic_edit"
-                app:tint="@color/primary" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -152,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
+            android:layout_marginVertical="@dimen/mTop"
             android:paddingHorizontal="20dp"
             android:text="@string/confirm"
             android:layout_gravity="center"

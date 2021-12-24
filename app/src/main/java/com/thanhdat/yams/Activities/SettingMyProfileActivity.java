@@ -40,7 +40,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class SettingMyProfileActivity extends AppCompatActivity {
-    EditText edtName, edtPhone, edtEmail;
+    EditText edtName, edtPhone;
     AppCompatButton btnConfirm;
     Toolbar toolbarMyProfile;
     ImageView imvAva, imvUploadPhoto;
@@ -91,9 +91,6 @@ public class SettingMyProfileActivity extends AppCompatActivity {
         if(!user.get(0).getName().equals(""))
             edtName.setText(user.get(0).getName());
         edtPhone.setText(user.get(0).getPhone());
-        if(!user.get(0).getEmail().equals("")){
-            edtEmail.setText(user.get(0).getEmail());
-        }
         setSupportActionBar(toolbarMyProfile);
         getSupportActionBar().setTitle(null);
         toolbarMyProfile.setNavigationOnClickListener(view -> onBackPressed());
@@ -185,7 +182,6 @@ public class SettingMyProfileActivity extends AppCompatActivity {
         btnConfirm= findViewById(R.id.buttonConFirmEditAcc);
         edtName = findViewById(R.id.edtAccountName);
         edtPhone= findViewById(R.id.edtAccountPhone);
-        edtEmail= findViewById(R.id.editEmailAccount);
         imvAva = findViewById(R.id.imvAvatarMyAcc);
         imvUploadPhoto = findViewById(R.id.imvUploadPhoto);
     }
