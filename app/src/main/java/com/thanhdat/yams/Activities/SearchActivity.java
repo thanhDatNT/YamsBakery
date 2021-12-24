@@ -33,7 +33,6 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapter.S
     private LinearLayout lnRecent;
     private RecyclerView rcvSearch;
     ArrayList<Product> products, productList;
-    OnClickInterface onClickInterface;
     SearchAdapter searchAdapter;
 
     @Override
@@ -45,6 +44,8 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapter.S
         addAdapter();
         addEvents();
         searchProduct();
+
+        searchView.requestFocus();
     }
 
     private void addEvents() {
@@ -57,12 +58,6 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapter.S
                 finish();
             }
         });
-//        Get Intent from Main Activity
-//        Intent intent= getIntent();
-//        String query= intent.getStringExtra(Constant.STRING_INTENT);
-//        searchView.setQueryHint(query);
-
-
     }
 
     private void addAdapter() {

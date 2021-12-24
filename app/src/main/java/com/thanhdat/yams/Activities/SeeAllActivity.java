@@ -74,7 +74,7 @@ public class SeeAllActivity extends AppCompatActivity {
                     }
                 }
                 //set Title
-                txtSeeAllTitle.setText("Sản phẩm mới");
+                txtSeeAllTitle.setText("Mới ra lò");
             } else if(text.equals("promo")){
                 for (Product p : productList){
                     if(p.getTag().equals("Promo")){
@@ -82,7 +82,7 @@ public class SeeAllActivity extends AppCompatActivity {
                     }
                 }
                 //set Title
-                txtSeeAllTitle.setText("Sản phẩm khuyến mãi");
+                txtSeeAllTitle.setText("Hot deals");
             } else {
                 for (Product p : productList){
                     if(p.getTag().equals("Popular")){
@@ -90,7 +90,7 @@ public class SeeAllActivity extends AppCompatActivity {
                     }
                 }
                 //set Title
-                txtSeeAllTitle.setText("Sản phẩm phổ biến");
+                txtSeeAllTitle.setText("Best sellers");
             }
 
         }
