@@ -9,12 +9,14 @@
     tools:context=".Fragments.FavoriteFragment"
     android:background="@color/white">
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarFavorite"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:contentInsetStartWithNavigation="0dp"
         android:minHeight="?attr/actionBarSize"
         android:elevation="2dp"
+        app:menu="@menu/diet_heading"
         android:theme="@style/Widget.AppCompat.ActionBar"
         android:background="@color/white">
     <TextView
@@ -34,8 +36,8 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:layout_marginBottom="8dp"
-        android:paddingHorizontal="@dimen/pad"
-        android:layout_marginTop="@dimen/pad">
+        android:layout_margin="@dimen/pad">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"

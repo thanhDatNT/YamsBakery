@@ -32,6 +32,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     ArrayList<Product> products;
     OnClickInterface onClickInterface;
 
+
     public FavoriteAdapter(Context context, int item_favorite, ArrayList<Product> products, OnClickInterface onClickInterface) {
         this.context = context;
         this.products = products;
@@ -51,13 +52,13 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
-        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
+        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) +"đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked()));
+        holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked() + "+"));
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
-            holder.tvOldPrice.setText(spannableString);
+            holder.tvOldPrice.setText(spannableString );
             holder.tvOldPrice.setVisibility(View.VISIBLE);
         }
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {

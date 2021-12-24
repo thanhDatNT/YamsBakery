@@ -1,26 +1,32 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.thanhdat.yams.Activities.MainActivity;
+import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Activities.ChatActivity;
+import com.thanhdat.yams.Activities.OrderActivity;
 import com.thanhdat.yams.Activities.PaymentActivity;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.R;
 
 public class PaymentMethodsFragment extends Fragment {
     RadioButton radMomo, radZaloPay, radCod;
+    Toolbar toolbarPaymentMethod;
     AppCompatButton btnConfirm;
     TextView txtChooseBank;
     Toolbar toolbar;
@@ -38,6 +44,7 @@ public class PaymentMethodsFragment extends Fragment {
         //link views
         btnConfirm = view.findViewById(R.id.btnConfirmPaymentMethod);
         txtChooseBank = view.findViewById(R.id.txtChooseBank);
+        toolbarPaymentMethod = view.findViewById(R.id.toolbarPaymentMethod);
 
         radMomo = view.findViewById(R.id.radMomo);
         radZaloPay = view.findViewById(R.id.radZaloPay);
@@ -45,9 +52,26 @@ public class PaymentMethodsFragment extends Fragment {
         toolbar = view.findViewById(R.id.toolbarPaymentMethod);
 
         addEvents();
-
+        addEventsBack();
         return view;
     }
+
+    private void addEventsBack() {
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if(activity != null){
+            activity.setSupportActionBar(toolbarPaymentMethod);
+        }
+        toolbarPaymentMethod.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.id.navigationMain){
+                    startActivity(new Intent(getContext(), OrderActivity.class));
+                }
+                return false;
+            }
+        });
+    }
+
 
     private void addEvents() {
         txtChooseBank.setOnClickListener(myClick);

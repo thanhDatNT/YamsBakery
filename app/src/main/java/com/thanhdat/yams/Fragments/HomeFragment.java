@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -22,8 +23,6 @@ import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -54,7 +53,7 @@ public class HomeFragment extends Fragment{
     private RecyclerView rcvNewProduct, rcvPopular, rcvPromotion;
     private GridView gvCategory, gvSuggestion;
     private androidx.appcompat.widget.Toolbar toolbar;
-    private SearchView searchView;
+    private AppCompatButton btnSearch;
     private TextView txtGoPromo, txtGoPopular, txtGoNew, tvUser;
     private OnClickInterface onClickInterface;
     private NestedScrollView scrollView;
@@ -76,7 +75,7 @@ public class HomeFragment extends Fragment{
         gvCategory= view.findViewById(R.id.gvCategory);
         gvSuggestion= view.findViewById(R.id.gvSuggestion);
         toolbar= view.findViewById(R.id.toolbarHome);
-        searchView= view.findViewById(R.id.svSearchHome);
+        btnSearch= view.findViewById(R.id.btnSearch);
         scrollView= view.findViewById(R.id.scrollViewHome);
         txtGoNew= view.findViewById(R.id.tvViewNewProducts);
         txtGoPopular= view.findViewById(R.id.tvViewPopularProducts);
@@ -249,18 +248,12 @@ public class HomeFragment extends Fragment{
                 }
             }
         });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(getContext(), SearchActivity.class);
-                intent.putExtra(Constant.STRING_INTENT, query);
-                startActivity(intent);
-                return false;
-            }
 
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

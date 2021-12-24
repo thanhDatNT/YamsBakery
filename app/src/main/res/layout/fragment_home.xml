@@ -35,15 +35,29 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="55dp"/>
-            <SearchView
-                android:id="@+id/svSearchHome"
+<!--            <SearchView-->
+<!--                android:id="@+id/svSearchHome"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_margin="12dp"-->
+<!--                android:iconifiedByDefault="false"-->
+<!--                android:queryHint="@string/search"-->
+<!--                android:searchIcon="@drawable/ic_search"-->
+<!--                android:background="@drawable/bg_lightpink"/>-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSearch"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_margin="12dp"
-                android:iconifiedByDefault="false"
-                android:queryHint="@string/search"
-                android:searchIcon="@drawable/ic_search"
-                android:background="@drawable/bg_lightpink"/>
+                android:layout_height="46dp"
+                android:layout_margin="@dimen/pad"
+                android:background="@drawable/bg_lightpink"
+                android:drawableLeft="@drawable/ic_search"
+                android:paddingLeft="@dimen/pad"
+                android:drawablePadding="@dimen/pad"
+                android:gravity="center_vertical"
+                android:text="@string/search"
+                android:textColor="@color/inactive"
+                android:textSize="@dimen/textContent"
+                android:textAllCaps="false"/>
         </LinearLayout>
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarHome"

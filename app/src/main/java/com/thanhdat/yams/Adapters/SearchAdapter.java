@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,20 +27,22 @@ import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
-public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProductAdapter.ViewHolder>{
-
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> implements Filterable {
     Context context;
-    ArrayList<Product> products;
-    OnClickInterface onClickInterface;
+    ArrayList<Product> products, productList;
+//    OnClickInterface onClickInterface;
+    SelectedProduct selectedProduct;
 
-    public CategoryProductAdapter(Context context, int item_favorite, ArrayList<Product> products, OnClickInterface onClickInterface) {
+    public SearchAdapter(Context context, int item_favorite, ArrayList<Product> products, SelectedProduct selectedProduct) {
         this.context = context;
         this.products = products;
-        this.onClickInterface = onClickInterface;
+        this.selectedProduct = selectedProduct;
+        productList = new ArrayList<>(products);
     }
-
 
     @NonNull
     @Override
@@ -79,14 +83,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             holder.tvOldPrice.setText(spannableString);
             holder.tvOldPrice.setVisibility(View.VISIBLE);
         }
-        holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ProductDetailsActivity.class);
-                intent.putExtra(Constant.ID_PRODUCT, products.get(position).getId());
-                context.startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -110,7 +107,54 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             tvQuantity= itemView.findViewById(R.id.txtQuantity);
             layoutProduct= itemView.findViewById(R.id.layoutFavourite);
             chkLike = itemView.findViewById(R.id.chkLike);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Intent intent = new Intent(context, ProductDetailsActivity.class);
+//                    intent.putExtra(Constant.ID_PRODUCT, products.get(getAdapterPosition()).getId());
+//                    context.startActivity(intent);
 
+                    selectedProduct.selectedProduct(products.get(getAdapterPosition()));
+                }
+            });
         }
+    }
+
+    @Override
+    public Filter getFilter() {
+        return productFilter;
+    }
+    private Filter productFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<Product> filteredList = new ArrayList<>();
+            if(charSequence == null || charSequence.length() == 0){
+                filteredList.addAll(productList);
+            }else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+                for (Product p : productList){
+                    if(p.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(p);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            products.clear();
+            products.addAll((Collection<? extends Product>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    public interface SelectedProduct{
+        void selectedProduct(Product product);
     }
 }
