@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Activities.MainActivity"
-    >
-
-
+    tools:context=".Activities.MainActivity">
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
@@ -39,17 +36,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtAddress"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/txtUser"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_toEndOf="@+id/imvLogo"-->
-<!--            android:gravity="center"-->
-<!--            android:text="@string/address"-->
-<!--            android:textColor="@color/textColor"-->
-<!--            android:textSize="16sp" />-->
 
         <TextView
             android:id="@+id/tvDate"
@@ -60,20 +46,12 @@
             android:layout_toEndOf="@id/imvLogo"
             android:text="Date" />
 
-        <ImageView
-            android:id="@+id/imvMore"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_more" />
     </RelativeLayout>
 
 
     <ImageView
         android:id="@+id/imvPostThumb"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/img_cake"
@@ -132,9 +110,9 @@
         app:layout_constraintStart_toEndOf="@+id/txtLike"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout9"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
@@ -154,32 +132,31 @@
             android:id="@+id/txtDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="@dimen/pad"
+            android:layout_toEndOf="@+id/txtPublisher"
+            android:textAlignment="gravity"
             android:text="@string/caption"
             android:textColor="@color/textColor" />
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtHashtag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/hashtag"
-        android:textColor="@color/primary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
-
-    <TextView
-        android:id="@+id/txtSeeComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/see_all_coments"
-        android:textColor="@color/inactive"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtHashtag" />
-
+        <TextView
+            android:id="@+id/txtHashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDescription"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/hashtag"
+            android:textColor="@color/primary" />
+        <TextView
+            android:id="@+id/txtSeeComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHashtag"
+            android:layout_marginTop="5dp"
+            android:text="@string/see_all_coments"
+            android:textColor="@color/inactive"/>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

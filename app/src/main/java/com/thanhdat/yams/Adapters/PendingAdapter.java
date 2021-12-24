@@ -45,7 +45,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.PendingV
         Picasso.get().load(pendingOrder.getOrderThumb()).into(holder.imvPendingThumb);
         holder.txtPendingName.setText(pendingOrder.getOrderName());
         holder.txtPendingCode.setText("#" + pendingOrder.getOrderCode());
-        holder.txtPendingPrice.setText(String.format("%.0f",pendingOrder.getOrderPrice())+" đ");
+        holder.txtPendingPrice.setText(String.format("%.0f",pendingOrder.getOrderPrice())+"đ");
 
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
