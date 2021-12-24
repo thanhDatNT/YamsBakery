@@ -350,18 +350,18 @@
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <EditText
-                            android:id="@+id/edtCusNote"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.7"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:hint="@string/Note" />
-
                     </LinearLayout>
 
                     <!--PAYMENT METHOD-->
+                    <EditText
+                        android:id="@+id/edtCusNote"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:ems="10"
+                        android:hint="@string/Note"
+                        android:inputType="text" />
+
                     <LinearLayout
                         android:id="@+id/linearLayoutPayment"
                         android:layout_width="match_parent"
@@ -665,14 +665,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/bg_button_gradient"
-            android:paddingHorizontal="24dp"
+            android:paddingHorizontal="@dimen/padHorizon"
             android:paddingVertical="10dp"
             android:text="@string/Order"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/buttonTextSize"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

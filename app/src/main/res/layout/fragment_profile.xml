@@ -133,12 +133,13 @@
             android:layout_marginTop="48dp">
 
 <!--            Image slider banner profile-->
+
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSliderProfile"
                 android:layout_width="match_parent"
-                android:layout_height="188dp"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="@dimen/pad"
                 android:layout_marginVertical="12dp"
-                android:layout_marginHorizontal="16dp"
                 app:sliderAnimationDuration="300"
                 app:sliderAutoCycleDirection="right"
                 app:sliderIndicatorAnimationDuration="300"

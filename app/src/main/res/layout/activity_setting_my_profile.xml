@@ -151,12 +151,14 @@
             android:id="@+id/buttonConFirmEditAcc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:textColor="@color/white"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="@dimen/padHorizon"
             android:text="@string/confirm"
             android:layout_gravity="center"
-            android:textSize="14sp"
+            android:textSize="@dimen/buttonTextSize"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:background="@drawable/bg_button_gradient"/>
 
     </LinearLayout>
