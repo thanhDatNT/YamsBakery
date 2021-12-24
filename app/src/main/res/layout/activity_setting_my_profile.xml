@@ -88,7 +88,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginBottom="@dimen/mTop">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -114,7 +115,7 @@
             android:layout_margin="4dp"
             android:textColor="@color/white"
             android:paddingHorizontal="@dimen/padHorizon"
-            android:layout_marginVertical="@dimen/mTop"
+            android:layout_marginBottom="4dp"
             android:text="@string/confirm"
             android:layout_gravity="center"
             android:textSize="@dimen/buttonTextSize"

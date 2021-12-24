@@ -350,18 +350,18 @@
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
+                        <EditText
+                            android:id="@+id/edtCusNote"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:ems="10"
+                            android:hint="@string/Note"
+                            android:inputType="text" />
                     </LinearLayout>
 
-                    <!--PAYMENT METHOD-->
-                    <EditText
-                        android:id="@+id/edtCusNote"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:ems="10"
-                        android:hint="@string/Note"
-                        android:inputType="text" />
 
+                    <!--PAYMENT METHOD-->
                     <LinearLayout
                         android:id="@+id/linearLayoutPayment"
                         android:layout_width="match_parent"
