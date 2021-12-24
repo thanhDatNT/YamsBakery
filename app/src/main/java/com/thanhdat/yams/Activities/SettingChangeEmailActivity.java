@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.thanhdat.yams.Constants.Constant;
@@ -35,13 +39,13 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
     TextView tvEmail;
     AppCompatButton btnChangeEmail;
     ArrayList<User> users =  MainActivity.user;
-    String email;
+    String email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_change_email);
         linkView();
-        addEventBackTab();
+        addEvent();
         changeEmailEvent();
     }
 
@@ -52,28 +56,43 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
                 String newEmail = edtEmail.getText().toString().trim();
                 if (!newEmail.equals("")) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    user.updateEmail(newEmail)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d("Update successfully", "User email address updated.");
-                                        Toast.makeText(SettingChangeEmailActivity.this, "Thay đổi email thành công", Toast.LENGTH_SHORT).show();
-                                        UserDatabase database = new UserDatabase(SettingChangeEmailActivity.this);
-                                        database.execSQL("UPDATE " + database.TABLE_NAME + " SET " + database.COL_EMAIL + " = '" + newEmail + "'" + " WHERE " + database.COL_EMAIL + " = '" + email + "'");
-                                        startActivity(new Intent(SettingChangeEmailActivity.this, SettingAccount.class));
-                                    } else {
-                                        Log.e("Fail to change email", task.getException().toString());
-                                    }
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    startActivity(new Intent(SettingChangeEmailActivity.this, SettingAccount.class));
-                                    Log.e("Fail to change email", e.getMessage());
-                                }
-                            });
+                    AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+                    user.reauthenticate(credential).
+                            addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            user.updateEmail(newEmail)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d("Update successfully", "User email address updated.");
+                                                Toast.makeText(SettingChangeEmailActivity.this, "Thay đổi email thành công", Toast.LENGTH_SHORT).show();
+                                                UserDatabase database = new UserDatabase(SettingChangeEmailActivity.this);
+                                                database.execSQL("UPDATE " + database.TABLE_NAME + " SET " + database.COL_EMAIL + " = '" + newEmail + "'" + " WHERE " + database.COL_EMAIL + " = '" + email + "'");
+                                                SettingChangeEmailActivity.super.onBackPressed();
+                                            } else {
+                                                Log.e("Fail to change email", task.getException().toString());
+                                            }
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startActivity(new Intent(SettingChangeEmailActivity.this, SettingAccount.class));
+                                            Log.e("Fail to change email", e.getMessage());
+                                        }
+                                    });
+
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e("Fail to re authenticate", e.getMessage());
+                            onBackPressed();
+                        }
+                    });
 
                 }
             }
@@ -87,7 +106,8 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
         toolbarChangEmail= findViewById(R.id.toolbarChangEmail);
     }
 
-    private void addEventBackTab(){
+    private void addEvent(){
+//        Back
         setSupportActionBar(toolbarChangEmail);
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(null);
@@ -98,8 +118,30 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
                 }
             });
         }
+//        Get email
         email = users.get(0).getEmail();
         tvEmail.setText(email);
+//        Get password
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_get_password);
+        dialog.setCanceledOnTouchOutside(false);
+        EditText edtPassword = dialog.findViewById(R.id.edtPasswordConfirm);
+        Button btnOK= dialog.findViewById(R.id.btnConfirmPassword);
+        ImageButton imbCancel = dialog.findViewById(R.id.imbCancelPassword);
+
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!edtPassword.getText().toString().trim().equals("")){
+                    password = edtPassword.getText().toString().trim();
+                    dialog.dismiss();
+                }
+                else
+                    edtPassword.setError("Vui lòng điền mật khẩu");
+            }
+        });
+        imbCancel.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
     }
 
 }

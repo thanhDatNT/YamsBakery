@@ -14,5 +14,4 @@ public class Constant {
     public static final String TOPPING_PRODUCT = "topping";
     public static final String PRICE_PRODUCT = "price";
 
-    public static final String PREF_NAME = "credential";
 }

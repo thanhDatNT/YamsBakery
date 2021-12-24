@@ -207,9 +207,6 @@ public class LoginFragment extends Fragment {
     }
 
     private void goToOTP(){
-//        Save credential for re authentication if needed
-        saveCredential();
-
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         OtpFragment otpFragment = new OtpFragment();
         Bundle bundle = new Bundle();
@@ -261,10 +258,4 @@ public class LoginFragment extends Fragment {
         dialog.show();
     }
 
-    private void saveCredential(){
-        SharedPreferences sharedPreferences= getActivity().getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
-        editor.putString("credential", String.valueOf(credential));
-        editor.apply();
-    }
 }

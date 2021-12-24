@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.thanhdat.yams.R;
@@ -25,6 +27,7 @@ public class SettingChangePWActivity extends AppCompatActivity {
     Toolbar toolChangePwd;
     AppCompatButton btnPasswordChange;
     TextInputEditText edtNewPW, edtConfirmNewPW, edtOldPW;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,7 @@ public class SettingChangePWActivity extends AppCompatActivity {
     }
 
     private void changePassword() {
+        email = MainActivity.user.get(0).getEmail();
         btnPasswordChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,27 +49,39 @@ public class SettingChangePWActivity extends AppCompatActivity {
                 confirmPW = edtConfirmNewPW.getText().toString().trim();
                 if(newPW.equals(confirmPW) && !newPW.equals(oldPW)){
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    AuthCredential credential = EmailAuthProvider.getCredential(email, oldPW);
+                    user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            user.updatePassword(newPW)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(SettingChangePWActivity.this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                                                SettingChangePWActivity.super.onBackPressed();
+                                            }
+                                            else {
+                                                Log.e("Fail to change password", task.getException().toString());
+                                            }
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startActivity(new Intent(SettingChangePWActivity.this, SettingAccount.class));
+                                            Log.e("Fail to change Password", e.getMessage());
+                                        }
+                                    });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SettingChangePWActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-                    user.updatePassword(newPW)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(SettingChangePWActivity.this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(SettingChangePWActivity.this, SettingAccount.class));
-                                    }
-                                    else {
-                                        Log.e("Fail to change password", task.getException().toString());
-                                    }
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    startActivity(new Intent(SettingChangePWActivity.this, SettingAccount.class));
-                                    Log.e("Fail to change Password", e.getMessage());
-                                }
-                            });
                 }
             }
         });
