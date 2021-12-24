@@ -6,6 +6,8 @@ import static com.thanhdat.yams.Activities.MainActivity.productList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +42,6 @@ import java.util.ArrayList;
 public class FavoriteFragment extends Fragment {
     Toolbar toolbarFavorite;
     RecyclerView rcvFavorite;
-    CategoryProductAdapter adapter;
     OnClickInterface onClickInterface;
     CheckBox chkLike;
     ArrayList<Product> productList, products;
@@ -48,7 +50,7 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,11 +99,17 @@ public class FavoriteFragment extends Fragment {
         toolbarFavorite.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent intent = new Intent(getContext(), CartActivity.class);
-                startActivity(intent);
+                if(item.getItemId() == R.id.mnuCartFeed){
+                    startActivity(new Intent(getContext(), CartActivity.class));
+                }
                 return false;
             }
         });
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.diet_heading, menu);
     }
 
     private void addEventSpinner() {

@@ -8,12 +8,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Product> productList;
     public static ArrayList<Category> categoryList;
     public static ArrayList<User> user;
+
+    private boolean doubleBack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,5 +244,21 @@ public class MainActivity extends AppCompatActivity {
         viewPager= findViewById(R.id.layoutContainerMain);
         progressBar= findViewById(R.id.progressBarHome);
         tvWaiting= findViewById(R.id.tvWaiting);
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(doubleBack){
+            finishAffinity();
+            return;
+        }
+        this.doubleBack = true;
+        Toast.makeText(this, "Nhấn lần nữa để thoát!", Toast.LENGTH_SHORT).show();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBack = false;
+            }
+        }, 2000);
     }
 }
