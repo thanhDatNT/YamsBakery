@@ -52,9 +52,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_email" />
             <TextView
+                android:id="@+id/tvMyEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mail"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 android:paddingLeft="10dp"
@@ -62,7 +62,7 @@
 
         </LinearLayout>
         <EditText
-            android:id="@+id/edtTypeEmail"
+            android:id="@+id/edtTypeEmailEdit"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/newEmail"
@@ -76,7 +76,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnConfirmPwChange"
+        android:id="@+id/btnConfirmEmailChange"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

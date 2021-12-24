@@ -3,6 +3,7 @@ package com.thanhdat.yams.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -16,6 +17,7 @@ import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -39,6 +41,7 @@ public class MapActivity extends AppCompatActivity {
     private static GoogleMap mMap;
     private boolean locationPermissionGranted;
     private Toolbar toolbar;
+    private AppCompatButton btnConfirm;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
@@ -56,7 +59,12 @@ public class MapActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> {
             onBackPressed();
-            overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+        });
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
         });
     }
 
@@ -111,6 +119,7 @@ public class MapActivity extends AppCompatActivity {
 
 
     private void linkViews() {
+        btnConfirm = findViewById(R.id.btnConfirmLocation);
         toolbar= findViewById(R.id.toolbarMap);
     }
 

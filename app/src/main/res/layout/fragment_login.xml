@@ -89,7 +89,7 @@
         android:layout_marginTop="@dimen/mTop"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <View
             android:layout_width="0dp"
@@ -118,7 +118,7 @@
         android:layout_marginTop="@dimen/pad"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/fb_login_button"

@@ -65,7 +65,6 @@ public class OrderDetailActivity extends AppCompatActivity {
         linkViews();
         addEventToolbar();
         createCancelOrderDialog();
-        createCanCelSuccessDialog();
         addEvents();
 
     }
@@ -123,7 +122,11 @@ public class OrderDetailActivity extends AppCompatActivity {
 
     private void createCancelOrderDialog() {
         if(sheetDialogCancelOrder == null){
+            sheetDialogCancelOrder = new BottomSheetDialog(this);
             View view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_cancel_order,null);
+            sheetDialogCancelOrder.setContentView(view);
+            sheetDialogCancelOrder.setCancelable(false);
+
             btnCancelConfirm = view.findViewById(R.id.btnCancelConfirm);
             toolbarCancelOrder = view.findViewById(R.id.toolbarCancelOrder);
             radGroupCancel = view.findViewById(R.id.radGroupCancel);
@@ -147,19 +150,22 @@ public class OrderDetailActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Vui lòng chọn lý do hủy đơn", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    createCanCelSuccessDialog();
                     sheetDialogCancelOrder.dismiss();
-                    sheetDialogCancelSuccess.show();
                 }
             });
-            sheetDialogCancelOrder = new BottomSheetDialog(this);
-            sheetDialogCancelOrder.setCancelable(false);
-            sheetDialogCancelOrder.setContentView(view);
+
         }
     }
 
     private void createCanCelSuccessDialog() {
-        if(sheetDialogCancelSuccess == null){
             View view1 = LayoutInflater.from(OrderDetailActivity.this).inflate(R.layout.bottom_sheet_cancel_success, null);
+            sheetDialogCancelSuccess = new BottomSheetDialog(this);
+            sheetDialogCancelOrder.setCancelable(false);
+            sheetDialogCancelSuccess.setCanceledOnTouchOutside(false);
+            sheetDialogCancelSuccess.setContentView(view1);
+
+            sheetDialogCancelSuccess.show();
             btnConfirmSuccess = view1.findViewById(R.id.btnConfirmSuccess);
             btnConfirmSuccess.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -168,6 +174,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                     int flag = -1;
                     intent.setFlags(flag);
                     startActivity(intent);
+                    sheetDialogCancelSuccess.dismiss();
                     finish();
                 }
             });
@@ -176,13 +183,10 @@ public class OrderDetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(OrderDetailActivity.this,MainActivity.class));
+                    sheetDialogCancelSuccess.dismiss();
                 }
             });
-            sheetDialogCancelSuccess = new BottomSheetDialog(this);
-            sheetDialogCancelOrder.setCancelable(false);
-            sheetDialogCancelSuccess.setCanceledOnTouchOutside(false);
-            sheetDialogCancelSuccess.setContentView(view1);
-        }
+
     }
 
     private void notifyDeletion() {

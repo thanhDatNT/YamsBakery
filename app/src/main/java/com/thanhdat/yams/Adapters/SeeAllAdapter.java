@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
@@ -80,7 +81,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
             public void onClick(View v) {
                 int ID = products.get(position).getId();
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
-                intent.putExtra("idProduct",ID);
+                intent.putExtra(Constant.ID_PRODUCT, ID);
                 context.startActivity(intent);
             }
         });

@@ -29,6 +29,7 @@ public class PaymentMethodsFragment extends Fragment {
     Toolbar toolbarPaymentMethod;
     AppCompatButton btnConfirm;
     TextView txtChooseBank;
+    Toolbar toolbar;
     OnClickInterface clickInterface;
     public static String pMethod;
 
@@ -48,6 +49,7 @@ public class PaymentMethodsFragment extends Fragment {
         radMomo = view.findViewById(R.id.radMomo);
         radZaloPay = view.findViewById(R.id.radZaloPay);
         radCod = view.findViewById(R.id.radCod);
+        toolbar = view.findViewById(R.id.toolbarPaymentMethod);
 
         addEvents();
         addEventsBack();

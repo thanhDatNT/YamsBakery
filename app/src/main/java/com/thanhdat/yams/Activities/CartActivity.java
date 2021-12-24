@@ -246,6 +246,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
                 if (purchasingItems.size() > 0){
                     Intent intent = new Intent(CartActivity.this, OrderActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.translate_slide_enter,R.anim.translate_slide_exit);
                 }
                 else {
                     Toast.makeText(CartActivity.this, "Vui lòng chọn sản phẩm", Toast.LENGTH_LONG).show();

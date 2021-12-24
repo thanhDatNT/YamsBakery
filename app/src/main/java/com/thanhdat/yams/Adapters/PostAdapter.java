@@ -73,6 +73,7 @@ public class PostAdapter extends BaseAdapter {
                     if(count % 2 != 0){
                         likes = 1;
                     }else likes = 0;
+
                 }
             });
             holder.txtComment.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +115,7 @@ public class PostAdapter extends BaseAdapter {
         holder.txtDescription.setText(p.getContent());
         holder.txtDate.setText(p.getDate());
         holder.txtHashTag.setText(p.getTags());
+
         return view;
     }
     private static class ViewHolder{
