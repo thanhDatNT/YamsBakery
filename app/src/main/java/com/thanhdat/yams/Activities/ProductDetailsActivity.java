@@ -63,53 +63,60 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void loadData() {
-        Intent intent = getIntent();
-        productID= intent.getIntExtra(Constant.ID_PRODUCT, 1);
         productList = MainActivity.productList;
-        itemProduct = productList.get(productID - 1);
+        Intent intent = getIntent();
+        if(intent.getExtras() != null){
+            if(intent.getExtras().getBoolean("isSearch")){
+                itemProduct = (Product) intent.getSerializableExtra(Constant.ID_PRODUCT);
 
-        total= (int) itemProduct.getCurrentPrice();
+            }
+            else {
+                productID = intent.getIntExtra(Constant.ID_PRODUCT, 1);
+                itemProduct = productList.get(productID - 1);
+            }
+            total= (int) itemProduct.getCurrentPrice();
 
-        Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
-        txtProductDetailName.setText(itemProduct.getName());
-        txtProductPrice.setText(String.valueOf(total));
-        txtStartVote.setText(String.valueOf(itemProduct.getRating()));
-        txtVoteCount.setText(String.valueOf(itemProduct.getChecked() + "+"));
-        txtPDDescription.setText(itemProduct.getDescription());
-        chkLike.setChecked(itemProduct.isFavorite());
-        if(itemProduct.isFavorite()){
-            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    itemProduct.setFavorite(false);
-                }
-            });
-        }else {
-            chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    itemProduct.setFavorite(true);
-                }
-            });
+            Picasso.get().load(itemProduct.getThumbnail()).into(imvProductDetailThumb);
+            txtProductDetailName.setText(itemProduct.getName());
+            txtProductPrice.setText(String.valueOf(total));
+            txtStartVote.setText(String.valueOf(itemProduct.getRating()));
+            txtVoteCount.setText(String.valueOf(itemProduct.getChecked() + "+"));
+            txtPDDescription.setText(itemProduct.getDescription());
+            chkLike.setChecked(itemProduct.isFavorite());
+            if(itemProduct.isFavorite()){
+                chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        itemProduct.setFavorite(false);
+                    }
+                });
+            }else {
+                chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        itemProduct.setFavorite(true);
+                    }
+                });
+            }
+
+            ArrayList<String> toppings = (ArrayList<String>) itemProduct.getTopping();
+            chkTopping1.setText(toppings.get(0));
+            chkTopping2.setText(toppings.get(1));
+            chkTopping3.setText(toppings.get(2));
+
+            if (itemProduct.getTag().equals("Promo")) {
+                SpannableString spannableString = new SpannableString(String.format("%.0f", itemProduct.getPrice()) + "đ");
+                spannableString.setSpan(new StrikethroughSpan(), 0, 6, 0);
+                txtOldPrice.setText(spannableString);
+                txtOldPrice.setVisibility(View.VISIBLE);
+            }
+
+            txtMPrice.setText(String.valueOf(total));
+            txtLPrice.setText(String.valueOf(total + 5000));
+            txtXLPrice.setText(String.valueOf(total + 10000));
+
+            btnPayment.setText("Mua ngay " + total);
         }
-
-        ArrayList<String> toppings = (ArrayList<String>) itemProduct.getTopping();
-        chkTopping1.setText(toppings.get(0));
-        chkTopping2.setText(toppings.get(1));
-        chkTopping3.setText(toppings.get(2));
-
-        if (itemProduct.getTag().equals("Promo")) {
-            SpannableString spannableString = new SpannableString(String.format("%.0f", itemProduct.getPrice()) + "đ");
-            spannableString.setSpan(new StrikethroughSpan(), 0, 6, 0);
-            txtOldPrice.setText(spannableString);
-            txtOldPrice.setVisibility(View.VISIBLE);
-        }
-
-        txtMPrice.setText(String.valueOf(total));
-        txtLPrice.setText(String.valueOf(total + 5000));
-        txtXLPrice.setText(String.valueOf(total + 10000));
-
-        btnPayment.setText("Mua ngay " + total);
     }
 
 //    private void addEventFavourite() {

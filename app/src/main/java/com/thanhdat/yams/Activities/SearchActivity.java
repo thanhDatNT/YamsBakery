@@ -2,26 +2,39 @@ package com.thanhdat.yams.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 
+import com.thanhdat.yams.Adapters.CategoryProductAdapter;
+import com.thanhdat.yams.Adapters.SearchAdapter;
 import com.thanhdat.yams.Constants.Constant;
+import com.thanhdat.yams.Interfaces.OnClickInterface;
+import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.Models.TextThumbView;
 import com.thanhdat.yams.R;
 import com.thanhdat.yams.Adapters.SimpleViewGroupAdapter;
 
 import java.util.ArrayList;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements SearchAdapter.SelectedProduct{
     private GridView gvSuggest, gvNearly;
     private Toolbar toolbar;
     private SearchView searchView;
     ArrayList<TextThumbView> dataList;
     SimpleViewGroupAdapter adapter;
+
+    private LinearLayout lnRecent;
+    private RecyclerView rcvSearch;
+    ArrayList<Product> products, productList;
+    OnClickInterface onClickInterface;
+    SearchAdapter searchAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,7 @@ public class SearchActivity extends AppCompatActivity {
         initData();
         addAdapter();
         addEvents();
+        searchProduct();
     }
 
     private void addEvents() {
@@ -44,9 +58,11 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 //        Get Intent from Main Activity
-        Intent intent= getIntent();
-        String query= intent.getStringExtra(Constant.STRING_INTENT);
-        searchView.setQueryHint(query);
+//        Intent intent= getIntent();
+//        String query= intent.getStringExtra(Constant.STRING_INTENT);
+//        searchView.setQueryHint(query);
+
+
     }
 
     private void addAdapter() {
@@ -68,5 +84,52 @@ public class SearchActivity extends AppCompatActivity {
         gvSuggest= findViewById(R.id.gvSuggestSearch);
         toolbar= findViewById(R.id.toolbarSearch);
         searchView= findViewById(R.id.svSearchActivity);
+
+        lnRecent = findViewById(R.id.lnRecent);
+        rcvSearch = findViewById(R.id.rcvSearch);
+    }
+
+
+    private void searchProduct() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this, LinearLayoutManager.VERTICAL, false);
+        rcvSearch.setLayoutManager(layoutManager);
+        productList = MainActivity.productList;
+        products = new ArrayList<>();
+
+        products = productList;
+
+        searchAdapter = new SearchAdapter(SearchActivity.this, R.layout.item_favorite, products, this);
+        rcvSearch.setAdapter(searchAdapter);
+
+        searchView.setFocusable(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                if(!s.equals("")){
+                    lnRecent.setVisibility(View.GONE);
+                    rcvSearch.setVisibility(View.VISIBLE);
+                    searchAdapter.getFilter().filter(s);
+                }else {
+                    lnRecent.setVisibility(View.VISIBLE);
+                    rcvSearch.setVisibility(View.GONE);
+                }
+                return false;
+            }
+        });
+
+
+    }
+
+    @Override
+    public void selectedProduct(Product product) {
+        Intent intent = new Intent(SearchActivity.this, ProductDetailsActivity.class);
+        intent.putExtra("isSearch", true);
+        intent.putExtra(Constant.ID_PRODUCT, product);
+        startActivity(intent);
     }
 }
