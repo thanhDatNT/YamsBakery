@@ -80,7 +80,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             txtProductDetailName.setText(itemProduct.getName());
             txtProductPrice.setText(String.valueOf(total));
             txtStartVote.setText(String.valueOf(itemProduct.getRating()));
-            txtVoteCount.setText(String.valueOf(itemProduct.getChecked() + "+"));
+            txtVoteCount.setText(itemProduct.getChecked() + "+");
             txtPDDescription.setText(itemProduct.getDescription());
             chkLike.setChecked(itemProduct.isFavorite());
             if(itemProduct.isFavorite()){
@@ -99,10 +99,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 });
             }
 
-            ArrayList<String> toppings = (ArrayList<String>) itemProduct.getTopping();
-            chkTopping1.setText(toppings.get(0));
-            chkTopping2.setText(toppings.get(1));
-            chkTopping3.setText(toppings.get(2));
+            ArrayList<String> topping = itemProduct.getTopping();
+            chkTopping1.setText(topping.get(0));
+            chkTopping2.setText(topping.get(1));
+            chkTopping3.setText(topping.get(2));
 
             if (itemProduct.getTag().equals("Promo")) {
                 SpannableString spannableString = new SpannableString(String.format("%.0f", itemProduct.getPrice()) + "đ");

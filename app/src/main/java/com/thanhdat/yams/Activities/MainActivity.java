@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -38,6 +39,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigationView;
@@ -114,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        ArrayList<String> topping= new ArrayList<>();
                         try {
                             JSONArray array= response.getJSONArray("product");
                             for(int i=0; i<array.length(); i++) {
@@ -135,8 +139,9 @@ public class MainActivity extends AppCompatActivity {
                                 p.setAvailable(object.getInt("available"));
                                 p.setBuy(object.getString("buyed"));
                                 JSONArray arrTopping= object.getJSONArray("toping");
+                                ArrayList<String> topping = new ArrayList<>();
                                 for(int j=0; j<arrTopping.length(); j++){
-                                    topping.add(arrTopping.getString(j));
+                                    topping.add(arrTopping.get(j).toString());
                                 }
                                 p.setTopping(topping);
                                 p.setCategory(object.getString("category"));

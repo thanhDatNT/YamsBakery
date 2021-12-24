@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Product implements Serializable{
@@ -9,12 +10,12 @@ public class Product implements Serializable{
     private int checked, available;
     private double price, currentPrice, rating;
     private boolean isAvailable, isPromo, isFavorite;
-    private List<String> topping;
+    private ArrayList<String> topping;
 
     public Product() {
     }
 
-    public Product(int id, String name, String description, String tag, String thumbnail, String buy, String category, String diet, int checked, int available, double price, double currentPrice, double rating, boolean isAvailable, boolean isPromo, boolean isFavorite, List<String> topping) {
+    public Product(int id, String name, String description, String tag, String thumbnail, String buy, String category, String diet, int checked, int available, double price, double currentPrice, double rating, boolean isAvailable, boolean isPromo, boolean isFavorite, ArrayList<String> topping) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -162,11 +163,11 @@ public class Product implements Serializable{
         isFavorite = favorite;
     }
 
-    public List<String> getTopping() {
+    public ArrayList<String> getTopping() {
         return topping;
     }
 
-    public void setTopping(List<String> topping) {
+    public void setTopping(ArrayList<String> topping) {
         this.topping = topping;
     }
 }
