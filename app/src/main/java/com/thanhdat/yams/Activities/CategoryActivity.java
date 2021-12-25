@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
 import com.thanhdat.yams.Adapters.ProductAdapter;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
@@ -35,6 +36,7 @@ public class CategoryActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+
         linkViews();
         addEventBack();
         addEventProductList();
@@ -67,6 +69,12 @@ public class CategoryActivity extends AppCompatActivity{
         getData();
 
         rcvProductCategory.setAdapter(new CategoryProductAdapter(CategoryActivity.this, R.layout.item_favorite, products, onClickInterface));
+
+        onClickInterface = number -> {
+            Intent intent = new Intent(this, ProductDetailsActivity.class);
+            intent.putExtra(Constant.ID_PRODUCT, number);
+            startActivity(intent);
+        };
     }
     private void getData(){
         productList = MainActivity.productList;

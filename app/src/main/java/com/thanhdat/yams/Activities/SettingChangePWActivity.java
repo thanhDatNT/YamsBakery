@@ -53,26 +53,7 @@ public class SettingChangePWActivity extends AppCompatActivity {
                     user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            user.updatePassword(newPW)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(SettingChangePWActivity.this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                                                SettingChangePWActivity.super.onBackPressed();
-                                            }
-                                            else {
-                                                Log.e("Fail to change password", task.getException().toString());
-                                            }
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            startActivity(new Intent(SettingChangePWActivity.this, SettingAccount.class));
-                                            Log.e("Fail to change Password", e.getMessage());
-                                        }
-                                    });
+                            updatePassword(user, newPW);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -83,8 +64,34 @@ public class SettingChangePWActivity extends AppCompatActivity {
                     });
 
                 }
+                else {
+                    Toast.makeText(SettingChangePWActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    private void updatePassword(FirebaseUser user, String newPW){
+        user.updatePassword(newPW)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(SettingChangePWActivity.this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                            SettingChangePWActivity.super.onBackPressed();
+                        }
+                        else {
+                            Log.e("Fail to change password", task.getException().toString());
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        startActivity(new Intent(SettingChangePWActivity.this, SettingAccount.class));
+                        Log.e("Fail to change Password", e.getMessage());
+                    }
+                });
     }
 
 

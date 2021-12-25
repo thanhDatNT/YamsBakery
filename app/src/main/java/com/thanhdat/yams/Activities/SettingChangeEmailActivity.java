@@ -57,33 +57,12 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
                 if (!newEmail.equals("")) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+                    // Re authenticate user
                     user.reauthenticate(credential).
                             addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            user.updateEmail(newEmail)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Log.d("Update successfully", "User email address updated.");
-                                                Toast.makeText(SettingChangeEmailActivity.this, "Thay đổi email thành công", Toast.LENGTH_SHORT).show();
-                                                UserDatabase database = new UserDatabase(SettingChangeEmailActivity.this);
-                                                database.execSQL("UPDATE " + database.TABLE_NAME + " SET " + database.COL_EMAIL + " = '" + newEmail + "'" + " WHERE " + database.COL_EMAIL + " = '" + email + "'");
-                                                SettingChangeEmailActivity.super.onBackPressed();
-                                            } else {
-                                                Log.e("Fail to change email", task.getException().toString());
-                                            }
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            startActivity(new Intent(SettingChangeEmailActivity.this, SettingAccount.class));
-                                            Log.e("Fail to change email", e.getMessage());
-                                        }
-                                    });
-
+                            updateEmail(user, newEmail);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -97,6 +76,31 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void updateEmail(FirebaseUser  user, String newEmail){
+        user.updateEmail(newEmail)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("Update successfully", "User email address updated.");
+                            Toast.makeText(SettingChangeEmailActivity.this, "Thay đổi email thành công", Toast.LENGTH_SHORT).show();
+                            UserDatabase database = new UserDatabase(SettingChangeEmailActivity.this);
+                            database.execSQL("UPDATE " + database.TABLE_NAME + " SET " + database.COL_EMAIL + " = '" + newEmail + "'" + " WHERE " + database.COL_EMAIL + " = '" + email + "'");
+                            SettingChangeEmailActivity.super.onBackPressed();
+                        } else {
+                            Log.e("Fail to change email", task.getException().toString());
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        startActivity(new Intent(SettingChangeEmailActivity.this, SettingAccount.class));
+                        Log.e("Fail to change email", e.getMessage());
+                    }
+                });
     }
 
     private void linkView() {

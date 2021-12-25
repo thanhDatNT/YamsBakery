@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
 import com.thanhdat.yams.Adapters.ProductAdapter;
 import com.thanhdat.yams.Adapters.SeeAllAdapter;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
@@ -26,7 +27,6 @@ public class SeeAllActivity extends AppCompatActivity {
 
     ArrayList<Product> productList;
     RecyclerView rcvSeeAllProducts;
-    OnClickInterface onClickInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +85,7 @@ public class SeeAllActivity extends AppCompatActivity {
                 txtSeeAllTitle.setText("Hot deals");
             } else {
                 for (Product p : productList){
-                    if(p.getTag().equals("Popular")){
+                    if(p.getTag().equals("Top")){
                         products.add(p);
                     }
                 }
@@ -95,6 +95,7 @@ public class SeeAllActivity extends AppCompatActivity {
 
         }
 
-        rcvSeeAllProducts.setAdapter(new SeeAllAdapter(SeeAllActivity.this, products, onClickInterface));
+        rcvSeeAllProducts.setAdapter(new SeeAllAdapter(SeeAllActivity.this, products));
+
     }
 }

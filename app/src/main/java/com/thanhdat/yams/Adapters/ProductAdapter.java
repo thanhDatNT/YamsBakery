@@ -48,12 +48,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
-        holder.tvTag.setText(products.get(position).getTag());
+        if(products.get(position).getTag().equals("")){
+            holder.tvTag.setVisibility(View.GONE);
+        }else {
+            holder.tvTag.setText(products.get(position).getTag());
+        }
         if (products.get(position).isFavorite()){
             holder.chkLike.setChecked(true);
             holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

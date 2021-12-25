@@ -30,12 +30,10 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
 
     Context context;
     ArrayList<Product> products;
-    OnClickInterface onClickInterface;
 
-    public SeeAllAdapter(Context context, ArrayList<Product> products, OnClickInterface onClickInterface) {
+    public SeeAllAdapter(Context context, ArrayList<Product> products) {
         this.context = context;
         this.products = products;
-        this.onClickInterface = onClickInterface;
     }
 
     @NonNull
@@ -49,7 +47,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
-        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
+        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) + "đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvTag.setText(products.get(position).getTag());
         if (products.get(position).isFavorite()){
@@ -79,10 +77,9 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int ID = products.get(position).getId();
-                Intent intent = new Intent(context, ProductDetailsActivity.class);
-                intent.putExtra(Constant.ID_PRODUCT, ID);
-                context.startActivity(intent);
+                Intent intent1 = new Intent(context, ProductDetailsActivity.class);
+                intent1.putExtra(Constant.ID_PRODUCT, products.get(position).getId());
+                context.startActivity(intent1);
             }
         });
     }

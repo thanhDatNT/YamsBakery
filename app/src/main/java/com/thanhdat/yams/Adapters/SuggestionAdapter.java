@@ -30,7 +30,7 @@ public class SuggestionAdapter extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.products = newProducts;
-        this.onClickInterface= clickInterface;
+        this.onClickInterface = clickInterface;
     }
 
     @Override
@@ -68,8 +68,8 @@ public class SuggestionAdapter extends BaseAdapter {
             holder.tvRating= convertView.findViewById(R.id.tvRatingHome);
             holder.tvTag= convertView.findViewById(R.id.tvTagProductHome);
             holder.tvOldPrice= convertView.findViewById(R.id.tvOldPrice);
-            holder.layoutProduct= convertView.findViewById(R.id.layoutProduct);
             holder.chkLike= convertView.findViewById(R.id.chkLike);
+            holder.layoutProduct= convertView.findViewById(R.id.layoutProduct);
             convertView.setTag(holder);
         }
         else{
@@ -80,7 +80,11 @@ public class SuggestionAdapter extends BaseAdapter {
         holder.tvName.setText(product.getName());
         holder.tvPrice.setText(String.format("%.0f",product.getPrice()));
         holder.tvRating.setText(String.valueOf(product.getRating()));
-        holder.tvTag.setText(product.getTag());
+        if(product.getTag().equals("")){
+            holder.tvTag.setVisibility(View.GONE);
+        }else {
+            holder.tvTag.setText(product.getTag());
+        }
         if (products.get(position).isFavorite()){
             holder.chkLike.setChecked(true);
             holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -108,7 +112,7 @@ public class SuggestionAdapter extends BaseAdapter {
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickInterface.setClick(products.get(position).getId());
+                onClickInterface.setClick(product.getId());
             }
         });
         return convertView;
