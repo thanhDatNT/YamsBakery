@@ -76,8 +76,8 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             });
         }
         if(diets.get(position).isPromo()){
-            SpannableString spannableString= new SpannableString(String.format("%.0f",diets.get(position).getPrice()));
-            spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
+            SpannableString spannableString= new SpannableString(String.format("%.0f",diets.get(position).getPrice())+"đ");
+            spannableString.setSpan(new StrikethroughSpan(),0, 6, 0);
             holder.txtOldPrice.setText(spannableString);
             holder.txtOldPrice.setVisibility(View.VISIBLE);
         }
@@ -94,6 +94,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
 //                bundle.putSerializable("productItem",item);
 //                intent.putExtras(bundle);
 //                context.startActivity(intent);
+
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
                 intent.putExtra(Constant.ID_PRODUCT, diets.get(position).getId());
                 context.startActivity(intent);
