@@ -226,14 +226,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginTop="20dp"
+                android:paddingHorizontal="@dimen/padHorizon"
                 android:background="@drawable/bg_button_gradient"
                 android:text="@string/confirm"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/buttonTextSize"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </FrameLayout>

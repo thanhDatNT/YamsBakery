@@ -312,22 +312,26 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCancelOrder"
-            android:layout_width="140dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/bg_button_gradient"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:text="@string/cancel_order"/>
+            android:text="@string/cancel_order"
+            android:textSize="@dimen/buttonTextSize"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnBackToHome"
-            android:layout_width="140dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/bg_button_white_border"
             android:backgroundTint="@color/lightPink"
             android:textAllCaps="false"
             android:textColor="@color/primary"
-            android:text="@string/cancel_back_home"/>
+            android:text="@string/cancel_back_home"
+            android:textSize="@dimen/buttonTextSize"/>
 
     </LinearLayout>
 

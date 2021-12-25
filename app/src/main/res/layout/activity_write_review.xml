@@ -111,8 +111,8 @@
             android:textColor="@color/textColor"
             android:textSize="@dimen/textContent"
             android:inputType="textMultiLine"
-            android:maxLines="6"
-            android:lines="6"
+            android:maxLines="4"
+            android:lines="4"
             android:background="@drawable/bg_edittext_greystroke"
             android:padding="10dp"
             android:gravity="top"
@@ -203,13 +203,16 @@
             android:transformPivotX="0dp"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpReview"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/bg_button_gradient"
+            android:paddingHorizontal="@dimen/padHorizon"
             android:text="Đăng đánh giá"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/textContent"
+            android:textSize="@dimen/buttonTextSize"
+            android:textStyle="bold"
             android:layout_gravity="center"/>
     </LinearLayout>
 

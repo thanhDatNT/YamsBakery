@@ -99,7 +99,7 @@ public class FavoriteFragment extends Fragment {
         toolbarFavorite.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId() == R.id.mnuCartFeed){
+                if(item.getItemId() == R.id.mnuCartDiet){
                     startActivity(new Intent(getContext(), CartActivity.class));
                 }
                 return false;

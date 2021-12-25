@@ -29,35 +29,10 @@
             android:text="@string/name"
             android:textColor="@color/primary"
             android:textStyle="bold"
-            android:textSize="24sp"/>
+            android:textSize="@dimen/textMainHeader"/>
 
     </androidx.appcompat.widget.Toolbar>
     <!--    end heading-->
-
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbarFeed"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        app:layout_collapseMode="pin"-->
-<!--        android:background="@color/white"-->
-<!--        app:menu="@menu/feed_heading"-->
-<!--        android:elevation="4dp"-->
-<!--        style="@style/ThemeOverlay.AppCompat.Light"-->
-<!--        android:theme="?attr/actionBarTheme">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/txtFeedHeader"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="Yams Feed"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="24sp"/>-->
-
-<!--    </androidx.appcompat.widget.Toolbar>-->
-<!--    end heading-->
     <androidx.core.widget.NestedScrollView
         android:padding="12dp"
         android:layout_width="match_parent"
@@ -211,15 +186,19 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnCalculateBMI"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:paddingHorizontal="@dimen/padHorizon"
                     android:background="@drawable/bg_button_gradient"
                     android:text="@string/CalculateBMI"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/buttonTextSize"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 

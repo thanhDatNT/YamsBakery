@@ -33,12 +33,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginBottom="30dp">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnConfirmSuccess"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
             android:background="@drawable/bg_button_gradient"
             android:text="@string/cancel_confirm"
             android:textColor="@color/white"
@@ -51,6 +52,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginVertical="4dp"
             android:background="@drawable/bg_lightpink"
             android:text="@string/cancel_back_home"
             android:textColor="@color/primary"
