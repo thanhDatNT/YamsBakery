@@ -55,12 +55,20 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) +"đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked() + "+"));
+
+        if(products.get(position).getTag().equals("")){
+            holder.tvTagProduct.setVisibility(View.GONE);
+        }else {
+            holder.tvTagProduct.setText(products.get(position).getTag());
+        }
+
         if(products.get(position).isPromo()){
             SpannableString spannableString= new SpannableString(String.format("%.0f",products.get(position).getPrice()));
             spannableString.setSpan(new StrikethroughSpan(),0, 5, 0);
             holder.tvOldPrice.setText(spannableString );
             holder.tvOldPrice.setVisibility(View.VISIBLE);
         }
+
         holder.layoutProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +87,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
-        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
+        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity, tvTagProduct;
         LinearLayout layoutProduct;
         CheckBox chkLike;
         private FavoriteAdapter adapter;
@@ -91,6 +99,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             tvOldPrice= itemView.findViewById(R.id.txtOldPrice);
             tvRating= itemView.findViewById(R.id.txtRating);
             tvQuantity= itemView.findViewById(R.id.txtQuantity);
+            tvTagProduct= itemView.findViewById(R.id.txtTagProduct);
             layoutProduct= itemView.findViewById(R.id.layoutFavourite);
             chkLike = itemView.findViewById(R.id.chkLike);
 

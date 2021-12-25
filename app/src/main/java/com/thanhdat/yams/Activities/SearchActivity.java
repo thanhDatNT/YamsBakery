@@ -90,8 +90,9 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapter.S
         rcvSearch.setLayoutManager(layoutManager);
         productList = MainActivity.productList;
         products = new ArrayList<>();
-
-        products = productList;
+        for(Product p : productList){
+            products.add(p);
+        }
 
         searchAdapter = new SearchAdapter(SearchActivity.this, R.layout.item_favorite, products, this);
         rcvSearch.setAdapter(searchAdapter);

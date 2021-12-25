@@ -134,7 +134,7 @@ public class HomeFragment extends Fragment{
         rcvPopular.setLayoutManager(layoutManager);
         ArrayList<Product> popularProducts = new ArrayList<>();
         for (Product p : productList){
-            if(p.getTag().equals("Popular")){
+            if(p.getTag().equals("Top")){
                 popularProducts.add(p);
             }
         }
@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), SeeAllActivity.class);
-                intent.putExtra("idAll","popular");
+                intent.putExtra("idAll","top");
                 startActivity(intent);
             }
         });

@@ -50,6 +50,13 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
         holder.txtName.setText(diets.get(position).getName());
         holder.txtPrice.setText(String.format("%.0f",diets.get(position).getCurrentPrice())+"đ");
         holder.txtOldPrice.setText(String.format("%.0f",diets.get(position).getPrice())+"đ");
+
+        if(diets.get(position).getTag().equals("")){
+            holder.txtTag.setVisibility(View.GONE);
+        }else {
+            holder.txtTag.setText(diets.get(position).getTag());
+        }
+
         if (diets.get(position).isFavorite()){
             holder.chkLike.setChecked(true);
             holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -103,7 +110,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        TextView txtName, txtPrice, txtOldPrice,txtContent,txtRate,txtQuantity;
+        TextView txtName, txtPrice, txtOldPrice,txtContent,txtRate,txtQuantity, txtTag;
         CardView layoutProductDiet;
         CheckBox chkLike;
         public ViewHolder(@NonNull View itemView) {
@@ -115,6 +122,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.ViewHolder> {
             txtContent=itemView.findViewById(R.id.txtContent);
             txtRate = itemView.findViewById(R.id.txtRate);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
+            txtTag= itemView.findViewById(R.id.txtTagProduct);
             layoutProductDiet =itemView.findViewById(R.id.layoutProductDiet);
             chkLike = itemView.findViewById(R.id.chkLike);
 
