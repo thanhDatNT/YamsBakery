@@ -34,7 +34,6 @@ import java.util.Collection;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> implements Filterable {
     Context context;
     ArrayList<Product> products, productList;
-//    OnClickInterface onClickInterface;
     SelectedProduct selectedProduct;
 
     public SearchAdapter(Context context, int item_favorite, ArrayList<Product> products, SelectedProduct selectedProduct) {
@@ -110,10 +109,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(context, ProductDetailsActivity.class);
-//                    intent.putExtra(Constant.ID_PRODUCT, products.get(getAdapterPosition()).getId());
-//                    context.startActivity(intent);
-
                     selectedProduct.selectedProduct(products.get(getAdapterPosition()));
                 }
             });

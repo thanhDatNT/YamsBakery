@@ -52,14 +52,14 @@
         android:id="@+id/btnSeeOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvDetailOrderStatus"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/bg_button_gradient"
+        android:paddingHorizontal="@dimen/padHorizon"
         android:text="@string/see_order_status"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/buttonTextSize"
-        android:textStyle="bold"
-        android:paddingHorizontal="20dp"
-        android:layout_below="@id/tvDetailOrderStatus"
-        android:layout_marginTop="20dp"/>
+        android:textSize="@dimen/buttonTextSize" />
 </RelativeLayout>

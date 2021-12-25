@@ -88,7 +88,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginBottom="@dimen/mTop">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -111,13 +112,15 @@
             android:id="@+id/buttonConFirmEditAcc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:textColor="@color/white"
-            android:layout_marginVertical="@dimen/mTop"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="@dimen/padHorizon"
+            android:layout_marginBottom="4dp"
             android:text="@string/confirm"
             android:layout_gravity="center"
-            android:textSize="14sp"
+            android:textSize="@dimen/buttonTextSize"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:background="@drawable/bg_button_gradient"/>
 
     </LinearLayout>

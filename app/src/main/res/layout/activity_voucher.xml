@@ -46,21 +46,26 @@
             android:gravity="center"
             android:background="@color/lightPink"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnApply"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="@string/apply"
-            android:gravity="center"
             android:layout_marginStart="20dp"
-            android:backgroundTint="@color/lightPink"
-            android:textColor="@color/primary"/>
+            android:layout_marginBottom="4dp"
+            android:text="@string/apply"
+            android:textSize="@dimen/buttonTextSize"
+            android:gravity="center"
+            android:background="@drawable/bg_button_gradient"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
     </LinearLayout>
     <ListView
         android:id="@+id/lvVoucher"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
         android:divider="@null"
         android:layout_marginTop="10dp"/>
 
