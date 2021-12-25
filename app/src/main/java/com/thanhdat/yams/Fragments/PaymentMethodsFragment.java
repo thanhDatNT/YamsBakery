@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -26,10 +27,9 @@ import com.thanhdat.yams.R;
 
 public class PaymentMethodsFragment extends Fragment {
     RadioButton radMomo, radZaloPay, radCod;
-    Toolbar toolbarPaymentMethod;
     AppCompatButton btnConfirm;
     TextView txtChooseBank;
-    Toolbar toolbar;
+    ImageButton imbBack;
     OnClickInterface clickInterface;
     public static String pMethod;
 
@@ -44,30 +44,27 @@ public class PaymentMethodsFragment extends Fragment {
         //link views
         btnConfirm = view.findViewById(R.id.btnConfirmPaymentMethod);
         txtChooseBank = view.findViewById(R.id.txtChooseBank);
-        toolbarPaymentMethod = view.findViewById(R.id.toolbarPaymentMethod);
+        imbBack = view.findViewById(R.id.imbBack);
+
 
         radMomo = view.findViewById(R.id.radMomo);
         radZaloPay = view.findViewById(R.id.radZaloPay);
         radCod = view.findViewById(R.id.radCod);
-        toolbar = view.findViewById(R.id.toolbarPaymentMethod);
+
 
         addEvents();
-        addEventsBack();
+        addEventBack();
         return view;
     }
 
-    private void addEventsBack() {
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if(activity != null){
-            activity.setSupportActionBar(toolbarPaymentMethod);
-        }
-        toolbarPaymentMethod.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+    private void addEventBack() {
+        imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId() == R.id.navigationMain){
-                    startActivity(new Intent(getContext(), OrderActivity.class));
+            public void onClick(View view) {
+                clickInterface = (OnClickInterface) getActivity();
+                if(view.getId() == R.id.imbBack){
+                    clickInterface.setClick(2);
                 }
-                return false;
             }
         });
     }
@@ -111,6 +108,12 @@ public class PaymentMethodsFragment extends Fragment {
                 }
             }
         });
+        imbBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {
@@ -126,6 +129,8 @@ public class PaymentMethodsFragment extends Fragment {
         }
 
     };
+
+
 
 }
 
