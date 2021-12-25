@@ -12,8 +12,9 @@ import com.thanhdat.yams.Fragments.PaymentMethodsFragment;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.R;
 
-public class PaymentActivity extends AppCompatActivity implements OnClickInterface{
+public class PaymentActivity extends AppCompatActivity implements OnClickInterface {
     String paymentMethod;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +27,17 @@ public class PaymentActivity extends AppCompatActivity implements OnClickInterfa
 
     @Override
     public void setClick(int number) {
-        if(number == 1){
+        if (number == 1) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layoutContainerPayment, new ChooseBankFragment());
             transaction.addToBackStack(null);
             transaction.commit();
-        }
-        else if(number == 2){
+        } else if (number == 3) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.layoutContainerPayment, new PaymentMethodsFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else if (number == 2) {
             paymentMethod = PaymentMethodsFragment.pMethod;
             Intent intent = new Intent(this, OrderActivity.class);
             intent.putExtra(Constant.PAYMENT_INTENT, paymentMethod);
