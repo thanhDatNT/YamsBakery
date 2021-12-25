@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
@@ -36,9 +37,11 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Databases.ReviewDatabase;
 import com.thanhdat.yams.Fragments.ProfileFragment;
 import com.thanhdat.yams.Models.PreviousOrder;
+import com.thanhdat.yams.Models.User;
 import com.thanhdat.yams.R;
 
 import java.io.ByteArrayOutputStream;
@@ -46,18 +49,23 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class WriteReviewActivity extends AppCompatActivity {
 
     EditText edtReviewText;
     AppCompatButton btnUpReview, btnUploadImage, btnCamera, btnGallery;
-    ImageView imvReviewImage, imvReviewThumb;
+    ImageView imvReviewImage, imvReviewThumb, imvProfile;
     TextView txtReviewSize, txtReviewName;
     RatingBar rtbReviewRating;
 
     BottomSheetDialog sheetDialog;
     ActivityResultLauncher<Intent> activityResultLauncher;
     public static ReviewDatabase db;
+    ArrayList<User> user = MainActivity.user;
 
     Toolbar toolbarWriteReview;
     boolean isCamera, cameraPermissionGranted, isSelected = false;
@@ -111,6 +119,7 @@ public class WriteReviewActivity extends AppCompatActivity {
 
         imvReviewImage = findViewById(R.id.imvReviewImage);
         imvReviewThumb = findViewById(R.id.imvReviewThumb);
+        imvProfile = findViewById(R.id.imvProfileComment);
 
         txtReviewSize = findViewById(R.id.txtReviewSize);
         txtReviewName = findViewById(R.id.txtReviewName);
@@ -131,6 +140,7 @@ public class WriteReviewActivity extends AppCompatActivity {
         txtReviewName.setText(previousOrder.getPreviousName());
         txtReviewSize.setText(previousOrder.getPreviousContent());
         imvReviewThumb.setImageResource(previousOrder.getPreviousThumb());
+        Picasso.get().load(user.get(0).getPhoto()).into(imvProfile);
     }
 
 
@@ -226,11 +236,9 @@ public class WriteReviewActivity extends AppCompatActivity {
                 String name, content, size;
 
                 rating = rtbReviewRating.getRating();
-
-                profile = (BitmapDrawable) ProfileFragment.imvAvaProfile.getDrawable();
+                profile = (BitmapDrawable) imvProfile.getDrawable();
                 image = (BitmapDrawable) imvReviewImage.getDrawable();
-
-                name = ProfileFragment.txtNameProfile.getText().toString();
+                name = user.get(0).getName();
                 content = edtReviewText.getText().toString();
                 size = txtReviewSize.getText().toString();
 
