@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thanhdat.yams.Adapters.CategoryProductAdapter;
@@ -24,8 +27,9 @@ public class SeeAllActivity extends AppCompatActivity {
 
     Toolbar toolbarSeeAll;
     TextView txtSeeAllTitle;
-
-    ArrayList<Product> productList;
+    Spinner spinnerSeeAll;
+    String[] price = {"Tất cả","Dưới 50.000","Từ 50.000 đến 99.000","Từ 100.000 đến 149.000","Từ 150.000 trở lên"};
+    ArrayList<Product> productList, products;
     RecyclerView rcvSeeAllProducts;
 
     @Override
@@ -36,12 +40,14 @@ public class SeeAllActivity extends AppCompatActivity {
         linkViews();
         addEventBack();
         addEventProductList();
+        addEventSpinner();
     }
 
     private void linkViews() {
         toolbarSeeAll = findViewById(R.id.toolbarSeeAll);
         txtSeeAllTitle = findViewById(R.id.txtTitle);
         rcvSeeAllProducts = findViewById(R.id.rcvSeeAllProducts);
+        spinnerSeeAll = findViewById(R.id.spinnerSeeAll);
     }
 
     private void addEventBack() {
@@ -58,12 +64,15 @@ public class SeeAllActivity extends AppCompatActivity {
 
     private void addEventProductList() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(SeeAllActivity.this, LinearLayoutManager.VERTICAL, false);
-
         rcvSeeAllProducts.setLayoutManager(layoutManager);
+        getData();
+        rcvSeeAllProducts.setAdapter(new SeeAllAdapter(SeeAllActivity.this, products));
 
+    }
+
+    private void getData(){
         productList = MainActivity.productList;
-        ArrayList<Product> products = new ArrayList<>();
-
+        products = new ArrayList<>();
         Intent intent = getIntent();
         if (intent != null) {
             String text = intent.getExtras().getString("idAll");
@@ -94,8 +103,60 @@ public class SeeAllActivity extends AppCompatActivity {
             }
 
         }
+    }
 
-        rcvSeeAllProducts.setAdapter(new SeeAllAdapter(SeeAllActivity.this, products));
+    private void addEventSpinner() {
+        //creating array adapter
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.item_spinner, price);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSeeAll.setAdapter(adapter);
 
+        //Filter product
+        spinnerSeeAll.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                getData();
+                ArrayList<Product> productsFilter = new ArrayList<>();
+                switch (i){
+                    case 0:
+                        productsFilter = products;
+                        break;
+                    case 1:
+                        for (Product p2 : products){
+                            if(p2.getPrice() < 50000){
+                                productsFilter.add(p2);
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (Product p3 : products){
+                            if(p3.getPrice() >= 50000 && p3.getPrice() <100000){
+                                productsFilter.add(p3);
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (Product p4 : products){
+                            if(p4.getPrice() >= 100000 && p4.getPrice() <150000){
+                                productsFilter.add(p4);
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (Product p5 : products){
+                            if(p5.getPrice() >= 150000){
+                                productsFilter.add(p5);
+                            }
+                        }
+                        break;
+                }
+                rcvSeeAllProducts.setAdapter(new SeeAllAdapter(SeeAllActivity.this, productsFilter));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }
