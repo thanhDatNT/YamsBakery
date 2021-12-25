@@ -1,7 +1,9 @@
 package com.thanhdat.yams.Activities;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -28,6 +30,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,7 +60,8 @@ public class WriteReviewActivity extends AppCompatActivity {
     public static ReviewDatabase db;
 
     Toolbar toolbarWriteReview;
-    boolean isCamera, isSelected = false;
+    boolean isCamera, cameraPermissionGranted, isSelected = false;
+    private static final int PERMISSIONS_REQUEST_ACCESS_CAMERA = 11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,11 +142,15 @@ public class WriteReviewActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //open camera
+                    getCameraPermission();
                     isCamera = true;
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    activityResultLauncher.launch(intent);
-                    sheetDialog.dismiss();
-                    isSelected = true;
+                    if(cameraPermissionGranted){
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        activityResultLauncher.launch(intent);
+                        sheetDialog.dismiss();
+                        isSelected = true;
+                    }
+
                 }
             });
 
@@ -161,6 +170,33 @@ public class WriteReviewActivity extends AppCompatActivity {
 
             sheetDialog = new BottomSheetDialog(this);
             sheetDialog.setContentView(view);
+        }
+    }
+
+    private void getCameraPermission() {
+
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            cameraPermissionGranted = true;
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    PERMISSIONS_REQUEST_ACCESS_CAMERA);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        cameraPermissionGranted = false;
+        if (requestCode == PERMISSIONS_REQUEST_ACCESS_CAMERA) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                cameraPermissionGranted = true;
+            }
         }
     }
 

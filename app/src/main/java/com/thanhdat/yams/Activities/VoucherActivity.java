@@ -41,7 +41,7 @@ public class VoucherActivity extends AppCompatActivity {
 
     private ArrayList<Voucher> initData() {
         vouchers = new ArrayList<Voucher>();
-        vouchers.add(new Voucher(true, R.drawable.ic_shipping, "Giảm 20K phí vận chuyển cho đơn hàng từ 50K ", "31/01/2022", 20000));
+        vouchers.add(new Voucher(true, R.drawable.ic_shipping, "Giảm 20K phí vận chuyển dành cho khách hàng mới", "31/01/2022", 20000));
         vouchers.add(new Voucher(true, R.drawable.ic_shipping, "Giảm 15K phí vận chuyển, tất cả hình thức thanh toán", "31/01/2022", 15000));
         vouchers.add(new Voucher(false, R.drawable.ic_voucher, "Giảm 10K cho đơn hàng từ 0đ", "10/01/2022", 10000));
         vouchers.add(new Voucher(false, R.drawable.ic_voucher, "Giảm 40K cho đơn hàng từ 100k", "10/01/2022", 40000));

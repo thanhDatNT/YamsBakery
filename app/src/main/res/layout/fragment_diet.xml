@@ -6,7 +6,8 @@
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:layout_margin="0dp">
     <!--     heading diet-->
 
     <androidx.appcompat.widget.Toolbar
@@ -214,6 +215,7 @@
                     android:visibility="gone"
                     android:textSize="18sp"
                     android:textColor="@color/primary"
+                    android:textStyle="bold"
                     android:layout_marginStart="10dp"
                     />
                 <androidx.recyclerview.widget.RecyclerView

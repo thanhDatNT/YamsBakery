@@ -14,7 +14,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_ocb"/>
+            android:src="@drawable/img_vietcombank"/>
 
         <TextView
             android:id="@+id/tvTextView"
