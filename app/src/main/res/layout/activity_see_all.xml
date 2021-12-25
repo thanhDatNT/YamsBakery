@@ -29,7 +29,38 @@
             android:gravity="center"
             android:layout_marginEnd="46dp"/>
     </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingHorizontal="@dimen/pad"
+        android:layout_marginTop="@dimen/pad">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:layout_marginEnd="10dp"
+            android:text="Lọc theo giá:"
+            android:textSize="@dimen/textContent"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:gravity="center" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:background="@drawable/bg_lightpink_dashstroke">
 
+            <Spinner
+                android:id="@+id/spinnerSeeAll"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvSeeAllProducts"
         android:layout_width="match_parent"
