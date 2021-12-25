@@ -15,30 +15,41 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <!--header-->
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarPaymentMethod"
+            <RelativeLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:navigationIcon="@drawable/ic_back_pink"
-                app:contentInsetStartWithNavigation="0dp"
-                android:layout_marginStart="-5dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
-                android:background="@color/white">
-                <TextView
-                    android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imbBack"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toStartOf="@+id/txtHeader"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_back_pink" />
+
+                <TextView
+                    android:id="@+id/txtHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="60dp"
+                    android:padding="10dp"
                     android:text="@string/Choose_payment_method"
-                    android:textSize="@dimen/textHeader"
                     android:textColor="@color/primary"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginEnd="46dp"/>
-            </androidx.appcompat.widget.Toolbar>
+                    android:textSize="@dimen/textHeader"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
             <!--    end header-->
             <LinearLayout
+                android:id="@+id/lnE_Wallet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
