@@ -47,7 +47,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get().load(products.get(position).getThumbnail()).into(holder.imvThumb);
         holder.tvName.setText(products.get(position).getName());
-        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()));
+        holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) + "đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvTag.setText(products.get(position).getTag());
         if (products.get(position).isFavorite()){

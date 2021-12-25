@@ -54,6 +54,13 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         holder.tvPrice.setText(String.format("%.0f",products.get(position).getCurrentPrice()) + "đ");
         holder.tvRating.setText(String.valueOf(products.get(position).getRating()));
         holder.tvQuantity.setText(String.valueOf(products.get(position).getChecked() + "+"));
+
+        if(products.get(position).getTag().equals("")){
+            holder.tvTagProduct.setVisibility(View.GONE);
+        }else {
+            holder.tvTagProduct.setText(products.get(position).getTag());
+        }
+
         if (products.get(position).isFavorite()){
             holder.chkLike.setChecked(true);
             holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -94,7 +101,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvThumb;
-        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity;
+        TextView tvName, tvPrice, tvOldPrice, tvRating, tvQuantity, tvTagProduct;
         LinearLayout layoutProduct;
         CheckBox chkLike;
 
@@ -106,6 +113,7 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
             tvOldPrice= itemView.findViewById(R.id.txtOldPrice);
             tvRating= itemView.findViewById(R.id.txtRating);
             tvQuantity= itemView.findViewById(R.id.txtQuantity);
+            tvTagProduct= itemView.findViewById(R.id.txtTagProduct);
             layoutProduct= itemView.findViewById(R.id.layoutFavourite);
             chkLike = itemView.findViewById(R.id.chkLike);
 

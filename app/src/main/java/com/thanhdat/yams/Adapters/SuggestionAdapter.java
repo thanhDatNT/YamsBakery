@@ -80,7 +80,11 @@ public class SuggestionAdapter extends BaseAdapter {
         holder.tvName.setText(product.getName());
         holder.tvPrice.setText(String.format("%.0f",product.getPrice()));
         holder.tvRating.setText(String.valueOf(product.getRating()));
-        holder.tvTag.setText(product.getTag());
+        if(product.getTag().equals("")){
+            holder.tvTag.setVisibility(View.GONE);
+        }else {
+            holder.tvTag.setText(product.getTag());
+        }
         if (products.get(position).isFavorite()){
             holder.chkLike.setChecked(true);
             holder.chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

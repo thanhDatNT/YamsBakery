@@ -85,7 +85,7 @@ public class SeeAllActivity extends AppCompatActivity {
                 txtSeeAllTitle.setText("Hot deals");
             } else {
                 for (Product p : productList){
-                    if(p.getTag().equals("Popular")){
+                    if(p.getTag().equals("Top")){
                         products.add(p);
                     }
                 }
