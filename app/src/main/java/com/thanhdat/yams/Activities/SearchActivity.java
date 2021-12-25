@@ -128,4 +128,5 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapter.S
         intent.putExtra(Constant.ID_PRODUCT, product);
         startActivity(intent);
     }
+
 }

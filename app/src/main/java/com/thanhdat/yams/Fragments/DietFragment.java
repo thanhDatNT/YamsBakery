@@ -27,6 +27,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thanhdat.yams.Activities.CartActivity;
+import com.thanhdat.yams.Activities.ProductDetailsActivity;
+import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.Models.Product;
 import com.thanhdat.yams.R;
@@ -101,7 +103,9 @@ public class DietFragment extends Fragment {
         });
 
     }
-    private void addEvent() {
+
+
+        private void addEvent() {
         btnCalculateBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,7 +186,8 @@ public class DietFragment extends Fragment {
                             edtInputHeight.setText("");
                             edtInputWeight.setText("");
                             rcvDietProduct.setAdapter(null);
-
+                            edtInputHeight.requestFocus();
+                            txtSuggest.setVisibility(View.GONE);
                             dialog.dismiss();
                         }
                     });

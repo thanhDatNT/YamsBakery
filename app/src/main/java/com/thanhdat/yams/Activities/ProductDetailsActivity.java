@@ -57,7 +57,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         loadData();
         totalMoney();
         navigate();
-//        addEventFavourite();
     }
 
 
@@ -119,15 +118,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         }
     }
 
-//    private void addEventFavourite() {
-//        chkLike.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(loadData().g)
-//            }
-//        });
-//    }
-
     private void navigate() {
         txtSeeReview.setOnClickListener(view -> startActivity(new Intent(ProductDetailsActivity.this, SeeReviewActivity.class)));
 
@@ -137,7 +127,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 // send product to order
                 Intent intent2= new Intent(ProductDetailsActivity.this, OrderActivity.class);
                 Bundle bundle= new Bundle();
-                bundle.putInt(Constant.ID_PRODUCT, productID);
+                bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
                 bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
                 bundle.putString(Constant.TOPPING_PRODUCT, topping);
                 bundle.putString(Constant.SIZE_PRODUCT, size);
@@ -154,7 +144,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1= new Intent(ProductDetailsActivity.this, CartActivity.class);
                 Bundle bundle= new Bundle();
-                bundle.putInt(Constant.ID_PRODUCT, productID);
+                bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
                 bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
                 bundle.putString(Constant.TOPPING_PRODUCT, topping);
                 bundle.putString(Constant.SIZE_PRODUCT, size);

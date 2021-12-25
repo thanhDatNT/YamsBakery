@@ -121,7 +121,7 @@
     <string name="remain">Kho:</string>
     <string name="all">Tất cả</string>
     <string name="total">Tổng số tiền:</string>
-    <string name="sanpham">sản phẩm</string>
+    <string name="product">sp</string>
     <string name="purchase">Đặt hàng </string>
     <!--Feed-->
     <string name="yams_store">Yams Store</string>
