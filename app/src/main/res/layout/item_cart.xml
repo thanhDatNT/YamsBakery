@@ -120,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/remain"
                         android:textSize="14sp"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/primary"
                         />
                     <TextView
                         android:id="@+id/txtRemain"
@@ -128,14 +128,14 @@
                         android:layout_height="wrap_content"
                         android:text="10"
                         android:layout_marginHorizontal="6dp"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/primary"
                         android:textSize="14sp"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/product"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/primary"
                         android:textSize="14sp"
                         />
                 </LinearLayout>

@@ -159,7 +159,7 @@ public class SeeReviewActivity extends AppCompatActivity {
         if(db.getCount() == 0){
             db.insertData(4.5, convertByteArray(R.drawable.img_logo_launcher), "Minh Xuân", "Bánh ngon lắm, mọi người nên mua ăn thử nha!", convertByteArray(R.drawable.img_mango_cake), "Size M");
             db.insertData(5, convertByteArray(R.drawable.img_logo_pink), "Mai Trang", "Bánh khá là ngon, thơm nữa, 5 sao nha", convertByteArray(R.drawable.img_matcha_maracon), "Size L");
-            db.insertData(5, convertByteArray(R.drawable.img_facebook), "Uyển Nhi", "Ngon bổ rẻ nha cả nhà iu của kem!", convertByteArray(R.drawable.img_bdcake), "Size XL");
+            db.insertData(5, convertByteArray(R.drawable.img_bdcake), "Uyển Nhi", "Ngon bổ rẻ nha cả nhà iu của kem!", convertByteArray(R.drawable.img_bdcake), "Size XL");
             db.insertData(4, convertByteArray(R.drawable.img_chef), "Thành Đạt", "Tuyệt vời!", convertByteArray(R.drawable.img_cake), "Size L");
         }
 
