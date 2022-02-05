@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_warning"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_message2"
+            android:textSize="18sp"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirmLogIn"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_gradient"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelLogIn"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="0.5"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_lightpink"/>
+    </LinearLayout>
+</LinearLayout>

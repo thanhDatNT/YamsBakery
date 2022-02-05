@@ -14,6 +14,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         app:srcCompat="@drawable/img_logo_white" />
 
     <TextView
@@ -64,4 +65,16 @@
             android:layout_marginHorizontal="4dp"
             android:textStyle="bold"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/skipIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bỏ qua >>"
+        android:textSize="@dimen/textContent"
+        android:textColor="@color/white"
+        android:layout_margin="14dp"
+        android:layout_gravity="end"
+        android:textStyle="italic"/>
+
 </LinearLayout>

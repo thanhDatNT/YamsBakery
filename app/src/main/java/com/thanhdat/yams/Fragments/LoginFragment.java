@@ -1,9 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.thanhdat.yams.Activities.LoginActivity;
 import com.thanhdat.yams.Activities.MainActivity;
-import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
 import com.thanhdat.yams.R;
 
@@ -68,12 +68,12 @@ public class LoginFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-//    private GoogleSignInClient mGoogleSignInClient;
-//    private final static int RC_SIGN_IN= 111;
-//    CallbackManager callbackManager;
+    private GoogleSignInClient mGoogleSignInClient;
+    private final static int RC_SIGN_IN= 111;
+    CallbackManager callbackManager;
     public static AuthCredential credential;
     public static final String TAG = LoginFragment.class.getSimpleName();
-    String phoneNumber ="", name ="User", photo ="https://i.ibb.co/LxJj5dx/ic-launcher.png";
+    String phoneNumber ="", name ="", photo ="https://i.ibb.co/J76JjQH/Logo-White-Bg-01-01.png";
 
     public LoginFragment() {}
 
@@ -101,10 +101,11 @@ public class LoginFragment extends Fragment {
         tvForgotPw = view.findViewById(R.id.tvForgotPass);
         tvSignUp = view.findViewById(R.id.tvSignUpLogin);
         btnLogin = view.findViewById(R.id.btnLogin);
-//        btnFBLogin = view.findViewById(R.id.fb_login_button);
-//        btnGGLogin= view.findViewById(R.id.google_button);
+        btnFBLogin = view.findViewById(R.id.fb_login_button);
+        btnGGLogin= view.findViewById(R.id.google_button);
         progressBar = view.findViewById(R.id.progressBarLogin);
         addEvents();
+        createRequest();
         return view;
     }
 
@@ -121,11 +122,139 @@ public class LoginFragment extends Fragment {
                 onClickInterface.setClick(1);
             }
         });
+        checkUIValidation();
         btnLogin.setOnClickListener(v -> userLogin());
         tvForgotPw.setOnClickListener(v -> resetPassword());
+        btnGGLogin.setOnClickListener(v -> signIn());
+//      Facebook login
+//        AccessTokenTracker accessTokenTracker= new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                if(currentAccessToken == null){
+//                    mAuth.signOut();
+//                }
+//            }
+//        };
+        callbackManager= CallbackManager.Factory.create();
+        btnFBLogin.setFragment(this);
+        btnFBLogin.setReadPermissions("email", "public_profile");
+        btnFBLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG,"Login with facebook successfully");
+                progressBar.setVisibility(View.VISIBLE);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
 
+            @Override
+            public void onCancel() {
+                Log.e("FacebookOnCancel","Login with facebook was canceled");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getContext(), "Login hasn't completed" + error.toString(), Toast.LENGTH_SHORT).show();
+                Log.e(TAG, error.toString());
+            }
+        });
     }
 
+    private void checkUIValidation() {
+        edtEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(Patterns.EMAIL_ADDRESS.matcher(s).matches()){
+                    edtEmail.setError("Vui lòng nhập đúng định dạng email");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                progressBar.setVisibility(View.GONE);
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                Toast.makeText(getContext(), "Đăng nhập với Google thất bại \n" +e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e(TAG, e.getMessage());
+            }
+        }
+//      Result returned from launching the Intent from FacebookSignInApi
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void handleFacebookAccessToken(AccessToken accessToken) {
+        Log.d("FacebookToken", "handleFacebookAccessToken:" + accessToken);
+        AuthCredential FBCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        mAuth.signInWithCredential(FBCredential)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            credential = FBCredential;
+                            user = mAuth.getCurrentUser();
+                            verifyPhoneNumber(user);
+                        } else {
+                            Toast.makeText(getContext(), "Đăng nhập với Facebook thất bại",
+                                    Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, task.getException().toString());
+                        }
+                    }
+                });
+    }
+
+    //    SIGN IN WITH CREDENTIAL FROM GOOGLE
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential GGCredential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(GGCredential)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            credential = GGCredential;
+                            user = mAuth.getCurrentUser();
+                            verifyPhoneNumber(user);
+                        } else {
+                            Toast.makeText(getContext(), "Đăng nhập với Google thất bại", Toast.LENGTH_LONG).show();
+                            Log.e(TAG, task.getException().toString());
+                        }
+                    }
+                });
+    }
+
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void createRequest() {
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+    }
 
     //    SIGN IN WITH EMAIL AND PASSWORD
 
@@ -134,6 +263,11 @@ public class LoginFragment extends Fragment {
         String password= edtPassword.getText().toString().trim();
         if(email.isEmpty()){
             edtEmail.setError("Vui lòng điền đầy đủ thông tin");
+            edtEmail.requestFocus();
+            return;
+        }
+        if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            edtEmail.setError("Vui lòng nhập đúng định dạng email");
             edtEmail.requestFocus();
             return;
         }
@@ -164,10 +298,12 @@ public class LoginFragment extends Fragment {
                     Log.e(TAG, task.getException().toString());
                 }
             }
+
         });
     }
 
     private void verifyPhoneNumber(FirebaseUser user) {
+        String p = phoneNumber;
         if(user.getPhoneNumber() != null){
             phoneNumber = user.getPhoneNumber();
             goToOTP();
@@ -182,7 +318,7 @@ public class LoginFragment extends Fragment {
             btnOK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!edtPhone.getText().toString().trim().equals("") && edtPhone.getText().toString().charAt(0) != 0){
+                    if(edtPhone.getText().toString().trim() != ""){
                         phoneNumber = edtPhone.getText().toString();
                         goToOTP();
                         dialog.dismiss();
@@ -227,7 +363,7 @@ public class LoginFragment extends Fragment {
             bundle.putString("email", user.getEmail());
         }
         else{
-            bundle.putString("email", "your email@gmail.com");
+            bundle.putString("email", "youremail@gmail.com");
         }
         otpFragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.layoutLoginContainer, otpFragment);
@@ -257,5 +393,4 @@ public class LoginFragment extends Fragment {
         btnCancel.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
-
 }

@@ -5,11 +5,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -19,6 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 import com.thanhdat.yams.Constants.Constant;
 import com.thanhdat.yams.Models.Product;
@@ -47,11 +50,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
     int productID;
     ArrayList<Product> productList;
     Product itemProduct;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
+
+        mAuth = FirebaseAuth.getInstance();
 
         linkViews();
         loadData();
@@ -124,34 +130,44 @@ public class ProductDetailsActivity extends AppCompatActivity {
         btnPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // send product to order
-                Intent intent2= new Intent(ProductDetailsActivity.this, OrderActivity.class);
-                Bundle bundle= new Bundle();
-                bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
-                bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
-                bundle.putString(Constant.TOPPING_PRODUCT, topping);
-                bundle.putString(Constant.SIZE_PRODUCT, size);
-                bundle.putDouble(Constant.PRICE_PRODUCT, total);
-                intent2.putExtra(Constant.STRING_INTENT, bundle);
-                startActivity(intent2);
-                overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                if(mAuth.getCurrentUser() == null){
+                    requestLogin();
+                }
+                else{
+                    // Send product to order
+                    Intent intent2= new Intent(ProductDetailsActivity.this, OrderActivity.class);
+                    Bundle bundle= new Bundle();
+                    bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
+                    bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
+                    bundle.putString(Constant.TOPPING_PRODUCT, topping);
+                    bundle.putString(Constant.SIZE_PRODUCT, size);
+                    bundle.putDouble(Constant.PRICE_PRODUCT, total);
+                    intent2.putExtra(Constant.STRING_INTENT, bundle);
+                    startActivity(intent2);
+                    overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                }
             }
         });
 
-//        Send product item to cart
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1= new Intent(ProductDetailsActivity.this, CartActivity.class);
-                Bundle bundle= new Bundle();
-                bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
-                bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
-                bundle.putString(Constant.TOPPING_PRODUCT, topping);
-                bundle.putString(Constant.SIZE_PRODUCT, size);
-                bundle.putDouble(Constant.PRICE_PRODUCT, total);
-                intent1.putExtra(Constant.STRING_INTENT, bundle);
-                startActivity(intent1);
-                overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                if(mAuth.getCurrentUser() == null){
+                    requestLogin();
+                }
+                else{
+//                  Send product item to cart
+                    Intent intent1= new Intent(ProductDetailsActivity.this, CartActivity.class);
+                    Bundle bundle= new Bundle();
+                    bundle.putInt(Constant.ID_PRODUCT, itemProduct.getId());
+                    bundle.putInt(Constant.QUANTITY_PRODUCT, quantity);
+                    bundle.putString(Constant.TOPPING_PRODUCT, topping);
+                    bundle.putString(Constant.SIZE_PRODUCT, size);
+                    bundle.putDouble(Constant.PRICE_PRODUCT, total);
+                    intent1.putExtra(Constant.STRING_INTENT, bundle);
+                    startActivity(intent1);
+                    overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                }
             }
         });
 
@@ -291,6 +307,37 @@ public class ProductDetailsActivity extends AppCompatActivity {
             btnPayment.setText("Mua ngay " + total);
         }
     };
+
+    private void requestLogin() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_login_request);
+
+        Button btnConfirm = dialog.findViewById(R.id.btnConfirmLogIn);
+        Button btnCancel = dialog.findViewById(R.id.btnCancelLogIn);
+
+        //Confirm logout
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductDetailsActivity.this, LoginActivity.class);
+                intent.putExtra("login", 0);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        //Cancel logout
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+
+    }
 
     private void linkViews() {
         txtProductDetailName=findViewById(R.id.txtProductDetailName);

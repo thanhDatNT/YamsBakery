@@ -352,6 +352,36 @@
 
                     </LinearLayout>
 
+                    <!-- Log In -->
+                    <LinearLayout
+                        android:id="@+id/lnLogInProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="6dp"
+                        android:visibility="gone"
+                        android:paddingBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_login" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="left"
+                            android:text="Đăng nhập"
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
                     <!-- Log out -->
                     <LinearLayout
                         android:id="@+id/lnLogoutProfile"

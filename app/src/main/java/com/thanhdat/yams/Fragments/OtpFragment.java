@@ -113,7 +113,7 @@ public class OtpFragment extends Fragment {
                             @Override
                             public void onVerificationFailed(FirebaseException e) {
                                 progressBar.setVisibility(View.GONE);
-                                changeAccount();
+                                Toast.makeText(getContext(), e.getMessage(),Toast.LENGTH_SHORT).show();
                                 Log.e(TAG, "onVerificationFailed: " + e.getMessage());
                             }
                         })
@@ -233,7 +233,7 @@ public class OtpFragment extends Fragment {
                     mAuth.signInWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()){
                                 mAuth.signOut();
                                 changeAccount();
                                 progressBar.setVisibility(View.GONE);
@@ -244,12 +244,6 @@ public class OtpFragment extends Fragment {
                                 changeAccount();
                                 progressBar.setVisibility(View.GONE);
                             }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.e(TAG, e.getMessage());
-                            changeAccount();
                         }
                     });
                 }

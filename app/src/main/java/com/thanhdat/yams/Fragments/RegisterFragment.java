@@ -7,11 +7,14 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.thanhdat.yams.Interfaces.OnClickInterface;
@@ -27,11 +31,12 @@ import com.thanhdat.yams.R;
 import java.util.Objects;
 
 public class RegisterFragment extends Fragment {
-    TextInputEditText edtName, edtMail, edtPhone, edtPassword;
+    EditText edtName, edtMail, edtPhone, edtPassword;
     AppCompatButton btnSingUp;
     TextView tvLogin;
     ProgressBar progressBar2;
     OnClickInterface onClickInterface;
+    TextView.OnEditorActionListener onEditorActionListener;
 
     FirebaseAuth mAuth;
     public RegisterFragment() {
@@ -63,10 +68,71 @@ public class RegisterFragment extends Fragment {
     }
 
     private void addEvent() {
+        checkUIValidation();
         btnSingUp.setOnClickListener(v -> RegisterUser());
         tvLogin.setOnClickListener(v -> {
             onClickInterface = (OnClickInterface) getActivity();
             onClickInterface.setClick(0);
+        });
+    }
+
+    private void checkUIValidation() {
+        edtName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(edtName.getText().toString().equals("")){
+                    edtName.setError("Vui lòng điền tên đăng nhập");
+                }
+            }
+        });
+        edtPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.equals("")){
+                    edtPhone.setError("Vui lòng điền số điện thoại");
+                }
+                else if(s.length() != 9){
+                    edtPhone.setError("Số điện thoại phải gồm 9 kí tự số");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        edtMail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(!Patterns.EMAIL_ADDRESS.matcher(s).matches()){
+                    edtMail.setError("Vui lòng điền đúng định dạng email");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
     }
 
@@ -77,27 +143,30 @@ public class RegisterFragment extends Fragment {
         String userName = edtName.getText().toString().trim();
         String phone = edtPhone.getText().toString().trim();
         if(userName.isEmpty()){
-            edtName.setError("Vui lòng điền đầy đủ thông tin");
+            edtName.setError("Vui lòng điền Tên đăng nhập");
             edtName.requestFocus();
             return;
         }
         if(phone.isEmpty()){
-            edtPhone.setError("Vui lòng điền đầy đủ thông tin");
+            edtPhone.setError("Vui lòng điền Số điện thoại");
+            edtPhone.requestFocus();
+            return;
+        }
+        if(phone.length() != 9){
+            edtPhone.setError("Số điện thoại phải gồm 9 kí tự số");
             edtPhone.requestFocus();
             return;
         }
         if(mail.isEmpty()){
-            edtMail.setError("Vui lòng điền đầy đủ thông tin");
+            edtMail.setError("Vui lòng điền Email");
             edtMail.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
-            edtMail.setError("Vui lòng điền đầy đủ thông tin");
-            edtMail.requestFocus();
-            return;
+            edtMail.setError("Vui lòng điền đúng định dạng email");
         }
         if(password.isEmpty()){
-            edtPassword.setError("Vui lòng điền đầy đủ thông tin");
+            edtPassword.setError("Vui lòng điền Mật khẩu");
             edtPassword.requestFocus();
             return;
         }

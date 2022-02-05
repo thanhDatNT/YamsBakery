@@ -37,6 +37,7 @@
     <string name="noti_profile">Thông báo</string>
     <string name="logout_profile">Đăng xuất</string>
     <string name="warning_message">Bạn chắc chắn muốn đăng xuất?</string>
+    <string name="warning_message2">Bạn vui lòng đăng nhập để sử dụng tính năng này!</string>
 
 
     <!--Diet with yams-->
@@ -180,8 +181,7 @@
     <string name="choose_time_delivery">Chọn thời gian giao hàng</string>
     <string name="Choose_payment_method">Chọn phương thức thanh toán</string>
     <string name="cod_text">Phí thu hộ 0đ, ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
     <!--    Payment method-->
     <string name="momo">MoMo</string>

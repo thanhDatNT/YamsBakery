@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,10 +57,11 @@ public class ProfileFragment extends Fragment {
     private SwitchCompat switchNotification;
     private NestedScrollView scrollView;
     private CardView imgProfile;
-    private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout;
+    private LinearLayout lnOrder, lnVoucher, lnMessage, lnLanguage, lnLogout, lnLogin;
     private TextView txtNameProfile;
     private ImageView imvAvaProfile;
     ArrayList<User> users;
+    FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class ProfileFragment extends Fragment {
         setHasOptionsMenu(true);
 
         users = MainActivity.user;
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Nullable
@@ -88,16 +91,28 @@ public class ProfileFragment extends Fragment {
         lnMessage = view.findViewById(R.id.lnMessageProfile);
         lnLanguage = view.findViewById(R.id.lnLanguageProfile);
         lnLogout = view.findViewById(R.id.lnLogoutProfile);
+        lnLogin = view.findViewById(R.id.lnLogInProfile);
 
         txtNameProfile = view.findViewById(R.id.txtNameProfile);
         imvAvaProfile = view.findViewById(R.id.imvAvaProfile);
 
+        configLayout();
         addEventSliderBanner();
         addEventCollapsing();
         addEventFunction();
         addEventEditProfile();
 
         return view;
+    }
+
+    private void configLayout() {
+        if(mAuth.getCurrentUser() == null){
+            lnLogin.setVisibility(View.VISIBLE);
+            lnLogout.setVisibility(View.GONE);
+        }
+        else{
+            lnLogin.setVisibility(View.GONE);
+        }
     }
 
     private void addEventSliderBanner() {
@@ -161,17 +176,35 @@ public class ProfileFragment extends Fragment {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.lnOrderProfile:
-                    startActivity(new Intent(getContext(), OrderStatusActivity.class));
+                    if(mAuth.getCurrentUser() == null){
+                        requestLogin();
+                        return;
+                    }
+                    else{
+                        startActivity(new Intent(getContext(), OrderStatusActivity.class));
+                    }
                     break;
                 case R.id.lnVoucherProfile:
                     startActivity(new Intent(getContext(), VoucherActivity.class));
                     break;
                 case R.id.lnMessageProfile:
-                    startActivity(new Intent(getContext(), ChatActivity.class));
-                    getActivity().overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                    if(mAuth.getCurrentUser() == null){
+                        requestLogin();
+                        return;
+                    }
+                    else{
+                        startActivity(new Intent(getContext(), ChatActivity.class));
+                        getActivity().overridePendingTransition(R.anim.translate_slide_enter, R.anim.translate_slide_exit);
+                    }
                     break;
                 case R.id.lnLanguageProfile:
                     startActivity(new Intent(getContext(), LanguageActivity.class));
+                    break;
+                case R.id.lnLogInProfile:
+                    Log.d("Login", "onClick: Login button was clicked");
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    intent.putExtra("login", 0);
+                    startActivity(intent);
                     break;
                 case R.id.lnLogoutProfile:
                     Dialog dialog = new Dialog(getContext());
@@ -222,6 +255,37 @@ public class ProfileFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    private void requestLogin() {
+            Dialog dialog = new Dialog(getContext());
+            dialog.setContentView(R.layout.dialog_login_request);
+
+            Button btnConfirm = dialog.findViewById(R.id.btnConfirmLogIn);
+            Button btnCancel = dialog.findViewById(R.id.btnCancelLogIn);
+
+            //Confirm logout
+            btnConfirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    intent.putExtra("login", 0);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+
+            //Cancel logout
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
+
     }
 
 }

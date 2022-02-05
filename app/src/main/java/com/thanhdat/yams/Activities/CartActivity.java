@@ -40,7 +40,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
     Toolbar toolbarCart;
     AppCompatButton btnOrder;
     CheckBox chkChooseAll;
-    TextView tvTotalCart;
+    TextView tvTotalCart, tvEmptyCart;
 
     ArrayList<Product> products;
     public static ArrayList<Cart> purchasingItems, carts;
@@ -63,8 +63,8 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         getIntentAndSaveDB();
         navigate();
         addEvent();
-        configRecycleView();
         loadCartData();
+        configLayout();
     }
 
     private void loadCartData() {
@@ -76,7 +76,6 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         }
         cursor.close();
         adapter = new CartAdapter(this, carts, onClickInterface);
-        rcvCart.setAdapter(adapter);
     }
 
     private void getIntentAndSaveDB() {
@@ -107,11 +106,18 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         }
     }
 
-    private void configRecycleView() {
-        LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        rcvCart.setLayoutManager(manager);
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        rcvCart.addItemDecoration(itemDecoration);
+    private void configLayout() {
+        if(carts.size() > 0){
+            tvEmptyCart.setVisibility(View.GONE);
+            LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+            rcvCart.setLayoutManager(manager);
+            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+            rcvCart.addItemDecoration(itemDecoration);
+            rcvCart.setAdapter(adapter);
+        }
+        else {
+            rcvCart.setVisibility(View.GONE);
+        }
     }
 
     private void addEvent() {
@@ -261,6 +267,7 @@ public class CartActivity extends AppCompatActivity implements ItemtouchHelperLi
         toolbarCart = findViewById(R.id.toolbarCart);
         btnOrder = findViewById(R.id.btnOrder);
         chkChooseAll= findViewById(R.id.chkChooseAll);
+        tvEmptyCart = findViewById(R.id.tvEmptyCart);
         tvTotalCart= findViewById(R.id.tvTotalCart);
     }
 }

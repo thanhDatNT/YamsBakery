@@ -30,83 +30,60 @@
             android:orientation="vertical"
             android:padding="@dimen/pad">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="true">
+                android:id="@+id/edtUserNameSignUp"
+                android:background="@drawable/bg_lightpink_pinkstroke"
+                android:hint="Tên đăng nhập"
+                android:inputType="text"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/primary"
+                android:layout_marginVertical="8dp"
+                android:textSize="18sp"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtUserNameSignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/bg_lightpink_pinkstroke"
-                    android:hint="Tên đăng nhập"
-                    android:inputType="text"
-                    android:paddingVertical="0dp"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pad"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="true">
+                android:id="@+id/edtPhoneRegister"
+                android:background="@drawable/bg_lightpink_pinkstroke"
+                android:hint="Số điện thoại"
+                android:drawableStart="@drawable/img_vietnam"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="number"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/primary"
+                android:layout_marginVertical="8dp"
+                android:textSize="18sp"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPhoneRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/bg_lightpink_pinkstroke"
-                    android:drawableStart="@drawable/img_vietnam"
-                    android:drawablePadding="4dp"
-                    android:hint="Số điện thoại"
-                    android:inputType="number"
-                    android:paddingVertical="0dp"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pad"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="true">
+                android:id="@+id/edtEmailRegister"
+                android:background="@drawable/bg_lightpink_pinkstroke"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/primary"
+                android:layout_marginVertical="8dp"
+                android:textSize="18sp"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtEmailRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/bg_lightpink_pinkstroke"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:paddingVertical="0dp"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pad"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="true"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPasswordRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/bg_lightpink_pinkstroke"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:paddingVertical="0dp"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:id="@+id/edtPasswordRegister"
+                android:background="@drawable/bg_lightpink_pinkstroke"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/primary"
+                android:layout_marginVertical="8dp"
+                android:textSize="18sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,7 +91,7 @@
                 android:layout_marginTop="@dimen/mTop"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.SwitchCompat
+                <CheckBox
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1" />
@@ -122,9 +99,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.8"
+                    android:layout_weight="0.9"
                     android:text="Tôi đồng ý với các điều kiện và điều khoản của Yams"
                     android:textColor="@color/textColor" />
+
 
             </LinearLayout>
 
@@ -133,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.SwitchCompat
+                <CheckBox
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1" />
@@ -141,7 +119,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.8"
+                    android:layout_weight="0.9"
                     android:text="Tôi đồng ý nhận email về các thông báo mới của Yams"
                     android:textColor="@color/textColor" />
 
