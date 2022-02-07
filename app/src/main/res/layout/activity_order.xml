@@ -156,7 +156,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="4dp"
                                     android:textSize="14sp"
-                                    android:text="@string/address_TĐ"
+                                    android:text="Chọn địa chỉ giao hàng"
                                     android:textColor="@color/textColor" />
                             </LinearLayout>
 

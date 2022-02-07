@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddressActivity">
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:gravity="center"
+        android:text="CHỌN ĐỊA CHỈ"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/textHeader"
+        android:textStyle="bold"
+        android:padding="@dimen/pad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginVertical="@dimen/pad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress">
+
+        <AutoCompleteTextView
+            android:id="@+id/edtProvince"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tỉnh/Thành phố"
+            android:textSize="@dimen/textContent"
+            android:textColor="@color/textColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/pad">
+
+            <EditText
+                android:id="@+id/edtDist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Quận/Huyện"
+                android:inputType="text"
+                android:layout_weight="0.5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent" />
+
+            <EditText
+                android:id="@+id/edtWard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Xã/Phường"
+                android:inputType="text"
+                android:layout_weight="0.5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtDetailAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Địa chỉ cụ thể (Số nhà, đường)"
+            android:inputType="text"
+            android:layout_weight="0.5"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textContent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/pad"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loại địa chỉ"
+                android:layout_weight="0.4"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textContent"/>
+
+            <RadioGroup
+                android:id="@+id/radGroupAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.6"
+                android:weightSum="10">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/btnHomeAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Nhà riêng"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textColor"
+                    android:backgroundTint="@color/white" />
+
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/btnOfficeAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Văn phòng"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textColor"
+                    android:backgroundTint="@color/white"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchDefaultAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:text="Đặt làm địa chỉ mặc định"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textContent"/>
+
+        <TextView
+            android:id="@+id/tvOpenMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn trên bản đồ"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/buttonTextSize"
+            android:drawableStart="@drawable/ic_location"
+            android:drawableTint="@color/secondary"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/pad"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Hủy"
+            android:textAllCaps="false"
+            android:paddingVertical="4dp"
+            android:backgroundTint="@color/inactive"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttonTextSize"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirmAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Xác nhận"
+            android:paddingVertical="4dp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttonTextSize"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.thanhdat.yams.Fragments;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -257,6 +258,14 @@ public class OtpFragment extends Fragment {
            public void onComplete(@NonNull Task<AuthResult> task) {
                if(task.isSuccessful()){
                    UserDatabase userDatabase = new UserDatabase(getActivity());
+                   Cursor cursor= userDatabase.getData("SELECT * FROM "+ userDatabase.TABLE_NAME);
+                   int countUser = 0;
+                   while (cursor.moveToNext()){
+                      countUser ++;
+                   }
+                   cursor.close();
+                   if(countUser > 0)
+                       userDatabase.execSQL("DELETE FROM " + userDatabase.TABLE_NAME);
                    boolean isSave = userDatabase.insertData(name, "0" + phoneNumber, email, avatar);
                    if(isSave)
                        Log.i(TAG, "User data was saved");

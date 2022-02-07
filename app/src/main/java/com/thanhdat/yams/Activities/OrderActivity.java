@@ -75,7 +75,7 @@ public class OrderActivity extends AppCompatActivity {
     boolean isDelivery = true, isFromCart = false;
     double subTotal = 0, deliFee = 25000, discount = 0, total = 0, deliDiscount = 0, orderDiscount = 0;
     String paymentMethod = "Thanh toán khi nhận hàng";
-    String date = "", time = "";
+    String date = "", time = "", address= "";
     public static String orderCode = "";
     OrderDatabase orderDatabase;
     CartDatabase cartDatabase;
@@ -180,7 +180,15 @@ public class OrderActivity extends AppCompatActivity {
                     Intent intent = result.getData();
                     if (intent != null){
                         paymentMethod = intent.getStringExtra(Constant.PAYMENT_INTENT);
-                        updateBill();
+                        txtPaymentMethod.setText(paymentMethod);
+                    }
+                }
+                else if(result.getResultCode() == Constant.RESULT_ADDRESS){
+//                    Address result
+                    Intent intent = result.getData();
+                    if (intent != null){
+                        address = intent.getStringExtra(Constant.ADDRESS_INTENT);
+                        txtCusAddress.setText(address);
                     }
                 }
             }
@@ -234,8 +242,8 @@ public class OrderActivity extends AppCompatActivity {
         btnOpenChooseAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OrderActivity.this, MapActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(OrderActivity.this, AddressActivity.class);
+                resultLauncher.launch(intent);
             }
         });
 
@@ -348,7 +356,7 @@ public class OrderActivity extends AppCompatActivity {
             txtDeliDiscount.setText(String.format("%.0f", deliDiscount));
             txtYamsCoupon.setText("0");
         }
-        txtPaymentMethod.setText(paymentMethod);
+
         txtSubtotal.setText(String.format("%.0f", subTotal));
         txtTotalBill.setText(String.format("%.0f", total));
         if(date.equals("")){

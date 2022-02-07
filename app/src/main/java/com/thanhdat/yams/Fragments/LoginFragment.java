@@ -311,9 +311,9 @@ public class LoginFragment extends Fragment {
         else if(phoneNumber.equals("")){
             Dialog dialog= new Dialog(getContext());
             dialog.setContentView(R.layout.dialog_get_phoneno);
+            dialog.setCanceledOnTouchOutside(false);
             EditText edtPhone= dialog.findViewById(R.id.editTextPhone);
             Button btnOK= dialog.findViewById(R.id.buttonConfirmPhone);
-            ImageButton btnCancel= dialog.findViewById(R.id.buttonCancelPhone);
 
             btnOK.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -328,7 +328,6 @@ public class LoginFragment extends Fragment {
                     }
                 }
             });
-            btnCancel.setOnClickListener(v -> dialog.dismiss());
             dialog.show();
         }
         else{

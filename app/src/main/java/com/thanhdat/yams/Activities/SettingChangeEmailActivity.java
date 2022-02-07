@@ -131,7 +131,6 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
         EditText edtPassword = dialog.findViewById(R.id.edtPasswordConfirm);
         Button btnOK= dialog.findViewById(R.id.btnConfirmPassword);
-        ImageButton imbCancel = dialog.findViewById(R.id.imbCancelPassword);
 
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +143,6 @@ public class SettingChangeEmailActivity extends AppCompatActivity {
                     edtPassword.setError("Vui lòng điền mật khẩu");
             }
         });
-        imbCancel.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
 
