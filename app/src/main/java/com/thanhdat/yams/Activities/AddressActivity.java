@@ -62,8 +62,6 @@ public class AddressActivity extends AppCompatActivity {
     }
 
     private void saveAddress() {
-        SharedPreferences sharedPreferences = getSharedPreferences(ADDRESS_PREF, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
         builder = new StringBuilder();
             province = edtProvince.getText().toString();
             district = edtDist.getText().toString();
@@ -74,9 +72,15 @@ public class AddressActivity extends AppCompatActivity {
             builder.append(ward + ",");
             builder.append(district + ",");
             builder.append(province);
-            editor.putString("address", builder.toString());
-            editor.putBoolean("default", isDefault);
-            editor.apply();
+
+            if (isDefault){
+                SharedPreferences sharedPreferences = getSharedPreferences(ADDRESS_PREF, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.putString("address", builder.toString());
+                editor.putBoolean("default", isDefault);
+                editor.apply();
+            }
     }
 
     private void initProvinceList() {
@@ -106,8 +110,8 @@ public class AddressActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    saveAddress();
                     isDefault = true;
+                    saveAddress();
                 }
                 else{
                     isDefault = false;

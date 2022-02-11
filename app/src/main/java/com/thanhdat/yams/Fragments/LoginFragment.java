@@ -262,17 +262,12 @@ public class LoginFragment extends Fragment {
         String email= edtEmail.getText().toString().trim();
         String password= edtPassword.getText().toString().trim();
         if(email.isEmpty()){
-            edtEmail.setError("Vui lòng điền đầy đủ thông tin");
-            edtEmail.requestFocus();
-            return;
-        }
-        if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edtEmail.setError("Vui lòng nhập đúng định dạng email");
+            edtEmail.setError("Vui lòng điền đầy đủ email");
             edtEmail.requestFocus();
             return;
         }
         if(password.isEmpty()){
-            edtPassword.setError("Vui lòng điền đầy đủ thông tin");
+            edtPassword.setError("Vui lòng điền đầy đủ password");
             edtPassword.requestFocus();
             return;
         }
